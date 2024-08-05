@@ -3,7 +3,9 @@ import localidades from '../localidades.json';
 import Localidad from './Localidad';
 import '../Estilos/main.css';
 
-const ListaLocalidades = () => {
+const ListaLocalidadesInicio = () => {
+
+    
     return(
        <div className='contenedor-localidades'>
             {localidades.map( localidad => (
@@ -13,4 +15,4 @@ const ListaLocalidades = () => {
     )
 }
 
-export default ListaLocalidades;
+export default ListaLocalidadesInicio;

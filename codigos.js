@@ -23,6 +23,7 @@ const codigo_44 = '$ 4390';
 
 const definirPrecioDeBoleto = ( inicio , final ) => {
   if(inicio === 'la florida') {
+    if(final === 'la florida') {return codigo_06}
     if(final === 'alderetes'){return codigo_10};
     if(final === 'banda del río salí'){return codigo_12};
     if(final === 'terminal'){return codigo_16}
