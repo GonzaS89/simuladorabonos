@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Efecto de borde difuminado */
+  background-color: #fff;
+}

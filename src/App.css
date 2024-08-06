@@ -1,22 +1,11 @@
 .App {
   text-align: center;
-  background-color: #E90074;
+  background-color: #180161;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.contenedor-general {
-  width: 100%;
-  overflow: hidden;
-}
-
-.contenedor-slide-localidades {
-  display: flex;
-  width: 200%;
-  animation: mover 1s ease-in;
 }
 
 /* @keyframes mover {
