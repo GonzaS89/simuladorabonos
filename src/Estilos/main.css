@@ -24,12 +24,13 @@
     cursor: pointer;
     outline: 2px groove white;
     background-color: white;
+    position: relative;
     
 }
 
 .localidad-nombre{
     padding-left: 10px;
-    font-size: 11.5px;
+    font-size: 12px;
     font-weight: bold;
     font-family: "Poppins", sans-serif;
 }
@@ -42,6 +43,6 @@
     background: rgb(254,253,253);
     background: linear-gradient(0deg, rgba(254, 253, 253, 0.336) 0%, rgba(226, 226, 226, 0.297) 100%); 
     height: 100%;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 400;
 }

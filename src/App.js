@@ -1,13 +1,28 @@
 import "./App.css";
-import ListaLocalidades from "./Componentes/ListaLocalidades";
+import React, { useState, useEffect } from 'react';
+import ListaLocalidadesInicio from "./Componentes/ListaLocalidadesInicio";
+import ListaLocalidadesDestino from "./Componentes/ListaLocalidadesDestino";
+import InicioDestino from "./Componentes/InicioDestino";
 
-function App() {
+function App () {
+
+  const [localidad , setLocalidad] = useState(null)
+
+  const info = (data) => {
+    setLocalidad(data)
+  }
+
+  useEffect(() => {
+    console.log(localidad)
+  },[localidad])
+
   return (
     <div className="App">
+      <InicioDestino inicio = {localidad}/>
       <div className="contenedor-general">
         <div className="contenedor-slide-localidades">
-          <ListaLocalidades />
-          <ListaLocalidades />
+          <ListaLocalidadesInicio localidadClickeada={info}/>
+          <ListaLocalidadesDestino />
         </div>
       </div>
     </div>
