@@ -1,10 +1,15 @@
-import './App.css';
-import ListaLocalidadesInicio from './Componentes/ListaLocalidadesInicio';
+import "./App.css";
+import ListaLocalidades from "./Componentes/ListaLocalidades";
 
 function App() {
   return (
     <div className="App">
-      <ListaLocalidadesInicio />
+      <div className="contenedor-general">
+        <div className="contenedor-slide-localidades">
+          <ListaLocalidades />
+          <ListaLocalidades />
+        </div>
+      </div>
     </div>
   );
 }

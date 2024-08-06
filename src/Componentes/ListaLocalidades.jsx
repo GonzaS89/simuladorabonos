@@ -3,16 +3,16 @@ import localidades from '../localidades.json';
 import Localidad from './Localidad';
 import '../Estilos/main.css';
 
-const ListaLocalidadesInicio = () => {
-
-    
+const ListaLocalidades = () => {
     return(
+        
        <div className='contenedor-localidades'>
             {localidades.map( localidad => (
-                <Localidad nombre = {localidad.nombre}/>
+                <Localidad 
+                nombre = {localidad.nombre}/>
             ))}
        </div>
     )
 }
 
-export default ListaLocalidadesInicio;
+export default ListaLocalidades;

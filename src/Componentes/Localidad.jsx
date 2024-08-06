@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Localidad = ( {nombre} ) => {
+const Localidad = ( props ) => {
     return (
 
-        <div className='contenedor-localidad'>
-            <p>{nombre}</p>
+        <div 
+        className='contenedor-localidad'>
+            <p>{props.nombre}</p>
         </div>
 
     )
