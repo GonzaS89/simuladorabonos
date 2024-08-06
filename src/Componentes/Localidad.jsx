@@ -5,7 +5,8 @@ const Localidad = ( props ) => {
 
         <div 
         className='contenedor-localidad'>
-            <p>{props.nombre}</p>
+            <p className='localidad-nombre'>{props.nombre}</p>
+            <span className='localidad-flecha'>»</span>
         </div>
 
     )
