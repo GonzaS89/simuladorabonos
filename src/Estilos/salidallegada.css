@@ -1,0 +1,59 @@
+.puntos{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    height: 50px;
+    width: 85%;
+}
+
+.puntosalida-texto{
+    font-size:14px;
+    letter-spacing: -.8px;
+    text-transform: uppercase;
+}
+
+
+.container-opcion-seleccionada{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    height:60%;
+    width: 175px;
+    border: 1.5px dotted rgba(255, 255, 255, 0.459);
+    background-color: #45474B;
+    color: white;
+    font-size: 11px;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+.container-cantidaddeviajes{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 3px double rgba(128, 128, 128, 0.452);
+
+    && p{
+        font-size: 15px;
+        font-weight: bold;
+        letter-spacing: -.75px;
+        text-transform: uppercase;
+    }
+
+    
+}
+
+.inputViajes{
+    text-align: center;
+    height : 30px;
+    width: 50px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;;
+
+   
+    
+}
+
+
