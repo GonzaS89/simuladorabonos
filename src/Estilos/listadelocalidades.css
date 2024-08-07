@@ -15,7 +15,7 @@
 }
 
 .desplegarListadoLocalidades{
-    animation: desplegarListadoLocalidades .75s forwards ease-in-out;
+    animation: desplegarListadoLocalidades .5s forwards ease-in-out;
 }
 
 @keyframes desplegarListadoLocalidades {
