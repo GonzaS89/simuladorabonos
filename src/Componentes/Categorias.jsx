@@ -1,19 +1,30 @@
-import React from 'react';
+import React , { useState , useEffect }from 'react';
+import { OpcionCategoria } from './OpcionCategoria';
 
-export const Categorias = () => {
+export const Categorias = ( ) => {
+
+    const [categoriaRecibida, setCategoriaRecibida] = useState(null);
 
     const tiposDeCategorias = [
         { "nombre": "empleados" },
         { "nombre": "estudiantes" }
     ];
 
+    const recibirCategoria = (categoria) => {
+        setCategoriaRecibida(categoria)
+    }
+
+    useEffect(() => {
+        console.log(categoriaRecibida)
+    },[categoriaRecibida])
+
     return (
         <div className='container-categorias'>
             {tiposDeCategorias.map((categoria) => (
-                <div className='container-categoria'>
-                    <input type="radio" id={categoria.nombre} />
-                    <label>{categoria.nombre}</label>
-                </div>
+                <OpcionCategoria 
+                nombre={categoria.nombre}
+                categoriaElegida = {recibirCategoria}
+                categoriaRecibida = {categoriaRecibida}/>
             ))}
         </div>
     )
