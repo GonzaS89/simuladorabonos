@@ -62,8 +62,10 @@
 
 .container-categoria{
     display:flex;
-    gap: 5px;
-    height: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 
     && label {
         font-size: 12px;
@@ -71,7 +73,7 @@
     }
 
     && input {
-        width: 13px;
-        height: 13px;
+        width: 15px;
+        height: 15px;
     }
 }
