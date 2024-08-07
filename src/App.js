@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Puntos } from "./Componentes/Puntos";
 import { Listadelocalidades } from "./Componentes/Listadelocalidades";
 import { Cantidaddeviajes } from "./Componentes/Cantidaddeviajes";
+import { Categorias } from "./Componentes/Categorias";
 
 function App ( ) {
 
@@ -55,6 +56,7 @@ function App ( ) {
           localidadDestino = {localidadDestino}/>
         </div>
         <Cantidaddeviajes />
+        <Categorias />
       </div>
       <Listadelocalidades 
       menuDesplegado = {menuDesplegado}

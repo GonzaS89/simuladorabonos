@@ -50,10 +50,28 @@
     width: 50px;
     border-radius: 15px;
     font-size: 20px;
-    font-family: "Poppins", sans-serif;;
-
-   
-    
+    font-family: "Poppins", sans-serif;
 }
 
+.container-categorias{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-bottom: 3px double rgba(128, 128, 128, 0.452);
+}
 
+.container-categoria{
+    display:flex;
+    gap: 5px;
+    height: 15px;
+
+    && label {
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    && input {
+        width: 13px;
+        height: 13px;
+    }
+}
