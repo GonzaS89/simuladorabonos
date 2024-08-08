@@ -26,9 +26,9 @@ export const Resultadocotizador = ( { enviarViajesIngresados , localidadOrigen ,
             if(destino === 'alderetes' || destino === 'banda del río salí'){setPrecioDeReferencia(580)}
             if(destino === 'la florida'){setPrecioDeReferencia(670)}
         }
-        if(origen === 'banda del rio salí'){
+        if(origen === 'banda del río salí'){
             if(destino === 'alderetes' || destino === 'banda del río salí'){setPrecioDeReferencia(580)}
-            if(destino === 'la florida'){setPrecioDeReferencia(75)}
+            if(destino === 'la florida'){setPrecioDeReferencia(750)}
         }
     }
 
