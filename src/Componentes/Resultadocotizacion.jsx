@@ -6,10 +6,10 @@ import { Preciofinal } from './Preciofinal';
 
 export const Resultadocotizador = ( { enviarViajesIngresados , localidadOrigen , localidadDestino }) => {
 
-    const [precioDeReferencia, setPrecioDeReferencia] = useState(null);
-    const [precioAbono, setPrecioAbono] = useState(null)
+    const [precioDeReferencia, setPrecioDeReferencia] = useState(0);
+    const [precioAbono, setPrecioAbono] = useState(0)
 
-    const [abonoDescuento, setAbonoDescuento] = useState(null);
+    const [abonoDescuento, setAbonoDescuento] = useState(0);
 
     const calcularDescuento = ( ) => {
         setAbonoDescuento( Math.round(precioAbono * 0.3))
@@ -22,9 +22,9 @@ export const Resultadocotizador = ( { enviarViajesIngresados , localidadOrigen ,
     const definirPrecio = ( origen , destino) => {
         if(origen === 'la florida') {
             if(destino === 'la florida'){setPrecioDeReferencia(580)}
-            if(destino === 'alderetes'){setPrecioDeReferencia(enviarViajesIngresados * 670)}
-            if(destino === 'banda del río salí'){setPrecioDeReferencia(enviarViajesIngresados * 750)}
-            if(destino === 'san miguel de tucumán'){setPrecioDeReferencia(enviarViajesIngresados * 1100)}
+            if(destino === 'alderetes'){setPrecioDeReferencia(670)}
+            if(destino === 'banda del río salí'){setPrecioDeReferencia(750)}
+            if(destino === 'san miguel de tucumán'){setPrecioDeReferencia(1100)}
         }
     }
 
