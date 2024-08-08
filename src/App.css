@@ -24,6 +24,7 @@
   background-color:#F5F7F8;
   border-radius: 10px;
   border: 1.5px solid white;
+  position: relative;
 }
 
 .titulo-principal{

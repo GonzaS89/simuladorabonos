@@ -1,0 +1,58 @@
+.container-cotizacionfinal{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    height: 270px;
+
+    && h3 {
+        margin: 15px 0;
+    }
+}
+
+.oculto{
+    display: none;
+}
+
+.container-detalle-precio{
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+    width: 100%;
+    height: 50px;
+}
+
+
+
+.detalle{
+    width: 55%;
+    font-size: 15px;
+}
+
+
+.precio{
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.preciofinal{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.descuento{
+    color: red;
+}
+
+.precio-resaltado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    bottom: 0;
+}
