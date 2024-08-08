@@ -1,4 +1,4 @@
-import React , { useState , useEffect }from 'react';
+import React , { useState }from 'react';
 import { OpcionCategoria } from './OpcionCategoria';
 
 export const Categorias = ( ) => {
@@ -13,10 +13,6 @@ export const Categorias = ( ) => {
     const recibirCategoria = (categoria) => {
         setCategoriaRecibida(categoria)
     }
-
-    useEffect(() => {
-        console.log(categoriaRecibida)
-    },[categoriaRecibida])
 
     return (
         <div className='container-categorias'>

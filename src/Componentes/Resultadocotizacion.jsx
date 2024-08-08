@@ -11,12 +11,8 @@ export const Resultadocotizador = ( { enviarViajesIngresados , localidadOrigen ,
 
     const [abonoDescuento, setAbonoDescuento] = useState(0);
 
-    const calcularDescuento = ( ) => {
-        setAbonoDescuento( Math.round(precioAbono * 0.3))
-    }
-
     useEffect(() => {
-        calcularDescuento();
+        setAbonoDescuento(Math.round(precioAbono * 0.3))
     },[precioAbono])
 
     const definirPrecio = ( origen , destino) => {
@@ -39,7 +35,7 @@ export const Resultadocotizador = ( { enviarViajesIngresados , localidadOrigen ,
     useEffect(() => {
         definirPrecio(localidadOrigen , localidadDestino)
         setPrecioAbono(precioDeReferencia * enviarViajesIngresados)
-    },[enviarViajesIngresados])
+    },[enviarViajesIngresados , localidadOrigen , localidadDestino , precioDeReferencia])
 
     return (
         <div className='container-cotizacionfinal'>
