@@ -9,7 +9,6 @@ export const Puntos = ( { listaDeLocalidadesDesplegada , nombre , puntoElegido ,
 
     const clickeadoEnMenuDeLocalidades = () => {
         return (
-                setTextoCampoLocalidad('Elegí una localidad'),
                 listaDeLocalidadesDesplegada(true),
                 puntoElegido(nombre),
                 setOrigenOdestino(nombre)

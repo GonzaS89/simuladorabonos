@@ -42,6 +42,10 @@ function App ( ) {
     setViajesIngresados(viajes)
   }
 
+  useEffect(() => {
+    menuDesplegado && setViajesIngresados(0)
+  },[menuDesplegado])
+
   return (
     <div className="App">
       <div className="container-principal">
@@ -60,7 +64,7 @@ function App ( ) {
           origenODestino = {origenODestino}
           localidadDestino = {localidadDestino}/>
         </div>
-        <Cantidaddeviajes viajesIngresados = {recibirViajesIngresados} />
+        <Cantidaddeviajes viajesIngresados = {recibirViajesIngresados} menuDesplegado = {menuDesplegado}/>
         {/* <Categorias /> */}
         <Resultadocotizador 
         enviarViajesIngresados = {viajesIngresados}
