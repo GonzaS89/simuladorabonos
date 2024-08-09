@@ -37,6 +37,8 @@ export const Resultadocotizador = ( { enviarViajesIngresados , localidadOrigen ,
         setPrecioAbono(precioDeReferencia * enviarViajesIngresados)
     },[enviarViajesIngresados , localidadOrigen , localidadDestino , precioDeReferencia])
 
+    
+
     return (
         <div className='container-cotizacionfinal'>
             <h3>Cotización</h3>
