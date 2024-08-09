@@ -14,7 +14,7 @@ export const Resultadocotizador = ( { enviarViajesIngresados , localidadOrigen ,
     useEffect(() => {
         categoria === 'empleados' ?
         setAbonoDescuento(Math.round(precioAbono * 0.3)) :
-        setAbonoDescuento(Math.round(precioAbono * 0.6002))
+        setAbonoDescuento(Math.round(precioAbono * 0.3998))
     },[precioAbono , categoria])
 
     const definirPrecio = ( origen , destino) => {
