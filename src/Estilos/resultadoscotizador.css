@@ -3,11 +3,10 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    gap: 25px;
+    gap: 15px;
     height: 270px;
-
     && h3 {
-        margin: 15px 0;
+        margin: 10px 0;
     }
 }
 
@@ -29,6 +28,7 @@
     width: 65%;
     font-size: 13.5px;
     text-transform: uppercase;
+    text-align: justify;
 }
 
 

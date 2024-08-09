@@ -4,7 +4,7 @@ import { Detallecotizacion } from './Detallecotizacion';
 import { Descuentos } from './Descuentos';
 import { Preciofinal } from './Preciofinal';
 
-export const Resultadocotizador = ( { enviarViajesIngresados , localidadOrigen , localidadDestino }) => {
+export const Resultadocotizador = ( { enviarViajesIngresados , localidadOrigen , localidadDestino , categoria }) => {
 
     const [precioDeReferencia, setPrecioDeReferencia] = useState(0);
     const [precioAbono, setPrecioAbono] = useState(0)
@@ -12,8 +12,10 @@ export const Resultadocotizador = ( { enviarViajesIngresados , localidadOrigen ,
     const [abonoDescuento, setAbonoDescuento] = useState(0);
 
     useEffect(() => {
-        setAbonoDescuento(Math.round(precioAbono * 0.3))
-    },[precioAbono])
+        categoria === 'empleados' ?
+        setAbonoDescuento(Math.round(precioAbono * 0.3)) :
+        setAbonoDescuento(Math.round(precioAbono * 0.6002))
+    },[precioAbono , categoria])
 
     const definirPrecio = ( origen , destino) => {
         if(origen === 'la florida') {
@@ -40,14 +42,13 @@ export const Resultadocotizador = ( { enviarViajesIngresados , localidadOrigen ,
     
 
     return (
-        <div className='container-cotizacionfinal'>
+        <div className={categoria !== '' ? 'container-cotizacionfinal' : 'oculto'}>
             <h3>Cotización</h3>
             <Detallecotizacion 
             viajesIngresados = {enviarViajesIngresados}
             localidadOrigen = {localidadOrigen}
             localidadDestino = {localidadDestino}
-            precioAbono = {precioAbono}
-            />
+            precioAbono = {precioAbono}/>
             <Descuentos 
             viajesIngresados={enviarViajesIngresados}
             precioAbono = {precioAbono}

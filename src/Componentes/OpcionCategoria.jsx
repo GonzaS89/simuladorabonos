@@ -1,15 +1,15 @@
-import React , { useState }from 'react';
+import React , { useEffect, useState }from 'react';
 
 export const OpcionCategoria = ( { nombre , categoriaElegida , categoriaRecibida}) => {
 
-    const [opcionCategoriaActiva, setOpcionCategoriaActiva] = useState(null);
+    const [opcionCategoriaActiva, setOpcionCategoriaActiva] = useState(false);
 
     const [categoriaSelec, setCategoriaSelec] = useState(null);
 
     const manejoDeCambio = e => {
         return (
-            setCategoriaSelec(e.target.value),
-            setOpcionCategoriaActiva(e.target.checked)
+            setCategoriaSelec(e.target.value)
+            // setOpcionCategoriaActiva(e.target.checked)
         )
     }
 
@@ -20,6 +20,11 @@ export const OpcionCategoria = ( { nombre , categoriaElegida , categoriaRecibida
     const clickeaoDeOpcion = ( ) => {
         enviarCategoria();
     }
+
+    useEffect(() => {
+        categoriaSelec === nombre && 
+        setOpcionCategoriaActiva(true);
+    },[categoriaSelec , nombre])
 
     return (
         <div className='container-categoria'>

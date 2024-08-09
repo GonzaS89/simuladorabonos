@@ -5,6 +5,7 @@ import { Puntos } from "./Componentes/Puntos";
 import { Listadelocalidades } from "./Componentes/Listadelocalidades";
 import { Cantidaddeviajes } from "./Componentes/Cantidaddeviajes";
 import { Resultadocotizador } from "./Componentes/Resultadocotizacion";
+import { Categorias } from "./Componentes/Categorias";
 // import { Categorias } from "./Componentes/Categorias";
 
 function App ( ) {
@@ -13,7 +14,8 @@ function App ( ) {
   const [menuDesplegado , setMenuDesplegado] = useState(false);
   const [localidadOrigen , setLocalidadOrigen] = useState(null);
   const [localidadDestino , setLocalidadDestino] = useState(null);
-  const [viajesIngresados, setViajesIngresados] = useState(null)
+  const [viajesIngresados, setViajesIngresados] = useState(null);
+  const [categoriaRecibida, setCategoriaRecibida] = useState('');
 
   const recibirConfirmacionDeMenuDesplegado = (condicion) => {
     setMenuDesplegado(condicion);
@@ -44,7 +46,11 @@ function App ( ) {
 
   useEffect(() => {
     menuDesplegado && setViajesIngresados(0)
-  },[menuDesplegado])
+  },[menuDesplegado]);
+
+  const recibirCategoria = categoria => {
+    setCategoriaRecibida(categoria)
+  }
 
   return (
     <div className="App">
@@ -65,11 +71,12 @@ function App ( ) {
           localidadDestino = {localidadDestino}/>
         </div>
         <Cantidaddeviajes viajesIngresados = {recibirViajesIngresados} menuDesplegado = {menuDesplegado}/>
-        {/* <Categorias /> */}
+        <Categorias categoriaSeleccionada = {recibirCategoria}/>
         <Resultadocotizador 
         enviarViajesIngresados = {viajesIngresados}
         localidadOrigen = {localidadOrigen}
-        localidadDestino = {localidadDestino}/>
+        localidadDestino = {localidadDestino}
+        categoria = {categoriaRecibida}/>
       </div>
       <Listadelocalidades 
       menuDesplegado = {menuDesplegado}

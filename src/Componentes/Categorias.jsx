@@ -1,27 +1,41 @@
-import React , { useState }from 'react';
-import { OpcionCategoria } from './OpcionCategoria';
+import React , { useEffect, useState }from 'react';
+// import { OpcionCategoria } from './OpcionCategoria';
 
-export const Categorias = ( ) => {
+export const Categorias = ( { categoriaSeleccionada } ) => {
 
-    const [categoriaRecibida, setCategoriaRecibida] = useState(null);
+    const [selectedValue ,  setSelectedValue] = useState('');
 
-    const tiposDeCategorias = [
-        { "nombre": "empleados" },
-        { "nombre": "estudiantes" }
-    ];
+    const handleChange = (event) => {
+        setSelectedValue(event.target.value);
+      };
 
-    const recibirCategoria = (categoria) => {
-        setCategoriaRecibida(categoria)
-    }
+    useEffect(() => {
+        categoriaSeleccionada(selectedValue)
+    },[selectedValue , categoriaSeleccionada])
 
     return (
         <div className='container-categorias'>
-            {tiposDeCategorias.map((categoria) => (
-                <OpcionCategoria 
-                nombre={categoria.nombre}
-                categoriaElegida = {recibirCategoria}
-                categoriaRecibida = {categoriaRecibida}/>
-            ))}
+           <label>
+        <input
+          type="radio"
+          name="example" // El mismo nombre para el grupo de radio
+          value="empleados"
+          checked={selectedValue === 'empleados'}
+          onChange={handleChange}
+        />
+        Empleados
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="example" // El mismo nombre para el grupo de radio
+          value="estudiantes"
+          checked={selectedValue === 'estudiantes'}
+          onChange={handleChange}
+        />
+        Estudiantes
+      </label>
         </div>
     )
 }
