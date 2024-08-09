@@ -1,5 +1,5 @@
 import React , { useEffect, useState }from 'react';
-// import { OpcionCategoria } from './OpcionCategoria';
+import '../Estilos/salidallegada.css';
 
 export const Categorias = ( { categoriaSeleccionada } ) => {
 
@@ -15,27 +15,32 @@ export const Categorias = ( { categoriaSeleccionada } ) => {
 
     return (
         <div className='container-categorias'>
-           <label>
-        <input
+          <div className='container-categoria'>
+          <label>
+        Empleados
+      </label>
+      <input
           type="radio"
           name="example" // El mismo nombre para el grupo de radio
           value="empleados"
           checked={selectedValue === 'empleados'}
           onChange={handleChange}
         />
-        Empleados
-      </label>
-
+          </div>
+         
+      <div className='container-categoria'>
       <label>
-        <input
+        Estudiantes
+      </label>
+      <input
           type="radio"
           name="example" // El mismo nombre para el grupo de radio
           value="estudiantes"
           checked={selectedValue === 'estudiantes'}
           onChange={handleChange}
         />
-        Estudiantes
-      </label>
+      </div>
+      
         </div>
     )
 }

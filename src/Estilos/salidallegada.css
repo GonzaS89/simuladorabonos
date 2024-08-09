@@ -58,13 +58,13 @@
     display: flex;
     justify-content: space-around;
     padding: 10px 0;
+    height: 25px;
     border-bottom: 3px double rgba(128, 128, 128, 0.452);
 }
 
 .container-categoria{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
+    display: flex;
+    height: 100%;
     align-items: center;
     gap: 10px;
 
@@ -76,5 +76,6 @@
     && input {
         width: 15px;
         height: 15px;
+        margin: 0;
     }
 }
