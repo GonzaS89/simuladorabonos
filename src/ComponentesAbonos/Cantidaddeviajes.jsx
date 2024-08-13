@@ -1,8 +1,7 @@
 import React from 'react';
 import '../Estilos/salidallegada.css';
 
-
-export const Cantidaddeviajes = ( { viajesIngresados }) => {
+const Cantidaddeviajes = ( { viajesIngresados }) => {
 
     const enviarViajesIngresados = e => {
         return (
@@ -22,3 +21,5 @@ export const Cantidaddeviajes = ( { viajesIngresados }) => {
         </div>
     )
 }
+
+export default Cantidaddeviajes

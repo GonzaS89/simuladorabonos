@@ -3,7 +3,7 @@ import localidades from '../localidades.json';
 import '../Estilos/listadelocalidades.css';
 import { Localidad } from './Localidad';
 
-export const Listadelocalidades = ( { localidadObtenida , listaLocalidadesDesplaegada , menuDesplegado , puntoElegido}) => {
+const Listadelocalidades = ( { localidadObtenida , listaLocalidadesDesplaegada , menuDesplegado , puntoElegido}) => {
 
     return (
         <div className={menuDesplegado ? 'container-localidades-principal desplegarListadoLocalidades' : 'container-localidades-principal'}>
@@ -26,3 +26,5 @@ export const Listadelocalidades = ( { localidadObtenida , listaLocalidadesDespla
         </div>
     )
 }
+
+export default Listadelocalidades;

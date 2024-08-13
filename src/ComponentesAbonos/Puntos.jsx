@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../Estilos/salidallegada.css';
 
 
-export const Puntos = ( { listaDeLocalidadesDesplegada , nombre , puntoElegido , localidadOrigen , localidadDestino })  => {
+   const Puntos = ( { listaDeLocalidadesDesplegada , nombre , puntoElegido , localidadOrigen , localidadDestino })  => {
 
     const [textoCampoLocalidad , setTextoCampoLocalidad] = useState('Elegí una localidad');
     const [origenOdestino , setOrigenOdestino] = useState();
@@ -30,3 +30,5 @@ export const Puntos = ( { listaDeLocalidadesDesplegada , nombre , puntoElegido ,
         </div>
     )
 }
+
+export default Puntos

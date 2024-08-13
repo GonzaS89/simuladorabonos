@@ -1,7 +1,7 @@
 import React , { useEffect, useState }from 'react';
 import '../Estilos/salidallegada.css';
 
-export const Categorias = ( { categoriaSeleccionada } ) => {
+    const Categorias = ( { categoriaSeleccionada } ) => {
 
     const [selectedValue ,  setSelectedValue] = useState('');
 
@@ -44,3 +44,5 @@ export const Categorias = ( { categoriaSeleccionada } ) => {
         </div>
     )
 }
+
+export default Categorias

@@ -4,7 +4,7 @@ import { Detallecotizacion } from './Detallecotizacion';
 import { Descuentos } from './Descuentos';
 import { Preciofinal } from './Preciofinal';
 
-export const Resultadocotizador = ( { enviarViajesIngresados , localidadOrigen , localidadDestino , categoria }) => {
+const Resultadocotizador = ( { enviarViajesIngresados , localidadOrigen , localidadDestino , categoria }) => {
 
     const [precioDeReferencia, setPrecioDeReferencia] = useState(0);
     const [precioAbono, setPrecioAbono] = useState(0)
@@ -58,3 +58,5 @@ export const Resultadocotizador = ( { enviarViajesIngresados , localidadOrigen ,
         </div>
     )
 }
+
+export default Resultadocotizador

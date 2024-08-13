@@ -64,3 +64,29 @@
   display: block;
 }
 
+.container-secciones{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+.seccion-boton{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  width: 125px;
+  background-color: grey;
+  z-index: 10;
+
+  && img {
+    width: 75%;
+  }
+}
+
