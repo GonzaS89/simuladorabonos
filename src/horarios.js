@@ -2,7 +2,7 @@
 
 // Destinos (FLORIDA / ALDERETES / ALTERNATIVA)
 
-const terminal = "Terminal";
+export const terminal = "Terminal";
 const alderetes = "Alderetes";
 const bandaRS = "Banda del Río Salí";
 const autopista = "Autopista";
@@ -497,7 +497,7 @@ const horariosLvFloAl = [
   {
     nombre: "06:05",
     salida: 6.05,
-    recorrido: [fortin,fonda,bCancha,florida,talar,alternativa,terminal],
+    recorrido: [fortin, fonda, bCancha, florida, talar, alternativa, terminal],
   },
   {
     nombre: "06:10",
@@ -531,19 +531,19 @@ const horariosLvFloAl = [
     recorrido: [bCancha, florida, talar, alternativa, terminal],
   },
   {
-   nombre: "06:50",
-   salida: 6.5,
-   recorrido: [col4Luisiana, fonda, florida, talar, alderetes,autopista, terminal],
- },
-  {
-    nombre: "07:20",
-    salida: 7.2,
-    recorrido: [col4Luisiana,fonda,florida,talar,alternativa,terminal],
+    nombre: "06:50",
+    salida: 6.5,
+    recorrido: [col4Luisiana, fonda, florida, talar, alderetes, autopista, terminal],
   },
   {
     nombre: "07:20",
     salida: 7.2,
-    recorrido: [bCancha,florida,talar,alternativa,terminal],
+    recorrido: [col4Luisiana, fonda, florida, talar, alternativa, terminal],
+  },
+  {
+    nombre: "07:20",
+    salida: 7.2,
+    recorrido: [bCancha, florida, talar, alternativa, terminal],
   },
   {
     nombre: "07:20",
@@ -577,7 +577,7 @@ const horariosLvFloAl = [
   {
     nombre: "07:55",
     salida: 7.55,
-    recorrido: [bCancha,florida,talar,alderetes,autopista,terminal],
+    recorrido: [bCancha, florida, talar, alderetes, autopista, terminal],
   },
   {
     nombre: "08:45",
@@ -598,11 +598,11 @@ const horariosLvFloAl = [
     salida: 8.45,
     recorrido: col4CanchaAlter,
   },
-//   {
-//     nombre: "08:45",
-//     salida: 8.45,
-//     recorrido: col4CanchaAlter,
-//   },
+  //   {
+  //     nombre: "08:45",
+  //     salida: 8.45,
+  //     recorrido: col4CanchaAlter,
+  //   },
   {
     nombre: "09:20",
     salida: 9.2,
@@ -639,7 +639,7 @@ const horariosLvFloAl = [
   {
     nombre: "12:50",
     salida: 12.5,
-    recorrido: [fincaMayo,fortin,esqLastra,florida,talar,alderetes,bandaRS,terminal]
+    recorrido: [fincaMayo, fortin, esqLastra, florida, talar, alderetes, bandaRS, terminal]
   },
   {
     nombre: "13:15",
@@ -654,23 +654,23 @@ const horariosLvFloAl = [
   {
     nombre: "14:45",
     salida: 14.45,
-    recorrido: [fortin,esqLastra,florida,talar,alternativa,terminal],
+    recorrido: [fortin, esqLastra, florida, talar, alternativa, terminal],
   },
   {
     nombre: "14:50",
     salida: 14.5,
     recorrido: col4TalarBanda,
   },
-//   {
-//     nombre: "14:45",
-//     salida: 14.45,
-//     recorrido: col4TalarBanda,
-//   },
-{
-   nombre: "15:40",
-   salida: 15.4,
-   recorrido: col4CanchaAlter,
- },
+  //   {
+  //     nombre: "14:45",
+  //     salida: 14.45,
+  //     recorrido: col4TalarBanda,
+  //   },
+  {
+    nombre: "15:40",
+    salida: 15.4,
+    recorrido: col4CanchaAlter,
+  },
   {
     nombre: "15:47",
     salida: 15.47,
@@ -713,11 +713,11 @@ const horariosLvFloAl = [
       terminal,
     ],
   },
-//   {
-//     nombre: "16:50",
-//     salida: 16.5,
-//     recorrido: col4CanchaAlter,
-//   },
+  //   {
+  //     nombre: "16:50",
+  //     salida: 16.5,
+  //     recorrido: col4CanchaAlter,
+  //   },
   {
     nombre: "17:35",
     salida: 17.35,
@@ -755,7 +755,7 @@ const horariosLvFloAl = [
   {
     nombre: "20:55",
     salida: 20.55,
-    recorrido: [fincaMayo,col4Luisiana,bCancha,florida,talar,alderetes,autopista,terminal],
+    recorrido: [fincaMayo, col4Luisiana, bCancha, florida, talar, alderetes, autopista, terminal],
   },
 ];
 const horariosSFloAl = [
@@ -1404,24 +1404,24 @@ const horariosLvSMAl = [
     salida: 6.25,
     recorrido: [`${bandaTalarMayo} (por abajo)`],
   },
-//   {
-//     nombre: "07:00",
-//     salida: 7,
-//     recorrido: [
-//       terminal,
-//       catalinas,
-//       alderetes,
-//       talar,
-//       florida,
-//       bCancha,
-//       col4Luisiana,
-//       marta,
-//     ],
-//   },
+  //   {
+  //     nombre: "07:00",
+  //     salida: 7,
+  //     recorrido: [
+  //       terminal,
+  //       catalinas,
+  //       alderetes,
+  //       talar,
+  //       florida,
+  //       bCancha,
+  //       col4Luisiana,
+  //       marta,
+  //     ],
+  //   },
   {
     nombre: "07:15",
     salida: 7.15,
-    recorrido: [terminal,bandaRS,alderetes,fonda,col4Luisiana,col10Luisiana,fincaMayo,marta],
+    recorrido: [terminal, bandaRS, alderetes, fonda, col4Luisiana, col10Luisiana, fincaMayo, marta],
   },
   {
     nombre: "08:00",
@@ -1466,7 +1466,7 @@ const horariosLvSMAl = [
   {
     nombre: "10:55",
     salida: 10.55,
-    recorrido: [bandaRS,alderetes,talar,florida,bCancha,col4Luisiana],
+    recorrido: [bandaRS, alderetes, talar, florida, bCancha, col4Luisiana],
   },
   {
     nombre: "11:15",
@@ -1483,9 +1483,9 @@ const horariosLvSMAl = [
     ],
   },
   {
-  nombre: "11:40",
-  salida: 11.4,
-  recorrido : bandaTalarMayo,
+    nombre: "11:40",
+    salida: 11.4,
+    recorrido: bandaTalarMayo,
   },
   {
     nombre: "12:15",
@@ -1553,10 +1553,10 @@ const horariosLvSMAl = [
     ],
   },
   {
-   nombre: "13:30",
-   salida: 13.3,
-   recorrido: cataAlterTalarCanchaCol4,
- },
+    nombre: "13:30",
+    salida: 13.3,
+    recorrido: cataAlterTalarCanchaCol4,
+  },
   {
     nombre: "14:00",
     salida: 14,
@@ -1618,23 +1618,23 @@ const horariosLvSMAl = [
     recorrido: com11AlterCol4,
   },
   {
-   nombre: "18:55",
-   salida: 18.55,
-   recorrido: com11AlterCol4,
- },
-//   {
-//     nombre: "18:30",
-//     salida: 18.3,
-//     recorrido: [
-//       terminal,
-//       bandaRS,
-//       alderetes,
-//       talar,
-//       florida,
-//       bCancha,
-//       col4Luisiana,
-//     ],
-//   },
+    nombre: "18:55",
+    salida: 18.55,
+    recorrido: com11AlterCol4,
+  },
+  //   {
+  //     nombre: "18:30",
+  //     salida: 18.3,
+  //     recorrido: [
+  //       terminal,
+  //       bandaRS,
+  //       alderetes,
+  //       talar,
+  //       florida,
+  //       bCancha,
+  //       col4Luisiana,
+  //     ],
+  //   },
   {
     nombre: "19:00",
     salida: 19,
@@ -1656,7 +1656,7 @@ const horariosLvSMAl = [
   {
     nombre: "19:45",
     salida: 19.45,
-    recorrido: [terminal,bandaRS,alderetes,talar,florida,esqLastra,fortin,fincaMayo],
+    recorrido: [terminal, bandaRS, alderetes, talar, florida, esqLastra, fortin, fincaMayo],
   },
   {
     nombre: "20:20",
@@ -1671,7 +1671,7 @@ const horariosLvSMAl = [
   {
     nombre: "21:00",
     salida: 21,
-    recorrido: [terminal,comisaria11,autopista,alderetes,talar,florida,bCancha,col4Luisiana],
+    recorrido: [terminal, comisaria11, autopista, alderetes, talar, florida, bCancha, col4Luisiana],
   },
   {
     nombre: "21:30",
@@ -1685,7 +1685,7 @@ const horariosLvSMAl = [
       florida,
       esqLastra,
       fortin,
-      fonda,bCancha,col4Luisiana
+      fonda, bCancha, col4Luisiana
     ],
   },
   {
@@ -1693,21 +1693,21 @@ const horariosLvSMAl = [
     salida: 22,
     recorrido: com11AlterCol4,
   },
-//   {
-//     nombre: "22:20",
-//     salida: 22.2,
-//     recorrido: [
-//       terminal,
-//       comisaria11,
-//       autopista,
-//       alderetes,
-//       talar,
-//       florida,
-//       esqLastra,
-//       fortin,
-//       fonda,bCancha,col4Luisiana
-//     ],
-//   },
+  //   {
+  //     nombre: "22:20",
+  //     salida: 22.2,
+  //     recorrido: [
+  //       terminal,
+  //       comisaria11,
+  //       autopista,
+  //       alderetes,
+  //       talar,
+  //       florida,
+  //       esqLastra,
+  //       fortin,
+  //       fonda,bCancha,col4Luisiana
+  //     ],
+  //   },
   {
     nombre: "22:30",
     salida: 22.3,
@@ -1720,7 +1720,7 @@ const horariosLvSMAl = [
       florida,
       esqLastra,
       fortin,
-      fonda,bCancha,col4Luisiana
+      fonda, bCancha, col4Luisiana
     ],
   },
   {
@@ -1735,7 +1735,7 @@ const horariosLvSMAl = [
       florida,
       esqLastra,
       fortin,
-      fonda,bCancha,col4Luisiana
+      fonda, bCancha, col4Luisiana
     ],
   },
 ];
@@ -2681,7 +2681,7 @@ const posseTerminalLaV = [
   {
     nombre: "06:35",
     salida: 6.35,
-    recorrido: [bosque,filaOrilla,llona,cevilPozo,bandaRS,terminal],
+    recorrido: [bosque, filaOrilla, llona, cevilPozo, bandaRS, terminal],
   },
   {
     nombre: "06:35",
@@ -2738,11 +2738,11 @@ const posseTerminalLaV = [
     salida: 11.1,
     recorrido: dispenFilaO,
   },
-//   {
-//     nombre: "12:50",
-//     salida: 12.5,
-//     recorrido: dispenFilaO,
-//   },
+  //   {
+  //     nombre: "12:50",
+  //     salida: 12.5,
+  //     recorrido: dispenFilaO,
+  //   },
   {
     nombre: "13:00",
     salida: 13,
@@ -2769,27 +2769,27 @@ const posseTerminalLaV = [
   {
     nombre: "15:00",
     salida: 15,
-    recorrido: [plaza,posse,filaOrilla, llona, cevilPozo, bandaRS, terminal],
+    recorrido: [plaza, posse, filaOrilla, llona, cevilPozo, bandaRS, terminal],
   },
   {
     nombre: "16:00",
     salida: 16,
-    recorrido: [plaza,posse,filaOrilla, llona, cevilPozo, bandaRS, terminal]
+    recorrido: [plaza, posse, filaOrilla, llona, cevilPozo, bandaRS, terminal]
   },
   {
     nombre: "16:10",
     salida: 16.1,
-    recorrido: [plaza,posse,filaMedio, cevilPozo, bandaRS, terminal]
+    recorrido: [plaza, posse, filaMedio, cevilPozo, bandaRS, terminal]
   },
   {
     nombre: "17:00",
     salida: 17,
-    recorrido: [plaza,posse,filaOrilla, llona, cevilPozo, bandaRS, terminal]
+    recorrido: [plaza, posse, filaOrilla, llona, cevilPozo, bandaRS, terminal]
   },
   {
     nombre: "17:10",
     salida: 17.1,
-    recorrido: [plaza,posse,filaMedio, cevilPozo, bandaRS, terminal]
+    recorrido: [plaza, posse, filaMedio, cevilPozo, bandaRS, terminal]
   },
   {
     nombre: "17:45",
@@ -2797,15 +2797,15 @@ const posseTerminalLaV = [
     recorrido: dispenFilaM,
   },
   {
-   nombre: "18:10",
-   salida: 18.1,
-   recorrido: dispenFilaO,
- },
- {
-   nombre: "19:10",
-   salida: 19.1,
-   recorrido: dispenFilaO,
- },
+    nombre: "18:10",
+    salida: 18.1,
+    recorrido: dispenFilaO,
+  },
+  {
+    nombre: "19:10",
+    salida: 19.1,
+    recorrido: dispenFilaO,
+  },
 ];
 const posseTerminalS = [
   {
@@ -2915,7 +2915,7 @@ const terminalPosseLaV = [
   {
     nombre: "05:30",
     salida: 5.3,
-    recorrido: [terminal,bandaRS,cevilPozo,llona,filaOrilla,posse,bosque,dispensario],
+    recorrido: [terminal, bandaRS, cevilPozo, llona, filaOrilla, posse, bosque, dispensario],
   },
   {
     nombre: "08:30",
@@ -2923,15 +2923,15 @@ const terminalPosseLaV = [
     recorrido: filaMBosqueDispen
   },
   {
-   nombre: "12:15",
-   salida: 12.15,
-   recorrido: filaMBosqueDispen
- },
-//   {
-//     nombre: "13:00",
-//     salida: 13,
-//     recorrido: [terminal, bandaRS, cevilPozo, filaMedio, bosque],
-//   },
+    nombre: "12:15",
+    salida: 12.15,
+    recorrido: filaMBosqueDispen
+  },
+  //   {
+  //     nombre: "13:00",
+  //     salida: 13,
+  //     recorrido: [terminal, bandaRS, cevilPozo, filaMedio, bosque],
+  //   },
   {
     nombre: "13:30",
     salida: 13.3,
@@ -2955,33 +2955,33 @@ const terminalPosseLaV = [
   {
     nombre: "17:20",
     salida: 17.2,
-    recorrido: [terminal,bandaRS,cevilPozo,llona,filaOrilla,posse,bosque,dispensario]
+    recorrido: [terminal, bandaRS, cevilPozo, llona, filaOrilla, posse, bosque, dispensario]
   },
   {
-   nombre: "17:20",
-   salida: 17.2,
-   recorrido: [terminal,bandaRS,cevilPozo,llona,filaOrilla,posse,dispensario]
- },
+    nombre: "17:20",
+    salida: 17.2,
+    recorrido: [terminal, bandaRS, cevilPozo, llona, filaOrilla, posse, dispensario]
+  },
   {
     nombre: "19:00",
     salida: 19,
     recorrido: filaMBosqueDispen,
   },
   {
-   nombre: "20:20",
-   salida: 20.2,
-   recorrido: filaMBosqueDispen,
- },
+    nombre: "20:20",
+    salida: 20.2,
+    recorrido: filaMBosqueDispen,
+  },
   {
     nombre: "21:20",
     salida: 21.2,
     recorrido: filaMBosqueDispen,
   },
   {
-   nombre: "22:20",
-   salida: 22.2,
-   recorrido: [terminal,bandaRS,cevilPozo,filaMedio,posse,dispensario],
- },
+    nombre: "22:20",
+    salida: 22.2,
+    recorrido: [terminal, bandaRS, cevilPozo, filaMedio, posse, dispensario],
+  },
 ];
 const terminalPosseS = [
   {
@@ -3159,7 +3159,7 @@ const ralosTerminalLaV = [
   {
     nombre: "07:30",
     salida: 7.3,
-    recorrido: [lolitaS,ralos,llona, cevilPozo,bandaRS, terminal]
+    recorrido: [lolitaS, ralos, llona, cevilPozo, bandaRS, terminal]
   },
   {
     nombre: "07:35",
@@ -3167,45 +3167,45 @@ const ralosTerminalLaV = [
     recorrido: ralosTermi
   },
   {
-   nombre: "07:50",
-   salida: 7.5,
-   recorrido: [marta,fincaMayo,ralos,llona, cevilPozo,bandaRS, terminal]
- },
- {
-   nombre: "08:10",
-   salida: 8.1,
-   recorrido: [ralos,bTrigal,llona,cevilPozo,bandaRS,terminal],
- },
+    nombre: "07:50",
+    salida: 7.5,
+    recorrido: [marta, fincaMayo, ralos, llona, cevilPozo, bandaRS, terminal]
+  },
+  {
+    nombre: "08:10",
+    salida: 8.1,
+    recorrido: [ralos, bTrigal, llona, cevilPozo, bandaRS, terminal],
+  },
   {
     nombre: "08:15",
     salida: 8.15,
     recorrido: [marta, fincaMayo, ralos, llona, cevilPozo, bandaRS, terminal],
   },
-//   {
-//     nombre: "08:20",
-//     salida: 8.2,
-//     recorrido: [ralos, bTrigal, llona, cevilPozo, bandaRS, terminal],
-//   },
+  //   {
+  //     nombre: "08:20",
+  //     salida: 8.2,
+  //     recorrido: [ralos, bTrigal, llona, cevilPozo, bandaRS, terminal],
+  //   },
   {
     nombre: "08:30",
     salida: 8.3,
     recorrido: ralosTermi,
   },
   {
-   nombre: "09;10",
-   salida: 9.1,
-   recorrido: [fincaMayo,ralos,llona,cevilPozo,bandaRS, terminal],
- },
+    nombre: "09;10",
+    salida: 9.1,
+    recorrido: [fincaMayo, ralos, llona, cevilPozo, bandaRS, terminal],
+  },
   {
     nombre: "09;25",
     salida: 9.25,
     recorrido: ralosTermi,
   },
-//   {
-//     nombre: "09;25",
-//     salida: 9.25,
-//     recorrido: ralosTermi,
-//   },
+  //   {
+  //     nombre: "09;25",
+  //     salida: 9.25,
+  //     recorrido: ralosTermi,
+  //   },
   {
     nombre: "10:20",
     salida: 10.2,
@@ -3217,34 +3217,34 @@ const ralosTerminalLaV = [
     recorrido: ralosVillaT,
   },
   {
-   nombre: "11:05",
-   salida: 11.05,
-   recorrido: ralosTermi
- },
+    nombre: "11:05",
+    salida: 11.05,
+    recorrido: ralosTermi
+  },
   {
     nombre: "11:10",
     salida: 11.1,
     recorrido: alabamaMayoRalos,
   },
   {
-   nombre: "12:00",
-   salida: 12,
-   recorrido: [lolitaS,ralos,llona,cevilPozo,bandaRS,terminal],
- },
+    nombre: "12:00",
+    salida: 12,
+    recorrido: [lolitaS, ralos, llona, cevilPozo, bandaRS, terminal],
+  },
   {
     nombre: "12:15",
     salida: 12.15,
     recorrido: [fincaMayo, ralos, llona, cevilPozo, bandaRS, terminal],
   },
-//   {
-//     nombre: "12:50",
-//     salida: 12.5,
-//     recorrido: [lolitaS, ralosVillaT],
-//   },
+  //   {
+  //     nombre: "12:50",
+  //     salida: 12.5,
+  //     recorrido: [lolitaS, ralosVillaT],
+  //   },
   {
     nombre: "13:00",
     salida: 13,
-    recorrido: [lolitaS,villaTercera,ralos,llona, cevilPozo, bandaRS, terminal],
+    recorrido: [lolitaS, villaTercera, ralos, llona, cevilPozo, bandaRS, terminal],
   },
   {
     nombre: "13:10",
@@ -3267,10 +3267,10 @@ const ralosTerminalLaV = [
     recorrido: ralosTermi,
   },
   {
-   nombre: "15:10",
-   salida: 15.1,
-   recorrido: [lolitaS, ralos, bTrigal, llona, cevilPozo, bandaRS, terminal],
- },
+    nombre: "15:10",
+    salida: 15.1,
+    recorrido: [lolitaS, ralos, bTrigal, llona, cevilPozo, bandaRS, terminal],
+  },
   {
     nombre: "15:30",
     salida: 15.3,
@@ -3326,21 +3326,21 @@ const ralosTerminalLaV = [
     salida: 20,
     recorrido: [lolitaS, ralos, llona, cevilPozo, bandaRS, terminal],
   },
-//   {
-//     nombre: "20:20",
-//     salida: 20.2,
-//     recorrido: ralosTermi,
-//   },
+  //   {
+  //     nombre: "20:20",
+  //     salida: 20.2,
+  //     recorrido: ralosTermi,
+  //   },
   {
     nombre: "21:10",
     salida: 21.1,
     recorrido: ralosTermi,
   },
   {
-   nombre: "21:30",
-   salida: 21.3,
-   recorrido: [fincaMayo,ralos, llona,cevilPozo,bandaRS,terminal],
- },
+    nombre: "21:30",
+    salida: 21.3,
+    recorrido: [fincaMayo, ralos, llona, cevilPozo, bandaRS, terminal],
+  },
   {
     nombre: "22:20",
     salida: 22.2,
@@ -3711,7 +3711,7 @@ const terminalRalosLaV = [
   {
     nombre: "11:35",
     salida: 11.35,
-    recorrido: [terminal,bandaRS,cevilPozo,llona,ralos,fincaMayo,marta],
+    recorrido: [terminal, bandaRS, cevilPozo, llona, ralos, fincaMayo, marta],
   },
   {
     nombre: "11:45",
@@ -3736,11 +3736,11 @@ const terminalRalosLaV = [
     salida: 12.1,
     recorrido: termiRalosMayoAlabama,
   },
-//   {
-//     nombre: "12:10",
-//     salida: 12.1,
-//     recorrido: termiRalosMayo,
-//   },
+  //   {
+  //     nombre: "12:10",
+  //     salida: 12.1,
+  //     recorrido: termiRalosMayo,
+  //   },
   {
     nombre: "12:30",
     salida: 12.3,
@@ -3775,10 +3775,10 @@ const terminalRalosLaV = [
     recorrido: termiRalos,
   },
   {
-   nombre: "13:50",
-   salida: 13.5,
-   recorrido: termiRalos,
- },
+    nombre: "13:50",
+    salida: 13.5,
+    recorrido: termiRalos,
+  },
   {
     nombre: "14:00",
     salida: 14,
@@ -3869,11 +3869,11 @@ const terminalRalosLaV = [
     salida: 19,
     recorrido: [terminal, bandaRS, cevilPozo, llona, ralos, lolitaS],
   },
-//   {
-//     nombre: "19:00",
-//     salida: 19,
-//     recorrido: termiRalos,
-//   },
+  //   {
+  //     nombre: "19:00",
+  //     salida: 19,
+  //     recorrido: termiRalos,
+  //   },
   {
     nombre: "19:30",
     salida: 19.3,
@@ -3914,11 +3914,11 @@ const terminalRalosLaV = [
     salida: 21.3,
     recorrido: termiRalosVillaT,
   },
-//   {
-//     nombre: "22:00",
-//     salida: 22,
-//     recorrido: termiRalos,
-//   },
+  //   {
+  //     nombre: "22:00",
+  //     salida: 22,
+  //     recorrido: termiRalos,
+  //   },
   {
     nombre: "22:30",
     salida: 22.3,
@@ -4305,10 +4305,10 @@ const ralosCruzAltaTerminalLaV = [
     recorrido: ralosCruzA,
   },
   {
-   nombre: "06:05",
-   salida: 6.05,
-   recorrido: [ralos,cruzAlta,llona,cevilPozo,bandaRS,terminal],
- },
+    nombre: "06:05",
+    salida: 6.05,
+    recorrido: [ralos, cruzAlta, llona, cevilPozo, bandaRS, terminal],
+  },
   {
     nombre: "07:20",
     salida: 7.2,
@@ -4523,30 +4523,30 @@ const lasCejasTerminalLaV = [
     recorrido: cejasRalos,
   },
   {
-   nombre: "08:00",
-   salida: 8,
-   recorrido: ['Garmendia' , cejas,ralos,llona,cevilPozo,bandaRS,terminal],
- },
+    nombre: "08:00",
+    salida: 8,
+    recorrido: ['Garmendia', cejas, ralos, llona, cevilPozo, bandaRS, terminal],
+  },
   {
     nombre: "12:10",
     salida: 12.1,
     recorrido: cejasRalos,
   },
-//   {
-//     nombre: "13:20",
-//     salida: 13.2,
-//     recorrido: [cejas, llona, cevilPozo, bandaRS, terminal],
-//   },
+  //   {
+  //     nombre: "13:20",
+  //     salida: 13.2,
+  //     recorrido: [cejas, llona, cevilPozo, bandaRS, terminal],
+  //   },
   {
     nombre: "15:40",
     salida: 15.4,
     recorrido: cejasRalos,
   },
-//   {
-//     nombre: "18:15",
-//     salida: 18.15,
-//     recorrido: cejasRalos,
-//   },
+  //   {
+  //     nombre: "18:15",
+  //     salida: 18.15,
+  //     recorrido: cejasRalos,
+  //   },
   {
     nombre: "19:50",
     salida: 19.5,

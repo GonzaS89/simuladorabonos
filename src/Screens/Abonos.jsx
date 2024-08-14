@@ -1,6 +1,6 @@
 // import "./App.css";
 import React, { useState, useEffect } from 'react';
-import '../Estilos/abonos.css';
+import '../Estilos/screens.css';
 import Puntos from '../ComponentesAbonos/Puntos';
 import Cantidaddeviajes from '../ComponentesAbonos/Cantidaddeviajes';
 import Categorias from '../ComponentesAbonos/Categorias';
@@ -51,7 +51,7 @@ const Abonos = () => {
     }
 
     return (
-        <div className="container-abonos">
+        <div className="container-screen">
             <div className="container-principal">
                 <h1 className="titulo-principal">Cotizador de abonos</h1>
                 <div className="container-salida-llegada">

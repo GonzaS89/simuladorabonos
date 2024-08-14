@@ -1,7 +1,6 @@
 .container-screen{
-    height: 100vh;
     width: 100%;
-    z-index: 50;
+    height: 100%;
     position: absolute;
     top: 0;
 }
