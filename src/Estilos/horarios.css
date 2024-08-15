@@ -33,16 +33,23 @@
         background-color: inherit;
         display: flex;
         align-items: center;
-        width: 100px;
-        flex-basis: 50%;
         z-index: 1;
+        height: 100%;
         font-family: "Poppins", sans-serif;
         font-size: 20px;
-        margin-left: 25px;
+        padding-left: 20px;
 }
 
 .icono-flecha{
     width: 20px;
     height: 20px;
     margin-right: 20px;
+    animation: desplazaraladerecha 1.5s infinite;
+    
+}
+
+
+
+@keyframes desplazaraladerecha{
+   100%{transform: translateX(10px);}
 }
