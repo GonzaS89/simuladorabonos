@@ -30,39 +30,40 @@ const Horarios = () => {
   const [minutes, setMinutes] = useState(new Date().getMinutes());
   const [hora, setHora] = useState(new Date().getHours());
   const [dia, setDia] = useState(new Date().getDay());
-  const [diaEnLetras, setDiaEnLetras] = useState(null);
+  // const [diaEnLetras, setDiaEnLetras] = useState(null);
   const [idaVuelta, setIdaVuelta] = useState(null);
   const [ciudadOrigen, setCiudadOrigen] = useState(null);
   const [menuCiudadVisible, setMenuCiudadVisible] = useState(false);
 
-  const diasDeLaSemana = [
-    "domingo",
-    "lunes",
-    "martes",
-    "miercoles",
-    "jueves",
-    "viernes",
-    "sábado",
-  ];
+  // const diasDeLaSemana = [
+  //   "domingo",
+  //   "lunes",
+  //   "martes",
+  //   "miercoles",
+  //   "jueves",
+  //   "viernes",
+  //   "sábado",
+  // ];
 
-  const definirDiaEnNumero = () => {
-    switch (dia) {
-      case 0:
-        setDiaEnLetras('domingos');
-        break;
-      case 2:
-        setDiaEnLetras('sabados');
-      default:
-        setDiaEnLetras('lunesAViernes')
-        break;
-    }
-  };
+  // const definirDiaEnNumero = () => {
+  //   switch (dia) {
+  //     case 0:
+  //       setDiaEnLetras('domingos');
+  //       break;
+  //     case 2:
+  //       setDiaEnLetras('sabados');
+  //       break;
+  //     default:
+  //       setDiaEnLetras('lunesAViernes')
+  //       break;
+  //   }
+  // };
 
   useEffect(() => {
     const updateHoraMinutosDias = () => {
       setMinutes(new Date().getMinutes());
       setHora(new Date().getHours());
-      definirDiaEnNumero()
+      setDia(new Date().getDay())
     };
 
     // Actualiza cada minuto
@@ -96,7 +97,7 @@ const Horarios = () => {
       }, 750);
   }, [idaVuelta, ciudadOrigen]);
 
-  console.log(Grilla[diaEnLetras]);
+  console.log(Grilla);
 
   return (
     <div className="container-screen">
@@ -124,7 +125,7 @@ const Horarios = () => {
             />
           ))}
         </div>
-        {/* <p>{diaEnLetras}</p> */}
+        <p>{hora}{dia}{minutes}</p>
         <div className="container-resultadoshorarios"></div>
       </div>
     </div>
