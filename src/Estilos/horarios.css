@@ -4,9 +4,26 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: white;
+    align-items: center;
+    background-color: #EE4E4E;
     position: relative;
+    z-index: 20;
 }
+
+.capablureada{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color:rgba(0, 0, 0, 0.788);
+    filter: opacity(0);
+}
+
+.show-capa{
+    animation:  desplegarcapa .5s forwards;
+}
+
+@keyframes desplegarcapa {from{filter: opacity(0);} to{filter: opacity(1); z-index: 25;}}
 
 .container-ida-vuelta{
     display: flex;
@@ -22,7 +39,7 @@
     justify-content: space-between;
     align-items: center;
     height: 65px;
-    width: 90%;
+    width: 250px;
     background-color: white;
     border-radius: 10px;
     border: 2px solid;
@@ -39,7 +56,6 @@
         height: 30px;
     }
 }
-
 
 .texto-boton-idavuelta{
         background-color: inherit;
@@ -66,26 +82,78 @@
 }
 
 .container-origenes{
+    display: flex;
+    align-items:center;
+    flex-direction: column;
     width: 100%;
-    height: 500px;
-    background-color:white;
+    height: 60%;
+    background-color: #F6F5F2;
     position: absolute;
     bottom: 0;
-    /* transform: translateY(100%); */
-    z-index: 20;
+    border:  1px solid;
+    /* border-top-left-radius: 30px;
+    border-top-right-radius: 30px; */
+    z-index: 30;
     overflow: scroll;
+    transform: translateY(100%);
 
     && p{
-        font-size: 16px;
+        font-size: 14px;
         text-transform: capitalize;
     }
 
     && .container-idavuelta{
         height: 65px;
-        width: 100%;
+        width: 80%;
         /* width: 85%; */
         margin: 5px auto;
+        box-shadow:  none;
     }
+}
 
+.desplegado{animation: desplegado .75s forwards;}
+
+@keyframes desplegado {
+    from{transform: translateY(100%);}
+    to{transform: translateY(0%); }
+}
+
+
+.container-origenes_ciudad{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 1px solid grey;
+    padding: 30px;
+}
+
+.container-origenes_texto{
+    text-align-last: center;
+    flex-basis: 70%;
+}
+
+.container-origenes_img{
+    /* flex-basis: 30%; */
+    width: 20px;
+    height: 20px;
+}
+
+.container-origenes_texto{
+    font-size: 0px;
+}
+
+.img-disabled{
+    filter: grayscale(1) opacity(.1);
+}
+
+.img-enabled{
+    animation:  visibilidadActiva .5s forwards;
+}
+
+@keyframes visibilidadActiva {
+    from{filter: grayscale(1) opacity(.1);transform: scale(.5);}
+    to{filter:grayscale(0) opacity(1);transform: scale(1.1);}
+    
 }
 

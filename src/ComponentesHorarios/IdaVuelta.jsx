@@ -1,22 +1,20 @@
-import React from 'react';
-import '../Estilos/horarios.css';
+import React from "react";
+import "../Estilos/horarios.css";
 import { FaArrowRight } from "react-icons/fa";
 
+const IdaVuelta = ({ nombre, idEnviada }) => {
+  const opcionPresionada = () => {
+    idEnviada(nombre);
+  };
 
-const IdaVuelta = ( { nombre , idEnviada}) => {
-
-    const opcionPresionada = ( ) => {
-        idEnviada(nombre)
-    }
-
-    return (
-        <div className='container-idavuelta' onClick={opcionPresionada}>
-            {/* <img src={require('../IMG/wavy-steps.png')} alt="" /> */}
-            <div className='texto-boton-idavuelta'><p>{nombre}</p></div>
-            <FaArrowRight className='icono-flecha'/>
-
-        </div>
-    )
-}
+  return (
+    <div className="container-idavuelta" onClick={opcionPresionada}>
+      <div className="texto-boton-idavuelta">
+        <p>{nombre}</p>
+      </div>
+      <FaArrowRight className="icono-flecha" />
+    </div>
+  );
+};
 
 export default IdaVuelta;
