@@ -1,16 +1,15 @@
 import React from "react";
 import "../Estilos/screens.css";
 import "../Estilos/horarios.css";
-import Grilla from "../grillas.json";
 import { useEffect, useState } from "react";
 import IdaVuelta from "../ComponentesHorarios/IdaVuelta";
 import { OrigenDestino } from "../ComponentesHorarios/OrigenDestino";
 
 const Horarios = () => {
   const todosLosOrigenes = [
-    { nombre: "la florida x aldertes/alternativa" },
+    { nombre: "la florida x alderetes/alternativa" },
     { nombre: "la florida x w. posse" },
-    { nombre: "w. posse (local)" },
+    { nombre: "w. posse" },
     { nombre: "los ralos" },
     { nombre: "las cejas" },
     { nombre: "7 de abril" },
@@ -25,30 +24,17 @@ const Horarios = () => {
   const [idaVuelta, setIdaVuelta] = useState(null);
   const [ciudadOrigen, setCiudadOrigen] = useState(null);
   const [menuCiudadVisible, setMenuCiudadVisible] = useState(false);
+  const [grillaDefinitiva, setGrillaDefinitiva] = useState([]);
 
-  const diasDeLaSemana = [
-    "domingo",
-    "lunes",
-    "martes",
-    "miercoles",
-    "jueves",
-    "viernes",
-    "sábado",
-  ];
-
-  const definirDiaEnNumero = () => {
-    switch (dia) {
-      case 0:
-        setDiaEnLetras('domingos');
-        break;
-      case 2:
-        setDiaEnLetras('sabados');
-        break;
-      default:
-        setDiaEnLetras('lunesAViernes')
-        break;
-    }
-  };
+  // const diasDeLaSemana = [
+  //   "domingo",
+  //   "lunes",
+  //   "martes",
+  //   "miercoles",
+  //   "jueves",
+  //   "viernes",
+  //   "sábado",
+  // ];
 
   useEffect(() => {
     const updateHoraMinutosDias = () => {
@@ -80,15 +66,28 @@ const Horarios = () => {
     setIdaVuelta(null);
   };
 
+  const grillaRecibida = data => {
+    setGrillaDefinitiva(data)
+  }
+
   useEffect(() => {
     idaVuelta !== null && setMenuCiudadVisible(true);
     ciudadOrigen !== null &&
       setTimeout(() => {
         setMenuCiudadVisible(false);
       }, 750);
-  }, [idaVuelta, ciudadOrigen]);
-
-
+      switch (dia) {
+        case 0:
+          setDiaEnLetras('domingos');
+          break;
+        case 6:
+          setDiaEnLetras('sabados');
+          break;
+        default:
+          setDiaEnLetras('lunesAViernes')
+          break;
+      }
+  }, [idaVuelta, ciudadOrigen,dia]);
 
   return (
     <div className="container-screen">
@@ -98,8 +97,8 @@ const Horarios = () => {
             className={menuCiudadVisible ? "capablureada show-capa" : "capa"}
             onClick={tocarCapa}
           ></div>
-          <IdaVuelta nombre={"idas"} idEnviada={idRecibida} />
-          <IdaVuelta nombre={"vueltas"} idEnviada={idRecibida} />
+          <IdaVuelta nombre={"idas"} idEnviada={idRecibida} diaRango = {diaEnLetras} />
+          <IdaVuelta nombre={"vueltas"} idEnviada={idRecibida} diaRango = {diaEnLetras}/>
         </div>
         <div
           className={
@@ -113,10 +112,13 @@ const Horarios = () => {
               nombre={ciudad.nombre}
               idCiudadSeleccionada={recibirIdCiudadSeleccionada}
               ciudadOrigen={ciudadOrigen}
+              diaRango={diaEnLetras}
+              idaVuelta={idaVuelta}
+              grillaEnviada={grillaRecibida}
             />
           ))}
         </div>
-        {/* <p>{hora}{dia}{minutes}</p> */}
+        {/* <p>{diaEnLetras}{idaVuelta}</p> */}
         <div className="container-resultadoshorarios">
 
         </div>
