@@ -89,6 +89,8 @@ const Horarios = () => {
       }
   }, [idaVuelta, ciudadOrigen,dia]);
 
+  useEffect(() => {console.log(grillaDefinitiva);},[grillaDefinitiva])
+
   return (
     <div className="container-screen">
       <div className="container-main-horarios">
