@@ -27,7 +27,7 @@ export const Horario = ({ nombre, horaSalida, recorrido, horaActual, minutosActu
 
 return (
   <div className="containerservicio">
-    <p className="servicionombre">Servicio de las {nombre} hrs.</p>
+    <p className="servicionombre">{index} Servicio de las {nombre} hrs.</p>
     <p className="serviciohora">{definirMensaje()}</p>
     <p className="serviciorecorrido"><strong>Recorrido</strong>: {recorrido}</p>
   </div>
