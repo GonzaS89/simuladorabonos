@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../Estilos/servicio.css';
 
-export const Horario = ({ nombre, horaSalida, recorrido, horaActual, minutosActuales, index }) => {
+export const Horario = ({ nombre, horaSalida, recorrido, horaActual, minutosActuales }) => {
 
   const [minutosDif, setMinutosDif] = useState(null);
   const [horaSalidaEnMinutos, setHoraSalidaEnMInutos] = useState(null);

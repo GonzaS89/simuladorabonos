@@ -8,6 +8,7 @@
     background-color: white;
     border-radius: 15px;
     padding: 10px 10px;
+    box-shadow: 10px 10px black;
 }
 
 .servicionombre, .serviciohora, .serviciorecorrido{
