@@ -1,7 +1,7 @@
 import React from "react";
 import "../Estilos/horarios.css";
 import { FaArrowRight } from "react-icons/fa";
-import Grilla from '../grillas.json';
+// import Grilla from '../grillas.json';
 
 const IdaVuelta = ({ nombre, idEnviada }) => {
   const opcionPresionada = () => {
