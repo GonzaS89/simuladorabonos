@@ -10,10 +10,7 @@
     padding: 10px 10px;
 }
 
-.servicionombre{
+.servicionombre, .serviciohora, .serviciorecorrido{
     font-size:10px
 }
 
-.serviciorecorrido{
-    font-size:10px;
-}

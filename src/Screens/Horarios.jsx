@@ -126,9 +126,12 @@ const Horarios = () => {
             <div className="container-horarios">
               {grillaDefinitiva.map ( servicio => (
                 <Horario 
+                index = {grillaDefinitiva.indexOf(servicio)}
                 nombre={servicio.nombre}
-                hora={servicio.salida}
-                recorrido={servicio.recorrido}/>
+                horaSalida={servicio.salida}
+                recorrido={servicio.recorrido}
+                horaActual={hora}
+                minutosActuales={minutes}/>
               ))}
             </div>
         </div>
