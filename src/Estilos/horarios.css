@@ -165,11 +165,40 @@
 }
 
 .container-resultadoshorarios{
+    display: flex;
+    align-items: center;
+    justify-content:center;
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: 20;
+    animation: escondercontainerresultados 1s forwards ease-out; 
+}
+
+@keyframes escondercontainerresultados{
+    from{transform: translateX(0);}
+    to{transform: translateX(100%);}
+}
+
+.animacionresultadoshorarios{
     background-color: #EE4E4E;
-    transform: translateX(100%);
+    animation:  mostrarcontainerresultados 1s forwards ease-out;
+}
+
+@keyframes mostrarrcontainerresultados {
+    from{transform: translateX(100%);}
+    to{transform: translateX(0); }
+}
+
+.container-horarios{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 20px;
+    height:500px;
+    width: 90%;
+    overflow: scroll;
+
 }
 

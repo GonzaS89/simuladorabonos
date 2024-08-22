@@ -11,7 +11,7 @@ export const OrigenDestino = ({
   idaVuelta,
   grillaEnviada,
 }) => {
-  const switchearGrillaLunesAViernes = () => {
+  const switchearGrillaLunesAViernesIda = () => {
     switch (nombre) {
       case "la florida x alderetes/alternativa":
         grillaEnviada(grilla.lunesAViernes.idas.floridaxalderetesalter);
@@ -43,7 +43,7 @@ export const OrigenDestino = ({
   const actualizarCiudad = () => {
     idCiudadSeleccionada(nombre);
     if (diaRango === "lunesAViernes" && idaVuelta === "idas") {
-      switchearGrillaLunesAViernes();
+      switchearGrillaLunesAViernesIda();
     }
   };
 

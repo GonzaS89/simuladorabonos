@@ -4,6 +4,7 @@ import "../Estilos/horarios.css";
 import { useEffect, useState } from "react";
 import IdaVuelta from "../ComponentesHorarios/IdaVuelta";
 import { OrigenDestino } from "../ComponentesHorarios/OrigenDestino";
+import { Horario } from "../ComponentesHorarios/Horario";
 
 const Horarios = () => {
   const todosLosOrigenes = [
@@ -121,8 +122,15 @@ const Horarios = () => {
           ))}
         </div>
         {/* <p>{diaEnLetras}{idaVuelta}</p> */}
-        <div className="container-resultadoshorarios">
-
+        <div className={ciudadOrigen !== null ? 'container-resultadoshorarios animacionresultadoshorarios' : 'container-resultadoshorarios'}>
+            <div className="container-horarios">
+              {grillaDefinitiva.map ( servicio => (
+                <Horario 
+                nombre={servicio.nombre}
+                hora={servicio.salida}
+                recorrido={servicio.recorrido}/>
+              ))}
+            </div>
         </div>
       </div>
     </div>

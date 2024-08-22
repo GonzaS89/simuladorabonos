@@ -22,8 +22,12 @@
                 {
                     "nombre": "06:10",
                     "salida": 6.1,
-                    "recorrido": "Fortín ★ Esquina Lastra ★ Talar ★ Alderetes ★ Banda del Río Salí ★ Terminal",
-                    "recorrido2": "Colonia 10 ★ Colonia 4 (Luisiana) ★ B° La Cancha ★ Cochuchal ★ Alderetes ★ Autopista ★ Terminal"
+                    "recorrido": "Fortín ★ Esquina Lastra ★ Talar ★ Alderetes ★ Banda del Río Salí ★ Terminal"
+                },
+                {
+                    "nombre": "06:10",
+                    "salida": 6.1,
+                    "recorrido": "Colonia 10 ★ Colonia 4 (Luisiana) ★ B° La Cancha ★ Cochuchal ★ Alderetes ★ Autopista ★ Terminal"
                 },
                 {
                     "nombre": "06:20",
@@ -33,8 +37,12 @@
                 {
                     "nombre": "06:50",
                     "salida": 6.5,
-                    "recorrido": "B° La Cancha ★ Talar ★ Alternativa ★ Terminal",
-                    "recorrido2": "Colonia 4 (Luisiana) ★ Fonda ★ Talar ★ Alderetes ★ Autopista ★ Terminal"
+                    "recorrido": "B° La Cancha ★ Talar ★ Alternativa ★ Terminal"
+                },
+                {
+                    "nombre": "06:50",
+                    "salida": 6.5,
+                    "recorrido": "Colonia 4 (Luisiana) ★ Fonda ★ Talar ★ Alderetes ★ Autopista ★ Terminal"
                 },
                 {
                     "nombre": "07:20",
@@ -44,8 +52,12 @@
                 {
                     "nombre": "07:20",
                     "salida": 7.2,
-                    "recorrido": "Colonia 4 (Luisiana) ★ Fonda ★ Talar ★ Alternativa ★ Terminal",
-                    "recorrido2": "Fortín ★ Esquina Lastra ★ Talar ★ Alderetes ★ Banda del Río Salí ★ Terminal"
+                    "recorrido": "Colonia 4 (Luisiana) ★ Fonda ★ Talar ★ Alternativa ★ Terminal"
+                },
+                {
+                    "nombre": "07:20",
+                    "salida": 7.2,
+                    "recorrido": "Fortín ★ Esquina Lastra ★ Talar ★ Alderetes ★ Banda del Río Salí ★ Terminal"
                 },
                 {
                     "nombre": "07:40",
@@ -55,8 +67,12 @@
                 {
                     "nombre": "07:50",
                     "salida": 7.5,
-                    "recorrido": "Colonia 4 (Luisiana) ★ Fonda ★ Talar ★ Alternativa ★ Terminal",
-                    "recorrido2": "Colonia 4 (Luisiana) ★ B° La Cancha ★ Talar ★ Alderetes ★ Autopista ★ Terminal"
+                    "recorrido": "Colonia 4 (Luisiana) ★ Fonda ★ Talar ★ Alternativa ★ Terminal"
+                },
+                {
+                    "nombre": "07:50",
+                    "salida": 7.5,
+                    "recorrido": "Colonia 4 (Luisiana) ★ B° La Cancha ★ Talar ★ Alderetes ★ Autopista ★ Terminal"
                 },
                 {
                     "nombre": "08:20",
@@ -141,8 +157,12 @@
                 {
                     "nombre": "16:50",
                     "salida": 16.5,
-                    "recorrido":"Colonia 4 (Florida) ★ Fortín ★ Esquina Lastra ★ Talar ★ Alderetes ★ Banda del Río Salí ★ Terminal",
-                    "recorrido2" : "Colonia 4 (Luisiana) ★ B° La Cancha ★ Talar ★ Alternativa ★ Terminal"
+                    "recorrido":"Colonia 4 (Florida) ★ Fortín ★ Esquina Lastra ★ Talar ★ Alderetes ★ Banda del Río Salí ★ Terminal"
+                },
+                {
+                    "nombre": "16:50",
+                    "salida": 16.5,
+                    "recorrido" : "Colonia 4 (Luisiana) ★ B° La Cancha ★ Talar ★ Alternativa ★ Terminal"
                 },
                 {
                     "nombre": "17:35",
@@ -248,8 +268,12 @@
                 {
                     "nombre": "13:25",
                     "salida": 13.25,
-                    "recorrido": "B° La Cancha ★ Paraíso ★ Posse ★ Llona",
-                    "recorrido2": "Fortín ★ Esquina Lastra ★ Paraíso ★ Posse ★ Llona ★ Cevil Pozo ★ Banda del Río Salí ★ Terminal"
+                    "recorrido": "B° La Cancha ★ Paraíso ★ Posse ★ Llona"
+                },
+                {
+                    "nombre": "13:25",
+                    "salida": 13.25,
+                    "recorrido": "Fortín ★ Esquina Lastra ★ Paraíso ★ Posse ★ Llona ★ Cevil Pozo ★ Banda del Río Salí ★ Terminal"
                 },
                 {
                     "nombre": "13:30",
@@ -284,8 +308,12 @@
                 {
                     "nombre": "17:50",
                     "salida": 17.5,
-                    "recorrido": "Escuela Croacia ★ Paraíso ★ Posse ★ Llona ★ Cevil Pozo ★ Banda del Río Salí ★ Terminal",
-                    "recorrido2": "B° La Cancha ★ Paraiso ★ Posse ★ Llona ★ Cevil Pozo ★ Banda del Río Salí ★ Terminal"
+                    "recorrido": "Escuela Croacia ★ Paraíso ★ Posse ★ Llona ★ Cevil Pozo ★ Banda del Río Salí ★ Terminal"
+                },
+                {
+                    "nombre": "17:50",
+                    "salida": 17.5,
+                    "recorrido": "B° La Cancha ★ Paraiso ★ Posse ★ Llona ★ Cevil Pozo ★ Banda del Río Salí ★ Terminal"
                 },
                 {
                     "nombre": "18:50",
