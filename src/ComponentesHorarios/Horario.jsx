@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../Estilos/servicio.css';
 
-export const Horario = ({ nombre, horaSalida, recorrido, horaActual, minutosActuales, enviarMinutosDif }) => {
+export const Horario = ({ nombre, horaSalida, recorrido, horaActual, minutosActuales }) => {
 
   const [minutosDif, setMinutosDif] = useState(null);
   const [horaSalidaEnMinutos, setHoraSalidaEnMInutos] = useState(null);
@@ -27,9 +27,9 @@ export const Horario = ({ nombre, horaSalida, recorrido, horaActual, minutosActu
 
 return (
   <div className="containerservicio">
-    <p className="servicionombre">aaServicio de las {nombre} hrs.</p>
+    <p className="servicionombre">Servicio de las {nombre} hrs.</p>
     <p className="serviciohora">{definirMensaje()}</p>
-    <p className="serviciorecorrido"><strong>Recorrido</strong>: {recorrido}</p>
+    <p className="serviciorecorrido"><strong>Recorrido</strong>{recorrido}</p>
   </div>
 )
   }

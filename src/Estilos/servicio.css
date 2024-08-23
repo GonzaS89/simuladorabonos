@@ -2,16 +2,34 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    min-height: 130px;
+    /* justify-content: space-between; */
+    min-height: 200px;
     width: 300px;
-    background-color: white;
+    background: rgb(254,253,253);
+    background: linear-gradient(0deg, rgba(254,253,253,1) 0%, rgba(226,226,226,1) 100%); 
     border-radius: 15px;
     padding: 10px 10px;
-    box-shadow: 10px 10px black;
+    box-shadow: 10px 10px #2E073F;
 }
 
 .servicionombre, .serviciohora, .serviciorecorrido{
-    font-size:10px
+    font-size:11.5px;
+}
+
+.servicionombre{
+    font-weight: bold;
+    flex-basis: 25%;
+}
+
+.serviciohora{
+    flex-basis:25%;
+}
+
+.serviciorecorrido{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 50%;
 }
 

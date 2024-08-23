@@ -26,7 +26,7 @@ const Horarios = () => {
   const [ciudadOrigen, setCiudadOrigen] = useState(null);
   const [menuCiudadVisible, setMenuCiudadVisible] = useState(false);
   const [grillaDefinitiva, setGrillaDefinitiva] = useState([]);
-  const [difMinutos, setDifMinutos] = useState([]);
+  // const [difMinutos, setDifMinutos] = useState([]);
 
   // const diasDeLaSemana = [
   //   "domingo",
@@ -95,8 +95,6 @@ const Horarios = () => {
   //   setDifMinutos(prevDifMinutos => [])
   // }
 
-  useEffect(() =>{console.log(difMinutos)},[difMinutos])
-
   return (
     <div className="container-screen">
       <div className="container-main-horarios">
@@ -136,8 +134,7 @@ const Horarios = () => {
                 horaSalida={servicio.salida}
                 recorrido={servicio.recorrido}
                 horaActual={hora}
-                minutosActuales={minutes}
-                enviarMinutosDif={recibirMinutosDif}/>
+                minutosActuales={minutes}/>
               ))}
             </div>
         </div>
