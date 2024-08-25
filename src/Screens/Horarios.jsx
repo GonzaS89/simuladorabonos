@@ -121,6 +121,7 @@ const Horarios = () => {
               diaRango={diaEnLetras}
               idaVuelta={idaVuelta}
               grillaEnviada={grillaRecibida}
+              grillaDefinitiva={grillaDefinitiva}
             />
           ))}
         </div>
