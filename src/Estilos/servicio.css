@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     /* justify-content: space-between; */
-    min-height: 400px;
+    min-height: 500px;
     width: 300px;
     background: rgb(254,253,253);
     background: linear-gradient(0deg, rgba(254,253,253,1) 0%, rgba(226,226,226,1) 100%); 
@@ -100,10 +100,10 @@
     display: flex;
     align-items: center;
     justify-content:space-around;
-    height:  11px;
-    min-width: 110px;
+    height: 17.5px;
+    min-width: 120px;
     background-color: white;
-    font-size: 8.5px;
+    font-size: 10px;
     text-transform: uppercase;
     padding: 5px;
     font-weight: bold;
