@@ -95,6 +95,11 @@ const Horarios = () => {
   //   setDifMinutos(prevDifMinutos => [])
   // }
 
+  useEffect(() => {
+    const salidas = grillaDefinitiva.map( objeto => objeto.salida);
+    console.log(salidas)
+  },[grillaDefinitiva])
+
   return (
     <div className="container-screen">
       <div className="container-main-horarios">
