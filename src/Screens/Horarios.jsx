@@ -74,15 +74,13 @@ const Horarios = () => {
     setGrillaDefinitiva(data)
   }
 
-  const definirLaMenorDiferencia = salida => {
-      const horaSalidaEnMinutos = (Math.trunc(salida) * 60);
-      const minutosSalida = (((salida) - horaSalidaEnMinutos) * 100);
-      const horaDeSalidaEnMinutos = horaDeSalidaEnMinutos + minutosSalida;
-      if((horaDeSalidaEnMinutos - horaActualEnMinutos) > -10 &&
-      (horaDeSalidaEnMinutos - horaActualEnMinutos) < 10 ){
-          setMenorDif(horaDeSalidaEnMinutos - horaActualEnMinutos)
-      }
-  }
+  // const definirLaMenorDiferencia = salida => {
+  //     const horaSalidaEnMinutos = (Math.trunc(salida) * 60);
+  //     const minutosSalida = (((salida) - horaSalidaEnMinutos) * 100);
+  //     const horaDeSalidaEnMinutos = horaDeSalidaEnMinutos + minutosSalida;
+     
+  //     if(Math.abs(horaDeSalidaEnMinutos))
+  // }
 
   useEffect(() => {
     idaVuelta !== null && setMenuCiudadVisible(true);
