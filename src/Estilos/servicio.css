@@ -14,6 +14,29 @@
     box-shadow: 10px 10px #2E073F;    
 }
 
+.servicioopacoychico{
+    filter: opacity(.3);
+    transform: scale(.8);
+}
+
+.serviciovisibleynormal{
+    animation: normalizarservicio .75s ease-out forwards;
+}
+
+@keyframes normalizarservicio{
+    from{filter: opacity(.3); transform:scale(.9)}
+    to{filter: opacity(1); transform: scale(1);}
+}
+
+.serviciodereferencia{
+    filter: opacity(1);
+    animation: zoomearservicio .75s linear alternate-reverse infinite;
+}
+
+@keyframes zoomearservicio{
+    100%{transform: scale(1.05);}
+}
+
 .servicionombre, .serviciohora, .serviciorecorrido{
     font-size:11.5px;
 }
