@@ -23,7 +23,7 @@
 }
 
 @keyframes normalizarservicio{
-    from{filter: opacity(.3)}
+    from{filter: opacity(.3);}
     to{filter: opacity(1)}
 }
 
