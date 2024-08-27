@@ -620,14 +620,22 @@
                 {
                     "nombre": "06:35",
                     "salida": 6.35,
-                    "recorrido": ["Bosque","Fila del Medio","Cevil Pozo","Banda del Río Salí","Terminal"],
-                    "recorrido2": ["Dispensario","Fila del medio","Cevil Pozo","Banda del Río Salí","Terminal"]
+                    "recorrido": ["Bosque","Fila del Medio","Cevil Pozo","Banda del Río Salí","Terminal"]
+                },
+                {
+                    "nombre": "06:35",
+                    "salida": 6.35,
+                    "recorrido": ["Dispensario","Fila del medio","Cevil Pozo","Banda del Río Salí","Terminal"]
                 },
                 {
                     "nombre": "07:08",
                     "salida": 7.08,
-                    "recorrido": ["Dispensario","Fila de la orilla","Esquina Llona","Cevil Pozo","Banda del Río Salí","Terminal"],
-                    "recorrido2": ["Bosque","Fila del Medio","Cevil Pozo","Banda del Río Salí","Terminal"]
+                    "recorrido": ["Dispensario","Fila de la orilla","Esquina Llona","Cevil Pozo","Banda del Río Salí","Terminal"]
+                },
+                {
+                    "nombre": "07:08",
+                    "salida": 7.08,
+                    "recorrido": ["Bosque","Fila del Medio","Cevil Pozo","Banda del Río Salí","Terminal"]
                 },
                 {
                     "nombre": "07:40",
@@ -642,14 +650,22 @@
                 {
                     "nombre": "08:10",
                     "salida": 8.1,
-                    "recorrido": ["Bosque","Fila del Medio","Cevil Pozo","Banda del Río Salí","Terminal"],
-                    "recorrido2": ["Dispensario","Fila de la orilla","Esquina Llona","Cevil Pozo","Banda del Río Salí","Terminal"]
+                    "recorrido": ["Bosque","Fila del Medio","Cevil Pozo","Banda del Río Salí","Terminal"]
+                },
+                {
+                    "nombre": "08:10",
+                    "salida": 8.1,
+                    "recorrido": ["Dispensario","Fila de la orilla","Esquina Llona","Cevil Pozo","Banda del Río Salí","Terminal"]
                 },
                 {
                     "nombre": "09:10",
                     "salida": 9.1,
-                    "recorrido": ["Dispensario","Fila del medio","Cevil Pozo","Banda del Río Salí","Terminal"],
-                    "recorrido2": ["Dispensario","Fila de la orilla","Esquina Llona","Cevil Pozo","Banda del Río Salí","Terminal"]
+                    "recorrido": ["Dispensario","Fila del medio","Cevil Pozo","Banda del Río Salí","Terminal"]
+                },
+                {
+                    "nombre": "09:10",
+                    "salida": 9.1,
+                    "recorrido": ["Dispensario","Fila de la orilla","Esquina Llona","Cevil Pozo","Banda del Río Salí","Terminal"]
                 },
                 {
                     "nombre": "10:10",
@@ -726,8 +742,12 @@
                 {
                     "nombre": "05:25",
                     "salida": 5.25,
-                    "recorrido": ["Finca Mayo","B° Trigal","Los Ralos","Esquina Llona","Cevil Pozo","Banda del Río Salí","Terminal"],
-                    "recorrido2": ["Villa Tercera","Los Ralos","Esquina Llona","Cevil Pozo","Banda del Río Salí","Terminal"]
+                    "recorrido": ["Finca Mayo","B° Trigal","Los Ralos","Esquina Llona","Cevil Pozo","Banda del Río Salí","Terminal"]
+                },
+                {
+                    "nombre": "05:25",
+                    "salida": 5.25,
+                    "recorrido": ["Villa Tercera","Los Ralos","Esquina Llona","Cevil Pozo","Banda del Río Salí","Terminal"]
                 },
                 {
                     "nombre": "05:25",
@@ -757,7 +777,7 @@
                 {
                     "nombre": "06:50",
                     "salida": 6.5,
-                    "recorrido2": ["Los Ralos","Esquina Llona","Cevil Pozo","Banda del Río Salí","Terminal"]
+                    "recorrido": ["Los Ralos","Esquina Llona","Cevil Pozo","Banda del Río Salí","Terminal"]
                 },
                 {
                     "nombre": "07:30",
@@ -2240,7 +2260,7 @@
                 {
                     "nombre": "06.00",
                     "salida": 6,
-                    "recoriddo": ["Terminal","Banda del Río Salí","Cevil Pozo","Esquina Llona","Los Ralos","Las Cejas","7 de Abril"]
+                    "recorrido": ["Terminal","Banda del Río Salí","Cevil Pozo","Esquina Llona","Los Ralos","Las Cejas","7 de Abril"]
                 },
                 {
                     "nombre": "06.30",
@@ -2869,7 +2889,7 @@
                 {
                     "nombre": "23:30",
                     "salida": 23.3,
-                    "recorrido": "Terminal ★ Banda del Río Salí ★ Cevil Pozo ★ Fila de la orilla ★ Dispensario"
+                    "recorrido": ["Terminal","Banda del Río Salí","Cevil Pozo","Fila de la orilla","Dispensario"]
                 }
             ],
             "ralos": [
@@ -2881,7 +2901,7 @@
                 {
                     "nombre": "06.00",
                     "salida": 6,
-                    "recoriddo": ["Terminal","Banda del Río Salí","Cevil Pozo","Esquina Llona","Los Ralos","Las Cejas","7 de Abril"]
+                    "recorrido": ["Terminal","Banda del Río Salí","Cevil Pozo","Esquina Llona","Los Ralos","Las Cejas","7 de Abril"]
                 },
                 {
                     "nombre": "06.30",
