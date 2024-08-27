@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, forwardRef} from 'react';
 import '../Estilos/servicio.css';
 import { Paradas } from './Paradas';
 
-export const Horario = ({horaSalida, recorrido, horaActual, minutosActuales }) => {
+export const Horario = forwardRef (({horaSalida, recorrido, horaActual, minutosActuales}, ref) => {
 
   const [minutosDif, setMinutosDif] = useState(null);
   const [horaSalidaEnMinutos, setHoraSalidaEnMInutos] = useState(null);
@@ -29,10 +29,10 @@ export const Horario = ({horaSalida, recorrido, horaActual, minutosActuales }) =
 }
 
 return (
-  <div className="containerservicio">
+  <div className="containerservicio" ref={ref}>
     <div className="container-panelIzquierdo">
     <p className="servicionombre">{Math.trunc(horaSalida) < 10 ? `0${Math.trunc(horaSalida)}` : Math.trunc(horaSalida)}</p>
-    <p className="servicionombre">{Math.trunc((horaSalida.toFixed(2) - Math.trunc(horaSalida)) * 100) < 10 ? `0${Math.trunc((horaSalida.toFixed(2) - Math.trunc(horaSalida)) * 100)}` : Math.trunc((horaSalida.toFixed(2) - Math.trunc(horaSalida)) * 100)}</p>
+    <p className="servicionombre">{Math.trunc((horaSalida - Math.trunc(horaSalida)) * 100) < 10 ? `0${Math.trunc((horaSalida.toFixed(2) - Math.trunc(horaSalida)) * 100)}` : Math.trunc((horaSalida.toFixed(2) - Math.trunc(horaSalida)) * 100)}</p>
     <h3 className="servicionombre">HRS</h3>
     </div>
       <div className="container-panelDerecho">
@@ -50,5 +50,4 @@ return (
       </div>
     
   </div>
-)
-  }
+)})

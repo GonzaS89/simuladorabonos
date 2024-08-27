@@ -1309,7 +1309,7 @@
                 {
                     "nombre": "12:30",
                     "salida": 12.3,
-                    "recorrido2": ["Terminal","Banda del Río Salí","Cevil Pozo","Esquina Llona","W. Posse","Paraíso","Esquina Lastra","Fortín"]
+                    "recorrido": ["Terminal","Banda del Río Salí","Cevil Pozo","Esquina Llona","W. Posse","Paraíso","Esquina Lastra","Fortín"]
                 },
                 {
                     "nombre": "13:00",
@@ -1319,7 +1319,7 @@
                 {
                     "nombre": "13:00",
                     "salida": 13,
-                    "recorrido2": ["Terminal","Banda del Río Salí","Cevil Pozo","Esquina Llona","W. Posse","Paraíso","B° La Cancha"]
+                    "recorrido": ["Terminal","Banda del Río Salí","Cevil Pozo","Esquina Llona","W. Posse","Paraíso","B° La Cancha"]
                 },
                 {
                     "nombre": "13:30",
@@ -3142,7 +3142,7 @@
                 },
                 {
                     "nombre": "20:55",
-                    "salida": 19,
+                    "salida": 20.55,
                     "recorrido": ["Finca Mayo","Colonia 10 (Luisiana)","Colonia 4 (Luisiana)","B° La Cancha","Talar","Alderetes","Banda del Río Salí","Terminal"]
                 }
             ],

@@ -1,7 +1,7 @@
 import React from "react";
 import "../Estilos/screens.css";
 import "../Estilos/horarios.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import IdaVuelta from "../ComponentesHorarios/IdaVuelta";
 import { OrigenDestino } from "../ComponentesHorarios/OrigenDestino";
 import { Horario } from "../ComponentesHorarios/Horario";
@@ -26,8 +26,10 @@ const Horarios = () => {
   const [ciudadOrigen, setCiudadOrigen] = useState(null);
   const [menuCiudadVisible, setMenuCiudadVisible] = useState(false);
   const [grillaDefinitiva, setGrillaDefinitiva] = useState([]);
-  // const [menorDif, setMenorDif] = useState(5000)
-  const [listaSalidas, setListaSalidas] = useState()
+  const [horaActualEnMinutos, setHoraActualEnMinutos] = useState(null);
+  const [indiceDeBusqueda, setIndiceDeBusqueda] = useState(null);
+
+  const refs = useRef([]); 
 
   // const diasDeLaSemana = [
   //   "domingo",
@@ -73,14 +75,6 @@ const Horarios = () => {
     setGrillaDefinitiva(data)
   }
 
-  // const definirLaMenorDiferencia = salida => {
-  //     const horaSalidaEnMinutos = (Math.trunc(salida) * 60);
-  //     const minutosSalida = (((salida) - horaSalidaEnMinutos) * 100);
-  //     const horaDeSalidaEnMinutos = horaDeSalidaEnMinutos + minutosSalida;
-     
-  //     if(Math.abs(horaDeSalidaEnMinutos))
-  // }
-
   useEffect(() => {
     idaVuelta !== null && setMenuCiudadVisible(true);
     ciudadOrigen !== null &&
@@ -98,30 +92,31 @@ const Horarios = () => {
           setDiaEnLetras('lunesAViernes')
           break;
       }
-  }, [idaVuelta, ciudadOrigen,dia]);
+      setHoraActualEnMinutos(hora * 60 + minutes)
+  }, [idaVuelta, ciudadOrigen,dia, hora, minutes]);
 
-//   const definirLaMenorDif = salida => {
-
-//     const horaAMinutos = (Math.trunc(hora) * 60);
-//     const horaActualAMinutos = horaAMinutos + minutes;
-
-//     const horaSalidaAMinutos = (Math.trunc(salida) * 60);
-//     const minutosSalidaAMinutos = ((salida - horaSalidaAMinutos) * 100 );
-//     const horarioSalidaAMinutos = horaSalidaAMinutos + minutosSalidaAMinutos;
-//     const diferenciaHoraria = horarioSalidaAMinutos - horaActualAMinutos;
-//     diferenciaHoraria < menorDif && setMenorDif(diferenciaHoraria);
-// }
+  const truncarNumero = num => {return Math.trunc(num)}
 
   useEffect(() => {
     const salidas = grillaDefinitiva.map( objeto => 
-      objeto.salida);
-    setListaSalidas(salidas);
-    console.log(grillaDefinitiva)
-  },[grillaDefinitiva, hora, minutes, grillaDefinitiva]);
+      (truncarNumero((truncarNumero(objeto.salida) * 60) + ((objeto.salida - truncarNumero(objeto.salida)) * 100)) - horaActualEnMinutos));
+      if(salidas.length > 0) {
+      const masCercano = salidas.reduce((a, b) => {
+        return Math.abs(a) < Math.abs(b) ? a : b;
+    })
+    setIndiceDeBusqueda(salidas.indexOf(masCercano))};
+    
+  },[grillaDefinitiva, horaActualEnMinutos]);
 
   useEffect(() => {
-    
-  },[listaSalidas])
+        if (refs.current[indiceDeBusqueda]) {
+          setTimeout(() => {
+            refs.current[indiceDeBusqueda].scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 750);
+          
+        }
+  },[indiceDeBusqueda])
+
 
   return (
     <div className="container-screen">
@@ -156,14 +151,15 @@ const Horarios = () => {
         {/* <p>{diaEnLetras}{idaVuelta}</p> */}
         <div className={ciudadOrigen !== null ? 'container-resultadoshorarios animacionresultadoshorarios' : 'container-resultadoshorarios'}>
             <div className="container-horarios">
-              {grillaDefinitiva.map ( servicio => (
+              {grillaDefinitiva.map ( (servicio , index) => (
                 <Horario 
-                index = {grillaDefinitiva.indexOf(servicio)}
+                key={index}
                 nombre={servicio.nombre}
                 horaSalida={servicio.salida}
                 recorrido={servicio.recorrido}
                 horaActual={hora}
-                minutosActuales={minutes}/>
+                minutosActuales={minutes}
+                ref={el => refs.current[index] = el} />
               ))}
             </div>
         </div>

@@ -187,19 +187,19 @@ export const OrigenDestino = ({
     if(idaVuelta === 'idas'){
       if(diaRango === 'lunesAViernes'){switchearGrillaLunesAViernesIda();}
       if(diaRango === 'sabados'){switchearGrillaSabadosIda();}
-      else{switchearGrillaDomingosIda()}
+      if(diaRango === 'domingos'){switchearGrillaDomingosIda();}
 
     }
     else{
       if(diaRango === 'lunesAViernes'){switchearGrillaLunesAViernesVuelta()}
       if(diaRango === 'sabados'){switchearGrillaSabadosVuelta()}
-      else{switchearGrillaDomingosVuelta()}
+      if(diaRango === 'domingos'){switchearGrillaDomingosVuelta();}
     }
   };
 
   useEffect(() => {
     ciudadOrigen === nombre && setCiudadClickeada(true);
-  }, [ciudadOrigen, nombre,grillaDefinitiva,diaRango]);
+  }, [ciudadOrigen, nombre,grillaDefinitiva]);
 
 
   return (
