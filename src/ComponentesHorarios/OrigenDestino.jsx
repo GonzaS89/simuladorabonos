@@ -199,7 +199,7 @@ export const OrigenDestino = ({
 
   useEffect(() => {
     ciudadOrigen === nombre && setCiudadClickeada(true);
-  }, [ciudadOrigen, nombre,grillaDefinitiva]);
+  }, [ciudadOrigen, nombre,grillaDefinitiva,diaRango]);
 
 
   return (

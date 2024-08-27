@@ -26,7 +26,8 @@ const Horarios = () => {
   const [ciudadOrigen, setCiudadOrigen] = useState(null);
   const [menuCiudadVisible, setMenuCiudadVisible] = useState(false);
   const [grillaDefinitiva, setGrillaDefinitiva] = useState([]);
-  // const [difMinutos, setDifMinutos] = useState([]);
+  // const [menorDif, setMenorDif] = useState(5000)
+  const [listaSalidas, setListaSalidas] = useState()
 
   // const diasDeLaSemana = [
   //   "domingo",
@@ -91,14 +92,28 @@ const Horarios = () => {
       }
   }, [idaVuelta, ciudadOrigen,dia]);
 
-  // const recibirMinutosDif = min => {
-  //   setDifMinutos(prevDifMinutos => [])
-  // }
+//   const definirLaMenorDif = salida => {
+
+//     const horaAMinutos = (Math.trunc(hora) * 60);
+//     const horaActualAMinutos = horaAMinutos + minutes;
+
+//     const horaSalidaAMinutos = (Math.trunc(salida) * 60);
+//     const minutosSalidaAMinutos = ((salida - horaSalidaAMinutos) * 100 );
+//     const horarioSalidaAMinutos = horaSalidaAMinutos + minutosSalidaAMinutos;
+//     const diferenciaHoraria = horarioSalidaAMinutos - horaActualAMinutos;
+//     diferenciaHoraria < menorDif && setMenorDif(diferenciaHoraria);
+// }
 
   useEffect(() => {
-    const salidas = grillaDefinitiva.map( objeto => objeto.salida);
-    console.log(salidas)
-  },[grillaDefinitiva])
+    const salidas = grillaDefinitiva.map( objeto => 
+      objeto.salida);
+    setListaSalidas(salidas);
+    console.log(grillaDefinitiva)
+  },[grillaDefinitiva, hora, minutes, grillaDefinitiva]);
+
+  useEffect(() => {
+    
+  },[listaSalidas])
 
   return (
     <div className="container-screen">
