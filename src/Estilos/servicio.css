@@ -16,7 +16,6 @@
 
 .servicioopacoychico{
     filter: opacity(.3);
-    transform: scale(.8);
 }
 
 .serviciovisibleynormal{
@@ -24,8 +23,8 @@
 }
 
 @keyframes normalizarservicio{
-    from{filter: opacity(.3); transform:scale(.9)}
-    to{filter: opacity(1); transform: scale(1);}
+    from{filter: opacity(.3)}
+    to{filter: opacity(1)}
 }
 
 .serviciodereferencia{
