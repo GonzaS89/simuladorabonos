@@ -2,12 +2,15 @@ import React, { useEffect, useState, forwardRef} from 'react';
 import '../Estilos/servicio.css';
 import { Paradas } from './Paradas';
 
-export const Horario = forwardRef (({horaSalida, recorrido, horaActual, minutosActuales}, ref) => {
+export const Horario = forwardRef (({horaSalida, recorrido, horaActual, minutosActuales, index,indiceDeBusqueda, claseNormalizadora}, ref ) => {
 
   const [minutosDif, setMinutosDif] = useState(null);
   const [horaSalidaEnMinutos, setHoraSalidaEnMInutos] = useState(null);
   const [horaActualEnMinutos, setHoraActualEnMinutos] = useState(null);
   const [lengthRecorrido, setLengthRecorrido] = useState(null);
+  const [claseServicioReferido, setClaseServicioRefereido] = useState('containerservicio serviciodereferencia');
+  const [claseServicioNoReferido, setClaseServicioNoRefereido] = useState('containerservicio servicioopacoychico')
+
 
   useEffect(() => {
     setHoraSalidaEnMInutos((Math.trunc(horaSalida) * 60) + ((horaSalida - Math.trunc(horaSalida)) * 100));
@@ -15,6 +18,12 @@ export const Horario = forwardRef (({horaSalida, recorrido, horaActual, minutosA
     setMinutosDif(Math.round(horaSalidaEnMinutos - horaActualEnMinutos));
     setLengthRecorrido(recorrido.length);
   }, [horaSalida, horaActual, minutosActuales, horaActualEnMinutos, horaSalidaEnMinutos, recorrido]);
+
+useEffect(() => {
+  if(claseNormalizadora !== null){
+      setClaseServicioNoRefereido(claseNormalizadora)
+      setClaseServicioRefereido(claseNormalizadora)}
+},[claseNormalizadora])
 
   const definirMensaje = () => {
     if (minutosDif < -60) { return 'Inició recorrido hace mas de una hora' }
@@ -29,7 +38,7 @@ export const Horario = forwardRef (({horaSalida, recorrido, horaActual, minutosA
 }
 
 return (
-  <div className="containerservicio" ref={ref}>
+  <div className={index === indiceDeBusqueda ? claseServicioReferido : claseServicioNoReferido} ref={ref}>
     <div className="container-panelIzquierdo">
     <p className="servicionombre">{Math.trunc(horaSalida) < 10 ? `0${Math.trunc(horaSalida)}` : Math.trunc(horaSalida)}</p>
     <p className="servicionombre">{Math.trunc((horaSalida - Math.trunc(horaSalida)) * 100) < 10 ? `0${Math.trunc((horaSalida.toFixed(2) - Math.trunc(horaSalida)) * 100)}` : Math.trunc((horaSalida.toFixed(2) - Math.trunc(horaSalida)) * 100)}</p>

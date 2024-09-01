@@ -28,6 +28,7 @@ const Horarios = () => {
   const [grillaDefinitiva, setGrillaDefinitiva] = useState([]);
   const [horaActualEnMinutos, setHoraActualEnMinutos] = useState(null);
   const [indiceDeBusqueda, setIndiceDeBusqueda] = useState(null);
+  const [claseNormalizadora, setClaseNormalizadora] = useState(null);
 
   const refs = useRef([]); 
 
@@ -117,7 +118,9 @@ const Horarios = () => {
         }
   },[indiceDeBusqueda])
 
-
+const normalizarResultados = () => {
+    setClaseNormalizadora('containerservicio serviciovisibleynormal')
+  }
   return (
     <div className="container-screen">
       <div className="container-main-horarios">
@@ -150,7 +153,7 @@ const Horarios = () => {
         </div>
         {/* <p>{diaEnLetras}{idaVuelta}</p> */}
         <div className={ciudadOrigen !== null ? 'container-resultadoshorarios animacionresultadoshorarios' : 'container-resultadoshorarios'}>
-            <div className="container-horarios">
+            <div className="container-horarios" onTouchMove={normalizarResultados}>
               {grillaDefinitiva.map ( (servicio , index) => (
                 <Horario 
                 key={index}
@@ -159,6 +162,9 @@ const Horarios = () => {
                 recorrido={servicio.recorrido}
                 horaActual={hora}
                 minutosActuales={minutes}
+                indiceDeBusqueda={indiceDeBusqueda}
+                index={index}
+                claseNormalizadora = {claseNormalizadora}
                 ref={el => refs.current[index] = el} />
               ))}
             </div>

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Matemasie&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
 
 .containerservicio{
     display: flex;
@@ -12,6 +13,29 @@
     /* border-radius: 15px; */
     /* padding: 10px 10px; */
     box-shadow: 10px 10px #2E073F;    
+    font-family: "Suez One", serif;
+}
+
+.servicioopacoychico{
+    filter: opacity(.3);
+}
+
+.serviciovisibleynormal{
+    animation: normalizarservicio .75s ease-out forwards;
+}
+
+@keyframes normalizarservicio{
+    from{filter: opacity(.3);}
+    to{filter: opacity(1)}
+}
+
+.serviciodereferencia{
+    filter: opacity(1);
+    animation: zoomearservicio .75s linear alternate-reverse infinite;
+}
+
+@keyframes zoomearservicio{
+    100%{transform: scale(1.05);}
 }
 
 .servicionombre, .serviciohora, .serviciorecorrido{
@@ -22,7 +46,6 @@
     font-weight: bold;
     font-size: 45px;
     height: 50px;
-    font-family: "Matemasie", sans-serif;
 }
 
 
@@ -45,8 +68,9 @@
     justify-content: center;
     height: 100%;
     flex-basis: 25%;
-    background-color:#F5EDED;
+    background-color:#F8F9D7;
     && h3{
+        font-family: "Suez One", serif;
         font-size:23px
     }
 }
@@ -55,9 +79,10 @@
     flex-basis: 75%;
     height: 100%;
     overflow: hidden;
-    background-color: #F5004F;
+    background-color: #A91D3A;
     color: white;
-    font-family: "Edu VIC WA NT Beginner", cursive;
+    font-weight: 200;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .estadodelservicio{
@@ -103,7 +128,7 @@
     height: 17.5px;
     min-width: 120px;
     background-color: white;
-    font-size: 10px;
+    font-size: 9px;
     text-transform: uppercase;
     padding: 5px;
     font-weight: bold;
