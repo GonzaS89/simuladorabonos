@@ -1,61 +1,103 @@
 // import "./App.css";
-import React, { useState, useEffect } from 'react';
-import '../Estilos/screens.css';
-import Puntos from '../ComponentesAbonos/Puntos';
-import Cantidaddeviajes from '../ComponentesAbonos/Cantidaddeviajes';
-import Categorias from '../ComponentesAbonos/Categorias';
-import Cotizador from '../ComponentesAbonos/Resultadocotizacion';
-import Listalocalidades from '../ComponentesAbonos/Listadelocalidades';
+import React, { useState, useEffect } from "react";
+import localidades from "../localidades.json";
+import "../Estilos/abonos.css";
+import Puntos from "../ComponentesAbonos/Puntos";
+import Cantidaddeviajes from "../ComponentesAbonos/Cantidaddeviajes";
+import Categorias from "../ComponentesAbonos/Categorias";
+import Cotizador from "../ComponentesAbonos/Resultadocotizacion";
+import Listalocalidades from "../ComponentesAbonos/Listadelocalidades";
+import { OpcionLocalidad } from "../ComponentesAbonos/OpcionLocalidad";
+import { NumerosDeViajes } from "../ComponentesAbonos/NumerosDeViajes";
+import { Tipodetarifa } from "../ComponentesAbonos/Tipodetarifa";
 
 const Abonos = () => {
-    const [origenODestino, setOrigenODestino] = useState(null);
-    const [menuDesplegado, setMenuDesplegado] = useState(false);
-    const [localidadOrigen, setLocalidadOrigen] = useState(null);
-    const [localidadDestino, setLocalidadDestino] = useState(null);
-    const [viajesIngresados, setViajesIngresados] = useState(null);
-    const [categoriaRecibida, setCategoriaRecibida] = useState('');
+  const [origenODestino, setOrigenODestino] = useState(null);
+  const [menuDesplegado, setMenuDesplegado] = useState(false);
+  const [localidadOrigen, setLocalidadOrigen] = useState(null);
+  const [localidadDestino, setLocalidadDestino] = useState(null);
+  const [viajesIngresados, setViajesIngresados] = useState(null);
+  const [categoriaRecibida, setCategoriaRecibida] = useState("");
 
-    const recibirConfirmacionDeMenuDesplegado = (condicion) => {
-        setMenuDesplegado(condicion);
-    }
+  const recibirConfirmacionDeMenuDesplegado = (condicion) => {
+    setMenuDesplegado(condicion);
+  };
 
-    const puntoElegido = (punto) => {
-        setOrigenODestino(punto)
-    }
+  const puntoElegido = (punto) => {
+    setOrigenODestino(punto);
+  };
 
-    const OcultarMenuLocalidades = () => {
-        setMenuDesplegado(false)
-    }
+  const OcultarMenuLocalidades = () => {
+    setMenuDesplegado(false);
+  };
 
-    useEffect(() => {
-        localidadOrigen !== null && setMenuDesplegado(false);
-        localidadDestino !== null && setMenuDesplegado(false);
-    }, [localidadOrigen, localidadDestino])
+  useEffect(() => {
+    localidadOrigen !== null && setMenuDesplegado(false);
+    localidadDestino !== null && setMenuDesplegado(false);
+  }, [localidadOrigen, localidadDestino]);
 
-    const recepcionLocalidad = (localidad) => {
-        origenODestino === 'origen' ?
-            setLocalidadOrigen(localidad) :
-            setLocalidadDestino(localidad)
-    }
+  const recepcionLocalidad = (localidad) => {
+    origenODestino === "origen"
+      ? setLocalidadOrigen(localidad)
+      : setLocalidadDestino(localidad);
+  };
 
-    const recibirViajesIngresados = viajes => {
-        setViajesIngresados(viajes)
-    }
+  const recibirViajesIngresados = (viajes) => {
+    setViajesIngresados(viajes);
+  };
 
-    useEffect(() => {
-        menuDesplegado && setViajesIngresados(0)
-    }, [menuDesplegado]);
+  useEffect(() => {
+    menuDesplegado && setViajesIngresados(0);
+  }, [menuDesplegado]);
 
-    const recibirCategoria = categoria => {
-        setCategoriaRecibida(categoria)
-    }
+  const recibirCategoria = (categoria) => {
+    setCategoriaRecibida(categoria);
+  };
 
-    return (
-        <div className="container-screen">
-            <div className="container-principal">
-                <h1 className="titulo-principal">Cotizador de abonos</h1>
-                <div className="container-salida-llegada">
-                    <Puntos
+  return (
+    <div className="container-screen">
+      <div className="container-principal">
+        <h1 className="titulo-principal">Calculá el precio de tu abono</h1>
+        <div className="container-salida">
+          <h1 className="titulo-container-salida">Origen</h1>
+          <div className="container-opciones-salida">
+            {localidades.map((localidad, index) => (
+              <OpcionLocalidad key={index} nombre={localidad.nombre} />
+            ))}
+          </div>
+          <h1 className="titulo-container-salida">Destino</h1>
+          <div className="container-opciones-salida">
+            {localidades.map((localidad, index) => (
+              <OpcionLocalidad key={index} nombre={localidad.nombre} />
+            ))}
+          </div>
+          <div className="cantidaddeviajes">
+            <h1>Cantidad de viajes</h1>
+            <div className="container-principal-numviajes">
+              <div className="container-opciones-viajes">
+                <NumerosDeViajes numero={8} />
+                <NumerosDeViajes numero={16} />
+                <NumerosDeViajes numero={22} />
+                <NumerosDeViajes numero={44} />
+              </div>
+              <div className="opcion-viajes-manual">
+                <input
+                  className="container-viajes"
+                  type="num"
+                  placeholder="¿...?"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="container-tipodetarifa">
+            <h1>Tipo de tarifa</h1>
+            <div className="container-categoriatarifa">
+              <Tipodetarifa tarifa={"Empleados"} />
+              <Tipodetarifa tarifa={"Estudiantes"} />
+            </div>
+          </div>
+          <div className="botonabonos">Calcular</div>
+          {/* <Puntos
                         listaDeLocalidadesDesplegada={recibirConfirmacionDeMenuDesplegado}
                         nombre={'origen'}
                         puntoElegido={puntoElegido}
@@ -66,31 +108,33 @@ const Abonos = () => {
                         nombre={'destino'}
                         puntoElegido={puntoElegido}
                         origenODestino={origenODestino}
-                        localidadDestino={localidadDestino} />
-                </div>
-                <Cantidaddeviajes
-                    viajesIngresados={recibirViajesIngresados}
-                    menuDesplegado={menuDesplegado} />
-                <Categorias
-                    categoriaSeleccionada={recibirCategoria} />
-                <Cotizador
-                    enviarViajesIngresados={viajesIngresados}
-                    localidadOrigen={localidadOrigen}
-                    localidadDestino={localidadDestino}
-                    categoria={categoriaRecibida} />
-            </div>
-            <Listalocalidades 
-                menuDesplegado={menuDesplegado}
-                puntoElegido={origenODestino}
-                localidadObtenida={recepcionLocalidad} />
-            <div
-                className={menuDesplegado ? "pantalla-difuminada mostrar" : "pantalla-difuminada"}
-                onClick={OcultarMenuLocalidades}></div>
+                        localidadDestino={localidadDestino} /> */}
         </div>
-
-
-    )
-}
+        {/* <Cantidaddeviajes
+                    viajesIngresados={recibirViajesIngresados}
+                    menuDesplegado={menuDesplegado} /> */}
+        {/* <Categorias
+                    categoriaSeleccionada={recibirCategoria} /> */}
+        <Cotizador
+          enviarViajesIngresados={viajesIngresados}
+          localidadOrigen={localidadOrigen}
+          localidadDestino={localidadDestino}
+          categoria={categoriaRecibida}
+        />
+      </div>
+      <Listalocalidades
+        menuDesplegado={menuDesplegado}
+        puntoElegido={origenODestino}
+        localidadObtenida={recepcionLocalidad}
+      />
+      <div
+        className={
+          menuDesplegado ? "pantalla-difuminada mostrar" : "pantalla-difuminada"
+        }
+        onClick={OcultarMenuLocalidades}
+      ></div>
+    </div>
+  );
+};
 
 export default Abonos;
-

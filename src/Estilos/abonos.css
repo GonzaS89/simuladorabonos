@@ -1,7 +1,151 @@
-.container-screen{
-    height: 100vh;
+.container-principal{
     width: 100%;
-    z-index: 50;
-    position: absolute;
-    top: 0;
+    height: 100%;
+    background-color:#0b2b66;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: white;
 }
+  
+  .titulo-principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    height: 15%;
+    color: white;
+    font-weight:100;
+    text-transform: uppercase;
+  }
+  
+  /* .container-salida-llegada{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  } */
+  
+.container-salida{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.titulo-container-salida{
+    font-size: 25px;
+    font-weight: 100;
+    width: 100%;
+    text-align: left;
+}
+
+.container-opciones-salida{
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    align-items: center;    
+    gap: 10px;
+}
+
+  .pantalla-difuminada{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.733);
+    position:absolute;
+    z-index: 50;
+    display: none;
+  }
+  
+  .mostrar{
+    display: block;
+  }
+
+  .cantidaddeviajes{
+    && h1{
+        text-align:left;
+        font-size: 25px;
+        font-weight: 100;
+    }
+  }
+
+  ::placeholder{
+    text-align-last: center;
+    color: black;
+    font-family: "Jockey One", sans-serif;
+  }
+
+  .container-principal-numviajes{
+    display: flex;
+  }
+
+  .container-opciones-viajes{
+    display: flex;
+    gap: 10px;
+  }
+
+  .container-viajes{
+    margin-top: 15px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    width: 40px;
+    height: 40px;
+    background-color:#D9D9D9;
+    border-radius:50%;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Jockey One", sans-serif;
+  }
+
+  .opcion-viajes-manual{
+    position: absolute;
+    right:0;
+    margin-right: 50px;
+  }
+
+  .container-tipodetarifa{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    && h1{
+        font-size:25px;
+        font-weight: 100;
+    }
+  }
+
+  .container-categoriatarifa{
+    display:flex;
+    gap: 10px;
+    color: black;
+  }
+
+  .containertarifa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    height: 30px;
+    width: 90px;
+    background-color: #D9D9D9;
+  }
+
+  .botonabonos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform:uppercase;
+    font-size: 30px;
+    color: white;
+    background-color: #EE4E4E;
+    height:70px;
+    width: 100%;
+    position: absolute;
+    bottom:0;
+    left: 0;
+  }
+  

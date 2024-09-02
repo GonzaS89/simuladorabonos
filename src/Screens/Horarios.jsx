@@ -113,7 +113,7 @@ const Horarios = () => {
         if (refs.current[indiceDeBusqueda]) {
           setTimeout(() => {
             refs.current[indiceDeBusqueda].scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }, 750Ñ);
+          }, 750);
           
         }
   },[indiceDeBusqueda])

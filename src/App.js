@@ -9,18 +9,21 @@ function App ( ) {
 
   return (
     <div className="App">
+      <div className="portada">
+      <img src={require('../src/IMG/Logo_sinfondo.png')} className="logo-portada"/>
       <Router>
         <div className="container-secciones">
+        <h1>Elegí un tipo de consulta</h1>
           <Link to="/abonos">
             <div className="seccion-boton">
+              <img src={require('../src/IMG/cupon-de-descuento.png')} alt=""/>
               <p>Abonos</p>
-              <img src={require('./Iconos/abonos.png')} alt=""/>
             </div>
           </Link>
           <Link to="/horarios">
             <div className="seccion-boton">
+              <img src={require('../src/IMG/parada-de-autobus.png')} alt=""/>
               <p>Horarios</p>
-              <img src={require('./Iconos/horarios.png')} alt=""/>
             </div>
           </Link>
         </div>
@@ -29,7 +32,7 @@ function App ( ) {
           <Route path="/horarios" element={<Horarios />}></Route>
         </Routes>
       </Router> 
-      {/* <Abonos /> */}
+      </div>
     </div>
   );
 }
