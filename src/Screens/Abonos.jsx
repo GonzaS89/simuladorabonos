@@ -10,6 +10,7 @@ import Listalocalidades from "../ComponentesAbonos/Listadelocalidades";
 import { OpcionLocalidad } from "../ComponentesAbonos/OpcionLocalidad";
 import { NumerosDeViajes } from "../ComponentesAbonos/NumerosDeViajes";
 import { Tipodetarifa } from "../ComponentesAbonos/Tipodetarifa";
+import { OpcionLocalidadDestino } from "../ComponentesAbonos/OpcionLocalidadDestino";
 
 const Abonos = () => {
   const [origenODestino, setOrigenODestino] = useState(null);
@@ -70,26 +71,26 @@ const Abonos = () => {
         setListaLocDestino(['llona', 'los ralos', 'las cejas', 'w. posse', 'el paraiso', 'la florida', 'colonia 4 (luisiana)', 'fortin']);
         break
 
-        case 'fila de la orilla':
-          setListaLocDestino(['w. posse', 'el paraiso', 'la florida', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman'])
-          break;
+      case 'fila de la orilla':
+        setListaLocDestino(['w. posse', 'el paraiso', 'la florida', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman'])
+        break;
 
-        case 'fila del medio':
-          setListaLocDestino(['w. posse','cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
-          break;
+      case 'fila del medio':
+        setListaLocDestino(['w. posse', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+        break;
 
-         case 'las cejas' :
-          setListaLocDestino(['las cejas', 'los ralos', 'llona', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
-          break;
-         
-        case 'llona':
-          setListaLocDestino(['w. posse', 'el paraiso', 'la florida','colonia 4 (luisiana)', 'cevil pozo', 'banda del rio sali','san miguel de tucuman']);
-          break;
-          case '7 de abril':
-            setListaLocDestino(['banda del rio sali', 'san miguel de tucuman'])
-            break
+      case 'las cejas':
+        setListaLocDestino(['las cejas', 'los ralos', 'llona', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+        break;
 
-          default:break;
+      case 'llona':
+        setListaLocDestino(['w. posse', 'el paraiso', 'la florida', 'colonia 4 (luisiana)', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+        break;
+      case '7 de abril':
+        setListaLocDestino(['banda del rio sali', 'san miguel de tucuman'])
+        break
+
+      default: break;
     }
   }, [localidadOrigen, localidadDestino]);
 
@@ -115,6 +116,10 @@ const Abonos = () => {
     setLocalidadOrigen(localidad);
   };
 
+  const recibirLocalidadDestino = localidad => {
+    setLocalidadDestino(localidad)
+  }
+
   return (
     <div className="container-screen">
       <div className="container-principal">
@@ -123,13 +128,13 @@ const Abonos = () => {
           <h1 className="titulo-container-salida">Origen</h1>
           <div className="container-opciones-salida">
             {localidades.map((localidad, index) => (
-              <OpcionLocalidad key={index} nombre={localidad.nombre} enviarLocalidad={recibirLocalidad} />
+              <OpcionLocalidad key={index} nombre={localidad.nombre} enviarLocalidad={recibirLocalidad} localidadOrigen={localidadOrigen}/>
             ))}
           </div>
           <h1 className="titulo-container-salida">Destino</h1>
           <div className="container-opciones-salida">
             {listaLocDestino.map((localidad, index) => (
-              <OpcionLocalidad key={index} nombre={localidad} />
+              <OpcionLocalidadDestino key={index} nombre={localidad} enviarLocalidadDestino={recibirLocalidadDestino} localidadDestino={localidadDestino}/>
             ))}
           </div>
           <div className="cantidaddeviajes">
