@@ -18,6 +18,7 @@ const Abonos = () => {
   const [localidadDestino, setLocalidadDestino] = useState(null);
   const [viajesIngresados, setViajesIngresados] = useState(null);
   const [categoriaRecibida, setCategoriaRecibida] = useState("");
+  const [listaLocDestino, setListaLocDestino] = useState(['cruz alta']);
 
   const recibirConfirmacionDeMenuDesplegado = (condicion) => {
     setMenuDesplegado(condicion);
@@ -31,9 +32,65 @@ const Abonos = () => {
     setMenuDesplegado(false);
   };
 
+
   useEffect(() => {
     localidadOrigen !== null && setMenuDesplegado(false);
     localidadDestino !== null && setMenuDesplegado(false);
+    switch (localidadOrigen) {
+
+      case 'la florida':
+        setListaLocDestino(['la florida', 'w. posse', 'alderetes', 'banda del rio sali', 'san miguel de tucuman', 'el paraiso', 'llona', 'cevil pozo', 'colonia 4 (luisiana)', 'fortin', 'el talar']);
+        break;
+
+      case 'w. posse':
+        setListaLocDestino(['llona', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman', 'la florida', 'fortin']);
+        break;
+
+      case 'el paraiso':
+        setListaLocDestino(['la florida', 'w. posse', 'llona', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+        break;
+
+      case 'colonia 4 (luisiana)':
+        setListaLocDestino(['la florida', 'el paraiso', 'w. posse', 'llona', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+        break;
+
+      case 'los ralos':
+        setListaLocDestino(['los ralos', 'llona', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+        break;
+
+      case 'cruz alta':
+        setListaLocDestino(['cruz alta', 'los ralos', 'llona', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+        break;
+
+      case 'el talar':
+        setListaLocDestino(['la florida', 'colonia 4 (luisiana)', 'alderetes', 'banda del rio sali', 'san miguel de tucuman'])
+        break;
+
+      case 'cevil pozo':
+        setListaLocDestino(['llona', 'los ralos', 'las cejas', 'w. posse', 'el paraiso', 'la florida', 'colonia 4 (luisiana)', 'fortin']);
+        break
+
+        case 'fila de la orilla':
+          setListaLocDestino(['w. posse', 'el paraiso', 'la florida', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman'])
+          break;
+
+        case 'fila del medio':
+          setListaLocDestino(['w. posse','cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+          break;
+
+         case 'las cejas' :
+          setListaLocDestino(['las cejas', 'los ralos', 'llona', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+          break;
+         
+        case 'llona':
+          setListaLocDestino(['w. posse', 'el paraiso', 'la florida','colonia 4 (luisiana)', 'cevil pozo', 'banda del rio sali','san miguel de tucuman']);
+          break;
+          case '7 de abril':
+            setListaLocDestino(['banda del rio sali', 'san miguel de tucuman'])
+            break
+
+          default:break;
+    }
   }, [localidadOrigen, localidadDestino]);
 
   const recepcionLocalidad = (localidad) => {
@@ -54,6 +111,10 @@ const Abonos = () => {
     setCategoriaRecibida(categoria);
   };
 
+  const recibirLocalidad = localidad => {
+    setLocalidadOrigen(localidad);
+  };
+
   return (
     <div className="container-screen">
       <div className="container-principal">
@@ -62,13 +123,13 @@ const Abonos = () => {
           <h1 className="titulo-container-salida">Origen</h1>
           <div className="container-opciones-salida">
             {localidades.map((localidad, index) => (
-              <OpcionLocalidad key={index} nombre={localidad.nombre} />
+              <OpcionLocalidad key={index} nombre={localidad.nombre} enviarLocalidad={recibirLocalidad} />
             ))}
           </div>
           <h1 className="titulo-container-salida">Destino</h1>
           <div className="container-opciones-salida">
-            {localidades.map((localidad, index) => (
-              <OpcionLocalidad key={index} nombre={localidad.nombre} />
+            {listaLocDestino.map((localidad, index) => (
+              <OpcionLocalidad key={index} nombre={localidad} />
             ))}
           </div>
           <div className="cantidaddeviajes">
