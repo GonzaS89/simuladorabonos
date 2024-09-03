@@ -134,7 +134,7 @@ const Abonos = () => {
           <h1 className="titulo-container-salida">Destino</h1>
           <div className="container-opciones-salida">
             {listaLocDestino.map((localidad, index) => (
-              <OpcionLocalidadDestino key={index} nombre={localidad} enviarLocalidadDestino={recibirLocalidadDestino} localidadDestino={localidadDestino}/>
+              <OpcionLocalidadDestino key={index} nombre={localidad} enviarLocalidadDestino={recibirLocalidadDestino} localidadDestino={localidadDestino} localidadOrigen={localidadOrigen}/>
             ))}
           </div>
           <div className="cantidaddeviajes">
