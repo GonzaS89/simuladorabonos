@@ -4,8 +4,8 @@ import {codigo06} from '../tarifas';
 
 export const CotizacionAbonos = ({ origen, destino, viajes, tarifa }) => {
 
-  const [precioNormal, setPrecioNormal] = useState(null);
-  const [precioDescuento, setPrecioDescuento] = useState(null);
+  const [precioNormal, setPrecioNormal] = useState();
+  const [precioDescuento, setPrecioDescuento] = useState();
 
   useEffect(() => {
     if(origen === 'la florida'){
@@ -30,7 +30,7 @@ export const CotizacionAbonos = ({ origen, destino, viajes, tarifa }) => {
             </div>
             <div className='container-descuento-precio'>
               <p className='texto-detalle-descuento'>Descuento para {tarifa}</p>
-              <p className='texto-precio-descuento'>- ${precioDescuento}</p>
+              <p className='texto-precio-descuento'>- $ {precioDescuento}</p>
             </div>
           </div>
           <div className='container-preciofinal'>
