@@ -14,7 +14,7 @@ export const OpcionLocalidadDestino = ({ nombre , enviarLocalidadDestino, locali
   }  
   useEffect(() => {
     localidadDestino === nombre ? setLocalidadClickeada(true) : setLocalidadClickeada(false)
-  },[localidadDestino])
+  },[localidadDestino, nombre])
 
   useEffect(() => {
     setLocalidadClickeada(false)

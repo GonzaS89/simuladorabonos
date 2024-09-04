@@ -11,7 +11,7 @@ export const NumerosDeViajes = ({
   const [opcionSelec, setOpcionSelec] = useState(false);
 
   const clickEnNumViaje = () => {
-    enviarNumViaje(numero);
+    enviarNumViaje(parseInt(numero));
   };
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export const NumerosDeViajes = ({
       ? setOpcionSelec(true)
       : setOpcionSelec(false);
       inputFocus && setOpcionSelec(false)
-  }, [viajesIngresados, inputFocus]);
+  }, [viajesIngresados, inputFocus, numero]);
 
   return (
     <div

@@ -2,38 +2,21 @@
 import React, { useState, useEffect } from "react";
 import localidades from "../localidades.json";
 import "../Estilos/abonos.css";
-import Puntos from "../ComponentesAbonos/Puntos";
-import Cantidaddeviajes from "../ComponentesAbonos/Cantidaddeviajes";
-import Categorias from "../ComponentesAbonos/Categorias";
-import Cotizador from "../ComponentesAbonos/Resultadocotizacion";
-import Listalocalidades from "../ComponentesAbonos/Listadelocalidades";
 import { OpcionLocalidad } from "../ComponentesAbonos/OpcionLocalidad";
 import { NumerosDeViajes } from "../ComponentesAbonos/NumerosDeViajes";
 import { Tipodetarifa } from "../ComponentesAbonos/Tipodetarifa";
 import { OpcionLocalidadDestino } from "../ComponentesAbonos/OpcionLocalidadDestino";
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { CotizacionAbonos } from "../ComponentesAbonos/CotizacionAbonos";
+import { Link } from 'react-router-dom';
 
-const Abonos = () => {
-  const [origenODestino, setOrigenODestino] = useState(null);
+const Abonos = ({enviarParametrosAbonos}) => {
   const [menuDesplegado, setMenuDesplegado] = useState(false);
   const [localidadOrigen, setLocalidadOrigen] = useState(null);
   const [localidadDestino, setLocalidadDestino] = useState(null);
   const [viajesIngresados, setViajesIngresados] = useState(null);
-  const [categoriaRecibida, setCategoriaRecibida] = useState("");
   const [listaLocDestino, setListaLocDestino] = useState(null);
   const [inputFocus, setInputFocus] = useState(false);
   const [tarifaElegida, setTarifaElegida] = useState(null);
 
-  const listaVacia = ['','', '','',]
-
-  const recibirConfirmacionDeMenuDesplegado = (condicion) => {
-    setMenuDesplegado(condicion);
-  };
-
-  const puntoElegido = (punto) => {
-    setOrigenODestino(punto);
-  };
 
   const OcultarMenuLocalidades = () => {
     setMenuDesplegado(false);
@@ -203,17 +186,11 @@ const Abonos = () => {
           "la marta",
           "finca mayo",
         ]);
-
+        break;
       default:
         break;
     }
   }, [localidadOrigen, localidadDestino]);
-
-  const recepcionLocalidad = (localidad) => {
-    origenODestino === "origen"
-      ? setLocalidadOrigen(localidad)
-      : setLocalidadDestino(localidad);
-  };
 
   const recibirNumViaje = (viajes) => {
     setViajesIngresados(viajes);
@@ -223,10 +200,6 @@ const Abonos = () => {
   useEffect(() => {
     menuDesplegado && setViajesIngresados(0);
   }, [menuDesplegado]);
-
-  const recibirCategoria = (categoria) => {
-    setCategoriaRecibida(categoria);
-  };
 
   const recibirLocalidad = (localidad) => {
     setLocalidadOrigen(localidad);
@@ -248,7 +221,7 @@ const Abonos = () => {
     <div className="container-screen">
       <div className="container-principal">
         <div className="logo-fondo"></div>
-      <h1 className="titulo-principal">Calculá el precio de tu abono</h1>
+        <h1 className="titulo-principal">Calculá el precio de tu abono</h1>
         <div className="container-origendestino">
           <div className="container-salida">
             <h1 className="titulo-container-salida">Origen</h1>
@@ -262,8 +235,8 @@ const Abonos = () => {
                 />
               ))}
             </div>
-            </div>
-            <div className={localidadOrigen !== null ? 'container-destino' : 'hidden'}>
+          </div>
+          <div className={localidadOrigen !== null ? 'container-destino' : 'hidden'}>
             <h1 className="titulo-container-salida">Destino</h1>
             <div className="container-opciones-salida">
               {listaLocDestino !== null &&
@@ -278,9 +251,9 @@ const Abonos = () => {
                 ))}
             </div>
           </div>
-          </div>
-                <div className="container-viajes-tarifa">
-                <div className="cantidaddeviajes">
+        </div>
+        <div className="container-viajes-tarifa">
+          <div className="cantidaddeviajes">
             <h1>Cantidad de viajes</h1>
             <div className="container-principal-numviajes">
               <div className="container-opciones-viajes">
@@ -324,52 +297,24 @@ const Abonos = () => {
             <h1>Tipo de tarifa</h1>
             <div className="container-categoriatarifa">
               <Tipodetarifa
-                tarifa={"Empleados"}
+                tarifa={"empleados"}
                 enviarTarifa={recibirTarifa}
                 tarifaElegida={tarifaElegida}
               />
               <Tipodetarifa
-                tarifa={"Estudiantes"}
+                tarifa={"estudiantes"}
                 enviarTarifa={recibirTarifa}
                 tarifaElegida={tarifaElegida}
               />
             </div>
           </div>
-                </div>
-          
-          
-          {/* <Puntos
-                        listaDeLocalidadesDesplegada={recibirConfirmacionDeMenuDesplegado}
-                        nombre={'origen'}
-                        puntoElegido={puntoElegido}
-                        origenODestino={origenODestino}
-                        localidadOrigen={localidadOrigen} />
-                    <Puntos
-                        listaDeLocalidadesDesplegada={recibirConfirmacionDeMenuDesplegado}
-                        nombre={'destino'}
-                        puntoElegido={puntoElegido}
-                        origenODestino={origenODestino}
-                        localidadDestino={localidadDestino} /> */}
-        
-        {/* <Cantidaddeviajes
-                    viajesIngresados={recibirViajesIngresados}
-                    menuDesplegado={menuDesplegado} /> */}
-        {/* <Categorias
-                    categoriaSeleccionada={recibirCategoria} /> */}
-        <Cotizador
-          enviarViajesIngresados={viajesIngresados}
-          localidadOrigen={localidadOrigen}
-          localidadDestino={localidadDestino}
-          categoria={categoriaRecibida}
-        />
+        </div>
+  
       </div>
-          <div className="botonabonos">Calcular</div>
-      <Listalocalidades
-        menuDesplegado={menuDesplegado}
-        puntoElegido={origenODestino}
-        localidadObtenida={recepcionLocalidad}
-      />
-      <CotizacionAbonos numViajes={viajesIngresados}/>
+      <Link to="/cotizacion">
+        <div className="botonabonos" onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados,tarifaElegida)}>Calcular</div>
+      </Link>
+
       <div
         className={
           menuDesplegado ? "pantalla-difuminada mostrar" : "pantalla-difuminada"
@@ -377,7 +322,7 @@ const Abonos = () => {
         onClick={OcultarMenuLocalidades}
       ></div>
     </div>
-    
+
   );
 };
 

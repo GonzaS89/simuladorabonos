@@ -13,7 +13,7 @@ export const Tipodetarifa = ({ tarifa, enviarTarifa, tarifaElegida }) => {
     tarifaElegida === tarifa
       ? setTarifaClickeada(true)
       : setTarifaClickeada(false);
-  }, [tarifaElegida]);
+  }, [tarifaElegida, tarifa]);
 
   return (
          <div
