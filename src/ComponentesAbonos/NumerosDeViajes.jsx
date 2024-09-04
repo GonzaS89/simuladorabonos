@@ -1,8 +1,36 @@
-import React from 'react';
-import '../Estilos/abonos.css'
+import React, { useEffect, useState } from "react";
+import "../Estilos/abonos.css";
 
-export const NumerosDeViajes = ( {numero} ) => {
+export const NumerosDeViajes = ({
+  numero,
+  enviarNumViaje,
+  viajesIngresados,
+  inputFocus,
+}) => {
+  const [opcionSelec, setOpcionSelec] = useState(false);
+
+  const clickEnNumViaje = () => {
+    enviarNumViaje(numero);
+  };
+
+  useEffect(() => {
+    numero === viajesIngresados ? setOpcionSelec(true) : setOpcionSelec(false);
+  }, [viajesIngresados]);
+
+  useEffect(() => {
+    inputFocus ? setOpcionSelec(false) : setOpcionSelec(true);
+  }, [inputFocus]);
+
   return (
-    <div className="container-viajes">{numero}</div>
-  )
-}
+    <div
+      className={
+        opcionSelec
+          ? "container-viajes viajesSeleccionados"
+          : "container-viajes"
+      }
+      onClick={clickEnNumViaje}
+    >
+      {numero}
+    </div>
+  );
+};

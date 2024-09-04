@@ -70,6 +70,7 @@
     }
   }
 
+
   ::placeholder{
     text-align-last: center;
     color: black;
@@ -98,6 +99,11 @@
     font-size: 20px;
     text-align: center;
     font-family: "Jockey One", sans-serif;
+  }
+
+  .viajesSeleccionados{
+    background-color: black;
+    color: #d9d9d9;
   }
 
   .opcion-viajes-manual{

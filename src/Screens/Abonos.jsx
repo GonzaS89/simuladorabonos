@@ -19,9 +19,10 @@ const Abonos = () => {
   const [localidadDestino, setLocalidadDestino] = useState(null);
   const [viajesIngresados, setViajesIngresados] = useState(null);
   const [categoriaRecibida, setCategoriaRecibida] = useState("");
-  const [listaLocDestino, setListaLocDestino] = useState(['cruz alta']);
+  const [listaLocDestino, setListaLocDestino] = useState(null);
+  const [inputFocus, setInputFocus] = useState(false);
 
-  const recibirConfirmacionDeMenuDesplegado = (condicion) => {
+  const recibirConfirmacionDeMenuDesplegado = condicion => {
     setMenuDesplegado(condicion);
   };
 
@@ -33,64 +34,152 @@ const Abonos = () => {
     setMenuDesplegado(false);
   };
 
-
   useEffect(() => {
     localidadOrigen !== null && setMenuDesplegado(false);
     localidadDestino !== null && setMenuDesplegado(false);
     switch (localidadOrigen) {
-
-      case 'la florida':
-        setListaLocDestino(['la florida', 'w. posse', 'alderetes', 'banda del rio sali', 'san miguel de tucuman', 'el paraiso', 'llona', 'cevil pozo', 'colonia 4 (luisiana)', 'fortin', 'el talar']);
+      case "la florida":
+        setListaLocDestino([
+          "la florida",
+          "w. posse",
+          "alderetes",
+          "banda del rio sali",
+          "san miguel de tucuman",
+          "el paraiso",
+          "llona",
+          "cevil pozo",
+          "colonia 4 (luisiana)",
+          "fortin",
+          "el talar",
+        ]);
         break;
 
-      case 'w. posse':
-        setListaLocDestino(['llona', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman', 'la florida', 'fortin']);
+      case "w. posse":
+        setListaLocDestino([
+          "llona",
+          "cevil pozo",
+          "banda del rio sali",
+          "san miguel de tucuman",
+          "la florida",
+          "fortin",
+        ]);
         break;
 
-      case 'el paraiso':
-        setListaLocDestino(['la florida', 'w. posse', 'llona', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+      case "el paraiso":
+        setListaLocDestino([
+          "la florida",
+          "w. posse",
+          "llona",
+          "cevil pozo",
+          "banda del rio sali",
+          "san miguel de tucuman",
+        ]);
         break;
 
-      case 'colonia 4 (luisiana)':
-        setListaLocDestino(['la florida', 'el paraiso', 'w. posse', 'llona', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+      case "colonia 4 (luisiana)":
+        setListaLocDestino([
+          "la florida",
+          "el paraiso",
+          "w. posse",
+          "llona",
+          "cevil pozo",
+          "banda del rio sali",
+          "san miguel de tucuman",
+        ]);
         break;
 
-      case 'los ralos':
-        setListaLocDestino(['los ralos', 'llona', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+      case "los ralos":
+        setListaLocDestino([
+          "los ralos",
+          "llona",
+          "cevil pozo",
+          "banda del rio sali",
+          "san miguel de tucuman",
+        ]);
         break;
 
-      case 'cruz alta':
-        setListaLocDestino(['cruz alta', 'los ralos', 'llona', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+      case "cruz alta":
+        setListaLocDestino([
+          "cruz alta",
+          "los ralos",
+          "llona",
+          "cevil pozo",
+          "banda del rio sali",
+          "san miguel de tucuman",
+        ]);
         break;
 
-      case 'el talar':
-        setListaLocDestino(['la florida', 'colonia 4 (luisiana)', 'alderetes', 'banda del rio sali', 'san miguel de tucuman'])
+      case "el talar":
+        setListaLocDestino([
+          "la florida",
+          "colonia 4 (luisiana)",
+          "alderetes",
+          "banda del rio sali",
+          "san miguel de tucuman",
+        ]);
         break;
 
-      case 'cevil pozo':
-        setListaLocDestino(['llona', 'los ralos', 'las cejas', 'w. posse', 'el paraiso', 'la florida', 'colonia 4 (luisiana)', 'fortin']);
-        break
-
-      case 'fila de la orilla':
-        setListaLocDestino(['w. posse', 'el paraiso', 'la florida', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman'])
+      case "cevil pozo":
+        setListaLocDestino([
+          "llona",
+          "los ralos",
+          "las cejas",
+          "w. posse",
+          "el paraiso",
+          "la florida",
+          "colonia 4 (luisiana)",
+          "fortin",
+        ]);
         break;
 
-      case 'fila del medio':
-        setListaLocDestino(['w. posse', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+      case "fila de la orilla":
+        setListaLocDestino([
+          "w. posse",
+          "el paraiso",
+          "la florida",
+          "cevil pozo",
+          "banda del rio sali",
+          "san miguel de tucuman",
+        ]);
         break;
 
-      case 'las cejas':
-        setListaLocDestino(['las cejas', 'los ralos', 'llona', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+      case "fila del medio":
+        setListaLocDestino([
+          "w. posse",
+          "cevil pozo",
+          "banda del rio sali",
+          "san miguel de tucuman",
+        ]);
         break;
 
-      case 'llona':
-        setListaLocDestino(['w. posse', 'el paraiso', 'la florida', 'colonia 4 (luisiana)', 'cevil pozo', 'banda del rio sali', 'san miguel de tucuman']);
+      case "las cejas":
+        setListaLocDestino([
+          "las cejas",
+          "los ralos",
+          "llona",
+          "cevil pozo",
+          "banda del rio sali",
+          "san miguel de tucuman",
+        ]);
         break;
-      case '7 de abril':
-        setListaLocDestino(['banda del rio sali', 'san miguel de tucuman'])
-        break
 
-      default: break;
+      case "llona":
+        setListaLocDestino([
+          "w. posse",
+          "el paraiso",
+          "la florida",
+          "colonia 4 (luisiana)",
+          "cevil pozo",
+          "banda del rio sali",
+          "san miguel de tucuman",
+        ]);
+        break;
+      case "7 de abril":
+        setListaLocDestino(["banda del rio sali", "san miguel de tucuman"]);
+        break;
+
+      default:
+        break;
     }
   }, [localidadOrigen, localidadDestino]);
 
@@ -100,7 +189,7 @@ const Abonos = () => {
       : setLocalidadDestino(localidad);
   };
 
-  const recibirViajesIngresados = (viajes) => {
+  const recibirNumViaje = (viajes) => {
     setViajesIngresados(viajes);
   };
 
@@ -112,13 +201,18 @@ const Abonos = () => {
     setCategoriaRecibida(categoria);
   };
 
-  const recibirLocalidad = localidad => {
+  const recibirLocalidad = (localidad) => {
     setLocalidadOrigen(localidad);
   };
 
-  const recibirLocalidadDestino = localidad => {
-    setLocalidadDestino(localidad)
-  }
+  const recibirLocalidadDestino = (localidad) => {
+    setLocalidadDestino(localidad);
+  };
+
+  const recibirNumViajeInput = (e) => {
+    setViajesIngresados(parseInt(e.target.value));
+  };
+
 
   return (
     <div className="container-screen">
@@ -128,29 +222,64 @@ const Abonos = () => {
           <h1 className="titulo-container-salida">Origen</h1>
           <div className="container-opciones-salida">
             {localidades.map((localidad, index) => (
-              <OpcionLocalidad key={index} nombre={localidad.nombre} enviarLocalidad={recibirLocalidad} localidadOrigen={localidadOrigen}/>
+              <OpcionLocalidad
+                key={index}
+                nombre={localidad.nombre}
+                enviarLocalidad={recibirLocalidad}
+                localidadOrigen={localidadOrigen}
+              />
             ))}
           </div>
           <h1 className="titulo-container-salida">Destino</h1>
           <div className="container-opciones-salida">
-            {listaLocDestino.map((localidad, index) => (
-              <OpcionLocalidadDestino key={index} nombre={localidad} enviarLocalidadDestino={recibirLocalidadDestino} localidadDestino={localidadDestino} localidadOrigen={localidadOrigen}/>
-            ))}
+            {listaLocDestino !== null &&
+              listaLocDestino.map((localidad, index) => (
+                <OpcionLocalidadDestino
+                  key={index}
+                  nombre={localidad}
+                  enviarLocalidadDestino={recibirLocalidadDestino}
+                  localidadDestino={localidadDestino}
+                  localidadOrigen={localidadOrigen}
+                />
+              ))}
           </div>
           <div className="cantidaddeviajes">
             <h1>Cantidad de viajes</h1>
             <div className="container-principal-numviajes">
               <div className="container-opciones-viajes">
-                <NumerosDeViajes numero={8} />
-                <NumerosDeViajes numero={16} />
-                <NumerosDeViajes numero={22} />
-                <NumerosDeViajes numero={44} />
+                <NumerosDeViajes
+                  numero={8}
+                  enviarNumViaje={recibirNumViaje}
+                  viajesIngresados={viajesIngresados}
+                  inputFocus = {inputFocus}
+                />
+                <NumerosDeViajes
+                  numero={16}
+                  enviarNumViaje={recibirNumViaje}
+                  viajesIngresados={viajesIngresados}
+                  inputFocus = {inputFocus}
+                />
+                <NumerosDeViajes
+                  numero={22}
+                  enviarNumViaje={recibirNumViaje}
+                  viajesIngresados={viajesIngresados}
+                  inputFocus = {inputFocus}
+                />
+                <NumerosDeViajes
+                  numero={44}
+                  enviarNumViaje={recibirNumViaje}
+                  viajesIngresados={viajesIngresados}
+                  inputFocus = {inputFocus}
+                />
               </div>
               <div className="opcion-viajes-manual">
                 <input
                   className="container-viajes"
                   type="num"
                   placeholder="¿...?"
+                  onChange={recibirNumViajeInput}
+                  onFocus={()=> setInputFocus(true)}
+                  onBlur={()=> setInputFocus(false)}
                 />
               </div>
             </div>
