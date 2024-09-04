@@ -11,6 +11,8 @@ import { OpcionLocalidad } from "../ComponentesAbonos/OpcionLocalidad";
 import { NumerosDeViajes } from "../ComponentesAbonos/NumerosDeViajes";
 import { Tipodetarifa } from "../ComponentesAbonos/Tipodetarifa";
 import { OpcionLocalidadDestino } from "../ComponentesAbonos/OpcionLocalidadDestino";
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { CotizacionAbonos } from "../ComponentesAbonos/CotizacionAbonos";
 
 const Abonos = () => {
   const [origenODestino, setOrigenODestino] = useState(null);
@@ -21,8 +23,11 @@ const Abonos = () => {
   const [categoriaRecibida, setCategoriaRecibida] = useState("");
   const [listaLocDestino, setListaLocDestino] = useState(null);
   const [inputFocus, setInputFocus] = useState(false);
+  const [tarifaElegida, setTarifaElegida] = useState(null);
 
-  const recibirConfirmacionDeMenuDesplegado = condicion => {
+  const listaVacia = ['','', '','',]
+
+  const recibirConfirmacionDeMenuDesplegado = (condicion) => {
     setMenuDesplegado(condicion);
   };
 
@@ -178,6 +183,27 @@ const Abonos = () => {
         setListaLocDestino(["banda del rio sali", "san miguel de tucuman"]);
         break;
 
+      case "san miguel de tucuman":
+        setListaLocDestino([
+          "la florida",
+          "w. posse",
+          "los ralos",
+          "cevil pozo",
+          "el paraiso",
+          "alderetes",
+          "el talar",
+          "banda del rio sali",
+          "fila del medio",
+          "fila de la orilla",
+          "fortin",
+          "colonia 4 (luisiana)",
+          "fortin",
+          "7 de abril",
+          "las cejas",
+          "la marta",
+          "finca mayo",
+        ]);
+
       default:
         break;
     }
@@ -191,6 +217,7 @@ const Abonos = () => {
 
   const recibirNumViaje = (viajes) => {
     setViajesIngresados(viajes);
+    setInputFocus(false);
   };
 
   useEffect(() => {
@@ -213,37 +240,47 @@ const Abonos = () => {
     setViajesIngresados(parseInt(e.target.value));
   };
 
+  const recibirTarifa = (tarifa) => {
+    setTarifaElegida(tarifa);
+  };
 
   return (
     <div className="container-screen">
       <div className="container-principal">
-        <h1 className="titulo-principal">Calculá el precio de tu abono</h1>
-        <div className="container-salida">
-          <h1 className="titulo-container-salida">Origen</h1>
-          <div className="container-opciones-salida">
-            {localidades.map((localidad, index) => (
-              <OpcionLocalidad
-                key={index}
-                nombre={localidad.nombre}
-                enviarLocalidad={recibirLocalidad}
-                localidadOrigen={localidadOrigen}
-              />
-            ))}
-          </div>
-          <h1 className="titulo-container-salida">Destino</h1>
-          <div className="container-opciones-salida">
-            {listaLocDestino !== null &&
-              listaLocDestino.map((localidad, index) => (
-                <OpcionLocalidadDestino
+        <div className="logo-fondo"></div>
+      <h1 className="titulo-principal">Calculá el precio de tu abono</h1>
+        <div className="container-origendestino">
+          <div className="container-salida">
+            <h1 className="titulo-container-salida">Origen</h1>
+            <div className="container-opciones-salida">
+              {localidades.map((localidad, index) => (
+                <OpcionLocalidad
                   key={index}
-                  nombre={localidad}
-                  enviarLocalidadDestino={recibirLocalidadDestino}
-                  localidadDestino={localidadDestino}
+                  nombre={localidad.nombre}
+                  enviarLocalidad={recibirLocalidad}
                   localidadOrigen={localidadOrigen}
                 />
               ))}
+            </div>
+            </div>
+            <div className={localidadOrigen !== null ? 'container-destino' : 'hidden'}>
+            <h1 className="titulo-container-salida">Destino</h1>
+            <div className="container-opciones-salida">
+              {listaLocDestino !== null &&
+                listaLocDestino.map((localidad, index) => (
+                  <OpcionLocalidadDestino
+                    key={index}
+                    nombre={localidad}
+                    enviarLocalidadDestino={recibirLocalidadDestino}
+                    localidadDestino={localidadDestino}
+                    localidadOrigen={localidadOrigen}
+                  />
+                ))}
+            </div>
           </div>
-          <div className="cantidaddeviajes">
+          </div>
+                <div className="container-viajes-tarifa">
+                <div className="cantidaddeviajes">
             <h1>Cantidad de viajes</h1>
             <div className="container-principal-numviajes">
               <div className="container-opciones-viajes">
@@ -251,25 +288,25 @@ const Abonos = () => {
                   numero={8}
                   enviarNumViaje={recibirNumViaje}
                   viajesIngresados={viajesIngresados}
-                  inputFocus = {inputFocus}
+                  inputFocus={inputFocus}
                 />
                 <NumerosDeViajes
                   numero={16}
                   enviarNumViaje={recibirNumViaje}
                   viajesIngresados={viajesIngresados}
-                  inputFocus = {inputFocus}
+                  inputFocus={inputFocus}
                 />
                 <NumerosDeViajes
                   numero={22}
                   enviarNumViaje={recibirNumViaje}
                   viajesIngresados={viajesIngresados}
-                  inputFocus = {inputFocus}
+                  inputFocus={inputFocus}
                 />
                 <NumerosDeViajes
                   numero={44}
                   enviarNumViaje={recibirNumViaje}
                   viajesIngresados={viajesIngresados}
-                  inputFocus = {inputFocus}
+                  inputFocus={inputFocus}
                 />
               </div>
               <div className="opcion-viajes-manual">
@@ -278,8 +315,7 @@ const Abonos = () => {
                   type="num"
                   placeholder="¿...?"
                   onChange={recibirNumViajeInput}
-                  onFocus={()=> setInputFocus(true)}
-                  onBlur={()=> setInputFocus(false)}
+                  onFocus={() => setInputFocus(true)}
                 />
               </div>
             </div>
@@ -287,11 +323,21 @@ const Abonos = () => {
           <div className="container-tipodetarifa">
             <h1>Tipo de tarifa</h1>
             <div className="container-categoriatarifa">
-              <Tipodetarifa tarifa={"Empleados"} />
-              <Tipodetarifa tarifa={"Estudiantes"} />
+              <Tipodetarifa
+                tarifa={"Empleados"}
+                enviarTarifa={recibirTarifa}
+                tarifaElegida={tarifaElegida}
+              />
+              <Tipodetarifa
+                tarifa={"Estudiantes"}
+                enviarTarifa={recibirTarifa}
+                tarifaElegida={tarifaElegida}
+              />
             </div>
           </div>
-          <div className="botonabonos">Calcular</div>
+                </div>
+          
+          
           {/* <Puntos
                         listaDeLocalidadesDesplegada={recibirConfirmacionDeMenuDesplegado}
                         nombre={'origen'}
@@ -304,7 +350,7 @@ const Abonos = () => {
                         puntoElegido={puntoElegido}
                         origenODestino={origenODestino}
                         localidadDestino={localidadDestino} /> */}
-        </div>
+        
         {/* <Cantidaddeviajes
                     viajesIngresados={recibirViajesIngresados}
                     menuDesplegado={menuDesplegado} /> */}
@@ -317,11 +363,13 @@ const Abonos = () => {
           categoria={categoriaRecibida}
         />
       </div>
+          <div className="botonabonos">Calcular</div>
       <Listalocalidades
         menuDesplegado={menuDesplegado}
         puntoElegido={origenODestino}
         localidadObtenida={recepcionLocalidad}
       />
+      <CotizacionAbonos numViajes={viajesIngresados}/>
       <div
         className={
           menuDesplegado ? "pantalla-difuminada mostrar" : "pantalla-difuminada"
@@ -329,6 +377,7 @@ const Abonos = () => {
         onClick={OcultarMenuLocalidades}
       ></div>
     </div>
+    
   );
 };
 

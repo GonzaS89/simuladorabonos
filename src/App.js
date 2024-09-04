@@ -2,6 +2,8 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Abonos from './Screens/Abonos';
 import Horarios from "./Screens/Horarios";
+import Resultadocotizador from "./ComponentesAbonos/Resultadocotizacion";
+import { CotizacionAbonos } from "./ComponentesAbonos/CotizacionAbonos";
 
 // import { Categorias } from "./Componentes/Categorias";
 
@@ -30,6 +32,7 @@ function App ( ) {
         <Routes>
           <Route path="/abonos" element={<Abonos />}></Route>
           <Route path="/horarios" element={<Horarios />}></Route>
+          <Route path="/cotizacion" element={<CotizacionAbonos />}></Route>
         </Routes>
       </Router> 
       </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../Estilos/abonos.css";
+import { FaCheckCircle } from "react-icons/fa";
 
 export const NumerosDeViajes = ({
   numero,
@@ -14,23 +15,23 @@ export const NumerosDeViajes = ({
   };
 
   useEffect(() => {
-    numero === viajesIngresados ? setOpcionSelec(true) : setOpcionSelec(false);
-  }, [viajesIngresados]);
-
-  useEffect(() => {
-    inputFocus ? setOpcionSelec(false) : setOpcionSelec(true);
-  }, [inputFocus]);
+    numero === viajesIngresados && viajesIngresados !== null
+      ? setOpcionSelec(true)
+      : setOpcionSelec(false);
+      inputFocus && setOpcionSelec(false)
+  }, [viajesIngresados, inputFocus]);
 
   return (
     <div
       className={
         opcionSelec
-          ? "container-viajes viajesSeleccionados"
+          ? "container-viajes opcionSeleccionada"
           : "container-viajes"
       }
       onClick={clickEnNumViaje}
     >
       {numero}
+      <FaCheckCircle className={opcionSelec ? 'icono-check-tarifa' : 'hidden'}/>
     </div>
   );
 };

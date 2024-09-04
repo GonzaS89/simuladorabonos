@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../Estilos/opcionsalidadestino.css';
-import { FcApproval } from "react-icons/fc";
+import { FaCheckCircle } from "react-icons/fa";
 
 
 
@@ -23,7 +23,7 @@ export const OpcionLocalidad = ({ nombre , enviarLocalidad, localidadOrigen }) =
     <div className="container-salida-localidad" onClick={clickearImg}>
       <div className="imagen-localidad-opcion">
       <img src={require(`../IMG/${nombre}.avif`)} alt=""className={localidadClickeada ? 'sombrearImg' : ''}/>
-      <FcApproval className={localidadClickeada ? 'icono-checked mostrarIconoCheked' : 'icono-checked hidden'}/>
+      <FaCheckCircle className={localidadClickeada ? 'icono-checked mostrarIconoCheked' : 'icono-checked hidden'}/>
       </div>
         <p>{nombre}</p>
     </div>
