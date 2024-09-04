@@ -124,6 +124,7 @@
     text-align: center;
     font-family: "Jockey One", sans-serif;
     position: relative;
+    user-select: none;
   }
 
   .opcion-viajes-manual{
@@ -143,6 +144,7 @@
         font-size:20px;
         font-weight: 100;
         margin-left: 15px;
+        user-select: none;
     }
   }
 
