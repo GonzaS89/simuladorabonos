@@ -9,22 +9,17 @@ import { OpcionLocalidadDestino } from "../ComponentesAbonos/OpcionLocalidadDest
 import { Link } from 'react-router-dom';
 
 const Abonos = ({enviarParametrosAbonos}) => {
-  const [menuDesplegado, setMenuDesplegado] = useState(false);
   const [localidadOrigen, setLocalidadOrigen] = useState(null);
   const [localidadDestino, setLocalidadDestino] = useState(null);
   const [viajesIngresados, setViajesIngresados] = useState(null);
   const [listaLocDestino, setListaLocDestino] = useState(null);
   const [inputFocus, setInputFocus] = useState(false);
   const [tarifaElegida, setTarifaElegida] = useState(null);
+  const [botonDisponible, setBotonDisponible] = useState(false)
 
 
-  const OcultarMenuLocalidades = () => {
-    setMenuDesplegado(false);
-  };
 
   useEffect(() => {
-    localidadOrigen !== null && setMenuDesplegado(false);
-    localidadDestino !== null && setMenuDesplegado(false);
     switch (localidadOrigen) {
       case "la florida":
         setListaLocDestino([
@@ -190,16 +185,13 @@ const Abonos = ({enviarParametrosAbonos}) => {
       default:
         break;
     }
-  }, [localidadOrigen, localidadDestino]);
+    localidadOrigen !== null && localidadDestino !== null && viajesIngresados !== null && tarifaElegida !== null ? setBotonDisponible(true) : setBotonDisponible(false);
+  }, [localidadOrigen, localidadDestino, viajesIngresados,tarifaElegida]);
 
   const recibirNumViaje = (viajes) => {
     setViajesIngresados(viajes);
     setInputFocus(false);
   };
-
-  useEffect(() => {
-    menuDesplegado && setViajesIngresados(0);
-  }, [menuDesplegado]);
 
   const recibirLocalidad = (localidad) => {
     setLocalidadOrigen(localidad);
@@ -312,15 +304,8 @@ const Abonos = ({enviarParametrosAbonos}) => {
   
       </div>
       <Link to="/cotizacion">
-        <div className="botonabonos" onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados,tarifaElegida)}>Calcular</div>
+        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados,tarifaElegida)}>Calcular</div>
       </Link>
-
-      <div
-        className={
-          menuDesplegado ? "pantalla-difuminada mostrar" : "pantalla-difuminada"
-        }
-        onClick={OcultarMenuLocalidades}
-      ></div>
     </div>
 
   );

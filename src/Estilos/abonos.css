@@ -214,12 +214,25 @@
     text-transform:uppercase;
     font-size: 30px;
     color: white;
-    background-color: #EE4E4E;
     height:70px;
     width: 100%;
     position: absolute;
     bottom:0;
     left: 0;
+  }
+
+  .botondisabled{
+    background-color: grey;
+    pointer-events: none;
+  }
+
+  .botonenabled{
+    animation: animarboton .5s forwards ease-out;
+  }
+
+  @keyframes animarboton {
+    from{background-color: grey;}
+    to{background-color: #EE4E4E;}
   }
 
 

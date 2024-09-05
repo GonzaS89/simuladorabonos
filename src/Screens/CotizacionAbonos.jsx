@@ -8,8 +8,8 @@ export const CotizacionAbonos = ({ origen, destino, viajes, tarifa }) => {
   const [precioDescuento, setPrecioDescuento] = useState();
 
   useEffect(() => {
-    if(origen === 'la florida'){
-      if(destino === 'la florida' || destino === 'w. posse'){setPrecioNormal(viajes * codigo06)}
+    if(origen === 'la florida' || origen === 'fortin'){
+      if(destino === 'la florida' || destino === 'w. posse' || destino === 'el paraiso'){setPrecioNormal(viajes * codigo06)}
     }
   },[origen, destino,viajes])
 
