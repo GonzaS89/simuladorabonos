@@ -21,11 +21,11 @@ export const CotizacionAbonos = ({ origen, destino, viajes, tarifa }) => {
     <div className="container-cotizacion">
       <div className='logo-fondo'></div>
       <div className='container-superior'>
+      <h1>Cotización</h1>
         <div className="container-precios">
-          <h1>Cotización</h1>
           <div className="subcontainer-detalle">
             <div className='container-detalle-precio'>
-              <p className='texto-detalle-viajes'>{viajes} viajes desde {origen} hasta {destino} (tarifa normal)</p>
+              <p className='texto-detalle-viajes'>{viajes} viajes desde <span>{origen} </span>hasta <span>{destino}</span> (tarifa normal)</p>
               <p className='texto-precio-viajes'>$ {precioNormal}</p>
             </div>
             <div className='container-descuento-precio'>
@@ -35,12 +35,18 @@ export const CotizacionAbonos = ({ origen, destino, viajes, tarifa }) => {
           </div>
           <div className='container-preciofinal'>
             <p>Precio final</p>
-            <p>$ {(precioNormal - precioDescuento)}</p>
+            <p className='preciofinal'>$ {(precioNormal - precioDescuento)}</p>
           </div>
         </div>
       </div>
       <div className='container-inferior'>
-        <div className='container-info'></div>
+        <div className='container-info'>
+          <p className='titulo-infoabonos'>Requisitos para tener tu abono</p>
+          <ul>
+            <li>EMPLEADOS: Copia de recibo de sueldo y copia del DNI</li>
+            <li>ESTUDIANTES: Constancia de alumno regular y copia del DNI</li>
+          </ul>
+        </div>
       </div>
 
     </div>

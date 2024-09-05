@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 50px;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -28,34 +29,39 @@
   }
 
   .container-precios{
-    height: 300px;
-    background-color: rgba(0, 0, 0, 0.15);
-  }
-
-  .container-superior{
-    height:50%;
-    position: relative;
-  }
-
-  .subcontainer-detalle{
     display: flex;
     flex-direction: column;
-    justify-content:baseline;
-    gap: 50px;
+    justify-content: center;
     height: calc(100% - 100px);
-    padding: 0 10px;
-  }
-
-  .container-precios{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.125);
 
     && p{
         font-size:17px ;
         font-weight:100
     }
+    
   }
+
+  .container-superior{
+    height:45%;
+    position: relative;
+    width: 100%;
+
+    && h1{
+      margin-bottom: 20px;
+    }
+  }
+
+  .subcontainer-detalle{
+    text-transform: none;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    height: calc(100% - 100px);
+    padding: 0 10px;
+  }
+
+
 
   .container-detalle-precio, .container-descuento-precio{
     display: flex;
@@ -66,7 +72,11 @@
   .texto-detalle-viajes, .texto-detalle-descuento{
     flex-basis: 65%;
     text-align:left;
-    color: #d9d9d9
+    color: #d9d9d9;
+
+    && span{
+      text-transform:capitalize;
+    }
   }
 
   .texto-precio-viajes, .texto-precio-descuento{
@@ -82,17 +92,16 @@
   }
 
   .container-preciofinal{
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 0 10px;
     position:absolute;
     bottom:0;
-    height: 70px;
+    height: 50px;
     background-color: #EE4E4E;
     width: 100%;
-  }
-
-  .container-preciofinal{
-    display: flex;
-    justify-content:space-evenly;
-    align-items:center;
 
     && p{
         text-transform: uppercase;
@@ -100,4 +109,25 @@
         font-size:20px;
         letter-spacing: 1px;
     }
+  }
+
+  .container-inferior{
+    color: #d9d9d9;
+    text-transform: none;
+
+    && li{
+      text-align:left;
+      margin: 5px 0;
+    }
+  }
+
+  .titulo-infoabonos{
+    text-transform:uppercase;
+  }
+
+
+  .info-direccion{
+    text-transform: uppercase;
+    width: 50%;
+    width: 100%;
   }
