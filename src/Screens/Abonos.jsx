@@ -26,9 +26,9 @@ const Abonos = ({enviarParametrosAbonos}) => {
           "la florida",
           "w. posse",
           "alderetes",
-          "banda del rio sali",
-          "san miguel de tucuman",
-          "el paraiso",
+          "banda del río salí",
+          "san miguel de tucumán",
+          "el paraíso",
           "llona",
           "cevil pozo",
           "colonia 4 (luisiana)",
@@ -41,33 +41,33 @@ const Abonos = ({enviarParametrosAbonos}) => {
         setListaLocDestino([
           "llona",
           "cevil pozo",
-          "banda del rio sali",
-          "san miguel de tucuman",
+          "banda del río salí",
+          "san miguel de tucumán",
           "la florida",
           "fortin",
         ]);
         break;
 
-      case "el paraiso":
+      case "el paraíso":
         setListaLocDestino([
           "la florida",
           "w. posse",
           "llona",
           "cevil pozo",
-          "banda del rio sali",
-          "san miguel de tucuman",
+          "banda del río salí",
+          "san miguel de tucumán",
         ]);
         break;
 
       case "colonia 4 (luisiana)":
         setListaLocDestino([
           "la florida",
-          "el paraiso",
+          "el paraíso",
           "w. posse",
           "llona",
           "cevil pozo",
-          "banda del rio sali",
-          "san miguel de tucuman",
+          "banda del río salí",
+          "san miguel de tucumán",
         ]);
         break;
 
@@ -76,8 +76,8 @@ const Abonos = ({enviarParametrosAbonos}) => {
           "los ralos",
           "llona",
           "cevil pozo",
-          "banda del rio sali",
-          "san miguel de tucuman",
+          "banda del río salí",
+          "san miguel de tucumán",
         ]);
         break;
 
@@ -87,8 +87,8 @@ const Abonos = ({enviarParametrosAbonos}) => {
           "los ralos",
           "llona",
           "cevil pozo",
-          "banda del rio sali",
-          "san miguel de tucuman",
+          "banda del río salí",
+          "san miguel de tucumán",
         ]);
         break;
 
@@ -97,8 +97,8 @@ const Abonos = ({enviarParametrosAbonos}) => {
           "la florida",
           "colonia 4 (luisiana)",
           "alderetes",
-          "banda del rio sali",
-          "san miguel de tucuman",
+          "banda del río salí",
+          "san miguel de tucumán",
         ]);
         break;
 
@@ -108,7 +108,7 @@ const Abonos = ({enviarParametrosAbonos}) => {
           "los ralos",
           "las cejas",
           "w. posse",
-          "el paraiso",
+          "el paraíso",
           "la florida",
           "colonia 4 (luisiana)",
           "fortin",
@@ -118,11 +118,11 @@ const Abonos = ({enviarParametrosAbonos}) => {
       case "fila de la orilla":
         setListaLocDestino([
           "w. posse",
-          "el paraiso",
+          "el paraíso",
           "la florida",
           "cevil pozo",
-          "banda del rio sali",
-          "san miguel de tucuman",
+          "banda del río salí",
+          "san miguel de tucumán",
         ]);
         break;
 
@@ -130,8 +130,8 @@ const Abonos = ({enviarParametrosAbonos}) => {
         setListaLocDestino([
           "w. posse",
           "cevil pozo",
-          "banda del rio sali",
-          "san miguel de tucuman",
+          "banda del río salí",
+          "san miguel de tucumán",
         ]);
         break;
 
@@ -141,36 +141,36 @@ const Abonos = ({enviarParametrosAbonos}) => {
           "los ralos",
           "llona",
           "cevil pozo",
-          "banda del rio sali",
-          "san miguel de tucuman",
+          "banda del río salí",
+          "san miguel de tucumán",
         ]);
         break;
 
       case "llona":
         setListaLocDestino([
           "w. posse",
-          "el paraiso",
+          "el paraíso",
           "la florida",
           "colonia 4 (luisiana)",
           "cevil pozo",
-          "banda del rio sali",
-          "san miguel de tucuman",
+          "banda del río salí",
+          "san miguel de tucumán",
         ]);
         break;
       case "7 de abril":
-        setListaLocDestino(["banda del rio sali", "san miguel de tucuman"]);
+        setListaLocDestino(["banda del río salí", "san miguel de tucumán"]);
         break;
 
-      case "san miguel de tucuman":
+      case "san miguel de tucumán":
         setListaLocDestino([
           "la florida",
           "w. posse",
           "los ralos",
           "cevil pozo",
-          "el paraiso",
+          "el paraíso",
           "alderetes",
           "el talar",
-          "banda del rio sali",
+          "banda del río salí",
           "fila del medio",
           "fila de la orilla",
           "fortin",
