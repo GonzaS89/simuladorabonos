@@ -15,7 +15,8 @@ const Abonos = ({enviarParametrosAbonos}) => {
   const [listaLocDestino, setListaLocDestino] = useState(null);
   const [inputFocus, setInputFocus] = useState(false);
   const [tarifaElegida, setTarifaElegida] = useState(null);
-  const [botonDisponible, setBotonDisponible] = useState(false)
+  const [botonDisponible, setBotonDisponible] = useState(false);
+  const [listaOrigenDestino, setListaOrigenDestino] = useState([]);
 
 
 
@@ -195,10 +196,12 @@ const Abonos = ({enviarParametrosAbonos}) => {
 
   const recibirLocalidad = (localidad) => {
     setLocalidadOrigen(localidad);
+    setListaOrigenDestino([localidad, ...listaOrigenDestino])
   };
 
   const recibirLocalidadDestino = (localidad) => {
     setLocalidadDestino(localidad);
+    setListaOrigenDestino([localidad, ...listaOrigenDestino])
   };
 
   const recibirNumViajeInput = (e) => {
@@ -304,7 +307,7 @@ const Abonos = ({enviarParametrosAbonos}) => {
   
       </div>
       <Link to="/cotizacion">
-        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados,tarifaElegida)}>Calcular</div>
+        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados,tarifaElegida,listaOrigenDestino)}>Calcular</div>
       </Link>
     </div>
 
