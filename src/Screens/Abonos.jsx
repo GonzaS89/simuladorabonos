@@ -17,6 +17,7 @@ const Abonos = ({enviarParametrosAbonos}) => {
   const [tarifaElegida, setTarifaElegida] = useState(null);
   const [botonDisponible, setBotonDisponible] = useState(false);
   const [listaOrigenDestino, setListaOrigenDestino] = useState([]);
+  const [via, setVia] = useState(null);
 
 
 
@@ -30,22 +31,22 @@ const Abonos = ({enviarParametrosAbonos}) => {
           "banda del río salí",
           "san miguel de tucumán",
           "el paraíso",
-          "llona",
           "cevil pozo",
           "colonia 4 (luisiana)",
-          "fortin",
+          "fortín",
           "el talar",
         ]);
         break;
 
       case "w. posse":
         setListaLocDestino([
-          "llona",
           "cevil pozo",
           "banda del río salí",
           "san miguel de tucumán",
           "la florida",
-          "fortin",
+          "el paraíso",
+          "colonia 4 (luisiana)",
+          "fortín",
         ]);
         break;
 
@@ -53,7 +54,6 @@ const Abonos = ({enviarParametrosAbonos}) => {
         setListaLocDestino([
           "la florida",
           "w. posse",
-          "llona",
           "cevil pozo",
           "banda del río salí",
           "san miguel de tucumán",
@@ -65,7 +65,6 @@ const Abonos = ({enviarParametrosAbonos}) => {
           "la florida",
           "el paraíso",
           "w. posse",
-          "llona",
           "cevil pozo",
           "banda del río salí",
           "san miguel de tucumán",
@@ -75,7 +74,6 @@ const Abonos = ({enviarParametrosAbonos}) => {
       case "los ralos":
         setListaLocDestino([
           "los ralos",
-          "llona",
           "cevil pozo",
           "banda del río salí",
           "san miguel de tucumán",
@@ -86,7 +84,6 @@ const Abonos = ({enviarParametrosAbonos}) => {
         setListaLocDestino([
           "cruz alta",
           "los ralos",
-          "llona",
           "cevil pozo",
           "banda del río salí",
           "san miguel de tucumán",
@@ -103,16 +100,27 @@ const Abonos = ({enviarParametrosAbonos}) => {
         ]);
         break;
 
+        case "fortín":
+        setListaLocDestino([
+          "w. posse",
+          "el paraíso",
+          "alderetes",
+          "el talar",
+          "la florida",
+          "banda del río salí",
+          "san miguel de tucumán",
+        ]);
+        break;
+
       case "cevil pozo":
         setListaLocDestino([
-          "llona",
           "los ralos",
           "las cejas",
           "w. posse",
           "el paraíso",
           "la florida",
           "colonia 4 (luisiana)",
-          "fortin",
+          "fortín",
         ]);
         break;
 
@@ -140,24 +148,12 @@ const Abonos = ({enviarParametrosAbonos}) => {
         setListaLocDestino([
           "las cejas",
           "los ralos",
-          "llona",
           "cevil pozo",
           "banda del río salí",
           "san miguel de tucumán",
         ]);
         break;
 
-      case "llona":
-        setListaLocDestino([
-          "w. posse",
-          "el paraíso",
-          "la florida",
-          "colonia 4 (luisiana)",
-          "cevil pozo",
-          "banda del río salí",
-          "san miguel de tucumán",
-        ]);
-        break;
       case "7 de abril":
         setListaLocDestino(["banda del río salí", "san miguel de tucumán"]);
         break;
@@ -174,13 +170,34 @@ const Abonos = ({enviarParametrosAbonos}) => {
           "banda del río salí",
           "fila del medio",
           "fila de la orilla",
-          "fortin",
+          "fortín",
           "colonia 4 (luisiana)",
-          "fortin",
           "7 de abril",
           "las cejas",
           "la marta",
           "finca mayo",
+        ]);
+        break;
+
+        case "alderetes":
+        setListaLocDestino([
+          "la florida",
+          "el talar",
+          "fortín",
+          "colonia 4 (luisiana)",
+          "la marta",
+          "finca mayo",
+        ]);
+        break;
+
+        case "banda del río salí":
+        setListaLocDestino([
+          "la florida",
+          "el paraíso",
+          "w. posse",
+          "fortín",
+          "alderetes",
+          "colonia 4 (luisiana)",
         ]);
         break;
       default:
@@ -212,6 +229,8 @@ const Abonos = ({enviarParametrosAbonos}) => {
     setTarifaElegida(tarifa);
   };
 
+  const recibirVia = via => {setVia(via);}
+
   return (
     <div className="container-screen">
       <div className="container-principal">
@@ -242,6 +261,7 @@ const Abonos = ({enviarParametrosAbonos}) => {
                     enviarLocalidadDestino={recibirLocalidadDestino}
                     localidadDestino={localidadDestino}
                     localidadOrigen={localidadOrigen}
+                    enviarVia={recibirVia}
                   />
                 ))}
             </div>
@@ -307,7 +327,7 @@ const Abonos = ({enviarParametrosAbonos}) => {
   
       </div>
       <Link to="/cotizacion">
-        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados,tarifaElegida,listaOrigenDestino)}>Calcular</div>
+        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados,tarifaElegida,listaOrigenDestino,via)}>Calcular</div>
       </Link>
     </div>
 

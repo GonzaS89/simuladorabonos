@@ -67,6 +67,7 @@
     display: flex;
     align-items: center;
     position: relative;
+    text-transform: uppercase;
   }
 
   .texto-detalle-viajes, .texto-detalle-descuento{
@@ -75,7 +76,7 @@
     color: #d9d9d9;
 
     && span{
-      text-transform:capitalize;
+      text-transform:uppercase;
     }
   }
 

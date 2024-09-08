@@ -155,7 +155,7 @@
   }
 
 
-  .containertarifa{
+  .containertarifa, .texto-opcion-vias{
     display: flex;
     align-items: center;
     justify-content: center;

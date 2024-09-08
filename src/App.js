@@ -14,13 +14,15 @@ function App() {
   const [viajesIngresados, setViajesIngresados] = useState(null);
   const [tarifaElegida, setTarifaElegida] = useState(null);
   const [listaViaje, setListaViaje] = useState(null);
+  const [via, setVia] = useState(null);
 
-  const recibirParametrosAbonos = (origen, destino, viajes, tarifa, lista) => {
+  const recibirParametrosAbonos = (origen, destino, viajes, tarifa, lista, via) => {
     setLocalidadOrigen(origen);
     setLocalidadDestino(destino);
     setViajesIngresados(viajes);
     setTarifaElegida(tarifa);
     setListaViaje(lista)
+    setVia(via)
   }
 
   return (
@@ -46,7 +48,7 @@ function App() {
           <Routes>
             <Route path="/abonos" element={<Abonos enviarParametrosAbonos={recibirParametrosAbonos} />}></Route>
             <Route path="/horarios" element={<Horarios />}></Route>
-            <Route path="/cotizacion" element={<CotizacionAbonos origen={localidadOrigen} destino={localidadDestino} viajes={viajesIngresados} tarifa={(tarifaElegida)} lista = {listaViaje}/>}></Route>
+            <Route path="/cotizacion" element={<CotizacionAbonos origen={localidadOrigen} destino={localidadDestino} viajes={viajesIngresados} tarifa={(tarifaElegida)} lista = {listaViaje} via={via}/>}></Route>
           </Routes>
         </Router>
       </div>

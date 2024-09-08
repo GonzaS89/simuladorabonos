@@ -18,6 +18,9 @@
         "nombre": "el talar"
     },
     {
+        "nombre" : "fortín"
+    },
+    {
         "nombre": "las cejas"
     },
     {
@@ -25,9 +28,6 @@
     },
     {
         "nombre": "cevil pozo"
-    },
-    {
-        "nombre": "llona"
     },
     {
         "nombre": "fila de la orilla"
@@ -43,5 +43,14 @@
     },
     {
         "nombre" : "finca mayo"
+    },
+    {
+        "nombre" : "alabama"
+    },
+    {
+        "nombre" : "alderetes"
+    },
+    {
+        "nombre" : "banda del río salí"
     }
 ]
