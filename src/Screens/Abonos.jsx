@@ -200,11 +200,21 @@ const Abonos = ({enviarParametrosAbonos}) => {
           "colonia 4 (luisiana)",
         ]);
         break;
+
+        case "alabama":
+        setListaLocDestino([
+          "los ralos",
+          "cevil pozo",
+          "finca mayo",
+          "banda del río salí",
+          "san miguel de tucumán"
+        ]);
+        break;
       default:
         break;
     }
-    localidadOrigen !== null && localidadDestino !== null && viajesIngresados !== null && tarifaElegida !== null ? setBotonDisponible(true) : setBotonDisponible(false);
-  }, [localidadOrigen, localidadDestino, viajesIngresados,tarifaElegida]);
+    localidadOrigen !== null && localidadDestino !== null && viajesIngresados !== null && tarifaElegida !== null && via !== null ? setBotonDisponible(true) : setBotonDisponible(false);
+  }, [localidadOrigen, localidadDestino, viajesIngresados,tarifaElegida, via]);
 
   const recibirNumViaje = (viajes) => {
     setViajesIngresados(viajes);
@@ -230,6 +240,12 @@ const Abonos = ({enviarParametrosAbonos}) => {
   };
 
   const recibirVia = via => {setVia(via);}
+
+  useEffect(() => {
+    setVia(null)
+  },[localidadDestino])
+
+
 
   return (
     <div className="container-screen">

@@ -18,6 +18,7 @@ export const OpcionLocalidadDestino = ({
 
   const clickearImg = () => {
     enviarLocalidadDestino(nombre);
+    setVia(null)
   };
   useEffect(() => {
     if (localidadDestino === nombre) {
@@ -31,36 +32,41 @@ export const OpcionLocalidadDestino = ({
     nombre === "banda del río salí"
       ? setNombreOpcionVia("alderetes")
       : setNombreOpcionVia("ald./alter.");
-      if (localidadOrigen === 'la florida' || localidadOrigen === 'fortín' || localidadOrigen === 'colonia 4 (luisiana') {
-        if (nombre === localidadDestino) {
-          if (
-            localidadDestino === "san miguel de tucumán" ||
-            localidadDestino === "banda del río salí"
-          ) {
-            setOpcionesViasVisibles(true);
-            setConfirmacionSeleccion(false);
-          }
+    if (
+      localidadOrigen === "la florida" ||
+      localidadOrigen === "fortín" ||
+      localidadOrigen === "colonia 4 (luisiana"
+    ) {
+      if (nombre === localidadDestino) {
+        if (
+          localidadDestino === "san miguel de tucumán" ||
+          localidadDestino === "banda del río salí"
+        ) {
+          setOpcionesViasVisibles(true);
+          setConfirmacionSeleccion(false);
         }
       }
-   
+    }
 
     if (localidadOrigen === "san miguel de tucumán") {
       if (nombre === localidadDestino) {
         if (
           localidadDestino === "la florida" ||
-          localidadDestino === "fortín"
+          localidadDestino === "fortín" ||
+          localidadDestino === "colonia 4 (luisiana)"
         ) {
           setOpcionesViasVisibles(true);
           setConfirmacionSeleccion(false);
           setNombreOpcionVia("ald./alter.");
         }
       }
-    } 
+    }
     if (localidadOrigen === "banda del río salí") {
       if (nombre === localidadDestino) {
         if (
           localidadDestino === "la florida" ||
-          localidadDestino === "fortín"
+          localidadDestino === "fortín" ||
+          localidadDestino === "colonia 4 (luisiana)"
         ) {
           setOpcionesViasVisibles(true);
           setConfirmacionSeleccion(false);
@@ -70,16 +76,12 @@ export const OpcionLocalidadDestino = ({
     }
     if (localidadOrigen === "colonia 4 (luisiana)") {
       if (nombre === localidadDestino) {
-        if (
-          localidadDestino === "san miguel de tucumán" 
-        ) {
+        if (localidadDestino === "san miguel de tucumán") {
           setOpcionesViasVisibles(true);
           setConfirmacionSeleccion(false);
           setNombreOpcionVia("ald./alter.");
         }
-        if(
-          localidadDestino === 'banda del río salí'
-        ) {
+        if (localidadDestino === "banda del río salí") {
           setOpcionesViasVisibles(true);
           setConfirmacionSeleccion(false);
           setNombreOpcionVia("alderetes");
@@ -90,7 +92,7 @@ export const OpcionLocalidadDestino = ({
 
   useEffect(() => {
     setLocalidadClickeada(false);
-  },[localidadOrigen])
+  }, [localidadOrigen]);
 
   useEffect(() => {
     !localidadClickeada && setOpcionesViasVisibles(false);
