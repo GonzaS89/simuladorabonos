@@ -3,17 +3,15 @@ import React, { useState, useEffect } from "react";
 import localidades from "../localidades.json";
 import "../Estilos/abonos.css";
 import { OpcionLocalidad } from "../ComponentesAbonos/OpcionLocalidad";
-import { NumerosDeViajes } from "../ComponentesAbonos/NumerosDeViajes";
-import { Tipodetarifa } from "../ComponentesAbonos/Tipodetarifa";
 import { OpcionLocalidadDestino } from "../ComponentesAbonos/OpcionLocalidadDestino";
 import { Link } from 'react-router-dom';
+import { Containerviajestarifas } from "../ComponentesAbonos/Containerviajestarifas";
 
-const Abonos = ({enviarParametrosAbonos}) => {
+const Abonos = ({enviarParametrosAbonos , keyBoton}) => {
   const [localidadOrigen, setLocalidadOrigen] = useState(null);
   const [localidadDestino, setLocalidadDestino] = useState(null);
   const [viajesIngresados, setViajesIngresados] = useState(null);
   const [listaLocDestino, setListaLocDestino] = useState(null);
-  const [inputFocus, setInputFocus] = useState(false);
   const [tarifaElegida, setTarifaElegida] = useState(null);
   const [botonDisponible, setBotonDisponible] = useState(false);
   const [listaOrigenDestino, setListaOrigenDestino] = useState([]);
@@ -213,13 +211,18 @@ const Abonos = ({enviarParametrosAbonos}) => {
       default:
         break;
     }
-    localidadOrigen !== null && localidadDestino !== null && viajesIngresados !== null && tarifaElegida !== null && via !== null ? setBotonDisponible(true) : setBotonDisponible(false);
-  }, [localidadOrigen, localidadDestino, viajesIngresados,tarifaElegida, via]);
+    const esLocalidadDestinoValida = localidadDestino === 'san miguel de tucumán' || localidadDestino === 'banda del río salí';
+    const camposCompletos = localidadOrigen !== null && localidadDestino !== null && viajesIngresados !== null && tarifaElegida !== null;
+    
+    if (esLocalidadDestinoValida ? camposCompletos && via !== null : camposCompletos) {
+        setBotonDisponible(true);
+    } else {
+        setBotonDisponible(false);
+    }
 
-  const recibirNumViaje = (viajes) => {
-    setViajesIngresados(viajes);
-    setInputFocus(false);
-  };
+    console.log(localidadOrigen,localidadDestino,viajesIngresados,tarifaElegida)
+
+  }, [localidadOrigen, localidadDestino, viajesIngresados,tarifaElegida, via]);
 
   const recibirLocalidad = (localidad) => {
     setLocalidadOrigen(localidad);
@@ -231,13 +234,6 @@ const Abonos = ({enviarParametrosAbonos}) => {
     setListaOrigenDestino([localidad, ...listaOrigenDestino])
   };
 
-  const recibirNumViajeInput = (e) => {
-    setViajesIngresados(parseInt(e.target.value));
-  };
-
-  const recibirTarifa = (tarifa) => {
-    setTarifaElegida(tarifa);
-  };
 
   const recibirVia = via => {setVia(via);}
 
@@ -245,6 +241,8 @@ const Abonos = ({enviarParametrosAbonos}) => {
     setVia(null)
   },[localidadDestino])
 
+const recibirTarifaElegida = tarifa => {setTarifaElegida(tarifa)}
+const recibirViajesIngresados = viajes => {setViajesIngresados(viajes)}
 
 
   return (
@@ -283,64 +281,7 @@ const Abonos = ({enviarParametrosAbonos}) => {
             </div>
           </div>
         </div>
-        <div className="container-viajes-tarifa">
-          <div className="cantidaddeviajes">
-            <h1>Cantidad de viajes</h1>
-            <div className="container-principal-numviajes">
-              <div className="container-opciones-viajes">
-                <NumerosDeViajes
-                  numero={8}
-                  enviarNumViaje={recibirNumViaje}
-                  viajesIngresados={viajesIngresados}
-                  inputFocus={inputFocus}
-                />
-                <NumerosDeViajes
-                  numero={16}
-                  enviarNumViaje={recibirNumViaje}
-                  viajesIngresados={viajesIngresados}
-                  inputFocus={inputFocus}
-                />
-                <NumerosDeViajes
-                  numero={22}
-                  enviarNumViaje={recibirNumViaje}
-                  viajesIngresados={viajesIngresados}
-                  inputFocus={inputFocus}
-                />
-                <NumerosDeViajes
-                  numero={44}
-                  enviarNumViaje={recibirNumViaje}
-                  viajesIngresados={viajesIngresados}
-                  inputFocus={inputFocus}
-                />
-              </div>
-              <div className="opcion-viajes-manual">
-                <input
-                  className="container-viajes"
-                  type="num"
-                  placeholder="¿...?"
-                  onChange={recibirNumViajeInput}
-                  onFocus={() => setInputFocus(true)}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="container-tipodetarifa">
-            <h1>Tipo de tarifa</h1>
-            <div className="container-categoriatarifa">
-              <Tipodetarifa
-                tarifa={"empleados"}
-                enviarTarifa={recibirTarifa}
-                tarifaElegida={tarifaElegida}
-              />
-              <Tipodetarifa
-                tarifa={"estudiantes"}
-                enviarTarifa={recibirTarifa}
-                tarifaElegida={tarifaElegida}
-              />
-            </div>
-          </div>
-        </div>
-  
+                  {keyBoton === 'abonos' && <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados}/>}
       </div>
       <Link to="/cotizacion">
         <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados,tarifaElegida,listaOrigenDestino,via)}>Calcular</div>

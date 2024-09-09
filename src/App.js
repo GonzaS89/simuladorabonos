@@ -1,9 +1,11 @@
 import "./App.css";
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Abonos from './Screens/Abonos';
 import Horarios from "./Screens/Horarios";
 import { CotizacionAbonos } from "./Screens/CotizacionAbonos";
 import { useState } from "react";
+import { Botonseccion } from "./Botonseccion";
 
 // import { Categorias } from "./Componentes/Categorias";
 
@@ -15,6 +17,7 @@ function App() {
   const [tarifaElegida, setTarifaElegida] = useState(null);
   const [listaViaje, setListaViaje] = useState(null);
   const [via, setVia] = useState(null);
+  const [keyBoton, setKeyBoton] = useState(null);
 
   const recibirParametrosAbonos = (origen, destino, viajes, tarifa, lista, via) => {
     setLocalidadOrigen(origen);
@@ -25,30 +28,31 @@ function App() {
     setVia(via)
   }
 
+  const recibirKey = nombre => { setKeyBoton(nombre)}
+
+  useEffect(()=> {
+    console.log(keyBoton)
+  },[keyBoton])
+
+
   return (
     <div className="App">
       <div className="portada">
-        <img src={require('../src/IMG/Logo_sinfondo.png')} className="logo-portada" alt="logofondo"/>
+        <img src={require('../src/IMG/Logo_sinfondo.png')} className="logo-portada" alt="logofondo" />
         <Router>
           <div className="container-secciones">
             <h1>Elegí un tipo de consulta</h1>
             <Link to="/abonos">
-              <div className="seccion-boton">
-                <img src={require('../src/IMG/cupon-de-descuento.png')} alt="" />
-                <p>Abonos</p>
-              </div>
+              <Botonseccion nombre={'abonos'} enviarKey={recibirKey} />
             </Link>
-            <Link to="/horarios">
-              <div className="seccion-boton">
-                <img src={require('../src/IMG/parada-de-autobus.png')} alt="" />
-                <p>Horarios</p>
-              </div>
+            <Link to="/abonos">
+              <Botonseccion nombre={'horarios'} enviarKey={recibirKey} />
             </Link>
           </div>
           <Routes>
-            <Route path="/abonos" element={<Abonos enviarParametrosAbonos={recibirParametrosAbonos} />}></Route>
+            <Route path="/abonos" element={<Abonos enviarParametrosAbonos={recibirParametrosAbonos} keyBoton={keyBoton} />}></Route>
             <Route path="/horarios" element={<Horarios />}></Route>
-            <Route path="/cotizacion" element={<CotizacionAbonos origen={localidadOrigen} destino={localidadDestino} viajes={viajesIngresados} tarifa={(tarifaElegida)} lista = {listaViaje} via={via}/>}></Route>
+            <Route path="/cotizacion" element={<CotizacionAbonos origen={localidadOrigen} destino={localidadDestino} viajes={viajesIngresados} tarifa={(tarifaElegida)} lista={listaViaje} via={via} />}></Route>
           </Routes>
         </Router>
       </div>
