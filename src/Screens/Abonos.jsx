@@ -6,8 +6,34 @@ import { OpcionLocalidad } from "../ComponentesAbonos/OpcionLocalidad";
 import { OpcionLocalidadDestino } from "../ComponentesAbonos/OpcionLocalidadDestino";
 import { Link } from 'react-router-dom';
 import { Containerviajestarifas } from "../ComponentesAbonos/Containerviajestarifas";
+import { ContainerHoraDia } from "../ComponentesHorarios/ContainerHoraDia";
 
-const Abonos = ({enviarParametrosAbonos , keyBoton}) => {
+const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
+
+  // SECTOR HORARIOS
+
+  const [minutos, setMinutos] = useState(new Date().getMinutes());
+  const [hora, setHora] = useState(new Date().getHours());
+  const [dia, setDia] = useState(new Date().getDay());
+
+  useEffect(() => {
+    const updateHoraMinutosDias = () => {
+      setMinutos(new Date().getMinutes());
+      setHora(new Date().getHours());
+      setDia(new Date().getDay())
+    };
+
+    // Actualiza cada minuto
+    const timerIdMinutes = setInterval(updateHoraMinutosDias, 1000);
+
+    // También actualiza inmediatamente cuando el componente se monta
+    updateHoraMinutosDias();
+
+    // Limpia el intervalo cuando el componente se desmonte
+    return () => clearInterval(timerIdMinutes);
+  }, []);
+
+  //
   const [localidadOrigen, setLocalidadOrigen] = useState(null);
   const [localidadDestino, setLocalidadDestino] = useState(null);
   const [viajesIngresados, setViajesIngresados] = useState(null);
@@ -98,7 +124,7 @@ const Abonos = ({enviarParametrosAbonos , keyBoton}) => {
         ]);
         break;
 
-        case "fortín":
+      case "fortín":
         setListaLocDestino([
           "w. posse",
           "el paraíso",
@@ -177,7 +203,7 @@ const Abonos = ({enviarParametrosAbonos , keyBoton}) => {
         ]);
         break;
 
-        case "alderetes":
+      case "alderetes":
         setListaLocDestino([
           "la florida",
           "el talar",
@@ -188,7 +214,7 @@ const Abonos = ({enviarParametrosAbonos , keyBoton}) => {
         ]);
         break;
 
-        case "banda del río salí":
+      case "banda del río salí":
         setListaLocDestino([
           "la florida",
           "el paraíso",
@@ -199,7 +225,7 @@ const Abonos = ({enviarParametrosAbonos , keyBoton}) => {
         ]);
         break;
 
-        case "alabama":
+      case "alabama":
         setListaLocDestino([
           "los ralos",
           "cevil pozo",
@@ -213,16 +239,16 @@ const Abonos = ({enviarParametrosAbonos , keyBoton}) => {
     }
     const esLocalidadDestinoValida = localidadDestino === 'san miguel de tucumán' || localidadDestino === 'banda del río salí';
     const camposCompletos = localidadOrigen !== null && localidadDestino !== null && viajesIngresados !== null && tarifaElegida !== null;
-    
+
     if (esLocalidadDestinoValida ? camposCompletos && via !== null : camposCompletos) {
-        setBotonDisponible(true);
+      setBotonDisponible(true);
     } else {
-        setBotonDisponible(false);
+      setBotonDisponible(false);
     }
 
-    console.log(localidadOrigen,localidadDestino,viajesIngresados,tarifaElegida)
+    console.log(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida)
 
-  }, [localidadOrigen, localidadDestino, viajesIngresados,tarifaElegida, via]);
+  }, [localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via]);
 
   const recibirLocalidad = (localidad) => {
     setLocalidadOrigen(localidad);
@@ -235,14 +261,14 @@ const Abonos = ({enviarParametrosAbonos , keyBoton}) => {
   };
 
 
-  const recibirVia = via => {setVia(via);}
+  const recibirVia = via => { setVia(via); }
 
   useEffect(() => {
     setVia(null)
-  },[localidadDestino])
+  }, [localidadDestino])
 
-const recibirTarifaElegida = tarifa => {setTarifaElegida(tarifa)}
-const recibirViajesIngresados = viajes => {setViajesIngresados(viajes)}
+  const recibirTarifaElegida = tarifa => { setTarifaElegida(tarifa) }
+  const recibirViajesIngresados = viajes => { setViajesIngresados(viajes) }
 
 
   return (
@@ -281,10 +307,12 @@ const recibirViajesIngresados = viajes => {setViajesIngresados(viajes)}
             </div>
           </div>
         </div>
-                  {keyBoton === 'abonos' && <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados}/>}
+        {keyBoton === 'abonos' ? 
+        <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados} /> : 
+        <ContainerHoraDia hora={hora} minutos={minutos} dia={dia}/>}
       </div>
       <Link to="/cotizacion">
-        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados,tarifaElegida,listaOrigenDestino,via)}>Calcular</div>
+        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, listaOrigenDestino, via)}>Calcular</div>
       </Link>
     </div>
 

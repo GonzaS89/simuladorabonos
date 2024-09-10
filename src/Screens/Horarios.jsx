@@ -6,7 +6,7 @@ import IdaVuelta from "../ComponentesHorarios/IdaVuelta";
 import { OrigenDestino } from "../ComponentesHorarios/OrigenDestino";
 import { Horario } from "../ComponentesHorarios/Horario";
 
-const Horarios = () => {
+const Horarios = ({enviarHora, enviarMitos}) => {
   const todosLosOrigenes = [
     { nombre: "la florida x alderetes/alternativa" },
     { nombre: "la florida x w. posse" },

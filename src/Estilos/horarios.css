@@ -205,5 +205,45 @@
 .container-bloque_hora-dia{
     display: flex;
     flex-direction: column;
+
+    && h1{
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-weight: 100;
+    }
 }
 
+.container-diaSemana{
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .diaautomatico, .container-select{
+    text-transform: none;
+    width: 120px;
+    position: relative;
+  }
+  
+  .select-diasemana, .containter-select-mascara{
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    color: grey;
+    position: relative;
+  }
+  
+  .containter-select-mascara{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: inherit;
+    position: absolute;
+    pointer-events: none;
+    z-index: 30;
+    color: grey;
+  }
+  
+  .arrow-select{
+    position:absolute;
+    right: 0;
+  }
