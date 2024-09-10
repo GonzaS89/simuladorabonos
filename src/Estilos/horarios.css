@@ -200,6 +200,10 @@
     width: 95%;
     overflow: scroll;
     padding: 10px 0;
+}
 
+.container-bloque_hora-dia{
+    display: flex;
+    flex-direction: column;
 }
 
