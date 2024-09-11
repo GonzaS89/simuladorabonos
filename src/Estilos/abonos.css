@@ -6,7 +6,7 @@
     top: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    /* justify-content: center; */
     color: white;
 }
 
@@ -39,10 +39,15 @@
     color: white;
     font-weight:100;
     text-transform: uppercase;
-    position: absolute;
-    top: 0;
   }
 
+  .container-general-parametros{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    margin-top: 20px;
+  }
   
 .container-salida, .container-destino{
     display: flex;
@@ -92,9 +97,6 @@
         font-size: 20px;
         font-weight: 100;
         text-decoration: none;
-        margin-left: 15px;
-        
-        
     }
   }
 
@@ -115,7 +117,6 @@
   }
 
   .container-viajes{
-    margin-top: 15px;
     display: flex;
     justify-content:center;
     align-items:center;
@@ -139,17 +140,22 @@
 
   .container-tipodetarifa{
     display:flex;
-    align-items: center;
+    flex-direction: column;;
     justify-content: space-between;
-    margin-top: 30px;
-    margin-right: 10px;
+    width: 100%;
 
     && h1{
         font-size:20px;
         font-weight: 100;
-        margin-left: 15px;
         user-select: none;
+        text-align: left;
     }
+  }
+
+  .tarifas{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .container-categoriatarifa{
@@ -164,8 +170,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    height: 40px;
-    width: 120px;
+    height: 50px;
+    width: 150px;
     gap: 5px;
     background-color: #D9D9D9;
     position: relative;
@@ -180,7 +186,7 @@
     right: 0;
     transform: translateX(-50%);
     z-index: 20;
-    font-size: 15px;
+    font-size: 17.5px;
     color: #d9d9d9;
     animation: mostrariconocheck .5s forwards ease-out;
   }
@@ -206,8 +212,14 @@
   }
 
   .container-viajes-tarifa, .container-bloque_hora-dia{
-    margin-bottom: 30px;
+    margin: 0 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
+    && h1{
+      margin-bottom: 10px;
+    }
   }
 
   .botonabonos{

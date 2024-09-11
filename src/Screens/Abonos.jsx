@@ -276,6 +276,7 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
       <div className="container-principal">
         <div className="logo-fondo"></div>
         <h1 className="titulo-principal">Calculá el precio de tu abono</h1>
+        <div className="container-general-parametros">
         <div className="container-origendestino">
           <div className="container-salida">
             <h1 className="titulo-container-salida">Origen</h1>
@@ -310,6 +311,7 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
         {keyBoton === 'abonos' ? 
         <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados} localidadOrigen={localidadOrigen}/> : 
         <ContainerHoraDia hora={hora} minutos={minutos} dia={dia} localidadOrigen={localidadOrigen}/>}
+        </div>
       </div>
       <Link to="/cotizacion">
         <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, listaOrigenDestino, via)}>Calcular</div>

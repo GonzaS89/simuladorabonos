@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../Estilos/horarios.css";
 import { IoIosArrowForward } from "react-icons/io";
 
-export const ContainerHoraDia = ({ hora, minutos, dia, localidadOrigen }) => {
+export const ContainerHoraDia = ({ hora, minutos, dia }) => {
   const [diaRango, setDiaRango] = useState(null);
   const [diaManual, setDiaManual] = useState(null);
   const [horaManualEnMinutos, setHoraManualEnMinutos] = useState(null);
@@ -37,11 +37,7 @@ export const ContainerHoraDia = ({ hora, minutos, dia, localidadOrigen }) => {
 
   return (
     <div
-      className={
-        localidadOrigen !== null
-          ? "container-bloque_hora-dia"
-          : "container-bloque_hora-dia hidden"
-      }
+      className="container-bloque_hora-dia"
     >
       <div className="container-diaSemana">
         <h1>Día de la semana</h1>

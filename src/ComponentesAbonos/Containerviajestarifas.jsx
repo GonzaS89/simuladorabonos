@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NumerosDeViajes } from './NumerosDeViajes';
 import { Tipodetarifa } from './Tipodetarifa';
 
-export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaElegida, localidadOrigen}) => {
+export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaElegida }) => {
 
     const [viajesIngresados, setViajesIngresados] = useState(null);
     const [tarifaElegida, setTarifaElegida] = useState(null);
@@ -10,11 +10,10 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
 
     const recibirNumViaje = (viajes) => {
         setViajesIngresados(viajes);
-        enviarViajesIngresados(viajes)
         setInputFocus(false);
       };
 
-      const recibirNumViajeInput = (e) => {
+      const recibirNumViajeInput = e => {
         setViajesIngresados(parseInt(e.target.value));
       };
 
@@ -23,10 +22,15 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
         enviarTarifaElegida(tarifa)
       };
 
+      useEffect(() => {
+        enviarViajesIngresados(viajesIngresados)
+      },[viajesIngresados, enviarViajesIngresados])
+      
+
   return (
-    <div className={localidadOrigen !== null ? 'container-viajes-tarifa' : 'hidden'}>
+    <div className='container-viajes-tarifa'>
           <div className="cantidaddeviajes">
-            <h1>Cantidad de viajes</h1>
+            <h1>Cantidad de viajes {viajesIngresados}</h1>
             <div className="container-principal-numviajes">
               <div className="container-opciones-viajes">
                 <NumerosDeViajes
@@ -68,6 +72,7 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
           <div className="container-tipodetarifa">
             <h1>Tipo de tarifa</h1>
             <div className="container-categoriatarifa">
+              <div className="tarifas">
               <Tipodetarifa
                 tarifa={"empleados"}
                 enviarTarifa={recibirTarifa}
@@ -78,6 +83,7 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
                 enviarTarifa={recibirTarifa}
                 tarifaElegida={tarifaElegida}
               />
+              </div>
             </div>
           </div>
         </div>
