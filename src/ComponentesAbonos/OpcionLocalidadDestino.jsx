@@ -14,11 +14,10 @@ export const OpcionLocalidadDestino = ({
   const [nombreOpcionVia, setNombreOpcionVia] = useState(null);
   const [opcionesViasVisibles, setOpcionesViasVisibles] = useState(false);
   const [confirmacionSeleccion, setConfirmacionSeleccion] = useState(false);
-  const [via, setVia] = useState(null);
+  const [viaElegida, setViaElegida] = useState(null);
 
   const clickearImg = () => {
     enviarLocalidadDestino(nombre);
-    setVia(null)
   };
   useEffect(() => {
     if (localidadDestino === nombre) {
@@ -98,9 +97,9 @@ export const OpcionLocalidadDestino = ({
     !localidadClickeada && setOpcionesViasVisibles(false);
   }, [localidadClickeada]);
 
-  const recibirVia = (via) => {
-    setVia(via);
-    enviarVia(via);
+  const recibirVia = data => {
+    setViaElegida(data);
+    enviarVia(data);
   };
 
   return (
@@ -128,13 +127,13 @@ export const OpcionLocalidadDestino = ({
           <Opcionvia
             nombre={nombreOpcionVia}
             enviarVia={recibirVia}
-            viaElegida={via}
+            viaElegida={viaElegida}
             localidadDestino={localidadDestino}
           />
           <Opcionvia
             nombre={"w. posse"}
             enviarVia={recibirVia}
-            viaElegida={via}
+            viaElegida={viaElegida}
             localidadDestino={localidadDestino}
           />
         </div>

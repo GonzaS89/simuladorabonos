@@ -261,7 +261,7 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
   };
 
 
-  const recibirVia = via => { setVia(via); }
+  const recibirVia = via => {setVia(via)}
 
   useEffect(() => {
     setVia(null)
@@ -308,8 +308,8 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
           </div>
         </div>
         {keyBoton === 'abonos' ? 
-        <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados} /> : 
-        <ContainerHoraDia hora={hora} minutos={minutos} dia={dia}/>}
+        <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados} localidadOrigen={localidadOrigen}/> : 
+        <ContainerHoraDia hora={hora} minutos={minutos} dia={dia} localidadOrigen={localidadOrigen}/>}
       </div>
       <Link to="/cotizacion">
         <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, listaOrigenDestino, via)}>Calcular</div>

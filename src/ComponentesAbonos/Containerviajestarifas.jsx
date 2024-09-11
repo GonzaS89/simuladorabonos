@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NumerosDeViajes } from './NumerosDeViajes';
 import { Tipodetarifa } from './Tipodetarifa';
 
-export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaElegida}) => {
+export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaElegida, localidadOrigen}) => {
 
     const [viajesIngresados, setViajesIngresados] = useState(null);
     const [tarifaElegida, setTarifaElegida] = useState(null);
@@ -24,7 +24,7 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
       };
 
   return (
-    <div className="container-viajes-tarifa">
+    <div className={localidadOrigen !== null ? 'container-viajes-tarifa' : 'hidden'}>
           <div className="cantidaddeviajes">
             <h1>Cantidad de viajes</h1>
             <div className="container-principal-numviajes">

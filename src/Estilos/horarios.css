@@ -205,23 +205,33 @@
 .container-bloque_hora-dia{
     display: flex;
     flex-direction: column;
+    margin: 0 10px;
 
     && h1{
         font-size: 20px;
         margin-bottom: 10px;
         font-weight: 100;
+        text-align: left;
     }
 }
 
 .container-diaSemana{
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .container-horaautomanual{
+    display: flex;
+    justify-content: space-between;
   }
   
   .diaautomatico, .container-select{
     text-transform: none;
-    width: 120px;
+    width: 150px;
+    height: 50px;
     position: relative;
+    font-size: 18px;
   }
   
   .select-diasemana, .containter-select-mascara{
@@ -230,20 +240,41 @@
     font-size: 15px;
     color: grey;
     position: relative;
+    border-radius:5px
   }
   
   .containter-select-mascara{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: inherit;
     position: absolute;
     pointer-events: none;
     z-index: 30;
     color: grey;
+    background-color: #d9d9d9;
+    font-size: 18px;
   }
   
   .arrow-select{
     position:absolute;
     right: 0;
   }
+
+  .horaautomatica, .input-horamanual{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    height: 50px;
+    width: 150px;
+    gap: 5px;
+    font-size:25px;
+    background-color: #D9D9D9;
+    position: relative;
+    text-transform: capitalize;
+    color: black;
+    font-family: "Jockey One", sans-serif;
+  }
+
+  .opcioninactiva{color: grey;} .opcionactiva{color: black;}
+

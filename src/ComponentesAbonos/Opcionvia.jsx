@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import "../Estilos/opcionsalidadestino.css";
 import { FaCheckCircle } from "react-icons/fa";
 
-export const Opcionvia = ({ nombre, enviarVia, viaElegida, localidadDestino}) => {
+export const Opcionvia = ({ nombre, enviarVia, viaElegida, localidadDestino }) => {
   const [botonPresionado, setBotonPresionado] = useState(false);
 
   const manejoDeBoton = () => {
     enviarVia(nombre);
-    setBotonPresionado(true);
+    setBotonPresionado(true)
   };
 
   useEffect(() => {
@@ -20,6 +20,8 @@ export const Opcionvia = ({ nombre, enviarVia, viaElegida, localidadDestino}) =>
     setBotonPresionado(false)
   },[localidadDestino])
 
+  useEffect(() => {
+  },[viaElegida])
 
   return (
     <p
