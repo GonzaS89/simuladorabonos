@@ -1,6 +1,7 @@
 // import "./App.css";
 import React, { useState, useEffect } from "react";
 import localidades from "../localidades.json";
+import grillab from '../grillasb.json';
 import "../Estilos/abonos.css";
 import { OpcionLocalidad } from "../ComponentesAbonos/OpcionLocalidad";
 import { OpcionLocalidadDestino } from "../ComponentesAbonos/OpcionLocalidadDestino";
@@ -33,6 +34,8 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
     return () => clearInterval(timerIdMinutes);
   }, []);
 
+
+
   //
   const [localidadOrigen, setLocalidadOrigen] = useState(null);
   const [localidadDestino, setLocalidadDestino] = useState(null);
@@ -42,6 +45,7 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
   const [botonDisponible, setBotonDisponible] = useState(false);
   const [listaOrigenDestino, setListaOrigenDestino] = useState([]);
   const [via, setVia] = useState(null);
+  const [listaHorarios, setListaHorarios] = useState([]);
 
 
 
@@ -258,10 +262,11 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
   const recibirLocalidadDestino = (localidad) => {
     setLocalidadDestino(localidad);
     setListaOrigenDestino([localidad, ...listaOrigenDestino])
+    setListaHorarios([])
   };
 
 
-  const recibirVia = via => {setVia(via)}
+  const recibirVia = via => { setVia(via) }
 
   useEffect(() => {
     setVia(null)
@@ -270,6 +275,45 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
   const recibirTarifaElegida = tarifa => { setTarifaElegida(tarifa) }
   const recibirViajesIngresados = viajes => { setViajesIngresados(viajes) }
 
+  useEffect(() => {
+    (grillab.lunesAViernes).map(horario => {
+      const recorrido = horario.recorrido
+      if (via === 'w. posse') {
+        if ((recorrido.includes(localidadOrigen) &&
+          recorrido.includes(localidadDestino))) {
+          if (recorrido.includes(via)) {
+            if (recorrido.indexOf(localidadOrigen) < recorrido.indexOf(localidadDestino)) {
+              { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
+            }
+          }
+        }
+
+      }
+      else if (via !== 'w. posse') {
+        if ((recorrido.includes(localidadOrigen) &&
+          recorrido.includes(localidadDestino))) {
+          if (!recorrido.includes('w. posse')) {
+            if (recorrido.indexOf(localidadOrigen) < recorrido.indexOf(localidadDestino)) {
+              { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
+            }
+          }
+        }
+      }
+      else{
+        if ((recorrido.includes(localidadOrigen) &&
+          recorrido.includes(localidadDestino))){        
+            if (recorrido.indexOf(localidadOrigen) < recorrido.indexOf(localidadDestino)) {
+              { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
+            }
+          }
+        }
+    })
+  }, [localidadOrigen, localidadDestino, via])
+
+  useEffect(() => {
+    console.log(listaHorarios)
+  }, [listaHorarios])
+
 
   return (
     <div className="container-screen">
@@ -277,40 +321,40 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
         <div className="logo-fondo"></div>
         <h1 className="titulo-principal">{keyBoton === 'abonos' ? 'Calculá el precio de tu abono' : 'Consulta de horarios'}</h1>
         <div className="container-general-parametros">
-        <div className="container-origendestino">
-          <div className="container-salida">
-            <h1 className="titulo-container-salida">Origen</h1>
-            <div className="container-opciones-salida">
-              {localidades.map((localidad, index) => (
-                <OpcionLocalidad
-                  key={index}
-                  nombre={localidad.nombre}
-                  enviarLocalidad={recibirLocalidad}
-                  localidadOrigen={localidadOrigen}
-                />
-              ))}
-            </div>
-          </div>
-          <div className={localidadOrigen !== null ? 'container-destino' : 'hidden'}>
-            <h1 className="titulo-container-salida">Destino</h1>
-            <div className="container-opciones-salida">
-              {listaLocDestino !== null &&
-                listaLocDestino.map((localidad, index) => (
-                  <OpcionLocalidadDestino
+          <div className="container-origendestino">
+            <div className="container-salida">
+              <h1 className="titulo-container-salida">Origen</h1>
+              <div className="container-opciones-salida">
+                {localidades.map((localidad, index) => (
+                  <OpcionLocalidad
                     key={index}
-                    nombre={localidad}
-                    enviarLocalidadDestino={recibirLocalidadDestino}
-                    localidadDestino={localidadDestino}
+                    nombre={localidad.nombre}
+                    enviarLocalidad={recibirLocalidad}
                     localidadOrigen={localidadOrigen}
-                    enviarVia={recibirVia}
                   />
                 ))}
+              </div>
+            </div>
+            <div className={localidadOrigen !== null ? 'container-destino' : 'hidden'}>
+              <h1 className="titulo-container-salida">Destino</h1>
+              <div className="container-opciones-salida">
+                {listaLocDestino !== null &&
+                  listaLocDestino.map((localidad, index) => (
+                    <OpcionLocalidadDestino
+                      key={index}
+                      nombre={localidad}
+                      enviarLocalidadDestino={recibirLocalidadDestino}
+                      localidadDestino={localidadDestino}
+                      localidadOrigen={localidadOrigen}
+                      enviarVia={recibirVia}
+                    />
+                  ))}
+              </div>
             </div>
           </div>
-        </div>
-        {keyBoton === 'abonos' ? 
-        <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados} localidadOrigen={localidadOrigen}/> : 
-        <ContainerHoraDia hora={hora} minutos={minutos} dia={dia} localidadOrigen={localidadOrigen}/>}
+          {keyBoton === 'abonos' ?
+            <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados} localidadOrigen={localidadOrigen} /> :
+            <ContainerHoraDia hora={hora} minutos={minutos} dia={dia} localidadOrigen={localidadOrigen} />}
         </div>
       </div>
       <Link to="/cotizacion">
