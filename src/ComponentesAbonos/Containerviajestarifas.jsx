@@ -30,7 +30,7 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
   return (
     <div className='container-viajes-tarifa'>
           <div className="cantidaddeviajes">
-            <h1>Cantidad de viajes {viajesIngresados}</h1>
+            <h1>Cantidad de viajes</h1>
             <div className="container-principal-numviajes">
               <div className="container-opciones-viajes">
                 <NumerosDeViajes
