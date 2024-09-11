@@ -61,7 +61,7 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
               <div className="opcion-viajes-manual">
                 <input
                   className="container-viajes"
-                  type="num"
+                  type="number"
                   placeholder="¿...?"
                   onChange={recibirNumViajeInput}
                   onFocus={() => setInputFocus(true)}
