@@ -275,7 +275,7 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
     <div className="container-screen">
       <div className="container-principal">
         <div className="logo-fondo"></div>
-        <h1 className="titulo-principal">Calculá el precio de tu abono</h1>
+        <h1 className="titulo-principal">{keyBoton === 'abonos' ? 'Calculá el precio de tu abono' : 'Consulta de horarios'}</h1>
         <div className="container-general-parametros">
         <div className="container-origendestino">
           <div className="container-salida">
@@ -314,7 +314,7 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
         </div>
       </div>
       <Link to="/cotizacion">
-        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, listaOrigenDestino, via)}>Calcular</div>
+        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, listaOrigenDestino, via)}>{keyBoton === 'abonos' ? 'calcular' : 'consultar'}</div>
       </Link>
     </div>
 
