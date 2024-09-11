@@ -7,14 +7,17 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
     const [viajesIngresados, setViajesIngresados] = useState(null);
     const [tarifaElegida, setTarifaElegida] = useState(null);
     const [inputFocus, setInputFocus] = useState(null);
+    const [inputOnBlur, setInputOnBlur] = useState(null)
+    const [viajesInput, setViajesInput] = useState(null)
 
     const recibirNumViaje = (viajes) => {
         setViajesIngresados(viajes);
         setInputFocus(false);
+        setInputOnBlur(false)
       };
 
       const recibirNumViajeInput = e => {
-        setViajesIngresados(parseInt(e.target.value));
+        setViajesInput(parseInt(e.target.value));
       };
 
       const recibirTarifa = (tarifa) => {
@@ -23,8 +26,8 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
       };
 
       useEffect(() => {
-        enviarViajesIngresados(viajesIngresados)
-      },[viajesIngresados, enviarViajesIngresados])
+        enviarViajesIngresados(viajesInput)
+      },[viajesInput, enviarViajesIngresados])
       
 
   return (
@@ -60,11 +63,12 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
               </div>
               <div className="opcion-viajes-manual">
                 <input
-                  className="container-viajes"
+                  className={inputOnBlur ? 'container-viajes opcionSeleccionada' : 'container-viajes'}
                   type="number"
                   placeholder="¿...?"
                   onChange={recibirNumViajeInput}
                   onFocus={() => setInputFocus(true)}
+                  onBlur={()=> setInputOnBlur(true)}
                 />
               </div>
             </div>

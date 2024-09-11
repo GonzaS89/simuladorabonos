@@ -138,6 +138,8 @@
     margin-right: 50px;
   }
 
+
+
   .container-tipodetarifa{
     display:flex;
     flex-direction: column;;
@@ -184,6 +186,11 @@
   .texto-opcion-vias{
     height: 30px;
     width: 120px;
+
+    && .icono-check-tarifa{
+      font-size: 15px;
+    }
+
   }
 
   .icono-check-tarifa{
