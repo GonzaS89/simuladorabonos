@@ -28,8 +28,8 @@ export const CotizacionAbonos = ({
   lista,
   via,
 }) => {
-  const [precioNormal, setPrecioNormal] = useState();
-  const [precioDescuento, setPrecioDescuento] = useState();
+  const [precioNormal, setPrecioNormal] = useState(0);
+  const [precioDescuento, setPrecioDescuento] = useState(0);
 
   useEffect(() => {
     if (lista !== null) {
@@ -129,6 +129,12 @@ export const CotizacionAbonos = ({
     }
   }, [tarifa, precioNormal,origen]);
 
+  const puntoDeMillar = numero => {
+    const partes = numero.toString().split(".");  // Divide la parte entera y decimal
+  partes[0] = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");  // Aplica los puntos de millar
+  return partes.join(".");
+    }
+
   return (
     <div className="container-cotizacion">
       <div className="logo-fondo"></div>
@@ -140,16 +146,16 @@ export const CotizacionAbonos = ({
               <p className="texto-detalle-viajes">
                 {viajes} viajes desde <span>{origen} </span>hasta <span>{destino}</span> {via !== null ? `por ${via}` : ''} (tarifa normal)
               </p>
-              <p className="texto-precio-viajes">$ {precioNormal}</p>
+              <p className="texto-precio-viajes">$ {puntoDeMillar(precioNormal)}</p>
             </div>
             <div className="container-descuento-precio">
               <p className="texto-detalle-descuento">Descuento para {tarifa}</p>
-              <p className="texto-precio-descuento">- $ {Math.round(precioDescuento)}</p>
+              <p className="texto-precio-descuento">- $ {puntoDeMillar(Math.round(precioDescuento))}</p>
             </div>
           </div>
           <div className="container-preciofinal">
             <p>Precio final</p>
-            <p className="preciofinal">$ {Math.round(precioNormal - precioDescuento)}</p>
+            <p className="preciofinal">$ {puntoDeMillar(Math.round(precioNormal - precioDescuento))}</p>
           </div>
         </div>
       </div>

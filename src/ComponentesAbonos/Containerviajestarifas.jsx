@@ -8,7 +8,6 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
     const [tarifaElegida, setTarifaElegida] = useState(null);
     const [inputFocus, setInputFocus] = useState(null);
     const [inputOnBlur, setInputOnBlur] = useState(null)
-    const [viajesInput, setViajesInput] = useState(null)
 
     const recibirNumViaje = (viajes) => {
         setViajesIngresados(viajes);

@@ -78,7 +78,7 @@ img{
     text-transform: capitalize;
   }
 
-  .opcionSeleccionada{
+  /* .opcionSeleccionada{
     animation: resaltartarifa .5s forwards ease-out;
   }
 
@@ -91,5 +91,5 @@ img{
       background-color: black;
     color: #d9d9d9;
     }
-  }
+  } */
 

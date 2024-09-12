@@ -280,46 +280,82 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
   const recibirViajesIngresados = viajes => { setViajesIngresados(viajes) }
 
   useEffect(() => {
-    (lunesAViernes).map(horario => {
-      const recorrido = horario.recorrido
-      if(via === null){
-        if(localidadOrigen === localidadDestino){
-          if(recorrido.includes(localidadOrigen) && (recorrido.indexOf('san miguel de tucumán') !== 0)){
-            { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
-          }
-        }
-        else if ((recorrido.includes(localidadOrigen) &&
-          recorrido.includes(localidadDestino))){        
-            if (recorrido.indexOf(localidadOrigen) < recorrido.indexOf(localidadDestino)) {
-              { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
-            }
-          }
-      }else{
-        if (via === 'w. posse') {
-        if ((recorrido.includes(localidadOrigen) &&
-          recorrido.includes(localidadDestino))) {
-          if (recorrido.includes(via)) {
-            if (recorrido.indexOf(localidadOrigen) < recorrido.indexOf(localidadDestino)) {
-              { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
-            }
-          }
-        }
+    const horariosFiltrados = [];
 
+lunesAViernes.forEach(horario => {
+  const recorrido = horario.recorrido;
+
+  const incluyeOrigen = recorrido.includes(localidadOrigen);
+  const incluyeDestino = recorrido.includes(localidadDestino);
+  const indexOrigen = recorrido.indexOf(localidadOrigen);
+  const indexDestino = recorrido.indexOf(localidadDestino);
+  
+  // Caso cuando 'via' es null
+  if (via === null) {
+    if (localidadOrigen === localidadDestino) {
+      if (incluyeOrigen && recorrido.indexOf('san miguel de tucumán') !== 0) {
+        horariosFiltrados.push(horario);
       }
-      else if (via !== 'w. posse') {
-        if ((recorrido.includes(localidadOrigen) &&
-          recorrido.includes(localidadDestino))) {
-          if (!recorrido.includes('w. posse')) {
-            if (recorrido.indexOf(localidadOrigen) < recorrido.indexOf(localidadDestino)) {
-              { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
-            }
-          }
-        }
-      }
-      }
+    } else if (incluyeOrigen && incluyeDestino && indexOrigen < indexDestino) {
+      horariosFiltrados.push(horario);
+    }
+  } 
+  // Caso cuando 'via' es 'w. posse'
+  else if (via === 'w. posse') {
+    if (incluyeOrigen && incluyeDestino && recorrido.includes(via) && indexOrigen < indexDestino) {
+      horariosFiltrados.push(horario);
+    }
+  } 
+  // Caso cuando 'via' no es 'w. posse'
+  else {
+    if (incluyeOrigen && incluyeDestino && !recorrido.includes('w. posse') && indexOrigen < indexDestino) {
+      horariosFiltrados.push(horario);
+    }
+  }
+});
+
+// Actualiza el estado solo una vez con los horarios filtrados
+setListaHorarios(horariosFiltrados);
+    // lunesAViernes.map(horario => {
+    //   const recorrido = horario.recorrido
+    //   if(via === null){
+    //     if(localidadOrigen === localidadDestino){
+    //       if(recorrido.includes(localidadOrigen) && (recorrido.indexOf('san miguel de tucumán') !== 0)){
+    //         { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
+    //       }
+    //     }
+    //     else if ((recorrido.includes(localidadOrigen) &&
+    //       recorrido.includes(localidadDestino))){        
+    //         if (recorrido.indexOf(localidadOrigen) < recorrido.indexOf(localidadDestino)) {
+    //           { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
+    //         }
+    //       }
+    //   }else{
+    //     if (via === 'w. posse') {
+    //     if ((recorrido.includes(localidadOrigen) &&
+    //       recorrido.includes(localidadDestino))) {
+    //       if (recorrido.includes(via)) {
+    //         if (recorrido.indexOf(localidadOrigen) < recorrido.indexOf(localidadDestino)) {
+    //           { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
+    //         }
+    //       }
+    //     }
+
+    //   }
+    //   else if (via !== 'w. posse') {
+    //     if ((recorrido.includes(localidadOrigen) &&
+    //       recorrido.includes(localidadDestino))) {
+    //       if (!recorrido.includes('w. posse')) {
+    //         if (recorrido.indexOf(localidadOrigen) < recorrido.indexOf(localidadDestino)) {
+    //           { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
+    //         }
+    //       }
+    //     }
+    //   }
+    //   }
       
       
-    })
+    // })
   }, [localidadOrigen, localidadDestino, via,lunesAViernes,sabados,domingos])
 
 
