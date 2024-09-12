@@ -242,15 +242,15 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
         break;
     }
     const esLocalidadDestinoValida = localidadDestino === 'san miguel de tucumán' || localidadDestino === 'banda del río salí';
+    const localidadConViasAlternas = localidadOrigen === 'la florida' || localidadOrigen === 'colonia 4 (luisiana)' || localidadOrigen === 'fortín';
     const camposCompletos = localidadOrigen !== null && localidadDestino !== null && viajesIngresados !== null && tarifaElegida !== null;
 
-    if (esLocalidadDestinoValida ? camposCompletos && via !== null : camposCompletos) {
+    if (esLocalidadDestinoValida && localidadConViasAlternas ? camposCompletos && via !== null : camposCompletos) {
       setBotonDisponible(true);
     } else {
       setBotonDisponible(false);
     }
 
-    console.log(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida)
 
   }, [localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via]);
 
@@ -268,6 +268,10 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
 
   const recibirVia = via => { setVia(via) }
 
+  const lunesAViernes = grillab.lunesAViernes;
+  const sabados = grillab.sabados;
+  const domingos = grillab.domingos
+
   useEffect(() => {
     setVia(null)
   }, [localidadDestino])
@@ -276,9 +280,22 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
   const recibirViajesIngresados = viajes => { setViajesIngresados(viajes) }
 
   useEffect(() => {
-    (grillab.lunesAViernes).map(horario => {
+    (lunesAViernes).map(horario => {
       const recorrido = horario.recorrido
-      if (via === 'w. posse') {
+      if(via === null){
+        if(localidadOrigen === localidadDestino){
+          if(recorrido.includes(localidadOrigen) && (recorrido.indexOf('san miguel de tucumán') !== 0)){
+            { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
+          }
+        }
+        else if ((recorrido.includes(localidadOrigen) &&
+          recorrido.includes(localidadDestino))){        
+            if (recorrido.indexOf(localidadOrigen) < recorrido.indexOf(localidadDestino)) {
+              { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
+            }
+          }
+      }else{
+        if (via === 'w. posse') {
         if ((recorrido.includes(localidadOrigen) &&
           recorrido.includes(localidadDestino))) {
           if (recorrido.includes(via)) {
@@ -299,20 +316,16 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
           }
         }
       }
-      else{
-        if ((recorrido.includes(localidadOrigen) &&
-          recorrido.includes(localidadDestino))){        
-            if (recorrido.indexOf(localidadOrigen) < recorrido.indexOf(localidadDestino)) {
-              { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
-            }
-          }
-        }
+      }
+      
+      
     })
-  }, [localidadOrigen, localidadDestino, via])
+  }, [localidadOrigen, localidadDestino, via,lunesAViernes,sabados,domingos])
+
 
   useEffect(() => {
     console.log(listaHorarios)
-  }, [listaHorarios])
+  },[listaHorarios])
 
 
   return (
@@ -359,6 +372,7 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
       </div>
       <Link to="/cotizacion">
         <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, listaOrigenDestino, via)}>{keyBoton === 'abonos' ? 'calcular' : 'consultar'}</div>
+        
       </Link>
     </div>
 

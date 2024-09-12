@@ -17,7 +17,7 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
       };
 
       const recibirNumViajeInput = e => {
-        setViajesInput(parseInt(e.target.value));
+        setViajesIngresados(parseInt(e.target.value));
       };
 
       const recibirTarifa = (tarifa) => {
@@ -26,8 +26,8 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
       };
 
       useEffect(() => {
-        enviarViajesIngresados(viajesInput)
-      },[viajesInput, enviarViajesIngresados])
+        enviarViajesIngresados(viajesIngresados)
+      },[viajesIngresados,enviarViajesIngresados])
       
 
   return (
@@ -69,6 +69,7 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
                   onChange={recibirNumViajeInput}
                   onFocus={() => setInputFocus(true)}
                   onBlur={()=> setInputOnBlur(true)}
+                  onClick={()=> setViajesIngresados(null)}
                 />
               </div>
             </div>

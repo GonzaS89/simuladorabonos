@@ -78,7 +78,7 @@ export const CotizacionAbonos = ({
           else if(lista.includes("finca mayo")){setPrecioNormal(viajes * codigo11)}
           else if(lista.includes("fila de la orilla")){setPrecioNormal(viajes * codigo12)}
           else if(lista.includes("cevil pozo")){setPrecioNormal(viajes * codigo16)}
-          else if(lista.includes("banda del río salí")){setPrecioNormal(viajes * codigo18)}
+          else if(lista.includes("banda del río salí")){setPrecioNormal(viajes * codigo16)}
           else if(lista.includes("san miguel de tucumán")){setPrecioNormal(viajes * codigo21)}
           else if(lista.includes("las cejas")){setPrecioNormal(viajes * codigo24)}
           else if(lista.includes("7 de abril")){setPrecioNormal(viajes * codigo44)}
@@ -116,10 +116,18 @@ export const CotizacionAbonos = ({
   }, [origen, destino, viajes, lista, via]);
 
   useEffect(() => {
-    tarifa === "empleados"
-      ? setPrecioDescuento(precioNormal * 0.3)
+    if(origen === 'los ralos'){
+      if(tarifa === 'empleados'){
+        setPrecioDescuento(precioNormal * 0.33996)
+      }else{
+        setPrecioDescuento(precioNormal * 0.43999)
+      }
+    }else{
+      tarifa === 'empleados' ? 
+      setPrecioDescuento(precioNormal * 0.3)
       : setPrecioDescuento(precioNormal * 0.4);
-  }, [tarifa, precioNormal]);
+    }
+  }, [tarifa, precioNormal,origen]);
 
   return (
     <div className="container-cotizacion">
@@ -136,12 +144,12 @@ export const CotizacionAbonos = ({
             </div>
             <div className="container-descuento-precio">
               <p className="texto-detalle-descuento">Descuento para {tarifa}</p>
-              <p className="texto-precio-descuento">- $ {precioDescuento}</p>
+              <p className="texto-precio-descuento">- $ {Math.round(precioDescuento)}</p>
             </div>
           </div>
           <div className="container-preciofinal">
             <p>Precio final</p>
-            <p className="preciofinal">$ {precioNormal - precioDescuento}</p>
+            <p className="preciofinal">$ {Math.round(precioNormal - precioDescuento)}</p>
           </div>
         </div>
       </div>
