@@ -255,6 +255,7 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
   }, [localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via]);
 
   const recibirLocalidad = (localidad) => {
+    localidadOrigen === null && setListaOrigenDestino([])
     setLocalidadOrigen(localidad);
     setListaOrigenDestino([localidad, ...listaOrigenDestino])
   };
@@ -316,46 +317,7 @@ lunesAViernes.forEach(horario => {
 
 // Actualiza el estado solo una vez con los horarios filtrados
 setListaHorarios(horariosFiltrados);
-    // lunesAViernes.map(horario => {
-    //   const recorrido = horario.recorrido
-    //   if(via === null){
-    //     if(localidadOrigen === localidadDestino){
-    //       if(recorrido.includes(localidadOrigen) && (recorrido.indexOf('san miguel de tucumán') !== 0)){
-    //         { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
-    //       }
-    //     }
-    //     else if ((recorrido.includes(localidadOrigen) &&
-    //       recorrido.includes(localidadDestino))){        
-    //         if (recorrido.indexOf(localidadOrigen) < recorrido.indexOf(localidadDestino)) {
-    //           { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
-    //         }
-    //       }
-    //   }else{
-    //     if (via === 'w. posse') {
-    //     if ((recorrido.includes(localidadOrigen) &&
-    //       recorrido.includes(localidadDestino))) {
-    //       if (recorrido.includes(via)) {
-    //         if (recorrido.indexOf(localidadOrigen) < recorrido.indexOf(localidadDestino)) {
-    //           { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
-    //         }
-    //       }
-    //     }
-
-    //   }
-    //   else if (via !== 'w. posse') {
-    //     if ((recorrido.includes(localidadOrigen) &&
-    //       recorrido.includes(localidadDestino))) {
-    //       if (!recorrido.includes('w. posse')) {
-    //         if (recorrido.indexOf(localidadOrigen) < recorrido.indexOf(localidadDestino)) {
-    //           { setListaHorarios(prevListaHorarios => [...prevListaHorarios, horario]) }
-    //         }
-    //       }
-    //     }
-    //   }
-    //   }
-      
-      
-    // })
+  
   }, [localidadOrigen, localidadDestino, via,lunesAViernes,sabados,domingos])
 
 

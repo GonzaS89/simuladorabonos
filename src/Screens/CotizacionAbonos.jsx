@@ -34,106 +34,121 @@ export const CotizacionAbonos = ({
   useEffect(() => {
     if (lista !== null) {
       if (lista.includes("la florida") || lista.includes("fortín")) {
-          if(lista.includes("la florida") ||
+        if (lista.includes("la florida") ||
           lista.includes("w. posse") ||
           lista.includes("el talar") ||
           lista.includes("fortn") ||
           lista.includes("el paraíso") ||
-          lista.includes("el talar")){
-            setPrecioNormal(viajes * codigo06);
-          }
-          else if(lista.includes("alderetes") ||
-          lista.includes("colonia 4 (luisiana") ||
-          lista.includes("cevil pozo") ||
-          lista.includes("fila de la orilla")){
+          lista.includes("el talar")) {
+          setPrecioNormal(viajes * codigo06);
+        }
+       else if (lista.includes("alderetes") ||
+            lista.includes("colonia 4 (luisiana") ||
+            lista.includes("cevil pozo") ||
+            lista.includes("fila de la orilla")) {
             setPrecioNormal(viajes * codigo08);
           }
-            else if (lista.includes("banda del río salí")) {
-              if (via === "alderetes") {
-                setPrecioNormal(viajes * codigo11)
-              } else {
-                setPrecioNormal(viajes * codigo14);
+         else if (lista.includes("banda del río salí")) {
+                if (via === "w. posse") {
+                  setPrecioNormal(viajes * codigo14)
+                } else {
+                  if(via !== null)
+                  setPrecioNormal(viajes * codigo11);
+                }
               }
-        }
-        else if(lista.includes("la florida") || lista.includes("fortín")){
-          if(lista.includes("san miguel de tucumán")){
-            if (via === "ald./alter.") {
-              setPrecioNormal(viajes * codigo16)
-            } else {
-              setPrecioNormal(viajes * codigo21);
-            }
-          }
-        }
+               else if (lista.includes("san miguel de tucumán")) {
+                    if (via === "ald./alter.") {
+                      setPrecioNormal(viajes * codigo16)
+                    } else {
+                      if(via !== null)
+                      setPrecioNormal(viajes * codigo21);
+                    }
+                  }
       }
-      if(lista.includes("w. posse")){
-        if(lista.includes("el paraíso") || lista.includes("fila del medio") || lista.includes("fila de la orilla") || lista.includes("cevil pozo") || lista.includes("colonia 4 (luisiana)")){
+
+      // if (lista.includes("la florida") || lista.includes("fortín")) {
+      //   if (lista.includes("san miguel de tucumán")) {
+      //     if (via === "ald./alter.") {
+      //       setPrecioNormal(viajes * codigo16)
+      //     } else {
+      //       setPrecioNormal(viajes * codigo21);
+      //     }
+      //   }
+      // }
+      
+      if (lista.includes("w. posse")) {
+        if (lista.includes("el paraíso") || lista.includes("fila del medio") || lista.includes("fila de la orilla") || lista.includes("cevil pozo") || lista.includes("colonia 4 (luisiana)")) {
           setPrecioNormal(viajes * codigo06)
         }
-        else if(lista.includes("banda del río salí")){setPrecioNormal(viajes * codigo08)}
-        else if(lista.includes("san miguel de tucumán")){setPrecioNormal(viajes * codigo18)}
+        else if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo08) }
+        else if (lista.includes("san miguel de tucumán")) { setPrecioNormal(viajes * codigo18) }
       }
 
-      if(lista.includes("los ralos")){
-          if(lista.includes("cruz alta")){setPrecioNormal(viajes * codigo10)}
-          else if(lista.includes("finca mayo")){setPrecioNormal(viajes * codigo11)}
-          else if(lista.includes("fila de la orilla")){setPrecioNormal(viajes * codigo12)}
-          else if(lista.includes("cevil pozo")){setPrecioNormal(viajes * codigo16)}
-          else if(lista.includes("banda del río salí")){setPrecioNormal(viajes * codigo16)}
-          else if(lista.includes("san miguel de tucumán")){setPrecioNormal(viajes * codigo21)}
-          else if(lista.includes("las cejas")){setPrecioNormal(viajes * codigo24)}
-          else if(lista.includes("7 de abril")){setPrecioNormal(viajes * codigo44)}
+      if (lista.includes("los ralos")) {
+        if (lista.includes("cruz alta")) { setPrecioNormal(viajes * codigo10) }
+        else if (lista.includes("finca mayo")) { setPrecioNormal(viajes * codigo11) }
+        else if (lista.includes("fila de la orilla")) { setPrecioNormal(viajes * codigo12) }
+        else if (lista.includes("cevil pozo")) { setPrecioNormal(viajes * codigo16) }
+        else if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo16) }
+        else if (lista.includes("san miguel de tucumán")) { setPrecioNormal(viajes * codigo21) }
+        else if (lista.includes("las cejas")) { setPrecioNormal(viajes * codigo24) }
+        else if (lista.includes("7 de abril")) { setPrecioNormal(viajes * codigo44) }
       }
 
-      if(lista.includes("las cejas")){
-        if(lista.includes("fila de la orilla") || lista.includes("cevil pozo")){setPrecioNormal(viajes * codigo27)}
-        else if(lista.includes("banda del río salí")){setPrecioNormal(viajes * codigo30)}
-        else if(lista.includes("san miguel de tucumán")){setPrecioNormal(viajes * codigo34)}
-        else if(lista.includes("7 de abril")){setPrecioNormal(viajes * codigo41)}
+      if (lista.includes("las cejas")) {
+        if (lista.includes("fila de la orilla") || lista.includes("cevil pozo")) { setPrecioNormal(viajes * codigo27) }
+        else if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo30) }
+        else if (lista.includes("san miguel de tucumán")) { setPrecioNormal(viajes * codigo34) }
+        else if (lista.includes("7 de abril")) { setPrecioNormal(viajes * codigo41) }
       }
 
-      if(lista.includes("cevil pozo")){
-        if(lista.includes("fila de la orilla") || lista.includes("fila del medio") || lista.includes("cruz alta") || lista.includes("banda del río salí")){setPrecioNormal(viajes * codigo06)}
-        else if(lista.includes("el paraíso") || lista.includes("san miguel de tucumán")){setPrecioNormal(viajes * codigo08)}
-        else if(lista.includes("colonia 4 (luisiana)")){setPrecioNormal(viajes * codigo14)}
-        else if(lista.includes("finca mayo")){setPrecioNormal(viajes * codigo21)}
-        else if(lista.includes("7 de abril")){setPrecioNormal(viajes * codigo44)}
+      if (lista.includes("cevil pozo")) {
+        if (lista.includes("fila de la orilla") || lista.includes("fila del medio") || lista.includes("cruz alta") || lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo06) }
+        else if (lista.includes("el paraíso") || lista.includes("san miguel de tucumán")) { setPrecioNormal(viajes * codigo08) }
+        else if (lista.includes("colonia 4 (luisiana)")) { setPrecioNormal(viajes * codigo14) }
+        else if (lista.includes("finca mayo")) { setPrecioNormal(viajes * codigo21) }
+        else if (lista.includes("7 de abril")) { setPrecioNormal(viajes * codigo44) }
       }
 
-      if(lista.includes("san miguel de tucumán")){
-        if(lista.includes("banda del río salí")){setPrecioNormal(viajes * codigo06)}
-        else if(lista.includes("alderetes")){setPrecioNormal(viajes * codigo08)}
-        else if(lista.includes("fila de la orilla") || lista.includes("fila del medio")){setPrecioNormal(viajes * codigo12)}
-        else if(lista.includes("el talar")){setPrecioNormal(viajes * codigo13)}
-        else if(lista.includes("cruz alta")){setPrecioNormal(viajes * codigo15)}
-        else if(lista.includes("la florida") || lista.includes("fortín") || lista.includes("colonia 4 (luisiana")){
-          if(via === 'w. posse'){setPrecioNormal(viajes * codigo21)}
-          else{setPrecioNormal(viajes * codigo16)}
+      if (lista.includes("san miguel de tucumán")) {
+        if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo06) }
+        else if (lista.includes("alderetes")) { setPrecioNormal(viajes * codigo08) }
+        else if (lista.includes("fila de la orilla") || lista.includes("fila del medio")) { setPrecioNormal(viajes * codigo12) }
+        else if (lista.includes("el talar")) { setPrecioNormal(viajes * codigo13) }
+        else if (lista.includes("cruz alta")) { setPrecioNormal(viajes * codigo15) }
+        else if (lista.includes("la florida") || lista.includes("fortín") || lista.includes("colonia 4 (luisiana")) {
+          if (via === 'w. posse') { setPrecioNormal(viajes * codigo21) }
+          else { setPrecioNormal(viajes * codigo16) }
         }
-        else if(lista.includes("el paraíso")){setPrecioNormal(viajes * codigo18)}
-        else if(lista.includes("finca mayo")){setPrecioNormal(viajes * codigo24)}
+        else if (lista.includes("el paraíso")) { setPrecioNormal(viajes * codigo18) }
+        else if (lista.includes("finca mayo")) { setPrecioNormal(viajes * codigo24) }
       }
     }
   }, [origen, destino, viajes, lista, via]);
 
   useEffect(() => {
-    if(origen === 'los ralos'){
-      if(tarifa === 'empleados'){
+    
+  })
+
+  useEffect(() => {
+    if (origen === 'los ralos') {
+      if (tarifa === 'empleados') {
         setPrecioDescuento(precioNormal * 0.33996)
-      }else{
+      } else {
         setPrecioDescuento(precioNormal * 0.43999)
       }
-    }else{
-      tarifa === 'empleados' ? 
-      setPrecioDescuento(precioNormal * 0.3)
-      : setPrecioDescuento(precioNormal * 0.4);
+    } else {
+      tarifa === 'empleados' ?
+        setPrecioDescuento(precioNormal * 0.3)
+        : setPrecioDescuento(precioNormal * 0.4);
     }
-  }, [tarifa, precioNormal,origen]);
+  }, [tarifa, precioNormal, origen]);
 
   const puntoDeMillar = numero => {
     const partes = numero.toString().split(".");  // Divide la parte entera y decimal
-  partes[0] = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");  // Aplica los puntos de millar
-  return partes.join(".");
-    }
+    partes[0] = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");  // Aplica los puntos de millar
+    return partes.join(".");
+  }
 
   return (
     <div className="container-cotizacion">
