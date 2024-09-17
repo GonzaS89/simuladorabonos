@@ -27,8 +27,11 @@ export const CotizacionAbonos = ({
   tarifa,
   via,
 }) => {
+
   const [precioNormal, setPrecioNormal] = useState(0);
   const [precioDescuento, setPrecioDescuento] = useState(0);
+  const [codigoDeterminado, setCodigoDeterminado] = useState(null);
+
 
   //FLORIDA - FORTIN - COLONIA 4 (LUISIANA)
 
@@ -40,9 +43,11 @@ export const CotizacionAbonos = ({
 
     if(floridaFortinCol4L.includes(origen)){
       if(destinosCortosFlorida.includes(destino)){
+        setCodigoDeterminado(codigo06)
         setPrecioNormal(viajes * codigo06)
       }
       else if(destinoMedianosFlorida.includes(destino)){
+        setCodigoDeterminado(codigo08)
         setPrecioNormal(viajes * codigo08)
       }
       else if(destino === 'banda del río salí'){
@@ -51,7 +56,12 @@ export const CotizacionAbonos = ({
       else if(destino === 'san miguel de tucumán'){
         via === 'w. posse' ? setPrecioNormal(viajes * codigo21) : setPrecioNormal(viajes * codigo16)
       }
-    }      
+    }
+
+    if(origen === 'w. posse'){
+
+    }
+
       
       // if (lista.includes("w. posse")) {
       //   if (lista.includes("el paraíso") || lista.includes("fila del medio") || lista.includes("fila de la orilla") || lista.includes("cevil pozo") || lista.includes("colonia 4 (luisiana)")) {
