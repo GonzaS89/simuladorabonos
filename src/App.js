@@ -15,24 +15,18 @@ function App() {
   const [localidadDestino, setLocalidadDestino] = useState(null);
   const [viajesIngresados, setViajesIngresados] = useState(null);
   const [tarifaElegida, setTarifaElegida] = useState(null);
-  const [listaViaje, setListaViaje] = useState(null);
   const [via, setVia] = useState(null);
   const [keyBoton, setKeyBoton] = useState(null);
 
-  const recibirParametrosAbonos = (origen, destino, viajes, tarifa, lista, via) => {
+  const recibirParametrosAbonos = (origen, destino, viajes, tarifa, via) => {
     setLocalidadOrigen(origen);
     setLocalidadDestino(destino);
     setViajesIngresados(viajes);
     setTarifaElegida(tarifa);
-    setListaViaje(lista)
     setVia(via)
   }
 
   const recibirKey = nombre => { setKeyBoton(nombre)}
-
-  useEffect(()=> {
-    console.log(keyBoton)
-  },[keyBoton])
 
 
   return (
@@ -52,7 +46,7 @@ function App() {
           <Routes>
             <Route path="/abonos" element={<Abonos enviarParametrosAbonos={recibirParametrosAbonos} keyBoton={keyBoton} />}></Route>
             <Route path="/horarios" element={<Horarios />}></Route>
-            <Route path="/cotizacion" element={<CotizacionAbonos origen={localidadOrigen} destino={localidadDestino} viajes={viajesIngresados} tarifa={(tarifaElegida)} lista={listaViaje} via={via} />}></Route>
+            <Route path="/cotizacion" element={<CotizacionAbonos origen={localidadOrigen} destino={localidadDestino} viajes={viajesIngresados} tarifa={(tarifaElegida)} via={via} />}></Route>
           </Routes>
         </Router>
       </div>

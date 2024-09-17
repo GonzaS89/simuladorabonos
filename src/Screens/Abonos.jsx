@@ -43,7 +43,6 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
   const [listaLocDestino, setListaLocDestino] = useState(null);
   const [tarifaElegida, setTarifaElegida] = useState(null);
   const [botonDisponible, setBotonDisponible] = useState(false);
-  const [listaOrigenDestino, setListaOrigenDestino] = useState([]);
   const [via, setVia] = useState(null);
   const [listaHorarios, setListaHorarios] = useState([]);
 
@@ -255,14 +254,11 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
   }, [localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via]);
 
   const recibirLocalidad = (localidad) => {
-    localidadOrigen === null && setListaOrigenDestino([])
     setLocalidadOrigen(localidad);
-    setListaOrigenDestino([localidad, ...listaOrigenDestino])
   };
 
   const recibirLocalidadDestino = (localidad) => {
     setLocalidadDestino(localidad);
-    setListaOrigenDestino([localidad, ...listaOrigenDestino])
     setListaHorarios([])
   };
 
@@ -369,7 +365,7 @@ setListaHorarios(horariosFiltrados);
         </div>
       </div>
       <Link to="/cotizacion">
-        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, listaOrigenDestino, via)}>{keyBoton === 'abonos' ? 'calcular' : 'consultar'}</div>
+        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via)}>{keyBoton === 'abonos' ? 'calcular' : 'consultar'}</div>
         
       </Link>
     </div>
