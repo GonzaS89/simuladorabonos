@@ -1,11 +1,11 @@
 import "./App.css";
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Abonos from './Screens/Abonos';
 import Horarios from "./Screens/Horarios";
 import { CotizacionAbonos } from "./Screens/CotizacionAbonos";
 import { useState } from "react";
 import { Botonseccion } from "./Botonseccion";
+import Main from "./Screens/main";
 
 // import { Categorias } from "./Componentes/Categorias";
 
@@ -16,14 +16,16 @@ function App() {
   const [viajesIngresados, setViajesIngresados] = useState(null);
   const [tarifaElegida, setTarifaElegida] = useState(null);
   const [via, setVia] = useState(null);
+  const [listahorarios, setListaHorarios] = useState(null);
   const [keyBoton, setKeyBoton] = useState(null);
 
-  const recibirParametrosAbonos = (origen, destino, viajes, tarifa, via) => {
+  const recibirParametrosAbonos = (origen, destino, viajes, tarifa, via, listahorarios) => {
     setLocalidadOrigen(origen);
     setLocalidadDestino(destino);
     setViajesIngresados(viajes);
     setTarifaElegida(tarifa);
     setVia(via)
+    setListaHorarios(listahorarios)
   }
 
   const recibirKey = nombre => { setKeyBoton(nombre)}
@@ -44,8 +46,8 @@ function App() {
             </Link>
           </div>
           <Routes>
-            <Route path="/abonos" element={<Abonos enviarParametrosAbonos={recibirParametrosAbonos} keyBoton={keyBoton} />}></Route>
-            <Route path="/horarios" element={<Horarios />}></Route>
+            <Route path="/abonos" element={<Main enviarParametrosAbonos={recibirParametrosAbonos} keyBoton={keyBoton}/>}></Route>
+            <Route path="/horarios" element={<Horarios grillaDefinitiva={listahorarios}/>}></Route>
             <Route path="/cotizacion" element={<CotizacionAbonos origen={localidadOrigen} destino={localidadDestino} viajes={viajesIngresados} tarifa={(tarifaElegida)} via={via} />}></Route>
           </Routes>
         </Router>

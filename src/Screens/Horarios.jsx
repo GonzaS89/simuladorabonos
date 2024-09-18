@@ -6,16 +6,8 @@ import IdaVuelta from "../ComponentesHorarios/IdaVuelta";
 import { OrigenDestino } from "../ComponentesHorarios/OrigenDestino";
 import { Horario } from "../ComponentesHorarios/Horario";
 
-const Horarios = ({enviarHora, enviarMitos}) => {
-  const todosLosOrigenes = [
-    { nombre: "la florida x alderetes/alternativa" },
-    { nombre: "la florida x w. posse" },
-    { nombre: "w. posse" },
-    { nombre: "los ralos" },
-    { nombre: "las cejas" },
-    { nombre: "7 de abril" },
-    { nombre: "cruz alta" },
-  ];
+const Horarios = ({grillaDefinitiva}) => {
+  
 
 
   const [minutes, setMinutes] = useState(new Date().getMinutes());
@@ -31,16 +23,6 @@ const Horarios = ({enviarHora, enviarMitos}) => {
   const [claseNormalizadora, setClaseNormalizadora] = useState(null);
 
   const refs = useRef([]); 
-
-  // const diasDeLaSemana = [
-  //   "domingo",
-  //   "lunes",
-  //   "martes",
-  //   "miercoles",
-  //   "jueves",
-  //   "viernes",
-  //   "sábado",
-  // ];
 
   useEffect(() => {
     const updateHoraMinutosDias = () => {

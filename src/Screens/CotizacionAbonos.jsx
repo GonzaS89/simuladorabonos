@@ -39,6 +39,10 @@ export const CotizacionAbonos = ({
   const destinosCortosFlorida = ['la florida', 'fortín' , 'w. posse', 'el talar', 'el paraíso'];
   const destinoMedianosFlorida = ['alderetes', 'cevil pozo', 'fila de orilla']
 
+  //POSSE
+
+  const destinosCortosPosse = ['el paraíso', 'la florida','fila del medio', 'fila de la orilla', 'colonia media agua', 'fortín', 'colonia 4 (luisiana)'];
+
   useEffect(() => {
 
     if(floridaFortinCol4L.includes(origen)){
@@ -59,7 +63,10 @@ export const CotizacionAbonos = ({
     }
 
     if(origen === 'w. posse'){
-
+      if(destinosCortosPosse.includes(destino)){
+        setCodigoDeterminado(codigo06);
+        setPrecioNormal(viajes * codigo06)
+      }
     }
 
       

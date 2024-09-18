@@ -2,20 +2,31 @@ import React, { useEffect, useState } from "react";
 import "../Estilos/horarios.css";
 import { IoIosArrowForward } from "react-icons/io";
 
-export const ContainerHoraDia = ({ hora, minutos, dia }) => {
+export const ContainerHoraDia = ({ hora, minutos, dia , enviarDiaRango}) => {
   const [diaRango, setDiaRango] = useState(null);
   const [diaManual, setDiaManual] = useState(null);
   const [horaManualEnMinutos, setHoraManualEnMinutos] = useState(null);
+  const [horaAutomaticaEnMinutos, setHoraAutomaticaEnMinutos] = useState(null);
 
   useEffect(() => {
     if (dia === "0") {
       setDiaRango("Domingos");
+      enviarDiaRango("domingos")
     } else if (dia >= "1" || dia <= "5") {
       setDiaRango("Lunes a viernes");
+      enviarDiaRango("lunesAViernes")
     } else if (dia === "6") {
       setDiaRango("Sábados");
+      enviarDiaRango("sabados")
     }
-  }, [dia, diaManual]);
+  }, [dia]);
+
+  useEffect(() => {
+    let horas = parseInt(hora);
+    let totalMinutos = horas * 60 + minutos;
+    setHoraAutomaticaEnMinutos(totalMinutos)
+  },[hora,minutos])
+
 
   const manejarCambio = (e) => {
     setDiaManual(e.target.value);
