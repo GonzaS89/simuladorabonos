@@ -30,7 +30,6 @@ export const CotizacionAbonos = ({
 
   const [precioNormal, setPrecioNormal] = useState(0);
   const [precioDescuento, setPrecioDescuento] = useState(0);
-  const [codigoDeterminado, setCodigoDeterminado] = useState(null);
 
 
   //FLORIDA - FORTIN - COLONIA 4 (LUISIANA)
