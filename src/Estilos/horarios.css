@@ -13,7 +13,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #2E073F;;
+    background-color:#125B9A;
     position: relative;
     z-index: 20;
 }
@@ -172,23 +172,22 @@
     height: 100%;
     position: absolute;
     z-index: 20;
-    animation: escondercontainerresultados 1s forwards ease-out; 
 }
 
-@keyframes escondercontainerresultados{
+/* @keyframes escondercontainerresultados{
     from{transform: translateX(0);}
     to{transform: translateX(100%);}
-}
+} */
 
-.animacionresultadoshorarios{
+/* .animacionresultadoshorarios{
     background-color: #2E073F;;
     animation:  mostrarcontainerresultados .5s forwards ease-out;
-}
+} */
 
-@keyframes mostrarcontainerresultados {
+/* @keyframes mostrarcontainerresultados {
     from{transform: translateX(100%);}
     to{transform: translateX(0); }
-}
+} */
 
 .container-horarios{
     display: flex;
@@ -196,7 +195,7 @@
     /* justify-content: center; */
     align-items: center;
     gap: 20px;
-    height:85%;
+    height:95%;
     width: 95%;
     overflow: scroll;
     padding: 10px 0;

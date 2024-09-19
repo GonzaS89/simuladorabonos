@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import "../Estilos/horarios.css";
 import { IoIosArrowForward } from "react-icons/io";
 
-export const ContainerHoraDia = ({ hora, minutos, dia , enviarDiaRango}) => {
+export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarHoraAutoMin, enviarHoraManualMin }) => {
   const [diaRango, setDiaRango] = useState(null);
   const [diaManual, setDiaManual] = useState(null);
   const [horaManualEnMinutos, setHoraManualEnMinutos] = useState(null);
-  const [horaAutomaticaEnMinutos, setHoraAutomaticaEnMinutos] = useState(null);
+  const [horaAutoEnMinutos, setHoraAutoEnMinutos] = useState();
+
 
   useEffect(() => {
     if (dia === "0") {
@@ -19,14 +20,24 @@ export const ContainerHoraDia = ({ hora, minutos, dia , enviarDiaRango}) => {
       setDiaRango("Sábados");
       enviarDiaRango("sabados")
     }
-  }, [dia]);
+  }, [dia, enviarDiaRango]);
+
+
+  const actualizarHora = () => {
+    let horas = parseInt(hora);
+    let totalMinutos = horas * 60 + parseInt(minutos);
+    enviarHoraAutoMin(totalMinutos)
+    setHoraAutoEnMinutos(totalMinutos)
+  }
 
   useEffect(() => {
-    let horas = parseInt(hora);
-    let totalMinutos = horas * 60 + minutos;
-    setHoraAutomaticaEnMinutos(totalMinutos)
-  },[hora,minutos])
-
+    if(horaAutoEnMinutos !== null){
+      let horas = parseInt(hora);
+    let totalMinutos = horas * 60 + parseInt(minutos);
+    enviarHoraAutoMin(totalMinutos)
+    setHoraAutoEnMinutos(totalMinutos)
+    }
+  }, [hora, minutos,horaAutoEnMinutos, enviarHoraAutoMin])
 
   const manejarCambio = (e) => {
     setDiaManual(e.target.value);
@@ -38,13 +49,18 @@ export const ContainerHoraDia = ({ hora, minutos, dia , enviarDiaRango}) => {
     let horas = parseInt(partes[0]);
     let minutos = parseInt(partes[1]);
     let totalMinutos = horas * 60 + minutos;
+    enviarHoraManualMin(totalMinutos);
     setHoraManualEnMinutos(totalMinutos);
   };
 
-  const resetearDiaManual = () => {setDiaManual(null)}
-  const resetearHoraManual = () => {setHoraManualEnMinutos(null)}
-  const desactivarHoraAuto = () => {setHoraManualEnMinutos(0)}
-  
+  const resetearDiaManual = () => { setDiaManual(null) }
+  const resetearHoraManual = () => { setHoraManualEnMinutos(null); enviarHoraManualMin(null); actualizarHora()}
+  const desactivarHoraAuto = () => { setHoraManualEnMinutos(0); enviarHoraAutoMin(null) ;setHoraAutoEnMinutos(null)}
+
+  useEffect(() => {
+    console.log(horaManualEnMinutos)
+  },[horaManualEnMinutos])
+
 
   return (
     <div
@@ -59,7 +75,7 @@ export const ContainerHoraDia = ({ hora, minutos, dia , enviarDiaRango}) => {
                 ? "diaautomatico"
                 : "diaautomatico opcioninactiva"
             }
-          onClick={resetearDiaManual}>
+            onClick={resetearDiaManual}>
             {diaRango}
           </div>
           <div className="container-select">
@@ -92,7 +108,7 @@ export const ContainerHoraDia = ({ hora, minutos, dia , enviarDiaRango}) => {
       <div className="container-hora">
         <h1>Hora</h1>
         <div className="container-horaautomanual">
-          <div className={horaManualEnMinutos === null ? 'horaautomatica' : 'horaautomatica opcioninactiva'}onClick={resetearHoraManual}>
+          <div className={horaManualEnMinutos === null ? 'horaautomatica' : 'horaautomatica opcioninactiva'} onClick={resetearHoraManual}>
             {hora < 10 ? `0${hora}` : hora}:
             {minutos < 10 ? `0${minutos}` : minutos}
           </div>

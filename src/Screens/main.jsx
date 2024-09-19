@@ -45,6 +45,8 @@ const Main = ({ enviarParametrosAbonos, keyBoton }) => {
   const [botonDisponible, setBotonDisponible] = useState(false);
   const [via, setVia] = useState(null);
   const [listaHorarios, setListaHorarios] = useState([]);
+  const [horaManualMin, setHoraManualMin] = useState(null);
+  const [horaAutoMin, setHoraAutoMin] = useState(null);
 
 
 
@@ -270,6 +272,12 @@ const Main = ({ enviarParametrosAbonos, keyBoton }) => {
 
   }, [localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via]);
 
+  useEffect(() => {
+    if(keyBoton === 'horarios'){
+    localidadOrigen !== null && localidadDestino !== null && setBotonDisponible(true)
+    }
+  },[localidadOrigen,localidadDestino, keyBoton])
+
   const recibirLocalidad = (localidad) => {
     setLocalidadOrigen(localidad);
   };
@@ -351,10 +359,8 @@ const Main = ({ enviarParametrosAbonos, keyBoton }) => {
   }, [localidadOrigen, localidadDestino, via,diaDeLaSemana])
 
 
-  useEffect(() => {
-    console.log(listaHorarios)
-  },[listaHorarios])
-
+  const recibirHoraAutoMin = hora => {setHoraAutoMin(hora)}
+  const recibirHoraManualMin = hora => {setHoraManualMin(hora)}
 
   return (
     <div className="container-screen">
@@ -395,13 +401,16 @@ const Main = ({ enviarParametrosAbonos, keyBoton }) => {
           </div>
           {keyBoton === 'abonos' ?
             <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados} localidadOrigen={localidadOrigen} /> :
-            <ContainerHoraDia hora={hora} minutos={minutos} dia={dia} enviarDiaRango={recibirDiaRango}/>}
+            <ContainerHoraDia hora={hora} minutos={minutos} dia={dia} enviarDiaRango={recibirDiaRango} enviarHoraAutoMin={recibirHoraAutoMin} enviarHoraManualMin={recibirHoraManualMin}/>}
         </div>
       </div>
-      <Link to="/cotizacion">
-        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via, listaHorarios)}>{keyBoton === 'abonos' ? 'calcular' : 'consultar'}</div>
-        
-      </Link>
+
+        <Link to={keyBoton === 'abonos' ? '/cotizacion' : '/horarios'}>
+        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via, listaHorarios, horaAutoMin, horaManualMin)}>{keyBoton === 'abonos' ? 'calcular' : 'consultar'}</div>
+      </Link> 
+
+    
+      
     </div>
 
   );
