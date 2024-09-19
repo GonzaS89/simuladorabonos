@@ -3,21 +3,21 @@ import "../Estilos/cotizacion.css";
 import {
   codigo06,
   codigo08,
-  codigo10,
+  // codigo10,
   codigo11,
-  codigo12,
-  codigo13,
+  // codigo12,
+  // codigo13,
   codigo14,
-  codigo15,
+  // codigo15,
   codigo16,
-  codigo18,
+  // codigo18,
   codigo21,
-  codigo24,
-  codigo27,
-  codigo30,
-  codigo34,
-  codigo41,
-  codigo44,
+  // codigo24,
+  // codigo27,
+  // codigo30,
+  // codigo34,
+  // codigo41,
+  // codigo44,
 } from "../tarifas";
 
 export const CotizacionAbonos = ({
@@ -47,11 +47,11 @@ export const CotizacionAbonos = ({
 
     if(floridaFortinCol4L.includes(origen)){
       if(destinosCortosFlorida.includes(destino)){
-        setCodigoDeterminado(codigo06)
+        // setCodigoDeterminado(codigo06)
         setPrecioNormal(viajes * codigo06)
       }
       else if(destinoMedianosFlorida.includes(destino)){
-        setCodigoDeterminado(codigo08)
+        // setCodigoDeterminado(codigo08)
         setPrecioNormal(viajes * codigo08)
       }
       else if(destino === 'banda del río salí'){
@@ -64,7 +64,7 @@ export const CotizacionAbonos = ({
 
     if(origen === 'w. posse'){
       if(destinosCortosPosse.includes(destino)){
-        setCodigoDeterminado(codigo06);
+        // setCodigoDeterminado(codigo06);
         setPrecioNormal(viajes * codigo06)
       }
     }
@@ -118,7 +118,7 @@ export const CotizacionAbonos = ({
       //   else if (lista.includes("finca mayo")) { setPrecioNormal(viajes * codigo24) }
       // }
     
-  },[origen, destino, viajes, via]);
+  },[origen, destino, viajes, via, floridaFortinCol4L,destinoMedianosFlorida,destinosCortosFlorida,destinosCortosPosse]);
 
   useEffect(() => {
     
