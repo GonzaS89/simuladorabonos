@@ -35,15 +35,16 @@ export const CotizacionAbonos = ({
 
   //FLORIDA - FORTIN - COLONIA 4 (LUISIANA)
 
-  const floridaFortinCol4L = ['la florida', 'fortín', 'colonia 4 (luisiana)'];
+  
+
+  useEffect(() => {
+    const floridaFortinCol4L = ['la florida', 'fortín', 'colonia 4 (luisiana)'];
   const destinosCortosFlorida = ['la florida', 'fortín' , 'w. posse', 'el talar', 'el paraíso'];
   const destinoMedianosFlorida = ['alderetes', 'cevil pozo', 'fila de orilla']
 
   //POSSE
 
   const destinosCortosPosse = ['el paraíso', 'la florida','fila del medio', 'fila de la orilla', 'colonia media agua', 'fortín', 'colonia 4 (luisiana)'];
-
-  useEffect(() => {
 
     if(floridaFortinCol4L.includes(origen)){
       if(destinosCortosFlorida.includes(destino)){
@@ -118,11 +119,7 @@ export const CotizacionAbonos = ({
       //   else if (lista.includes("finca mayo")) { setPrecioNormal(viajes * codigo24) }
       // }
     
-  },[origen, destino, viajes, via, floridaFortinCol4L,destinoMedianosFlorida,destinosCortosFlorida,destinosCortosPosse]);
-
-  useEffect(() => {
-    
-  })
+  },[origen, destino, viajes, via]);
 
   useEffect(() => {
     if (origen === 'los ralos') {
