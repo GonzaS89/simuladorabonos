@@ -36,7 +36,7 @@ const Horarios = ({ grillaDefinitiva, origen, destino, horaAuto, horaManual }) =
     if (refs.current[indiceDeBusqueda]) {
       setTimeout(() => {
         refs.current[indiceDeBusqueda].scrollIntoView({ behavior: 'auto', block: 'center' });
-      }, 750);
+      }, 0);
 
     }
   }, [indiceDeBusqueda])
