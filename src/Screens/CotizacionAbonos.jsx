@@ -3,21 +3,21 @@ import "../Estilos/cotizacion.css";
 import {
   codigo06,
   codigo08,
-  codigo10,
+  // codigo10,
   codigo11,
-  codigo12,
-  codigo13,
+  // codigo12,
+  // codigo13,
   codigo14,
-  codigo15,
+  // codigo15,
   codigo16,
-  codigo18,
+  // codigo18,
   codigo21,
-  codigo24,
-  codigo27,
-  codigo30,
-  codigo34,
-  codigo41,
-  codigo44,
+  // codigo24,
+  // codigo27,
+  // codigo30,
+  // codigo34,
+  // codigo41,
+  // codigo44,
 } from "../tarifas";
 
 export const CotizacionAbonos = ({
@@ -30,12 +30,14 @@ export const CotizacionAbonos = ({
 
   const [precioNormal, setPrecioNormal] = useState(0);
   const [precioDescuento, setPrecioDescuento] = useState(0);
-  const [codigoDeterminado, setCodigoDeterminado] = useState(null);
 
 
   //FLORIDA - FORTIN - COLONIA 4 (LUISIANA)
 
-  const floridaFortinCol4L = ['la florida', 'fortín', 'colonia 4 (luisiana)'];
+  
+
+  useEffect(() => {
+    const floridaFortinCol4L = ['la florida', 'fortín', 'colonia 4 (luisiana)'];
   const destinosCortosFlorida = ['la florida', 'fortín' , 'w. posse', 'el talar', 'el paraíso'];
   const destinoMedianosFlorida = ['alderetes', 'cevil pozo', 'fila de orilla'];
 
@@ -43,15 +45,17 @@ export const CotizacionAbonos = ({
 
   const posseDestinosCortos = ['el paraíso', 'fila del medio', 'fila de la orilla', 'colonia media agua'];
 
-  useEffect(() => {
+  //POSSE
+
+  const destinosCortosPosse = ['el paraíso', 'la florida','fila del medio', 'fila de la orilla', 'colonia media agua', 'fortín', 'colonia 4 (luisiana)'];
 
     if(floridaFortinCol4L.includes(origen)){
       if(destinosCortosFlorida.includes(destino)){
-        setCodigoDeterminado(codigo06)
+        // setCodigoDeterminado(codigo06)
         setPrecioNormal(viajes * codigo06)
       }
       else if(destinoMedianosFlorida.includes(destino)){
-        setCodigoDeterminado(codigo08)
+        // setCodigoDeterminado(codigo08)
         setPrecioNormal(viajes * codigo08)
       }
       else if(destino === 'banda del río salí'){
@@ -63,7 +67,10 @@ export const CotizacionAbonos = ({
     }
 
     if(origen === 'w. posse'){
-
+      if(destinosCortosPosse.includes(destino)){
+        // setCodigoDeterminado(codigo06);
+        setPrecioNormal(viajes * codigo06)
+      }
     }
 
       
@@ -116,10 +123,6 @@ export const CotizacionAbonos = ({
       // }
     
   },[origen, destino, viajes, via]);
-
-  useEffect(() => {
-    
-  })
 
   useEffect(() => {
     if (origen === 'los ralos') {

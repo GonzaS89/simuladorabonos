@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { Containerviajestarifas } from "../ComponentesAbonos/Containerviajestarifas";
 import { ContainerHoraDia } from "../ComponentesHorarios/ContainerHoraDia";
 
-const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
+const Main = ({ enviarParametrosAbonos, keyBoton }) => {
 
   // SECTOR HORARIOS
 
@@ -45,6 +45,8 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
   const [botonDisponible, setBotonDisponible] = useState(false);
   const [via, setVia] = useState(null);
   const [listaHorarios, setListaHorarios] = useState([]);
+  const [horaManualMin, setHoraManualMin] = useState(null);
+  const [horaAutoMin, setHoraAutoMin] = useState(null);
 
 
 
@@ -237,6 +239,23 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
           "san miguel de tucumán"
         ]);
         break;
+
+        case "colonia media agua":
+        setListaLocDestino([
+          "los ralos",
+          "cevil pozo",
+          "finca mayo",
+          "banda del río salí",
+          "san miguel de tucumán",
+          "la florida",
+          "fila del medio",
+          "fila de la orilla",
+          "w. posse",
+          "el paraíso",
+          "las cejas",
+          "7 de abril"
+        ]);
+        break;
       default:
         break;
     }
@@ -253,6 +272,12 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
 
   }, [localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via]);
 
+  useEffect(() => {
+    if(keyBoton === 'horarios'){
+    localidadOrigen !== null && localidadDestino !== null && setBotonDisponible(true)
+    }
+  },[localidadOrigen,localidadDestino, keyBoton])
+
   const recibirLocalidad = (localidad) => {
     setLocalidadOrigen(localidad);
   };
@@ -265,9 +290,24 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
 
   const recibirVia = via => { setVia(via) }
 
-  const lunesAViernes = grillab.lunesAViernes;
-  const sabados = grillab.sabados;
-  const domingos = grillab.domingos
+  const [diaDeLaSemana, setDiaDeLaSemana] = useState(null);
+
+  const recibirDiaRango = diarango => {
+    switch (diarango){
+      case 'lunesAViernes': setDiaDeLaSemana(grillab.lunesAViernes);
+      break;
+      
+      case 'sabados': setDiaDeLaSemana(grillab.sabados);
+      break;
+
+      case 'domingos': setDiaDeLaSemana(grillab.domingos);
+      break;
+
+      default:break;
+    }
+    
+  }
+
 
   useEffect(() => {
     setVia(null)
@@ -277,50 +317,50 @@ const Abonos = ({ enviarParametrosAbonos, keyBoton }) => {
   const recibirViajesIngresados = viajes => { setViajesIngresados(viajes) }
 
   useEffect(() => {
+    if(diaDeLaSemana !== null){
     const horariosFiltrados = [];
-
-lunesAViernes.forEach(horario => {
-  const recorrido = horario.recorrido;
-
-  const incluyeOrigen = recorrido.includes(localidadOrigen);
-  const incluyeDestino = recorrido.includes(localidadDestino);
-  const indexOrigen = recorrido.indexOf(localidadOrigen);
-  const indexDestino = recorrido.indexOf(localidadDestino);
+      diaDeLaSemana.forEach(horario => {
+        const recorrido = horario.recorrido;
+      
+        const incluyeOrigen = recorrido.includes(localidadOrigen);
+        const incluyeDestino = recorrido.includes(localidadDestino);
+        const indexOrigen = recorrido.indexOf(localidadOrigen);
+        const indexDestino = recorrido.indexOf(localidadDestino);
+        
+        // Caso cuando 'via' es null
+        if (via === null) {
+          if (localidadOrigen === localidadDestino) {
+            if (incluyeOrigen && recorrido.indexOf('san miguel de tucumán') !== 0) {
+              horariosFiltrados.push(horario);
+            }
+          } else if (incluyeOrigen && incluyeDestino && indexOrigen < indexDestino) {
+            horariosFiltrados.push(horario);
+          }
+        } 
+        // Caso cuando 'via' es 'w. posse'
+        else if (via === 'w. posse') {
+          if (incluyeOrigen && incluyeDestino && recorrido.includes(via) && indexOrigen < indexDestino) {
+            horariosFiltrados.push(horario);
+          }
+        } 
+        // Caso cuando 'via' no es 'w. posse'
+        else {
+          if (incluyeOrigen && incluyeDestino && !recorrido.includes('w. posse') && indexOrigen < indexDestino) {
+            horariosFiltrados.push(horario);
+          }
+        }
+      });
+      
+      // Actualiza el estado solo una vez con los horarios filtrados
+      setListaHorarios(horariosFiltrados);
+        
+    }
   
-  // Caso cuando 'via' es null
-  if (via === null) {
-    if (localidadOrigen === localidadDestino) {
-      if (incluyeOrigen && recorrido.indexOf('san miguel de tucumán') !== 0) {
-        horariosFiltrados.push(horario);
-      }
-    } else if (incluyeOrigen && incluyeDestino && indexOrigen < indexDestino) {
-      horariosFiltrados.push(horario);
-    }
-  } 
-  // Caso cuando 'via' es 'w. posse'
-  else if (via === 'w. posse') {
-    if (incluyeOrigen && incluyeDestino && recorrido.includes(via) && indexOrigen < indexDestino) {
-      horariosFiltrados.push(horario);
-    }
-  } 
-  // Caso cuando 'via' no es 'w. posse'
-  else {
-    if (incluyeOrigen && incluyeDestino && !recorrido.includes('w. posse') && indexOrigen < indexDestino) {
-      horariosFiltrados.push(horario);
-    }
-  }
-});
-
-// Actualiza el estado solo una vez con los horarios filtrados
-setListaHorarios(horariosFiltrados);
-  
-  }, [localidadOrigen, localidadDestino, via,lunesAViernes,sabados,domingos])
+  }, [localidadOrigen, localidadDestino, via,diaDeLaSemana])
 
 
-  useEffect(() => {
-    console.log(listaHorarios)
-  },[listaHorarios])
-
+  const recibirHoraAutoMin = hora => {setHoraAutoMin(hora)}
+  const recibirHoraManualMin = hora => {setHoraManualMin(hora)}
 
   return (
     <div className="container-screen">
@@ -361,16 +401,19 @@ setListaHorarios(horariosFiltrados);
           </div>
           {keyBoton === 'abonos' ?
             <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados} localidadOrigen={localidadOrigen} /> :
-            <ContainerHoraDia hora={hora} minutos={minutos} dia={dia} localidadOrigen={localidadOrigen} />}
+            <ContainerHoraDia hora={hora} minutos={minutos} dia={dia} enviarDiaRango={recibirDiaRango} enviarHoraAutoMin={recibirHoraAutoMin} enviarHoraManualMin={recibirHoraManualMin}/>}
         </div>
       </div>
-      <Link to="/cotizacion">
-        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via)}>{keyBoton === 'abonos' ? 'calcular' : 'consultar'}</div>
-        
-      </Link>
+
+        <Link to={keyBoton === 'abonos' ? '/cotizacion' : '/horarios'}>
+        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via, listaHorarios, horaAutoMin, horaManualMin)}>{keyBoton === 'abonos' ? 'calcular' : 'consultar'}</div>
+      </Link> 
+
+    
+      
     </div>
 
   );
 };
 
-export default Abonos;
+export default Main;
