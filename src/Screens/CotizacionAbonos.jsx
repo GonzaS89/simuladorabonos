@@ -43,11 +43,11 @@ export const CotizacionAbonos = ({
 
   //POSSE 
 
-  const posseDestinosCortos = ['el paraíso', 'fila del medio', 'fila de la orilla', 'colonia media agua'];
+  // const posseDestinosCortos = ['el paraíso', 'fila del medio', 'fila de la orilla', 'colonia media agua'];
 
-  //POSSE
+  // //POSSE
 
-  const destinosCortosPosse = ['el paraíso', 'la florida','fila del medio', 'fila de la orilla', 'colonia media agua', 'fortín', 'colonia 4 (luisiana)'];
+  // const destinosCortosPosse = ['el paraíso', 'la florida','fila del medio', 'fila de la orilla', 'colonia media agua', 'fortín', 'colonia 4 (luisiana)'];
 
     if(floridaFortinCol4L.includes(origen)){
       if(destinosCortosFlorida.includes(destino)){
@@ -63,13 +63,6 @@ export const CotizacionAbonos = ({
       }
       else if(destino === 'san miguel de tucumán'){
         via === 'w. posse' ? setPrecioNormal(viajes * codigo21) : setPrecioNormal(viajes * codigo16)
-      }
-    }
-
-    if(origen === 'w. posse'){
-      if(destinosCortosPosse.includes(destino)){
-        // setCodigoDeterminado(codigo06);
-        setPrecioNormal(viajes * codigo06)
       }
     }
 

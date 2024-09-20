@@ -7,19 +7,17 @@ export const Horario = forwardRef(
     {
       horaSalida,
       recorrido,
-      horaActual,
-      minutosActuales,
       index,
       indiceDeBusqueda,
       claseNormalizadora,
       origen,
       destino,
+      horaDeReferencia
     },
     ref
   ) => {
     const [minutosDif, setMinutosDif] = useState(null);
     const [horaSalidaEnMinutos, setHoraSalidaEnMInutos] = useState(null);
-    const [horaActualEnMinutos, setHoraActualEnMinutos] = useState(null);
     const [lengthRecorrido, setLengthRecorrido] = useState(null);
     const [claseServicioReferido, setClaseServicioRefereido] = useState(
       "containerservicio serviciodereferencia"
@@ -33,15 +31,12 @@ export const Horario = forwardRef(
         Math.trunc(horaSalida) * 60 +
           (horaSalida - Math.trunc(horaSalida)) * 100
       );
-      setHoraActualEnMinutos(horaActual * 60 + minutosActuales);
-      setMinutosDif(Math.round(horaSalidaEnMinutos - horaActualEnMinutos));
+      setMinutosDif(Math.round(horaSalidaEnMinutos - horaDeReferencia));
       setLengthRecorrido(recorrido.length);
     }, [
       horaSalida,
-      horaActual,
-      minutosActuales,
-      horaActualEnMinutos,
       horaSalidaEnMinutos,
+      horaDeReferencia,
       recorrido,
     ]);
 
