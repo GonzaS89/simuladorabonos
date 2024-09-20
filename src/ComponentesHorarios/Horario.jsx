@@ -12,7 +12,8 @@ export const Horario = forwardRef(
       claseNormalizadora,
       origen,
       destino,
-      horaDeReferencia
+      horaDeReferencia,
+      codigo
     },
     ref
   ) => {
@@ -121,6 +122,7 @@ export const Horario = forwardRef(
               ))}
             </div>
           </div>
+          <p className="texto-precioboleto">PRECIO DEL BOLETO $ {codigo}</p>
         </div>
       </div>
     );

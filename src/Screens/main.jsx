@@ -2,6 +2,25 @@
 import React, { useState, useEffect } from "react";
 import localidades from "../localidades.json";
 import grillab from '../grillasb.json';
+import {
+  codigo06,
+  codigo08,
+  // codigo10,
+  codigo11,
+  // codigo12,
+  // codigo13,
+  codigo14,
+  // codigo15,
+  codigo16,
+  // codigo18,
+  codigo21,
+  // codigo24,
+  // codigo27,
+  // codigo30,
+  // codigo34,
+  // codigo41,
+  // codigo44,
+} from "../tarifas";
 import "../Estilos/abonos.css";
 import { OpcionLocalidad } from "../ComponentesAbonos/OpcionLocalidad";
 import { OpcionLocalidadDestino } from "../ComponentesAbonos/OpcionLocalidadDestino";
@@ -9,7 +28,7 @@ import { Link } from 'react-router-dom';
 import { Containerviajestarifas } from "../ComponentesAbonos/Containerviajestarifas";
 import { ContainerHoraDia } from "../ComponentesHorarios/ContainerHoraDia";
 
-const Main = ({ enviarParametrosAbonos, keyBoton }) => {
+const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
 
   // SECTOR HORARIOS
 
@@ -363,6 +382,88 @@ const Main = ({ enviarParametrosAbonos, keyBoton }) => {
   const recibirHoraAutoMin = hora => {setHoraAutoMin(hora)}
   const recibirHoraManualMin = hora => {setHoraManualMin(hora)}
 
+
+  useEffect(() => {
+    const floridaFortinCol4L = ['la florida', 'fortín', 'colonia 4 (luisiana)'];
+    const destinosCortosFlorida = ['la florida', 'fortín' , 'w. posse', 'el talar', 'el paraíso'];
+    const destinoMedianosFlorida = ['alderetes', 'cevil pozo', 'fila de orilla'];
+  
+    //POSSE 
+  
+    // const posseDestinosCortos = ['el paraíso', 'fila del medio', 'fila de la orilla', 'colonia media agua'];
+  
+    // //POSSE
+  
+    // const destinosCortosPosse = ['el paraíso', 'la florida','fila del medio', 'fila de la orilla', 'colonia media agua', 'fortín', 'colonia 4 (luisiana)'];
+  
+      if(floridaFortinCol4L.includes(localidadOrigen)){
+        if(destinosCortosFlorida.includes(localidadDestino)){
+          enviarCodigo(codigo06)
+        }
+        else if(destinoMedianosFlorida.includes(localidadDestino)){
+          enviarCodigo(codigo08)
+        }
+        else if(localidadDestino === 'banda del río salí'){
+          if(via === 'w. posse'){enviarCodigo(codigo14)}
+          else{enviarCodigo(codigo11)}
+        }
+        else if(localidadDestino === 'san miguel de tucumán'){
+          if(via === 'w. posse'){enviarCodigo(codigo21)}
+          else{enviarCodigo(codigo16)}
+        }
+      }
+  
+        
+        // if (lista.includes("w. posse")) {
+        //   if (lista.includes("el paraíso") || lista.includes("fila del medio") || lista.includes("fila de la orilla") || lista.includes("cevil pozo") || lista.includes("colonia 4 (luisiana)")) {
+        //     setPrecioNormal(viajes * codigo06)
+        //   }
+        //   else if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo08) }
+        //   else if (lista.includes("san miguel de tucumán")) { setPrecioNormal(viajes * codigo18) }
+        // }
+  
+        // if (lista.includes("los ralos")) {
+        //   if (lista.includes("cruz alta")) { setPrecioNormal(viajes * codigo10) }
+        //   else if (lista.includes("finca mayo")) { setPrecioNormal(viajes * codigo11) }
+        //   else if (lista.includes("fila de la orilla")) { setPrecioNormal(viajes * codigo12) }
+        //   else if (lista.includes("cevil pozo")) { setPrecioNormal(viajes * codigo16) }
+        //   else if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo16) }
+        //   else if (lista.includes("san miguel de tucumán")) { setPrecioNormal(viajes * codigo21) }
+        //   else if (lista.includes("las cejas")) { setPrecioNormal(viajes * codigo24) }
+        //   else if (lista.includes("7 de abril")) { setPrecioNormal(viajes * codigo44) }
+        // }
+  
+        // if (lista.includes("las cejas")) {
+        //   if (lista.includes("fila de la orilla") || lista.includes("cevil pozo")) { setPrecioNormal(viajes * codigo27) }
+        //   else if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo30) }
+        //   else if (lista.includes("san miguel de tucumán")) { setPrecioNormal(viajes * codigo34) }
+        //   else if (lista.includes("7 de abril")) { setPrecioNormal(viajes * codigo41) }
+        // }
+  
+        // if (lista.includes("cevil pozo")) {
+        //   if (lista.includes("fila de la orilla") || lista.includes("fila del medio") || lista.includes("cruz alta") || lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo06) }
+        //   else if (lista.includes("el paraíso") || lista.includes("san miguel de tucumán")) { setPrecioNormal(viajes * codigo08) }
+        //   else if (lista.includes("colonia 4 (luisiana)")) { setPrecioNormal(viajes * codigo14) }
+        //   else if (lista.includes("finca mayo")) { setPrecioNormal(viajes * codigo21) }
+        //   else if (lista.includes("7 de abril")) { setPrecioNormal(viajes * codigo44) }
+        // }
+  
+        // if (lista.includes("san miguel de tucumán")) {
+        //   if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo06) }
+        //   else if (lista.includes("alderetes")) { setPrecioNormal(viajes * codigo08) }
+        //   else if (lista.includes("fila de la orilla") || lista.includes("fila del medio")) { setPrecioNormal(viajes * codigo12) }
+        //   else if (lista.includes("el talar")) { setPrecioNormal(viajes * codigo13) }
+        //   else if (lista.includes("cruz alta")) { setPrecioNormal(viajes * codigo15) }
+        //   else if (lista.includes("la florida") || lista.includes("fortín") || lista.includes("colonia 4 (luisiana")) {
+        //     if (via === 'w. posse') { setPrecioNormal(viajes * codigo21) }
+        //     else { setPrecioNormal(viajes * codigo16) }
+        //   }
+        //   else if (lista.includes("el paraíso")) { setPrecioNormal(viajes * codigo18) }
+        //   else if (lista.includes("finca mayo")) { setPrecioNormal(viajes * codigo24) }
+        // }
+      
+    },[localidadOrigen, localidadDestino, via, enviarCodigo]);
+
   return (
     <div className="container-screen">
       <div className="container-principal">
@@ -409,9 +510,6 @@ const Main = ({ enviarParametrosAbonos, keyBoton }) => {
         <Link to={keyBoton === 'abonos' ? '/cotizacion' : '/horarios'}>
         <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via, listaHorarios, horaAutoMin, horaManualMin)}>{keyBoton === 'abonos' ? 'calcular' : 'consultar'}</div>
       </Link> 
-
-    
-      
     </div>
 
   );

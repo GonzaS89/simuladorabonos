@@ -1,5 +1,5 @@
 import "./App.css";
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Horarios from "./Screens/Horarios";
 import { CotizacionAbonos } from "./Screens/CotizacionAbonos";
@@ -20,17 +20,19 @@ function App() {
   const [keyBoton, setKeyBoton] = useState(null);
   const [horaAutoEnMins, setHoraAutoEnMins] = useState(null);
   const [horaManualEnMins, setHoraManualEnMins] = useState(null);
+  const [codigoDeterminado, setCodigoDeterminado] = useState(null);
 
-  
-  const recibirParametrosAbonos = (origen, destino, viajes, tarifa, via, listahorarios, horaAutoMin, horaManualMin) => {
-    if(keyBoton === 'abonos'){
+
+  const recibirParametrosAbonos = (origen, destino, viajes, tarifa, via,listahorarios, horaAutoMin, horaManualMin) => {
+    if (keyBoton === 'abonos') {
       setLocalidadOrigen(origen);
       setLocalidadDestino(destino);
       setViajesIngresados(viajes);
       setTarifaElegida(tarifa);
       setVia(via)
+
     }
-    else{
+    else {
       setLocalidadOrigen(origen);
       setLocalidadDestino(destino);
       setListaHorarios(listahorarios)
@@ -39,7 +41,14 @@ function App() {
     }
   }
 
-  const recibirKey = nombre => { setKeyBoton(nombre)}
+  const recibirKey = nombre => { setKeyBoton(nombre) }
+
+  const recibirCodigo = codigo => {setCodigoDeterminado(codigo)}
+
+  useEffect(() => {
+    console.log(codigoDeterminado)
+  }, [codigoDeterminado])
+
 
   return (
     <div className="App">
@@ -56,9 +65,9 @@ function App() {
             </Link>
           </div>
           <Routes>
-            <Route path="/abonos" element={<Main enviarParametrosAbonos={recibirParametrosAbonos} keyBoton={keyBoton}/>}></Route>
-            <Route path="/horarios" element={<Horarios grillaDefinitiva={listaHorarios} origen={localidadOrigen} destino={localidadDestino} horaAuto={horaAutoEnMins} horaManual={horaManualEnMins}/>}></Route>
-            <Route path="/cotizacion" element={<CotizacionAbonos origen={localidadOrigen} destino={localidadDestino} viajes={viajesIngresados} tarifa={tarifaElegida} via={via} />}></Route>
+            <Route path="/abonos" element={<Main enviarParametrosAbonos={recibirParametrosAbonos} keyBoton={keyBoton} enviarCodigo={recibirCodigo}/>}></Route>
+            <Route path="/horarios" element={<Horarios grillaDefinitiva={listaHorarios} origen={localidadOrigen} destino={localidadDestino} horaAuto={horaAutoEnMins} horaManual={horaManualEnMins} codigo={codigoDeterminado} />}></Route>
+            <Route path="/cotizacion" element={<CotizacionAbonos origen={localidadOrigen} destino={localidadDestino} viajes={viajesIngresados} tarifa={tarifaElegida} via={via} codigo={codigoDeterminado} />}></Route>
           </Routes>
         </Router>
       </div>
