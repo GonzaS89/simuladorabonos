@@ -37,7 +37,11 @@ export const CotizacionAbonos = ({
 
   const floridaFortinCol4L = ['la florida', 'fortín', 'colonia 4 (luisiana)'];
   const destinosCortosFlorida = ['la florida', 'fortín' , 'w. posse', 'el talar', 'el paraíso'];
-  const destinoMedianosFlorida = ['alderetes', 'cevil pozo', 'fila de orilla']
+  const destinoMedianosFlorida = ['alderetes', 'cevil pozo', 'fila de orilla'];
+
+  //POSSE 
+
+  const posseDestinosCortos = ['el paraíso', 'fila del medio', 'fila de la orilla', 'colonia media agua'];
 
   useEffect(() => {
 
