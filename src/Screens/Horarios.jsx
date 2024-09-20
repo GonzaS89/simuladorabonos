@@ -57,6 +57,8 @@ const Horarios = ({ grillaDefinitiva, origen, destino, horaAuto, horaManual }) =
                 horaSalida={servicio.salida}
                 recorrido={servicio.recorrido}
                 indiceDeBusqueda={indiceDeBusqueda}
+                origen={origen}
+                destino={destino}
                 index={index}
                 claseNormalizadora={claseNormalizadora}
                 ref={el => refs.current[index] = el} />

@@ -196,7 +196,7 @@
     align-items: center;
     gap: 20px;
     height:95%;
-    width: 95%;
+    width: 100%;
     overflow: scroll;
     padding: 10px 0;
 }

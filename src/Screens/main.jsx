@@ -64,6 +64,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton }) => {
           "colonia 4 (luisiana)",
           "fortín",
           "el talar",
+          "colonia media agua"
         ]);
         break;
 

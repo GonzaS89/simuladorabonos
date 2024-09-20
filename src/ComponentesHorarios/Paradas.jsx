@@ -17,12 +17,14 @@ export const Paradas = ({ nombre, index, length }) => {
     }
 
     const definirClaseParadas = () => {
-        if(index === 0 || index === length - 1){return 'container-parada'}
+        if(index === 0 || index === length - 1){
+          if(nombre === origen || nombre || destino)
+        {return 'container-parada paradaSeleccionada'}
         else{
             if(index % 2 === 0){return 'container-parada paradaALaIzquierda'}
             else{return 'container-parada paradaALaDerecha'}
         }
-    }
+    }}
 
   return (
 

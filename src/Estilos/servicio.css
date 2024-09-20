@@ -6,8 +6,8 @@
     display: flex;
     align-items: center;
     /* justify-content: space-between; */
-    min-height: 500px;
-    width: 95%; 
+    min-height: 600px;
+    width: 85%; 
     /* border-radius: 15px; */
     /* padding: 10px 10px; */
     font-family: "Jockey One", sans-serif;
@@ -109,6 +109,7 @@
     align-items: center;
     height: 85%;
     width: 100%;
+    overflow-y: scroll;
 }
 
 .container-paradas{
@@ -129,7 +130,7 @@
     height: 17.5px;
     min-width: 120px;
     background-color: white;
-    font-size: 9px;
+    font-size: 15px;
     text-transform: uppercase;
     padding: 5px;
     font-weight: bold;
@@ -139,9 +140,13 @@
     border: 2px groove rgba(190, 190, 190, 0.493);
 }
 
+.paradaSeleccionada{
+    background-color:black;
+    color: white;
+}
+
 .icono-location{
-    height:12px;
-    width: 12px;
+    font-size: 15px;
     /* color: rgba(2, 3, 88, 0.918); */
 }
 
