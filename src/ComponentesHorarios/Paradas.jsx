@@ -1,5 +1,5 @@
 import React from "react";
-import { FaCheck } from "react-icons/fa";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 export const Paradas = ({ nombre, index, length, origen, destino }) => {
 
     const nombreOrigenDestino = nombre === origen || nombre === destino;
@@ -17,8 +17,8 @@ export const Paradas = ({ nombre, index, length, origen, destino }) => {
         className={definirClaseParadas()}
       >
         <p className={nombreOrigenDestino && 'texto-nombre-parada'}>{nombre}</p>
-        {nombre === origen || destino === nombre}
-        <FaCheck className={nombreOrigenDestino ? 'parada-checked-icono' : 'hidden'}/>
+        <BsFillCheckCircleFill className={nombreOrigenDestino ? 'parada-checked-icono' : 'hidden'}/>
+        <img src={require('../Iconos/autobus.png')} alt="bus" className={nombreOrigenDestino ? 'parada-bus-icono' : 'hidden'}/>
       </div>
     </>
   );

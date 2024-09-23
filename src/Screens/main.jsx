@@ -294,9 +294,20 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
 
   useEffect(() => {
     if(keyBoton === 'horarios'){
-    localidadOrigen !== null && localidadDestino !== null && setBotonDisponible(true)
+      const esLocalidadDestinoValida = localidadDestino === 'san miguel de tucumán' || localidadDestino === 'banda del río salí';
+      const esLocalidadOrigenValida = localidadOrigen === 'san miguel de tucumán' || localidadOrigen === 'banda del río salí';
+
+      if(esLocalidadDestinoValida || esLocalidadOrigenValida){
+        if(localidadOrigen !== null && localidadDestino !== null && via !== null){
+          setBotonDisponible(true)
+        }
+      }else{
+        if(localidadOrigen !== null && localidadDestino !== null){
+          setBotonDisponible(true)
+        }
+      }
     }
-  },[localidadOrigen,localidadDestino, keyBoton])
+  },[localidadOrigen,localidadDestino, keyBoton,via])
 
   const recibirLocalidad = (localidad) => {
     setLocalidadOrigen(localidad);

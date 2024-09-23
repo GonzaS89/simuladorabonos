@@ -154,8 +154,19 @@
 .parada-checked-icono{
     position: absolute;
     left: 0;
-    font-size: 15px;
-    margin-left: 15px;
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+.parada-bus-icono{
+    position: absolute;
+    width: 25px;
+    height: 15px;
+    right: 0;
+}
+
+.bus-izquierda{
+    transform:rotateZ(180deg)
 }
 
 .paradaALaIzquierda{
@@ -194,4 +205,5 @@
     align-items: center;
     background-color: inherit;
     height: 100%;
+    z-index: 50;
 }

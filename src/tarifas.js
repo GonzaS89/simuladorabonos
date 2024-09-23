@@ -1,7 +1,7 @@
 export const codigo06 = 580; 
 export const codigo08 = 670;
 export const codigo10 = 690;
-export const codigo11 =  750;
+export const codigo11 = 750;
 export const codigo12 = 820;
 export const codigo13 = 890;
 export const codigo14 = 960;
