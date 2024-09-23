@@ -169,8 +169,8 @@
 }
 
 @keyframes busizquierda{
-    from{transform: rotateZ(180deg) translateX(-1000%)}
-    to{transform: rotateZ(180deg) translateX(0);}
+    from{transform: rotateY(180deg) translateX(-1000%)}
+    to{transform: rotateY(180deg) translateX(0);}
 }
 
 .bushacialaderecha{
