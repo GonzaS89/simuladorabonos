@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../Estilos/horarios.css";
 import { IoIosArrowForward } from "react-icons/io";
 
-export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarHoraAutoMin, enviarHoraManualMin }) => {
+export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarDiaManual, enviarHoraAutoMin, enviarHoraManualMin }) => {
   const [diaRango, setDiaRango] = useState(null);
   const [diaManual, setDiaManual] = useState(null);
   const [horaManualEnMinutos, setHoraManualEnMinutos] = useState(null);
@@ -12,7 +12,6 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarHor
   useEffect(() => {
     if (dia === "0") {
       setDiaRango("Domingos");
-      enviarDiaRango("domingos")
     } else if (dia >= "1" || dia <= "5") {
       setDiaRango("Lunes a viernes");
       enviarDiaRango("lunesAViernes")
@@ -20,7 +19,8 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarHor
       setDiaRango("Sábados");
       enviarDiaRango("sabados")
     }
-  }, [dia, enviarDiaRango]);
+  }, [dia]
+);
 
 
   const actualizarHora = () => {
@@ -41,7 +41,13 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarHor
 
   const manejarCambio = (e) => {
     setDiaManual(e.target.value);
-  };
+    enviarDiaManual(e.target.value);
+  }
+
+  useEffect(() => {
+    console.log(diaManual)
+  },[diaManual])
+
 
   const enviarHoraManual = (e) => {
     let horaStr = e.target.value;
@@ -57,6 +63,7 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarHor
   const resetearHoraManual = () => { setHoraManualEnMinutos(null); enviarHoraManualMin(null); actualizarHora()}
   const desactivarHoraAuto = () => { setHoraManualEnMinutos(0); enviarHoraAutoMin(null) ;setHoraAutoEnMinutos(null)}
 
+  
 
   return (
     <div
@@ -71,7 +78,7 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarHor
                 ? "diaautomatico"
                 : "diaautomatico opcioninactiva"
             }
-            onClick={resetearDiaManual}>
+            >
             {diaRango}
           </div>
           <div className="container-select">

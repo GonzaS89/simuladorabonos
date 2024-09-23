@@ -341,6 +341,25 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
     
   }
 
+  const recibirDiaManual = dia => {
+    switch (dia) {
+      case 'Lunes a viernes': setDiaDeLaSemana(grillab.lunesAViernes);
+      break;
+      
+      case 'Sábados': setDiaDeLaSemana(grillab.sabados);
+      break;
+
+      case 'Domingos': setDiaDeLaSemana(grillab.domingos);
+      break;
+
+      default:break;
+    }
+  }
+
+  useEffect(() => {
+    console.log(diaDeLaSemana)
+  },[diaDeLaSemana])
+
 
   useEffect(() => {
     setVia(null)
@@ -393,8 +412,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
 
 
   const recibirHoraAutoMin = hora => {setHoraAutoMin(hora)}
-  const recibirHoraManualMin = hora => {setHoraManualMin(hora)}
-
+  const recibirHoraManualMin = hora => {setHoraManualMin(hora);}
 
   useEffect(() => {
     const floridaFortinCol4L = ['la florida', 'fortín', 'colonia 4 (luisiana)'];
@@ -516,7 +534,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           </div>
           {keyBoton === 'abonos' ?
             <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados} localidadOrigen={localidadOrigen} /> :
-            <ContainerHoraDia hora={hora} minutos={minutos} dia={dia} enviarDiaRango={recibirDiaRango} enviarHoraAutoMin={recibirHoraAutoMin} enviarHoraManualMin={recibirHoraManualMin}/>}
+            <ContainerHoraDia hora={hora} minutos={minutos} dia={dia} enviarDiaRango={recibirDiaRango} enviarDiaManual = {recibirDiaManual} enviarHoraAutoMin={recibirHoraAutoMin} enviarHoraManualMin={recibirHoraManualMin}/>}
         </div>
       </div>
 
