@@ -38,7 +38,7 @@ export const OpcionLocalidadDestino = ({
     ) {
       if (nombre === localidadDestino) {
         if (
-          localidadDestino === "san miguel de tucumán" ||
+          localidadDestino === "s. m. de tucumán" ||
           localidadDestino === "banda del río salí"
         ) {
           setOpcionesViasVisibles(true);
@@ -47,7 +47,7 @@ export const OpcionLocalidadDestino = ({
       }
     }
 
-    if (localidadOrigen === "san miguel de tucumán") {
+    if (localidadOrigen === "s. m. de tucumán") {
       if (nombre === localidadDestino) {
         if (
           localidadDestino === "la florida" ||
@@ -75,7 +75,7 @@ export const OpcionLocalidadDestino = ({
     }
     if (localidadOrigen === "colonia 4 (luisiana)") {
       if (nombre === localidadDestino) {
-        if (localidadDestino === "san miguel de tucumán") {
+        if (localidadDestino === "s. m. de tucumán") {
           setOpcionesViasVisibles(true);
           setConfirmacionSeleccion(false);
           setNombreOpcionVia("ald./alter.");

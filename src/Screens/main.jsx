@@ -77,7 +77,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           "w. posse",
           "alderetes",
           "banda del río salí",
-          "san miguel de tucumán",
+          "s. m. de tucumán",
           "el paraíso",
           "cevil pozo",
           "colonia 4 (luisiana)",
@@ -91,7 +91,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
         setListaLocDestino([
           "cevil pozo",
           "banda del río salí",
-          "san miguel de tucumán",
+          "s. m. de tucumán",
           "la florida",
           "el paraíso",
           "colonia 4 (luisiana)",
@@ -105,7 +105,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           "w. posse",
           "cevil pozo",
           "banda del río salí",
-          "san miguel de tucumán",
+          "s. m. de tucumán",
         ]);
         break;
 
@@ -116,7 +116,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           "w. posse",
           "cevil pozo",
           "banda del río salí",
-          "san miguel de tucumán",
+          "s. m. de tucumán",
         ]);
         break;
 
@@ -125,7 +125,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           "los ralos",
           "cevil pozo",
           "banda del río salí",
-          "san miguel de tucumán",
+          "s. m. de tucumán",
         ]);
         break;
 
@@ -135,7 +135,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           "los ralos",
           "cevil pozo",
           "banda del río salí",
-          "san miguel de tucumán",
+          "s. m. de tucumán",
         ]);
         break;
 
@@ -145,7 +145,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           "colonia 4 (luisiana)",
           "alderetes",
           "banda del río salí",
-          "san miguel de tucumán",
+          "s. m. de tucumán",
         ]);
         break;
 
@@ -157,7 +157,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           "el talar",
           "la florida",
           "banda del río salí",
-          "san miguel de tucumán",
+          "s. m. de tucumán",
         ]);
         break;
 
@@ -180,7 +180,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           "la florida",
           "cevil pozo",
           "banda del río salí",
-          "san miguel de tucumán",
+          "s. m. de tucumán",
         ]);
         break;
 
@@ -189,7 +189,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           "w. posse",
           "cevil pozo",
           "banda del río salí",
-          "san miguel de tucumán",
+          "s. m. de tucumán",
         ]);
         break;
 
@@ -199,15 +199,15 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           "los ralos",
           "cevil pozo",
           "banda del río salí",
-          "san miguel de tucumán",
+          "s. m. de tucumán",
         ]);
         break;
 
       case "7 de abril":
-        setListaLocDestino(["banda del río salí", "san miguel de tucumán"]);
+        setListaLocDestino(["banda del río salí", "s. m. de tucumán"]);
         break;
 
-      case "san miguel de tucumán":
+      case "s. m. de tucumán":
         setListaLocDestino([
           "la florida",
           "w. posse",
@@ -256,7 +256,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           "cevil pozo",
           "finca mayo",
           "banda del río salí",
-          "san miguel de tucumán"
+          "s. m. de tucumán"
         ]);
         break;
 
@@ -266,7 +266,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           "cevil pozo",
           "finca mayo",
           "banda del río salí",
-          "san miguel de tucumán",
+          "s. m. de tucumán",
           "la florida",
           "fila del medio",
           "fila de la orilla",
@@ -279,7 +279,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
       default:
         break;
     }
-    const esLocalidadDestinoValida = localidadDestino === 'san miguel de tucumán' || localidadDestino === 'banda del río salí';
+    const esLocalidadDestinoValida = localidadDestino === 's. m. de tucumán' || localidadDestino === 'banda del río salí';
     const localidadConViasAlternas = localidadOrigen === 'la florida' || localidadOrigen === 'colonia 4 (luisiana)' || localidadOrigen === 'fortín';
     const camposCompletos = localidadOrigen !== null && localidadDestino !== null && viajesIngresados !== null && tarifaElegida !== null;
 
@@ -294,10 +294,12 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
 
   useEffect(() => {
     if(keyBoton === 'horarios'){
-      const esLocalidadDestinoValida = localidadDestino === 'san miguel de tucumán' || localidadDestino === 'banda del río salí';
-      const esLocalidadOrigenValida = localidadOrigen === 'san miguel de tucumán' || localidadOrigen === 'banda del río salí';
+      const esLocalidadDestinoValida = localidadDestino === 's. m. de tucumán' || localidadDestino === 'banda del río salí';
+      const esLocalidadOrigenValida = localidadOrigen === 's. m. de tucumán' || localidadOrigen === 'banda del río salí';
+      const floridaFortinCol4Origen = localidadOrigen === 'la florida' || localidadOrigen === 'fortín' || localidadOrigen === 'colonia 4 (luisiana)';
+      const floridaFortinCol4Destino = localidadDestino === 'la florida' || localidadDestino === 'fortín' || localidadDestino === 'colonia 4 (luisiana)';
 
-      if(esLocalidadDestinoValida || esLocalidadOrigenValida){
+      if((esLocalidadOrigenValida && floridaFortinCol4Destino) || (esLocalidadDestinoValida && floridaFortinCol4Origen)){
         if(localidadOrigen !== null && localidadDestino !== null && via !== null){
           setBotonDisponible(true)
         }
@@ -361,7 +363,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
         // Caso cuando 'via' es null
         if (via === null) {
           if (localidadOrigen === localidadDestino) {
-            if (incluyeOrigen && recorrido.indexOf('san miguel de tucumán') !== 0) {
+            if (incluyeOrigen && recorrido.indexOf('s. m. de tucumán') !== 0) {
               horariosFiltrados.push(horario);
             }
           } else if (incluyeOrigen && incluyeDestino && indexOrigen < indexDestino) {
@@ -418,7 +420,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           if(via === 'w. posse'){enviarCodigo(codigo14)}
           else{enviarCodigo(codigo11)}
         }
-        else if(localidadDestino === 'san miguel de tucumán'){
+        else if(localidadDestino === 's. m. de tucumán'){
           if(via === 'w. posse'){enviarCodigo(codigo21)}
           else{enviarCodigo(codigo16)}
         }
@@ -430,7 +432,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
         //     setPrecioNormal(viajes * codigo06)
         //   }
         //   else if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo08) }
-        //   else if (lista.includes("san miguel de tucumán")) { setPrecioNormal(viajes * codigo18) }
+        //   else if (lista.includes("s. m. de tucumán")) { setPrecioNormal(viajes * codigo18) }
         // }
   
         // if (lista.includes("los ralos")) {
@@ -439,7 +441,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
         //   else if (lista.includes("fila de la orilla")) { setPrecioNormal(viajes * codigo12) }
         //   else if (lista.includes("cevil pozo")) { setPrecioNormal(viajes * codigo16) }
         //   else if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo16) }
-        //   else if (lista.includes("san miguel de tucumán")) { setPrecioNormal(viajes * codigo21) }
+        //   else if (lista.includes("s. m. de tucumán")) { setPrecioNormal(viajes * codigo21) }
         //   else if (lista.includes("las cejas")) { setPrecioNormal(viajes * codigo24) }
         //   else if (lista.includes("7 de abril")) { setPrecioNormal(viajes * codigo44) }
         // }
@@ -447,19 +449,19 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
         // if (lista.includes("las cejas")) {
         //   if (lista.includes("fila de la orilla") || lista.includes("cevil pozo")) { setPrecioNormal(viajes * codigo27) }
         //   else if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo30) }
-        //   else if (lista.includes("san miguel de tucumán")) { setPrecioNormal(viajes * codigo34) }
+        //   else if (lista.includes("s. m. de tucumán")) { setPrecioNormal(viajes * codigo34) }
         //   else if (lista.includes("7 de abril")) { setPrecioNormal(viajes * codigo41) }
         // }
   
         // if (lista.includes("cevil pozo")) {
         //   if (lista.includes("fila de la orilla") || lista.includes("fila del medio") || lista.includes("cruz alta") || lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo06) }
-        //   else if (lista.includes("el paraíso") || lista.includes("san miguel de tucumán")) { setPrecioNormal(viajes * codigo08) }
+        //   else if (lista.includes("el paraíso") || lista.includes("s. m. de tucumán")) { setPrecioNormal(viajes * codigo08) }
         //   else if (lista.includes("colonia 4 (luisiana)")) { setPrecioNormal(viajes * codigo14) }
         //   else if (lista.includes("finca mayo")) { setPrecioNormal(viajes * codigo21) }
         //   else if (lista.includes("7 de abril")) { setPrecioNormal(viajes * codigo44) }
         // }
   
-        // if (lista.includes("san miguel de tucumán")) {
+        // if (lista.includes("s. m. de tucumán")) {
         //   if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo06) }
         //   else if (lista.includes("alderetes")) { setPrecioNormal(viajes * codigo08) }
         //   else if (lista.includes("fila de la orilla") || lista.includes("fila del medio")) { setPrecioNormal(viajes * codigo12) }

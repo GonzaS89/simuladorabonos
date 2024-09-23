@@ -10,13 +10,13 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarHor
 
 
   useEffect(() => {
-    if (dia === 0) {
+    if (dia === "0") {
       setDiaRango("Domingos");
       enviarDiaRango("domingos")
-    } else if (dia >= 1 || dia <= 5) {
+    } else if (dia >= "1" || dia <= "5") {
       setDiaRango("Lunes a viernes");
       enviarDiaRango("lunesAViernes")
-    } else if (dia === 6) {
+    } else if (dia === "6") {
       setDiaRango("Sábados");
       enviarDiaRango("sabados")
     }

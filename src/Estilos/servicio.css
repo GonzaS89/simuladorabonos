@@ -162,11 +162,24 @@
     position: absolute;
     width: 25px;
     height: 15px;
-    right: 0;
 }
 
-.bus-izquierda{
-    transform:rotateZ(180deg)
+.bushacialaizquierda{
+    animation: busizquierda 2s .35s ease-in infinite;
+}
+
+@keyframes busizquierda{
+    from{transform: rotateZ(180deg) translateX(-1000%)}
+    to{transform: rotateZ(180deg) translateX(0);}
+}
+
+.bushacialaderecha{
+    animation: busderecha 2s ease-in infinite;
+}
+
+@keyframes busderecha{
+    from{transform: translateX(0)}
+    to{transform: translateX(1000%);}
 }
 
 .paradaALaIzquierda{

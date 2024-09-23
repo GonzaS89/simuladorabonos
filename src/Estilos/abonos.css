@@ -183,6 +183,10 @@
     user-select: none;
   }
 
+  .diaautomatico{
+    text-transform: uppercase;
+  }
+
   .texto-opcion-vias{
     height: 30px;
     width: 120px;

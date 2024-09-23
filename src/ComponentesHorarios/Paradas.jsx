@@ -1,5 +1,5 @@
 import React from "react";
-import { BsFillCheckCircleFill } from "react-icons/bs";
+import { FaCheck } from "react-icons/fa";
 export const Paradas = ({ nombre, index, length, origen, destino }) => {
 
     const nombreOrigenDestino = nombre === origen || nombre === destino;
@@ -10,6 +10,12 @@ export const Paradas = ({ nombre, index, length, origen, destino }) => {
         }else{return 'container-parada'}
       }
 
+    const definirClaseIconoBus = (a , b) => {
+      if(a === nombre){return 'parada-bus-icono bushacialaderecha'}
+      else if(b === nombre){return 'parada-bus-icono bushacialaizquierda'}
+      else{return 'hidden'}
+    }
+
   return (
 
     <>
@@ -17,8 +23,9 @@ export const Paradas = ({ nombre, index, length, origen, destino }) => {
         className={definirClaseParadas()}
       >
         <p className={nombreOrigenDestino && 'texto-nombre-parada'}>{nombre}</p>
-        <BsFillCheckCircleFill className={nombreOrigenDestino ? 'parada-checked-icono' : 'hidden'}/>
-        <img src={require('../Iconos/autobus.png')} alt="bus" className={nombreOrigenDestino ? 'parada-bus-icono' : 'hidden'}/>
+        {nombre === origen || destino === nombre}
+        <FaCheck className={nombreOrigenDestino ? 'parada-checked-icono' : 'hidden'}/>
+        <img src={require('../Iconos/autobus.png')} alt="" className={definirClaseIconoBus(origen,destino)}/>
       </div>
     </>
   );
