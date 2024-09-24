@@ -165,7 +165,7 @@
 }
 
 .bushacialaizquierda{
-    animation: busizquierda 2s .35s ease-in infinite;
+    animation: busizquierda 2s ease-in infinite;
 }
 
 @keyframes busizquierda{
