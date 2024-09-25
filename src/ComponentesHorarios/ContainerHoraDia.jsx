@@ -19,7 +19,7 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarDia
       setDiaRango("Sábados");
       enviarDiaRango("sabados")
     }
-  }, [dia]
+  }, [dia, enviarDiaRango]
 );
 
 
