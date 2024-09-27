@@ -119,13 +119,16 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarDia
             {hora < 10 ? `0${hora}` : hora}:
             {minutos < 10 ? `0${minutos}` : minutos}
           </div>
-          
-          <input
+          <div className="container-input">
+            <div className={horaManualEnMinutos === null ? 'container-input_mascara' : 'hidden'}>Marcá una hora</div>
+            <input
             type="time"
             className={horaManualEnMinutos === null ? 'input-horamanual opcioninactiva' : 'input-horamanual'}
             onChange={enviarHoraManual}
             onClick={desactivarHoraAuto}
           />
+          </div>
+          
         </div>
       </div>
     </div>

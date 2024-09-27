@@ -25,14 +25,14 @@
 }
 
 @keyframes normalizarservicio{
-    from{filter: opacity(.8);}
+    from{filter: opacity(.9);}
     to{filter: opacity(1)}
 }
 
-.serviciodereferencia{
+/* .serviciodereferencia{
     filter: opacity(1);
     animation: zoomearservicio .75s linear alternate-reverse infinite;
-}
+} */
 
 @keyframes zoomearservicio{
     100%{transform: scale(1.025);}
