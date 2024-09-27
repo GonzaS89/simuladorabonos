@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Horarios from "./Screens/Horarios";
 import { CotizacionAbonos } from "./Screens/CotizacionAbonos";
@@ -45,9 +45,6 @@ function App() {
 
   const recibirCodigo = codigo => {setCodigoDeterminado(codigo)}
 
-  useEffect(() => {
-    console.log(codigoDeterminado)
-  }, [codigoDeterminado])
 
 
   return (

@@ -19,7 +19,7 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarDia
       setDiaRango("Sábados");
       enviarDiaRango("sabados")
     }
-  }, [dia]
+  }, [dia, enviarDiaRango]
 );
 
 
@@ -40,14 +40,20 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarDia
   }, [hora, minutos,horaAutoEnMinutos, enviarHoraAutoMin])
 
   const manejarCambio = (e) => {
-    setDiaManual(e.target.value);
-    enviarDiaManual(e.target.value);
+    const valor = e.target.value;
+    setDiaManual(valor);
+    enviarDiaRango(null)
+    if(valor === 'Lunes a viernes'){
+      enviarDiaManual('lunesAViernes')
+    }
+    else if(valor === 'Sábados'){
+      enviarDiaManual('sabados')
+    }
+    else if(valor === 'Domingos'){
+      enviarDiaManual('domingos')
+    }
+    
   }
-
-  useEffect(() => {
-    console.log(diaManual)
-  },[diaManual])
-
 
   const enviarHoraManual = (e) => {
     let horaStr = e.target.value;
@@ -59,11 +65,9 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarDia
     setHoraManualEnMinutos(totalMinutos);
   };
 
-  const resetearDiaManual = () => { setDiaManual(null) }
+
   const resetearHoraManual = () => { setHoraManualEnMinutos(null); enviarHoraManualMin(null); actualizarHora()}
   const desactivarHoraAuto = () => { setHoraManualEnMinutos(0); enviarHoraAutoMin(null) ;setHoraAutoEnMinutos(null)}
-
-  
 
   return (
     <div
@@ -75,10 +79,10 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarDia
           <div
             className={
               diaManual === null
-                ? "diaautomatico"
-                : "diaautomatico opcioninactiva"
+                ? 'diaautomatico'
+                : 'diaautomatico opcioninactiva'
             }
-            >
+            onClick={()=> setDiaManual(null)}>
             {diaRango}
           </div>
           <div className="container-select">
@@ -98,7 +102,7 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarDia
               id=""
               onChange={manejarCambio}
             >
-              <option value="" selected={true}>
+              <option value="" selected={true} disabled = {true}>
                 Elegí un día
               </option>
               <option value="Lunes a viernes">Lunes a viernes</option>
@@ -115,6 +119,7 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarDia
             {hora < 10 ? `0${hora}` : hora}:
             {minutos < 10 ? `0${minutos}` : minutos}
           </div>
+          
           <input
             type="time"
             className={horaManualEnMinutos === null ? 'input-horamanual opcioninactiva' : 'input-horamanual'}

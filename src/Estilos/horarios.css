@@ -259,6 +259,12 @@
     right: 0;
   }
 
+  .container-input{
+    height: 50px;
+    width: 150px;
+    position: relative;
+  }
+
   .horaautomatica, .input-horamanual{
     display: flex;
     align-items: center;
@@ -275,5 +281,5 @@
     font-family: "Jockey One", sans-serif;
   }
 
-  .opcioninactiva{color: grey;} .opcionactiva{color: black;}
+  
 

@@ -7,6 +7,7 @@ export const Horario = forwardRef(
     {
       horaSalida,
       recorrido,
+      nombre,
       index,
       indiceDeBusqueda,
       claseNormalizadora,
@@ -26,6 +27,8 @@ export const Horario = forwardRef(
     const [claseServicioNoReferido, setClaseServicioNoRefereido] = useState(
       "containerservicio servicioopacoychico"
     );
+    const [horas, setHoras] = useState(null);
+    const [minutos, setMinutos] = useState(null)
 
     useEffect(() => {
       setHoraSalidaEnMInutos(
@@ -48,32 +51,47 @@ export const Horario = forwardRef(
       }
     }, [claseNormalizadora]);
 
+    useEffect(()=> {
+        let partes = nombre.split(":");
+        let horas = parseInt(partes[0]);
+        let minutos = parseInt(partes[1]);
+        
+        setHoras(horas);setMinutos(minutos)
+    },[nombre]);
+
+    const darFormatoHoraMinuto = elemento => {
+      return elemento < 10 ? `0${elemento}` : elemento
+    }
+
     const definirMensaje = () => {
-      if (minutosDif < -60) {
+      if(minutosDif < -90){
+        return 'Inactivo'
+      }
+      else if (minutosDif < -60) {
         return "Inició recorrido hace mas de una hora";
       }
-      if (minutosDif < -30 && minutosDif > -60) {
+      else if (minutosDif < -30 && minutosDif > -60) {
         return "Inició recorrido hace media hora";
       }
-      if (minutosDif >= -30 && minutosDif < 0) {
+      else if (minutosDif >= -30 && minutosDif < 0) {
         return `Inició recorrido hace ${Math.abs(minutosDif)} minutos`;
       }
-      if (minutosDif === 0) {
+      else if (minutosDif === 0) {
         return "Está iniciando recorrido";
       }
-      if (minutosDif > 0 && minutosDif <= 3) {
+      else if (minutosDif > 0 && minutosDif <= 3) {
         return "Pronto iniciará su recorrido";
       }
-      if (minutosDif === 60) {
+      else if (minutosDif === 60) {
         return "Iniciará recorrido en una hora";
       }
-      if (minutosDif > 60 && minutosDif <= 90) {
+      else if (minutosDif > 60 && minutosDif <= 90) {
         return "Iniciará su recorrido en poco más de una hora";
       }
-      if (minutosDif > 90 && minutosDif < 120) {
+      else if (minutosDif > 90 && minutosDif < 120) {
         return "Iniciará su recorrido en poco menos de dos horas";
       }
-      if (minutosDif > 120) {
+      else if (minutosDif > 120) {
         return "inactivo";
       }
     };
@@ -89,18 +107,10 @@ export const Horario = forwardRef(
       >
         <div className="container-panelIzquierdo">
           <p className="servicionombre">
-            {Math.trunc(horaSalida) < 10
-              ? `0${Math.trunc(horaSalida)}`
-              : Math.trunc(horaSalida)}
+            {darFormatoHoraMinuto(horas)}
           </p>
           <p className="servicionombre">
-            {Math.trunc((horaSalida - Math.trunc(horaSalida)) * 100) < 10
-              ? `0${Math.trunc(
-                  (horaSalida.toFixed(2) - Math.trunc(horaSalida)) * 100
-                )}`
-              : Math.trunc(
-                  (horaSalida.toFixed(2) - Math.trunc(horaSalida)) * 100
-                )}
+            {darFormatoHoraMinuto(minutos)}
           </p>
           <h3 className="servicionombre">HRS</h3>
         </div>

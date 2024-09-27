@@ -323,38 +323,43 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
 
   const recibirVia = via => { setVia(via) }
 
+  const [diaAuto, setDiaAuto] = useState(null);
+  const [diaManual, setDiaManual] = useState(null);
+  const [rangoDias, setRangoDias] = useState(null);
   const [diaDeLaSemana, setDiaDeLaSemana] = useState(null);
 
   const recibirDiaRango = diarango => {
-    switch (diarango){
-      case 'lunesAViernes': setDiaDeLaSemana(grillab.lunesAViernes);
-      break;
-      
-      case 'sabados': setDiaDeLaSemana(grillab.sabados);
-      break;
-
-      case 'domingos': setDiaDeLaSemana(grillab.domingos);
-      break;
-
-      default:break;
-    }
-    
+    setDiaAuto(diarango);
   }
 
   const recibirDiaManual = dia => {
-    switch (dia) {
-      case 'Lunes a viernes': setDiaDeLaSemana(grillab.lunesAViernes);
-      break;
-      
-      case 'Sábados': setDiaDeLaSemana(grillab.sabados);
-      break;
+    setDiaManual(dia);
+  }
 
-      case 'Domingos': setDiaDeLaSemana(grillab.domingos);
-      break;
+  useEffect(()=> {
+    if(diaManual !== null) {setRangoDias(diaManual)}
+    else{setRangoDias(diaAuto)}
+  },[diaAuto,diaManual])
 
+  useEffect(() => {
+    switch (rangoDias){
+      case 'lunesAViernes': setDiaDeLaSemana(grillab.lunesAViernes);
+      break;
+  
+      case 'sabados': setDiaDeLaSemana(grillab.sabados);
+      break;
+  
+      case 'domingos': setDiaDeLaSemana(grillab.domingos);
+      break;
+  
       default:break;
     }
-  }
+
+    console.log(rangoDias)
+  },[rangoDias])
+
+
+  
 
   useEffect(() => {
     setVia(null)
@@ -368,12 +373,12 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
     const horariosFiltrados = [];
       diaDeLaSemana.forEach(horario => {
         const recorrido = horario.recorrido;
-      
+
         const incluyeOrigen = recorrido.includes(localidadOrigen);
         const incluyeDestino = recorrido.includes(localidadDestino);
         const indexOrigen = recorrido.indexOf(localidadOrigen);
         const indexDestino = recorrido.indexOf(localidadDestino);
-        
+
         // Caso cuando 'via' es null
         if (via === null) {
           if (localidadOrigen === localidadDestino) {
@@ -383,13 +388,13 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           } else if (incluyeOrigen && incluyeDestino && indexOrigen < indexDestino) {
             horariosFiltrados.push(horario);
           }
-        } 
+        }
         // Caso cuando 'via' es 'w. posse'
         else if (via === 'w. posse') {
           if (incluyeOrigen && incluyeDestino && recorrido.includes(via) && indexOrigen < indexDestino) {
             horariosFiltrados.push(horario);
           }
-        } 
+        }
         // Caso cuando 'via' no es 'w. posse'
         else {
           if (incluyeOrigen && incluyeDestino && !recorrido.includes('w. posse') && indexOrigen < indexDestino) {
@@ -397,11 +402,12 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           }
         }
       });
-      
+
       // Actualiza el estado solo una vez con los horarios filtrados
       setListaHorarios(horariosFiltrados.sort((a, b) => a.salida - b.salida));
+
     }
-  
+
   }, [localidadOrigen, localidadDestino, via,diaDeLaSemana])
 
 
@@ -412,15 +418,15 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
     const floridaFortinCol4L = ['la florida', 'fortín', 'colonia 4 (luisiana)'];
     const destinosCortosFlorida = ['la florida', 'fortín' , 'w. posse', 'el talar', 'el paraíso'];
     const destinoMedianosFlorida = ['alderetes', 'cevil pozo', 'fila de orilla'];
-  
-    //POSSE 
-  
+
+    //POSSE
+
     // const posseDestinosCortos = ['el paraíso', 'fila del medio', 'fila de la orilla', 'colonia media agua'];
-  
+
     // //POSSE
-  
+
     // const destinosCortosPosse = ['el paraíso', 'la florida','fila del medio', 'fila de la orilla', 'colonia media agua', 'fortín', 'colonia 4 (luisiana)'];
-  
+
       if(floridaFortinCol4L.includes(localidadOrigen)){
         if(destinosCortosFlorida.includes(localidadDestino)){
           enviarCodigo(codigo06)
@@ -437,8 +443,8 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           else{enviarCodigo(codigo16)}
         }
       }
-  
-        
+
+
         // if (lista.includes("w. posse")) {
         //   if (lista.includes("el paraíso") || lista.includes("fila del medio") || lista.includes("fila de la orilla") || lista.includes("cevil pozo") || lista.includes("colonia 4 (luisiana)")) {
         //     setPrecioNormal(viajes * codigo06)
@@ -446,7 +452,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
         //   else if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo08) }
         //   else if (lista.includes("s. m. de tucumán")) { setPrecioNormal(viajes * codigo18) }
         // }
-  
+
         // if (lista.includes("los ralos")) {
         //   if (lista.includes("cruz alta")) { setPrecioNormal(viajes * codigo10) }
         //   else if (lista.includes("finca mayo")) { setPrecioNormal(viajes * codigo11) }
@@ -457,14 +463,14 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
         //   else if (lista.includes("las cejas")) { setPrecioNormal(viajes * codigo24) }
         //   else if (lista.includes("7 de abril")) { setPrecioNormal(viajes * codigo44) }
         // }
-  
+
         // if (lista.includes("las cejas")) {
         //   if (lista.includes("fila de la orilla") || lista.includes("cevil pozo")) { setPrecioNormal(viajes * codigo27) }
         //   else if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo30) }
         //   else if (lista.includes("s. m. de tucumán")) { setPrecioNormal(viajes * codigo34) }
         //   else if (lista.includes("7 de abril")) { setPrecioNormal(viajes * codigo41) }
         // }
-  
+
         // if (lista.includes("cevil pozo")) {
         //   if (lista.includes("fila de la orilla") || lista.includes("fila del medio") || lista.includes("cruz alta") || lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo06) }
         //   else if (lista.includes("el paraíso") || lista.includes("s. m. de tucumán")) { setPrecioNormal(viajes * codigo08) }
@@ -472,7 +478,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
         //   else if (lista.includes("finca mayo")) { setPrecioNormal(viajes * codigo21) }
         //   else if (lista.includes("7 de abril")) { setPrecioNormal(viajes * codigo44) }
         // }
-  
+
         // if (lista.includes("s. m. de tucumán")) {
         //   if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo06) }
         //   else if (lista.includes("alderetes")) { setPrecioNormal(viajes * codigo08) }
@@ -486,7 +492,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
         //   else if (lista.includes("el paraíso")) { setPrecioNormal(viajes * codigo18) }
         //   else if (lista.includes("finca mayo")) { setPrecioNormal(viajes * codigo24) }
         // }
-      
+
     },[localidadOrigen, localidadDestino, via, enviarCodigo]);
 
   return (
@@ -534,7 +540,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
 
         <Link to={keyBoton === 'abonos' ? '/cotizacion' : '/horarios'}>
         <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via, listaHorarios, horaAutoMin, horaManualMin)}>{keyBoton === 'abonos' ? 'calcular' : 'consultar'}</div>
-      </Link> 
+      </Link>
     </div>
 
   );
