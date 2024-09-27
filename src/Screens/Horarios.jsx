@@ -15,7 +15,7 @@ const Horarios = ({ grillaDefinitiva, origen, destino, horaAuto, horaManual, cod
   useEffect(() => {
     if(horaAuto === null){setHoraDeReferencia(horaManual)}
     else if(horaManual === null){setHoraDeReferencia(horaAuto)}
-  },[horaAuto, horaManual])
+  },[horaAuto, horaManual]);
 
 
   const truncarNumero = num => { return Math.trunc(num) }

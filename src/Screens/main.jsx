@@ -357,11 +357,6 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
   }
 
   useEffect(() => {
-    console.log(diaDeLaSemana)
-  },[diaDeLaSemana])
-
-
-  useEffect(() => {
     setVia(null)
   }, [localidadDestino])
 
@@ -404,8 +399,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
       });
       
       // Actualiza el estado solo una vez con los horarios filtrados
-      setListaHorarios(horariosFiltrados);
-        
+      setListaHorarios(horariosFiltrados.sort((a, b) => a.salida - b.salida));
     }
   
   }, [localidadOrigen, localidadDestino, via,diaDeLaSemana])
