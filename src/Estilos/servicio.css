@@ -226,7 +226,8 @@
 .divisor-horario{
     position: absolute;
     z-index: 100;
-    width: 100%;
+    width: 680px;
+    height: 50px;
     transform: rotate(-90deg);
-    left: 0;
+    left: -335px;
 }
