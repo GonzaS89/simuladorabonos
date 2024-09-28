@@ -354,8 +354,6 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
   
       default:break;
     }
-
-    console.log(rangoDias)
   },[rangoDias])
 
 
@@ -539,7 +537,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
       </div>
 
         <Link to={keyBoton === 'abonos' ? '/cotizacion' : '/horarios'}>
-        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via, listaHorarios, horaAutoMin, horaManualMin)}>{keyBoton === 'abonos' ? 'calcular' : 'consultar'}</div>
+        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via, listaHorarios, horaAutoMin, horaManualMin, diaAuto, diaManual)}>{keyBoton === 'abonos' ? 'calcular' : 'consultar'}</div>
       </Link>
     </div>
 

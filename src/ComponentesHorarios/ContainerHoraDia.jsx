@@ -2,58 +2,60 @@ import React, { useEffect, useState } from "react";
 import "../Estilos/horarios.css";
 import { IoIosArrowForward } from "react-icons/io";
 
-export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarDiaManual, enviarHoraAutoMin, enviarHoraManualMin }) => {
+export const ContainerHoraDia = ({
+  hora,
+  minutos,
+  dia,
+  enviarDiaRango,
+  enviarDiaManual,
+  enviarHoraAutoMin,
+  enviarHoraManualMin,
+}) => {
   const [diaRango, setDiaRango] = useState(null);
   const [diaManual, setDiaManual] = useState(null);
   const [horaManualEnMinutos, setHoraManualEnMinutos] = useState(null);
   const [horaAutoEnMinutos, setHoraAutoEnMinutos] = useState();
-
 
   useEffect(() => {
     if (dia === "0") {
       setDiaRango("Domingos");
     } else if (dia >= "1" || dia <= "5") {
       setDiaRango("Lunes a viernes");
-      enviarDiaRango("lunesAViernes")
+      enviarDiaRango("lunesAViernes");
     } else if (dia === "6") {
       setDiaRango("Sábados");
-      enviarDiaRango("sabados")
+      enviarDiaRango("sabados");
     }
-  }, [dia, enviarDiaRango]
-);
-
+  }, [dia, enviarDiaRango]);
 
   const actualizarHora = () => {
     let horas = parseInt(hora);
     let totalMinutos = horas * 60 + parseInt(minutos);
-    enviarHoraAutoMin(totalMinutos)
-    setHoraAutoEnMinutos(totalMinutos)
-  }
+    enviarHoraAutoMin(totalMinutos);
+    setHoraAutoEnMinutos(totalMinutos);
+  };
 
   useEffect(() => {
-    if(horaAutoEnMinutos !== null){
+    if (horaAutoEnMinutos !== null) {
       let horas = parseInt(hora);
-    let totalMinutos = horas * 60 + parseInt(minutos);
-    enviarHoraAutoMin(totalMinutos)
-    setHoraAutoEnMinutos(totalMinutos)
+      let totalMinutos = horas * 60 + parseInt(minutos);
+      enviarHoraAutoMin(totalMinutos);
+      setHoraAutoEnMinutos(totalMinutos);
     }
-  }, [hora, minutos,horaAutoEnMinutos, enviarHoraAutoMin])
+  }, [hora, minutos, horaAutoEnMinutos, enviarHoraAutoMin]);
 
   const manejarCambio = (e) => {
     const valor = e.target.value;
     setDiaManual(valor);
-    enviarDiaRango(null)
-    if(valor === 'Lunes a viernes'){
-      enviarDiaManual('lunesAViernes')
+    enviarDiaRango(null);
+    if (valor === "Lunes a viernes") {
+      enviarDiaManual("lunesAViernes");
+    } else if (valor === "Sábados") {
+      enviarDiaManual("sabados");
+    } else if (valor === "Domingos") {
+      enviarDiaManual("domingos");
     }
-    else if(valor === 'Sábados'){
-      enviarDiaManual('sabados')
-    }
-    else if(valor === 'Domingos'){
-      enviarDiaManual('domingos')
-    }
-    
-  }
+  };
 
   const enviarHoraManual = (e) => {
     let horaStr = e.target.value;
@@ -65,24 +67,30 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarDia
     setHoraManualEnMinutos(totalMinutos);
   };
 
-
-  const resetearHoraManual = () => { setHoraManualEnMinutos(null); enviarHoraManualMin(null); actualizarHora()}
-  const desactivarHoraAuto = () => { setHoraManualEnMinutos(0); enviarHoraAutoMin(null) ;setHoraAutoEnMinutos(null)}
+  const resetearHoraManual = () => {
+    setHoraManualEnMinutos(null);
+    enviarHoraManualMin(null);
+    actualizarHora();
+  };
+  const desactivarHoraAuto = () => {
+    setHoraManualEnMinutos(0);
+    enviarHoraAutoMin(null);
+    setHoraAutoEnMinutos(null);
+  };
 
   return (
-    <div
-      className="container-bloque_hora-dia"
-    >
+    <div className="container-bloque_hora-dia">
       <div className="container-diaSemana">
         <h1>Día de la semana</h1>
         <div className="container-horaautomanual">
           <div
             className={
               diaManual === null
-                ? 'diaautomatico'
-                : 'diaautomatico opcioninactiva'
+                ? "diaautomatico"
+                : "diaautomatico opcioninactiva"
             }
-            onClick={()=> setDiaManual(null)}>
+            onClick={() => setDiaManual(null)}
+          >
             {diaRango}
           </div>
           <div className="container-select">
@@ -102,7 +110,7 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarDia
               id=""
               onChange={manejarCambio}
             >
-              <option value="" selected={true} disabled = {true}>
+              <option value="" selected={true} disabled={true}>
                 Elegí un día
               </option>
               <option value="Lunes a viernes">Lunes a viernes</option>
@@ -115,20 +123,39 @@ export const ContainerHoraDia = ({ hora, minutos, dia, enviarDiaRango, enviarDia
       <div className="container-hora">
         <h1>Hora</h1>
         <div className="container-horaautomanual">
-          <div className={horaManualEnMinutos === null ? 'horaautomatica' : 'horaautomatica opcioninactiva'} onClick={resetearHoraManual}>
+          <div
+            className={
+              horaManualEnMinutos === null
+                ? "horaautomatica"
+                : "horaautomatica opcioninactiva"
+            }
+            onClick={resetearHoraManual}
+          >
             {hora < 10 ? `0${hora}` : hora}:
             {minutos < 10 ? `0${minutos}` : minutos}
           </div>
           <div className="container-input">
-            <div className={horaManualEnMinutos === null ? 'container-input_mascara' : 'hidden'}>Marcá una hora</div>
+            <div
+              className={
+                horaManualEnMinutos === null
+                  ? "container-input_mascara"
+                  : "hidden"
+              }
+            >
+              Marcá una hora
+              <IoIosArrowForward className="arrow-select" />
+            </div>
             <input
-            type="time"
-            className={horaManualEnMinutos === null ? 'input-horamanual opcioninactiva' : 'input-horamanual'}
-            onChange={enviarHoraManual}
-            onClick={desactivarHoraAuto}
-          />
+              type="time"
+              className={
+                horaManualEnMinutos === null
+                  ? "input-horamanual opcioninactiva"
+                  : "input-horamanual"
+              }
+              onChange={enviarHoraManual}
+              onClick={desactivarHoraAuto}
+            />
           </div>
-          
         </div>
       </div>
     </div>

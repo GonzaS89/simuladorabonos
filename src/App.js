@@ -1,5 +1,5 @@
 import "./App.css";
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Horarios from "./Screens/Horarios";
 import { CotizacionAbonos } from "./Screens/CotizacionAbonos";
@@ -21,16 +21,16 @@ function App() {
   const [horaAutoEnMins, setHoraAutoEnMins] = useState(null);
   const [horaManualEnMins, setHoraManualEnMins] = useState(null);
   const [codigoDeterminado, setCodigoDeterminado] = useState(null);
+  const [hayDiaAuto, setHayDiaAuto] = useState(null);
 
 
-  const recibirParametrosAbonos = (origen, destino, viajes, tarifa, via,listahorarios, horaAutoMin, horaManualMin) => {
+  const recibirParametrosAbonos = (origen, destino, viajes, tarifa, via,listahorarios, horaAutoMin, horaManualMin, diaAuto, diaManual) => {
     if (keyBoton === 'abonos') {
       setLocalidadOrigen(origen);
       setLocalidadDestino(destino);
       setViajesIngresados(viajes);
       setTarifaElegida(tarifa);
       setVia(via)
-
     }
     else {
       setLocalidadOrigen(origen);
@@ -38,6 +38,8 @@ function App() {
       setListaHorarios(listahorarios)
       setHoraManualEnMins(horaManualMin);
       setHoraAutoEnMins(horaAutoMin);
+      diaAuto !== null && setHayDiaAuto(true)
+      diaManual !== null && setHayDiaAuto(false)
     }
   }
 
@@ -63,7 +65,7 @@ function App() {
           </div>
           <Routes>
             <Route path="/abonos" element={<Main enviarParametrosAbonos={recibirParametrosAbonos} keyBoton={keyBoton} enviarCodigo={recibirCodigo}/>}></Route>
-            <Route path="/horarios" element={<Horarios grillaDefinitiva={listaHorarios} origen={localidadOrigen} destino={localidadDestino} horaAuto={horaAutoEnMins} horaManual={horaManualEnMins} codigo={codigoDeterminado} />}></Route>
+            <Route path="/horarios" element={<Horarios grillaDefinitiva={listaHorarios} origen={localidadOrigen} destino={localidadDestino} horaAuto={horaAutoEnMins} horaManual={horaManualEnMins} codigo={codigoDeterminado} diaAuto = {hayDiaAuto}/>}></Route>
             <Route path="/cotizacion" element={<CotizacionAbonos origen={localidadOrigen} destino={localidadDestino} viajes={viajesIngresados} tarifa={tarifaElegida} via={via} codigo={codigoDeterminado} />}></Route>
           </Routes>
         </Router>

@@ -14,7 +14,8 @@ export const Horario = forwardRef(
       origen,
       destino,
       horaDeReferencia,
-      codigo
+      codigo,
+      diaAuto
     },
     ref
   ) => {
@@ -29,6 +30,10 @@ export const Horario = forwardRef(
     );
     const [horas, setHoras] = useState(null);
     const [minutos, setMinutos] = useState(null)
+
+    useEffect(()=> {
+      console.log(diaAuto)
+    },[diaAuto])
 
     useEffect(() => {
       setHoraSalidaEnMInutos(
@@ -116,8 +121,8 @@ export const Horario = forwardRef(
         </div>
         <div className="container-panelDerecho">
           <div className="estadodelservicio">
-            <p className="estado-titulo">ESTADO DEL SERVICIO</p>
-            <p>{definirMensaje()}</p>
+            <p className="estado-titulo">{diaAuto ? 'Estado del serivicio' : ''}</p>
+            <p>{diaAuto ? definirMensaje() : ''}</p>
           </div>
           <div className="container-recorrido">
             <div className="container-paradas">
