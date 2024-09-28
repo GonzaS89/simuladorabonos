@@ -4,7 +4,7 @@ import "../Estilos/horarios.css";
 import { useEffect, useState, useRef } from "react";
 import { Horario } from "../ComponentesHorarios/Horario";
 
-const Horarios = ({ grillaDefinitiva, origen, destino, horaAuto, horaManual, codigo, diaAuto }) => {
+const Horarios = ({ grillaDefinitiva, origen, destino, horaAuto, horaManual, codigo, diaAuto, grilla }) => {
 
   const [indiceDeBusqueda, setIndiceDeBusqueda] = useState(null);
   const [claseNormalizadora, setClaseNormalizadora] = useState(null);
@@ -64,7 +64,8 @@ const Horarios = ({ grillaDefinitiva, origen, destino, horaAuto, horaManual, cod
                 horaDeReferencia={horaDeReferencia}
                 claseNormalizadora={claseNormalizadora}
                 ref={el => refs.current[index] = el} 
-                diaAuto = {diaAuto}/>
+                diaAuto = {diaAuto}
+                grilla = {grilla}/>
             ))}
           </div>
         </div>

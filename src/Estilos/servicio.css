@@ -81,9 +81,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-basis: 75%;
+    width: 75%;
     height: 100%;
-    overflow: hidden;
+    position: relative;
     background-color: #242e48;
     color: white;
     font-weight: 200;
@@ -103,7 +103,7 @@
 }
 
 .estado-titulo{
-    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .container-recorrido{
@@ -223,3 +223,10 @@
     z-index: 50;
 }
 
+.divisor-horario{
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    transform: rotate(-90deg);
+    left: 0;
+}

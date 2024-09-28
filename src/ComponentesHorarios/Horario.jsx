@@ -15,7 +15,8 @@ export const Horario = forwardRef(
       destino,
       horaDeReferencia,
       codigo,
-      diaAuto
+      diaAuto,
+      grilla
     },
     ref
   ) => {
@@ -31,9 +32,6 @@ export const Horario = forwardRef(
     const [horas, setHoras] = useState(null);
     const [minutos, setMinutos] = useState(null)
 
-    useEffect(()=> {
-      console.log(diaAuto)
-    },[diaAuto])
 
     useEffect(() => {
       setHoraSalidaEnMInutos(
@@ -101,6 +99,7 @@ export const Horario = forwardRef(
       }
     };
 
+
     return (
       <div
         className={
@@ -121,13 +120,15 @@ export const Horario = forwardRef(
         </div>
         <div className="container-panelDerecho">
           <div className="estadodelservicio">
-            <p className="estado-titulo">{diaAuto ? 'Estado del serivicio' : ''}</p>
+            <p className="estado-titulo">{diaAuto ? 'Estado del servicio' : `grilla de ${grilla}`}</p>
             <p>{diaAuto ? definirMensaje() : ''}</p>
           </div>
           <div className="container-recorrido">
+          <img src={require('../Iconos/divider.png')} alt="" className="divisor-horario"/>
             <div className="container-paradas">
-              {recorrido.map((parada) => (
+              {recorrido.map((parada, index) => (
                 <Paradas
+                  key={index}
                   nombre={parada}
                   index={recorrido.indexOf(parada)}
                   length={lengthRecorrido}

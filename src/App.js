@@ -22,9 +22,11 @@ function App() {
   const [horaManualEnMins, setHoraManualEnMins] = useState(null);
   const [codigoDeterminado, setCodigoDeterminado] = useState(null);
   const [hayDiaAuto, setHayDiaAuto] = useState(null);
+  const [diaGrilla, setDiaGrilla] = useState(null);
 
 
-  const recibirParametrosAbonos = (origen, destino, viajes, tarifa, via,listahorarios, horaAutoMin, horaManualMin, diaAuto, diaManual) => {
+
+  const recibirParametrosAbonos = (origen, destino, viajes, tarifa, via, listahorarios, horaAutoMin, horaManualMin, diaAuto, diaManual) => {
     if (keyBoton === 'abonos') {
       setLocalidadOrigen(origen);
       setLocalidadDestino(destino);
@@ -38,14 +40,22 @@ function App() {
       setListaHorarios(listahorarios)
       setHoraManualEnMins(horaManualMin);
       setHoraAutoEnMins(horaAutoMin);
-      diaAuto !== null && setHayDiaAuto(true)
-      diaManual !== null && setHayDiaAuto(false)
+      diaAuto !== null && setHayDiaAuto(true);
+      console.log(diaManual)
+      if (diaManual !== null) { setHayDiaAuto(false) }
+      if (diaManual === 'lunesAViernes') { setDiaGrilla('lunes a viernes') }
+      else if (diaManual === 'sabados') { setDiaGrilla('sábados') }
+      else if (diaManual === 'domingos') { setDiaGrilla('domingos') }
     }
   }
 
+  useEffect(()=> {
+    console.log(diaGrilla)
+  },[diaGrilla])
+
   const recibirKey = nombre => { setKeyBoton(nombre) }
 
-  const recibirCodigo = codigo => {setCodigoDeterminado(codigo)}
+  const recibirCodigo = codigo => { setCodigoDeterminado(codigo) }
 
 
 
@@ -64,8 +74,8 @@ function App() {
             </Link>
           </div>
           <Routes>
-            <Route path="/abonos" element={<Main enviarParametrosAbonos={recibirParametrosAbonos} keyBoton={keyBoton} enviarCodigo={recibirCodigo}/>}></Route>
-            <Route path="/horarios" element={<Horarios grillaDefinitiva={listaHorarios} origen={localidadOrigen} destino={localidadDestino} horaAuto={horaAutoEnMins} horaManual={horaManualEnMins} codigo={codigoDeterminado} diaAuto = {hayDiaAuto}/>}></Route>
+            <Route path="/abonos" element={<Main enviarParametrosAbonos={recibirParametrosAbonos} keyBoton={keyBoton} enviarCodigo={recibirCodigo} />}></Route>
+            <Route path="/horarios" element={<Horarios grillaDefinitiva={listaHorarios} origen={localidadOrigen} destino={localidadDestino} horaAuto={horaAutoEnMins} horaManual={horaManualEnMins} codigo={codigoDeterminado} diaAuto = {hayDiaAuto} grilla = {diaGrilla} />}></Route>
             <Route path="/cotizacion" element={<CotizacionAbonos origen={localidadOrigen} destino={localidadDestino} viajes={viajesIngresados} tarifa={tarifaElegida} via={via} codigo={codigoDeterminado} />}></Route>
           </Routes>
         </Router>
