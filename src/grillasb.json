@@ -2345,19 +2345,8 @@
             ]
         },
         {
-            "nombre": "04:40",
-            "salida": 4.4,
-            "referencia": "idas ralos",
-            "recorrido": [
-                "los ralos",
-                "esquina llona",
-                "colonia media agua","cevil pozo","banda del río salí",
-                "s. m. de tucumán"
-            ]
-        },
-        {
-            "nombre": "05:25",
-            "salida": 5.25,
+            "nombre": "05:30",
+            "salida": 5.3,
             "referencia": "idas ralos",
             "recorrido": [
                 "finca mayo",
@@ -2369,8 +2358,8 @@
             ]
         },
         {
-            "nombre": "05:25",
-            "salida": 5.25,
+            "nombre": "05:30",
+            "salida": 5.3,
             "referencia": "idas ralos",
             "recorrido": [
                 "villa tercera",
