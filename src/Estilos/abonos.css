@@ -23,6 +23,12 @@ background-attachment: fixed;
   mix-blend-mode: multiply;;
 } */
 
+@media (min-width: 500px){
+  .container-principal{
+    width: 500px;
+  }
+}
+
 .hidden{display:none}
 
 .container-origendestino{
@@ -256,6 +262,12 @@ background-attachment: fixed;
     position: absolute;
     bottom:0;
     left: 0;
+  }
+
+  @media (min-width: 400px){
+    .botonabonos{
+      width: 500px;
+    }
   }
 
   .botondisabled{

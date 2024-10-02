@@ -85,6 +85,9 @@ export const Horario = forwardRef(
       else if (minutosDif > 0 && minutosDif <= 3) {
         return "Pronto iniciará su recorrido";
       }
+      else if(minutosDif > 3 && minutosDif < 60){
+        return `Iniciará su recorrido en ${minutosDif} minutos`
+      }
       else if (minutosDif === 60) {
         return "Iniciará recorrido en una hora";
       }
