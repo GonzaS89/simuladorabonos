@@ -2370,18 +2370,6 @@
             ]
         },
         {
-            "nombre": "05:25",
-            "salida": 5.25,
-            "referencia": "idas ralos",
-            "recorrido": [
-                "villa tercera",
-                "los ralos",
-                "esquina llona",
-                "colonia media agua","cevil pozo","banda del río salí",
-                "s. m. de tucumán"
-            ]
-        },
-        {
             "nombre": "05:30",
             "salida": 5.5,
             "referencia": "idas ralos",
@@ -2393,12 +2381,35 @@
             ]
         },
         {
-            "nombre": "05:55",
-            "salida": 5.55,
+            "nombre": "06:05",
+            "salida": 6.05,
             "referencia": "idas ralos",
             "recorrido": [
-                "lolita sur",
-                "cerco 2",
+                "villa tercera",
+                "los ralos",
+                "esquina llona",
+                "colonia media agua","cevil pozo","banda del río salí",
+                "s. m. de tucumán"
+            ]
+        },
+        {
+            "nombre": "06:15",
+            "salida": 6.15,
+            "referencia": "idas ralos",
+            "recorrido": [
+                "los ralos",
+                "esquina llona",
+                "colonia media agua","cevil pozo","banda del río salí",
+                "s. m. de tucumán"
+            ]
+        },
+        {
+            "nombre": "06:25",
+            "salida": 6.25,
+            "referencia": "idas ralos",
+            "recorrido": [
+                "alabama",
+                "finca mayo",
                 "los ralos",
                 "esquina llona",
                 "colonia media agua","cevil pozo","banda del río salí",
@@ -2444,8 +2455,6 @@
             "salida": 7.3,
             "referencia": "idas ralos",
             "recorrido": [
-                "lolita sur",
-                "lolita norte",
                 "los ralos",
                 "esquina llona",
                 "colonia media agua","cevil pozo","banda del río salí",
@@ -2453,8 +2462,8 @@
             ]
         },
         {
-            "nombre": "07:35",
-            "salida": 7.35,
+            "nombre": "08:10",
+            "salida": 8.1,
             "referencia": "idas ralos",
             "recorrido": [
                 "los ralos",
@@ -2464,8 +2473,8 @@
             ]
         },
         {
-            "nombre": "07:50",
-            "salida": 7.5,
+            "nombre": "08:15",
+            "salida": 8.15,
             "referencia": "idas ralos",
             "recorrido": [
                 "la marta",
@@ -2477,37 +2486,12 @@
             ]
         },
         {
-            "nombre": "08:20",
-            "salida": 8.2,
+            "nombre": "08:15",
+            "salida": 8.15,
             "referencia": "idas ralos",
             "recorrido": [
                 "los ralos",
                 "b° trigal",
-                "esquina llona",
-                "colonia media agua","cevil pozo","banda del río salí",
-                "s. m. de tucumán"
-            ]
-        },
-        {
-            "nombre": "08:25",
-            "salida": 8.25,
-            "referencia": "idas ralos",
-            "recorrido": [
-                "la marta",
-                "finca mayo",
-                "los ralos",
-                "esquina llona",
-                "colonia media agua","cevil pozo","banda del río salí",
-                "s. m. de tucumán"
-            ]
-        },
-        {
-            "nombre": "09:10",
-            "salida": 9.1,
-            "referencia": "idas ralos",
-            "recorrido": [
-                "finca mayo",
-                "los ralos",
                 "esquina llona",
                 "colonia media agua","cevil pozo","banda del río salí",
                 "s. m. de tucumán"
@@ -2561,11 +2545,11 @@
             ]
         },
         {
-            "nombre": "12:00",
-            "salida": 12,
+            "nombre": "12:15",
+            "salida": 12.15,
             "referencia": "idas ralos",
             "recorrido": [
-                "lolita sur",
+                "finca mayo",
                 "los ralos",
                 "esquina llona",
                 "colonia media agua","cevil pozo","banda del río salí",
@@ -2573,11 +2557,10 @@
             ]
         },
         {
-            "nombre": "12:15",
-            "salida": 12.15,
+            "nombre": "12:50",
+            "salida": 12.50,
             "referencia": "idas ralos",
             "recorrido": [
-                "finca mayo",
                 "los ralos",
                 "esquina llona",
                 "colonia media agua","cevil pozo","banda del río salí",
@@ -2611,17 +2594,6 @@
             ]
         },
         {
-            "nombre": "14:05",
-            "salida": 14.05,
-            "referencia": "idas ralos",
-            "recorrido": [
-                "los ralos",
-                "esquina llona",
-                "colonia media agua","cevil pozo","banda del río salí",
-                "s. m. de tucumán"
-            ]
-        },
-        {
             "nombre": "14:10",
             "salida": 14.1,
             "referencia": "idas ralos",
@@ -2645,8 +2617,8 @@
             ]
         },
         {
-            "nombre": "15:10",
-            "salida": 15.1,
+            "nombre": "15:00",
+            "salida": 15,
             "referencia": "idas ralos",
             "recorrido": [
                 "lolita sur",
@@ -2740,8 +2712,8 @@
             ]
         },
         {
-            "nombre": "18:20",
-            "salida": 18.2,
+            "nombre": "18:10",
+            "salida": 18.1,
             "referencia": "idas ralos",
             "recorrido": [
                 "los ralos",
@@ -2758,17 +2730,6 @@
             "recorrido": [
                 "alabama",
                 "finca mayo",
-                "los ralos",
-                "esquina llona",
-                "colonia media agua","cevil pozo","banda del río salí",
-                "s. m. de tucumán"
-            ]
-        },
-        {
-            "nombre": "19:15",
-            "salida": 19.15,
-            "referencia": "idas ralos",
-            "recorrido": [
                 "los ralos",
                 "esquina llona",
                 "colonia media agua","cevil pozo","banda del río salí",
@@ -2831,21 +2792,6 @@
                 "cevil pozo","colonia media agua",
                 "esquina llona",
                 "los ralos"
-            ]
-        },
-        {
-            "nombre": "06:30",
-            "salida": 6.3,
-            "referencia": "vueltas los ralos",
-            "recorrido": [
-                "s. m. de tucumán",
-                "banda del río salí",
-                "cevil pozo","colonia media agua",
-                "esquina llona",
-                "los ralos",
-                "lolita norte",
-                "lolita sur",
-                "las cejas"
             ]
         },
         {
@@ -2913,18 +2859,6 @@
             ]
         },
         {
-            "nombre": "09:55",
-            "salida": 9.55,
-            "referencia": "vueltas los ralos",
-            "recorrido": [
-                "s. m. de tucumán",
-                "banda del río salí",
-                "cevil pozo","colonia media agua",
-                "esquina llona",
-                "los ralos"
-            ]
-        },
-        {
             "nombre": "10:00",
             "salida": 10,
             "referencia": "vueltas los ralos",
@@ -2961,37 +2895,13 @@
                 "cevil pozo","colonia media agua",
                 "esquina llona",
                 "los ralos",
-                "piedrabuena"
+                "finca mayo",
+                "la marta"
             ]
         },
         {
-            "nombre": "11:15",
-            "salida": 11.15,
-            "referencia": "vueltas los ralos",
-            "recorrido": [
-                "s. m. de tucumán",
-                "banda del río salí",
-                "cevil pozo","colonia media agua",
-                "esquina llona",
-                "los ralos",
-                "finca mayo"
-            ]
-        },
-        {
-            "nombre": "11:35",
-            "salida": 11.35,
-            "referencia": "vueltas los ralos",
-            "recorrido": [
-                "s. m. de tucumán",
-                "banda del río salí",
-                "cevil pozo","colonia media agua",
-                "esquina llona",
-                "los ralos"
-            ]
-        },
-        {
-            "nombre": "11:45",
-            "salida": 11.45,
+            "nombre": "11:40",
+            "salida": 11.4,
             "referencia": "vueltas los ralos",
             "recorrido": [
                 "s. m. de tucumán",
@@ -3001,6 +2911,19 @@
                 "los ralos",
                 "villa tercera",
                 "lolita sur"
+            ]
+        },
+        {
+            "nombre": "12:00",
+            "salida": 12,
+            "referencia": "vueltas los ralos",
+            "recorrido": [
+                "s. m. de tucumán",
+                "banda del río salí",
+                "cevil pozo","colonia media agua",
+                "esquina llona",
+                "los ralos",
+                "villa tercera"
             ]
         },
         {
@@ -3032,19 +2955,6 @@
             ]
         },
         {
-            "nombre": "12:30",
-            "salida": 12.3,
-            "referencia": "vueltas los ralos",
-            "recorrido": [
-                "s. m. de tucumán",
-                "banda del río salí",
-                "cevil pozo","colonia media agua",
-                "esquina llona",
-                "los ralos",
-                "las cejas"
-            ]
-        },
-        {
             "nombre": "13:00",
             "salida": 13,
             "referencia": "vueltas los ralos",
@@ -3084,8 +2994,8 @@
             ]
         },
         {
-            "nombre": "13:30",
-            "salida": 13.3,
+            "nombre": "13:40",
+            "salida": 13.4,
             "referencia": "vueltas los ralos",
             "recorrido": [
                 "s. m. de tucumán",
@@ -3096,15 +3006,16 @@
             ]
         },
         {
-            "nombre": "13:50",
-            "salida": 13.5,
+            "nombre": "14:00",
+            "salida": 14,
             "referencia": "vueltas los ralos",
             "recorrido": [
                 "s. m. de tucumán",
                 "banda del río salí",
                 "cevil pozo","colonia media agua",
                 "esquina llona",
-                "los ralos"
+                "los ralos",
+                "villa tercera"
             ]
         },
         {
@@ -3121,6 +3032,18 @@
             ]
         },
         {
+            "nombre": "14:20",
+            "salida": 14.2,
+            "referencia": "vueltas los ralos",
+            "recorrido": [
+                "s. m. de tucumán",
+                "banda del río salí",
+                "cevil pozo","colonia media agua",
+                "esquina llona",
+                "los ralos"
+            ]
+        },
+        {
             "nombre": "14:30",
             "salida": 14.3,
             "referencia": "vueltas los ralos",
@@ -3134,19 +3057,6 @@
             ]
         },
         {
-            "nombre": "14:30",
-            "salida": 14.3,
-            "referencia": "vueltas los ralos",
-            "recorrido": [
-                "s. m. de tucumán",
-                "banda del río salí",
-                "cevil pozo","colonia media agua",
-                "esquina llona",
-                "los ralos",
-                "las cejas"
-            ]
-        },
-        {
             "nombre": "15:00",
             "salida": 15,
             "referencia": "vueltas los ralos",
@@ -3155,8 +3065,7 @@
                 "banda del río salí",
                 "cevil pozo","colonia media agua",
                 "esquina llona",
-                "los ralos",
-                "lolita sur"
+                "los ralos"
             ]
         },
         {
@@ -3186,19 +3095,6 @@
             ]
         },
         {
-            "nombre": "15:45",
-            "salida": 15.45,
-            "referencia": "vueltas los ralos",
-            "recorrido": [
-                "s. m. de tucumán",
-                "banda del río salí",
-                "cevil pozo","colonia media agua",
-                "esquina llona",
-                "los ralos",
-                "las cejas"
-            ]
-        },
-        {
             "nombre": "16:00",
             "salida": 16,
             "referencia": "vueltas los ralos",
@@ -3222,18 +3118,6 @@
                 "los ralos",
                 "finca mayo",
                 "alabama"
-            ]
-        },
-        {
-            "nombre": "16:30",
-            "salida": 16.3,
-            "referencia": "vueltas los ralos",
-            "recorrido": [
-                "s. m. de tucumán",
-                "banda del río salí",
-                "cevil pozo","colonia media agua",
-                "esquina llona",
-                "los ralos"
             ]
         },
         {
@@ -3314,16 +3198,15 @@
             ]
         },
         {
-            "nombre": "18:30",
-            "salida": 18.3,
+            "nombre": "19:00",
+            "salida": 19,
             "referencia": "vueltas los ralos",
             "recorrido": [
                 "s. m. de tucumán",
                 "banda del río salí",
                 "cevil pozo","colonia media agua",
                 "esquina llona",
-                "los ralos",
-                "las cejas"
+                "los ralos"
             ]
         },
         {
@@ -3349,13 +3232,12 @@
                 "cevil pozo","colonia media agua",
                 "esquina llona",
                 "los ralos",
-                "villa tercera",
-                "b° trigal"
+                "villa tercera"
             ]
         },
         {
-            "nombre": "20:00",
-            "salida": 20,
+            "nombre": "19:55",
+            "salida": 19.55,
             "referencia": "vueltas los ralos",
             "recorrido": [
                 "s. m. de tucumán",
@@ -3363,19 +3245,6 @@
                 "cevil pozo","colonia media agua",
                 "esquina llona",
                 "los ralos"
-            ]
-        },
-        {
-            "nombre": "20:00",
-            "salida": 20,
-            "referencia": "vueltas los ralos",
-            "recorrido": [
-                "s. m. de tucumán",
-                "banda del río salí",
-                "cevil pozo","colonia media agua",
-                "esquina llona",
-                "los ralos",
-                "las cejas"
             ]
         },
         {
@@ -3420,18 +3289,6 @@
             ]
         },
         {
-            "nombre": "21:15",
-            "salida": 21.15,
-            "referencia": "vueltas los ralos",
-            "recorrido": [
-                "s. m. de tucumán",
-                "banda del río salí",
-                "cevil pozo","colonia media agua",
-                "esquina llona",
-                "los ralos"
-            ]
-        },
-        {
             "nombre": "21:30",
             "salida": 21.3,
             "referencia": "vueltas los ralos",
@@ -3445,8 +3302,8 @@
             ]
         },
         {
-            "nombre": "22:20",
-            "salida": 22.2,
+            "nombre": "22:00",
+            "salida": 22,
             "referencia": "vueltas los ralos",
             "recorrido": [
                 "s. m. de tucumán",
@@ -3485,25 +3342,12 @@
             ]
         },
         {
-            "nombre": "05:20",
-            "salida": 5.2,
+            "nombre": "05:32",
+            "salida": 5.32,
             "referencia": "idas cruz alta/ralos",
             "recorrido": [
                 "los ralos",
                 "cruz alta",
-                "esquina llona",
-                "colonia media agua","cevil pozo","banda del río salí",
-                "s. m. de tucumán"
-            ]
-        },
-        {
-            "nombre": "06:05",
-            "salida": 6.05,
-            "referencia": "idas cruz alta/ralos",
-            "recorrido": [
-                "los ralos",
-                "cruz alta",
-                "delfin gallo",
                 "esquina llona",
                 "colonia media agua","cevil pozo","banda del río salí",
                 "s. m. de tucumán"
@@ -3534,8 +3378,8 @@
             ]
         },
         {
-            "nombre": "12:10",
-            "salida": 12.1,
+            "nombre": "11:50",
+            "salida": 11.5,
             "referencia": "idas cruz alta/ralos",
             "recorrido": [
                 "los ralos",
@@ -3571,8 +3415,8 @@
             ]
         },
         {
-            "nombre": "06:50",
-            "salida": 6.5,
+            "nombre": "07:00",
+            "salida": 7,
             "referencia": "vueltas cruz alta/los ralos",
             "recorrido": [
                 "s. m. de tucumán",
@@ -3586,19 +3430,6 @@
         {
             "nombre": "10:45",
             "salida": 10.45,
-            "referencia": "vueltas cruz alta/los ralos",
-            "recorrido": [
-                "s. m. de tucumán",
-                "banda del río salí",
-                "esquina llona",
-                "cevil pozo","colonia media agua",
-                "cruz alta",
-                "los ralos"
-            ]
-        },
-        {
-            "nombre": "12:00",
-            "salida": 12,
             "referencia": "vueltas cruz alta/los ralos",
             "recorrido": [
                 "s. m. de tucumán",
@@ -3648,8 +3479,8 @@
             ]
         },
         {
-            "nombre": "04:20",
-            "salida": 4.2,
+            "nombre": "04:50",
+            "salida": 4.5,
             "referencia": "idas 7 de abril",
             "recorrido": [
                 "7 de abril",
@@ -3657,18 +3488,6 @@
                 "esquina llona",
                 "cevil pozo","colonia media agua",
                 "banda del río salí",
-                "s. m. de tucumán"
-            ]
-        },
-        {
-            "nombre": "11:30",
-            "salida": 11.3,
-            "referencia": "idas 7 de abril",
-            "recorrido": [
-                "7 de abril",
-                "las cejas",
-                "esquina llona",
-                "colonia media agua","cevil pozo","banda del río salí",
                 "s. m. de tucumán"
             ]
         },
@@ -3699,11 +3518,36 @@
             ]
         },
         {
-            "nombre": "05:00",
-            "salida": 5,
+            "nombre": "06:15",
+            "salida": 6.15,
+            "referencia": "vueltas 7 DE abril",
+            "recorrido": [
+                "s. m. de tucumán",
+                "banda del río salí",
+                "cevil pozo",
+                "esquina llona",
+                "las cejas",
+                "7 de abril"
+            ]
+        },
+        {
+            "nombre": "15:45",
+            "salida": 15.45,
+            "referencia": "vueltas 7 DE abril",
+            "recorrido": [
+                "s. m. de tucumán",
+                "banda del río salí",
+                "cevil pozo","colonia media agua",
+                "esquina llona",
+                "las cejas",
+                "7 de abril"
+            ]
+        },
+        {
+            "nombre": "05:30",
+            "salida": 5.3,
             "referencia": "idas las cejas",
             "recorrido": [
-                "b° matienzo",
                 "las cejas",
                 "los ralos",
                 "esquina llona",
@@ -3712,11 +3556,10 @@
             ]
         },
         {
-            "nombre": "05:20",
-            "salida": 5.2,
+            "nombre": "06:35",
+            "salida": 6.35,
             "referencia": "idas las cejas",
             "recorrido": [
-                "paso de la patria",
                 "las cejas",
                 "los ralos",
                 "esquina llona",
@@ -3737,35 +3580,12 @@
             ]
         },
         {
-            "nombre": "12:10",
-            "salida": 12.1,
+            "nombre": "11:50",
+            "salida": 11.5,
             "referencia": "idas las cejas",
             "recorrido": [
                 "las cejas",
-                "los ralos",
-                "esquina llona",
-                "colonia media agua","cevil pozo","banda del río salí",
-                "s. m. de tucumán"
-            ]
-        },
-        {
-            "nombre": "15:40",
-            "salida": 15.4,
-            "referencia": "idas las cejas",
-            "recorrido": [
-                "las cejas",
-                "los ralos",
-                "esquina llona",
-                "colonia media agua","cevil pozo","banda del río salí",
-                "s. m. de tucumán"
-            ]
-        },
-        {
-            "nombre": "18:20",
-            "salida": 18.2,
-            "referencia": "idas las cejas",
-            "recorrido": [
-                "las cejas",
+                "lolita sur",
                 "los ralos",
                 "esquina llona",
                 "colonia media agua","cevil pozo","banda del río salí",
@@ -3785,42 +3605,16 @@
             ]
         },
         {
-            "nombre": "06:15",
-            "salida": 6.15,
-            "referencia": "vueltas 7 DE abril",
-            "recorrido": [
-                "s. m. de tucumán",
-                "banda del río salí",
-                "cevil pozo",
-                "esquina llona",
-                "las cejas",
-                "7 de abril"
-            ]
-        },
-        {
-            "nombre": "12:30",
-            "salida": 12.3,
-            "referencia": "vueltas 7 DE abril",
+            "nombre": "06:30",
+            "salida": 6.3,
+            "referencia": "vueltas las cejas",
             "recorrido": [
                 "s. m. de tucumán",
                 "banda del río salí",
                 "cevil pozo","colonia media agua",
                 "esquina llona",
-                "las cejas",
-                "7 de abril"
-            ]
-        },
-        {
-            "nombre": "15:45",
-            "salida": 15.45,
-            "referencia": "vueltas 7 DE abril",
-            "recorrido": [
-                "s. m. de tucumán",
-                "banda del río salí",
-                "cevil pozo","colonia media agua",
-                "esquina llona",
-                "las cejas",
-                "7 de abril"
+                "los ralos",
+                "las cejas"
             ]
         },
         {
@@ -3837,8 +3631,8 @@
             ]
         },
         {
-            "nombre": "12:30",
-            "salida": 12.3,
+            "nombre": "12:40",
+            "salida": 12.4,
             "referencia": "vueltas las cejas",
             "recorrido": [
                 "s. m. de tucumán",
@@ -3847,33 +3641,6 @@
                 "esquina llona",
                 "los ralos",
                 "las cejas"
-            ]
-        },
-        {
-            "nombre": "14:30",
-            "salida": 14.3,
-            "referencia": "vueltas las cejas",
-            "recorrido": [
-                "s. m. de tucumán",
-                "banda del río salí",
-                "cevil pozo","colonia media agua",
-                "esquina llona",
-                "los ralos",
-                "las cejas"
-            ]
-        },
-        {
-            "nombre": "15:45",
-            "salida": 15.45,
-            "referencia": "vueltas las cejas",
-            "recorrido": [
-                "s. m. de tucumán",
-                "banda del río salí",
-                "cevil pozo","colonia media agua",
-                "esquina llona",
-                "los ralos",
-                "las cejas",
-                "7 de abril"
             ]
         },
         {
@@ -3890,8 +3657,8 @@
             ]
         },
         {
-            "nombre": "22:00",
-            "salida": 22,
+            "nombre": "20:00",
+            "salida": 20,
             "referencia": "vueltas las cejas",
             "recorrido": [
                 "s. m. de tucumán",
