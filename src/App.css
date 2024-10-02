@@ -35,7 +35,7 @@
   background-attachment: fixed;
 }
 
-@media (min-width: 400px){
+@media (min-width: 500px){
   .portada{
     width: 500px;
   }
