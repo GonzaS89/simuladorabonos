@@ -82,7 +82,33 @@ background-attachment: fixed;
     gap: 10px;
 
     &&::-webkit-scrollbar {
-      display: none; /* Oculta la barra de desplazamiento */
+      display: none;
+      width: 7.5px;             /* Anchura de la barra vertical */
+      height: 7.5px;  /* Oculta la barra de desplazamiento */
+  }
+
+  &&::-webkit-scrollbar-thumb {
+    background-color: #888;  /* Color del "pulgar" */
+    border-radius: 10px;     /* Bordes redondeados */
+    border: 1.5px solid #fff; 
+    cursor: grabbing; /* Borde alrededor del "pulgar" */
+  }
+}
+
+@media (min-width: 500px){
+  .container-opciones-salida{
+    &&::-webkit-scrollbar {
+      display: block;
+      width: 7.5px;             /* Anchura de la barra vertical */
+      height: 7.5px;  /* Oculta la barra de desplazamiento */
+  }
+
+  &&::-webkit-scrollbar-thumb {
+    background-color: #888;  /* Color del "pulgar" */
+    border-radius: 10px;     /* Bordes redondeados */
+    border: 1.5px solid #fff; 
+    cursor: grabbing; /* Borde alrededor del "pulgar" */
+  }
   }
 }
 
@@ -139,6 +165,7 @@ background-attachment: fixed;
     font-family: "Jockey One", sans-serif;
     position: relative;
     user-select: none;
+    cursor: pointer;
   }
 
   .opcion-viajes-manual{
@@ -190,6 +217,7 @@ background-attachment: fixed;
     color: black;
     font-size: 20px;
     user-select: none;
+    cursor: pointer;
   }
 
   .diaautomatico{
@@ -264,7 +292,7 @@ background-attachment: fixed;
     left: 0;
   }
 
-  @media (min-width: 400px){
+  @media (min-width: 500px){
     .botonabonos{
       width: 500px;
     }
