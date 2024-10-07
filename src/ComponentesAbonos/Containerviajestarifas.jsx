@@ -78,12 +78,12 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
             <div className="container-categoriatarifa">
               <div className="tarifas">
               <Tipodetarifa
-                tarifa={"empleados"}
+                tarifa={"social"}
                 enviarTarifa={recibirTarifa}
                 tarifaElegida={tarifaElegida}
               />
               <Tipodetarifa
-                tarifa={"estudiantes"}
+                tarifa={"estudiantil"}
                 enviarTarifa={recibirTarifa}
                 tarifaElegida={tarifaElegida}
               />

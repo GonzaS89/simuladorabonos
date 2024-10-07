@@ -51,7 +51,7 @@ export const CotizacionAbonos = ({
               <p className="texto-precio-viajes">$ {puntoDeMillar(precioNormal)}</p>
             </div>
             <div className="container-descuento-precio">
-              <p className="texto-detalle-descuento">Descuento para {tarifa}</p>
+              <p className="texto-detalle-descuento">Descuento por tarifa {tarifa}</p>
               <p className="texto-precio-descuento">- $ {puntoDeMillar(Math.round(precioDescuento))}</p>
             </div>
           </div>

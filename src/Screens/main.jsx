@@ -465,7 +465,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
             enviarCodigo(codigo06)
           }
           else if (localidadDestino === "banda del río salí") { enviarCodigo(codigo08) }
-          else if (lista.includes("s. m. de tucumán")) { enviarCodigo(codigo15) }
+          else if (localidadDestino === "s. m. de tucumán") { enviarCodigo(codigo15) }
         }
 
         if (localidadOrigen === "los ralos") {
