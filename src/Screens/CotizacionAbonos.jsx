@@ -65,8 +65,8 @@ export const CotizacionAbonos = ({
         <div className="container-info">
           <p className="titulo-infoabonos">Requisitos para tener tu abono</p>
           <ul>
-            <li>EMPLEADOS: Copia de recibo de sueldo y copia del DNI</li>
-            <li>ESTUDIANTES: Constancia de alumno regular y copia del DNI</li>
+            <li>TARIFA SOCIAL: numero del DNI</li>
+            <li>TARIFA ESTUDIANTIL: Constancia de alumno regular y numero del DNI</li>
           </ul>
         </div>
       </div>
