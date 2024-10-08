@@ -15,6 +15,7 @@ import {
   codigo16,
   // codigo18,
   codigo21,
+  codigo22,
   codigo24,
   // codigo27,
   // codigo30,
@@ -459,8 +460,10 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
       }
 
       const destinosCortosPosse = ['el paraíso', 'la florida','fila del medio', 'fila de la orilla', 'colonia media agua', 'fortín', 'colonia 4 (luisiana)','cevil pozo'];
+
+      const posseYFilas = ['w. posse', 'fila del medio', 'fila de la oriila']
       
-        if (localidadOrigen === "w. posse") {
+        if (posseYFilas.includes(localidadOrigen)) {
           if (destinosCortosPosse.includes(localidadDestino)) {
             enviarCodigo(codigo06)
           }
@@ -479,34 +482,17 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
           else if (localidadDestino === "7 de abril") { enviarCodigo(codigo44) }
         }
 
-        // if (lista.includes("las cejas")) {
-        //   if (lista.includes("fila de la orilla") || lista.includes("cevil pozo")) { setPrecioNormal(viajes * codigo27) }
-        //   else if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo30) }
-        //   else if (lista.includes("s. m. de tucumán")) { setPrecioNormal(viajes * codigo34) }
-        //   else if (lista.includes("7 de abril")) { setPrecioNormal(viajes * codigo41) }
-        // }
+        if (localidadOrigen === "cevil pozo") {
+          if (localidadDestino === "fila de la orilla" || localidadDestino === "fila del medio" || localidadDestino === "banda del río salí" || localidadDestino === "colonia media agua" || localidadDestino === "w. posse" || localidadDestino === "cruz alta"){ enviarCodigo(codigo06) }
+          else if(localidadDestino === "s.m. de tucumán") { enviarCodigo(codigo08)}
+          else if (localidadDestino === "el paraíso"){ enviarCodigo(codigo10) }
+          else if (localidadDestino === "la florida") { enviarCodigo(codigo13) }
+          else if (localidadDestino === "los ralos") { enviarCodigo(codigo16) }
+          else if (localidadDestino === "finca mayo") { enviarCodigo(codigo21) }
+          else if (localidadDestino === "la marta") { enviarCodigo(codigo22) }
+        }
 
-        // if (lista.includes("cevil pozo")) {
-        //   if (lista.includes("fila de la orilla") || lista.includes("fila del medio") || lista.includes("cruz alta") || lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo06) }
-        //   else if (lista.includes("el paraíso") || lista.includes("s. m. de tucumán")) { setPrecioNormal(viajes * codigo08) }
-        //   else if (lista.includes("colonia 4 (luisiana)")) { setPrecioNormal(viajes * codigo14) }
-        //   else if (lista.includes("finca mayo")) { setPrecioNormal(viajes * codigo21) }
-        //   else if (lista.includes("7 de abril")) { setPrecioNormal(viajes * codigo44) }
-        // }
-
-        // if (lista.includes("s. m. de tucumán")) {
-        //   if (lista.includes("banda del río salí")) { setPrecioNormal(viajes * codigo06) }
-        //   else if (lista.includes("alderetes")) { setPrecioNormal(viajes * codigo08) }
-        //   else if (lista.includes("fila de la orilla") || lista.includes("fila del medio")) { setPrecioNormal(viajes * codigo12) }
-        //   else if (lista.includes("el talar")) { setPrecioNormal(viajes * codigo13) }
-        //   else if (lista.includes("cruz alta")) { setPrecioNormal(viajes * codigo15) }
-        //   else if (lista.includes("la florida") || lista.includes("fortín") || lista.includes("colonia 4 (luisiana")) {
-        //     if (via === 'w. posse') { setPrecioNormal(viajes * codigo21) }
-        //     else { setPrecioNormal(viajes * codigo16) }
-        //   }
-        //   else if (lista.includes("el paraíso")) { setPrecioNormal(viajes * codigo18) }
-        //   else if (lista.includes("finca mayo")) { setPrecioNormal(viajes * codigo24) }
-        // }
+        
 
     },[localidadOrigen, localidadDestino, via, enviarCodigo]);
 
