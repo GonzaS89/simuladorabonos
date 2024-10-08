@@ -25,7 +25,7 @@ export const CotizacionAbonos = ({
         setPrecioDescuento(precioNormal * 0.43999)
       }
     } else {
-      tarifa === 'empleados' ?
+      tarifa === 'social' ?
         setPrecioDescuento(precioNormal * 0.3)
         : setPrecioDescuento(precioNormal * 0.4);
     }
