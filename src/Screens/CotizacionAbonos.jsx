@@ -32,11 +32,11 @@ export const CotizacionAbonos = ({
     }
   }, [tarifa, precioNormal, origen]);
 
-  const puntoDeMillar = numero => {
-    const partes = numero.toString().split(".");  // Divide la parte entera y decimal
-    partes[0] = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");  // Aplica los puntos de millar
-    return partes.join(".");
-  }
+  // const puntoDeMillar = numero => {
+  //   const partes = numero.toString().split(".");  // Divide la parte entera y decimal
+  //   partes[0] = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");  // Aplica los puntos de millar
+  //   return partes.join(".");
+  // }
 
   return (
     <div className="container-cotizacion">
