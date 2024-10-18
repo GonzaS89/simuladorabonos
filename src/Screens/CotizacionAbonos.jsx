@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../Estilos/cotizacion.css";
+import CountUp from 'react-countup';
 
 export const CotizacionAbonos = ({
   origen,
@@ -25,7 +26,7 @@ export const CotizacionAbonos = ({
         setPrecioDescuento(precioNormal * 0.43999)
       }
     } else {
-      tarifa === 'social' ?
+      tarifa === 'empleados' ?
         setPrecioDescuento(precioNormal * 0.3)
         : setPrecioDescuento(precioNormal * 0.4);
     }
@@ -48,16 +49,16 @@ export const CotizacionAbonos = ({
               <p className="texto-detalle-viajes">
                 {viajes} viajes desde <span>{origen} </span>hasta <span>{destino}</span> {via !== null ? `por ${via}` : ''} (tarifa normal)
               </p>
-              <p className="texto-precio-viajes">$ {puntoDeMillar(precioNormal)}</p>
+              <p className="texto-precio-viajes">$ <CountUp start={0} end={precioNormal.toFixed(3)} duration={2.5}/></p>
             </div>
             <div className="container-descuento-precio">
               <p className="texto-detalle-descuento">Descuento por tarifa {tarifa}</p>
-              <p className="texto-precio-descuento">- $ {puntoDeMillar(Math.round(precioDescuento))}</p>
+              <p className="texto-precio-descuento">- $ <CountUp start={0} end={Math.round(precioDescuento)} duration={2.5}/></p>
             </div>
           </div>
           <div className="container-preciofinal">
             <p>Precio final</p>
-            <p className="preciofinal">$ {puntoDeMillar(Math.round(precioNormal - precioDescuento))}</p>
+            <p className="preciofinal">$ <CountUp start={0} end={Math.round(precioNormal - precioDescuento)} duration={2.5}/></p>
           </div>
         </div>
       </div>
