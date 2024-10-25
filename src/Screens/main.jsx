@@ -34,6 +34,10 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
 
   // SECTOR HORARIOS
 
+  useEffect(() => {
+   if(keyBoton === null){return window.location.href = '/'}
+  },[keyBoton])
+
   const [minutos, setMinutos] = useState(new Date().getMinutes());
   const [hora, setHora] = useState(new Date().getHours());
   const [dia, setDia] = useState(new Date().getDay());
