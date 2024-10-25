@@ -12,10 +12,7 @@ export const CotizacionAbonos = ({
   codigo
 }) => {
 
-  useEffect(() => {
-    // Redirige a la página principal al cargar el componente
-    window.location.href = '/'; // Asegúrate de que '/' sea la ruta de tu página principal
-  }, []); 
+
 
   const [precioNormal, setPrecioNormal] = useState(0);
   const [precioDescuento, setPrecioDescuento] = useState(0);
