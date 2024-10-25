@@ -35,8 +35,21 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
   // SECTOR HORARIOS
 
   useEffect(() => {
-   if(keyBoton === null){return window.location.href = '/'}
-  },[keyBoton])
+    const handleBeforeUnload = (event) => {
+      // Puedes mostrar un mensaje de confirmación
+      const confirmationMessage = '¿Estás seguro de que deseas salir?';
+      event.returnValue = confirmationMessage; // Esto mostrará un cuadro de diálogo
+      return confirmationMessage; // Algunos navegadores lo ignoran
+    };
+
+    // Añadir el evento
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    // Limpiar el evento al desmontar el componente
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
 
   const [minutos, setMinutos] = useState(new Date().getMinutes());
   const [hora, setHora] = useState(new Date().getHours());
