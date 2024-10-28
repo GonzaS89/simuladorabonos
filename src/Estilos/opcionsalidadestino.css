@@ -1,7 +1,6 @@
 .container-salida-localidad{
     display:flex;
     flex-direction:column;
-    height: 150px;
     max-width: 100px;
     position: relative;
 
@@ -21,6 +20,10 @@
     overflow: hidden;
     position: relative;
     cursor: pointer;
+}
+
+@media (max-midth: 350px){
+    
 }
 
 .sombrearImg{
