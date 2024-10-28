@@ -1,7 +1,6 @@
-// import "./App.css";
 import React, { useState, useEffect } from "react";
 import localidades from "../localidades.json";
-import grillab from '../grillasb.json';
+
 import {
   codigo06,
   codigo08,
@@ -28,35 +27,9 @@ import { OpcionLocalidad } from "../ComponentesAbonos/OpcionLocalidad";
 import { OpcionLocalidadDestino } from "../ComponentesAbonos/OpcionLocalidadDestino";
 import { Link } from 'react-router-dom';
 import { Containerviajestarifas } from "../ComponentesAbonos/Containerviajestarifas";
-import { ContainerHoraDia } from "../ComponentesHorarios/ContainerHoraDia";
 
-const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
+export const Mainabonos = ({enviarParametrosAbonos, enviarCodigo}) => {
 
-
-  const [minutos, setMinutos] = useState(new Date().getMinutes());
-  const [hora, setHora] = useState(new Date().getHours());
-  const [dia, setDia] = useState(new Date().getDay());
-
-  useEffect(() => {
-    const updateHoraMinutosDias = () => {
-      setMinutos(new Date().getMinutes());
-      setHora(new Date().getHours());
-      setDia(new Date().getDay())
-    };
-
-    // Actualiza cada minuto
-    const timerIdMinutes = setInterval(updateHoraMinutosDias, 1000);
-
-    // También actualiza inmediatamente cuando el componente se monta
-    updateHoraMinutosDias();
-
-    // Limpia el intervalo cuando el componente se desmonte
-    return () => clearInterval(timerIdMinutes);
-  }, []);
-
-
-
-  //
   const [localidadOrigen, setLocalidadOrigen] = useState(null);
   const [localidadDestino, setLocalidadDestino] = useState(null);
   const [viajesIngresados, setViajesIngresados] = useState(null);
@@ -64,10 +37,6 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
   const [tarifaElegida, setTarifaElegida] = useState(null);
   const [botonDisponible, setBotonDisponible] = useState(false);
   const [via, setVia] = useState(null);
-  const [listaHorarios, setListaHorarios] = useState([]);
-  const [horaManualMin, setHoraManualMin] = useState(null);
-  const [horaAutoMin, setHoraAutoMin] = useState(null);
-
 
 
   useEffect(() => {
@@ -311,24 +280,24 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
 
   }, [localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via]);
 
-  useEffect(() => {
-    if(keyBoton === 'horarios'){
-      const esLocalidadDestinoValida = localidadDestino === 's. m. de tucumán' || localidadDestino === 'banda del río salí';
-      const esLocalidadOrigenValida = localidadOrigen === 's. m. de tucumán' || localidadOrigen === 'banda del río salí';
-      const floridaFortinCol4Origen = localidadOrigen === 'la florida' || localidadOrigen === 'fortín' || localidadOrigen === 'colonia 4 (luisiana)';
-      const floridaFortinCol4Destino = localidadDestino === 'la florida' || localidadDestino === 'fortín' || localidadDestino === 'colonia 4 (luisiana)';
+  // useEffect(() => {
+  //   if(keyBoton === 'horarios'){
+  //     const esLocalidadDestinoValida = localidadDestino === 's. m. de tucumán' || localidadDestino === 'banda del río salí';
+  //     const esLocalidadOrigenValida = localidadOrigen === 's. m. de tucumán' || localidadOrigen === 'banda del río salí';
+  //     const floridaFortinCol4Origen = localidadOrigen === 'la florida' || localidadOrigen === 'fortín' || localidadOrigen === 'colonia 4 (luisiana)';
+  //     const floridaFortinCol4Destino = localidadDestino === 'la florida' || localidadDestino === 'fortín' || localidadDestino === 'colonia 4 (luisiana)';
 
-      if((esLocalidadOrigenValida && floridaFortinCol4Destino) || (esLocalidadDestinoValida && floridaFortinCol4Origen)){
-        if(localidadOrigen !== null && localidadDestino !== null && via !== null){
-          setBotonDisponible(true)
-        }
-      }else{
-        if(localidadOrigen !== null && localidadDestino !== null){
-          setBotonDisponible(true)
-        }
-      }
-    }
-  },[localidadOrigen,localidadDestino, keyBoton,via])
+  //     if((esLocalidadOrigenValida && floridaFortinCol4Destino) || (esLocalidadDestinoValida && floridaFortinCol4Origen)){
+  //       if(localidadOrigen !== null && localidadDestino !== null && via !== null){
+  //         setBotonDisponible(true)
+  //       }
+  //     }else{
+  //       if(localidadOrigen !== null && localidadDestino !== null){
+  //         setBotonDisponible(true)
+  //       }
+  //     }
+  //   }
+  // },[localidadOrigen,localidadDestino, keyBoton,via])
 
   const recibirLocalidad = (localidad) => {
     setLocalidadOrigen(localidad);
@@ -336,47 +305,11 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
 
   const recibirLocalidadDestino = (localidad) => {
     setLocalidadDestino(localidad);
-    setListaHorarios([])
   };
 
 
   const recibirVia = via => { setVia(via) }
 
-  const [diaAuto, setDiaAuto] = useState(null);
-  const [diaManual, setDiaManual] = useState(null);
-  const [rangoDias, setRangoDias] = useState(null);
-  const [diaDeLaSemana, setDiaDeLaSemana] = useState(null);
-
-  const recibirDiaRango = diarango => {
-    setDiaAuto(diarango);
-  }
-
-  const recibirDiaManual = dia => {
-    setDiaManual(dia);
-  }
-
-  useEffect(()=> {
-    if(diaManual !== null) {setRangoDias(diaManual)}
-    else{setRangoDias(diaAuto)}
-  },[diaAuto,diaManual])
-
-  useEffect(() => {
-    switch (rangoDias){
-      case 'lunesAViernes': setDiaDeLaSemana(grillab.lunesAViernes);
-      break;
-  
-      case 'sabados': setDiaDeLaSemana(grillab.sabados);
-      break;
-  
-      case 'domingos': setDiaDeLaSemana(grillab.domingos);
-      break;
-  
-      default:break;
-    }
-  },[rangoDias])
-
-
-  
 
   useEffect(() => {
     setVia(null)
@@ -385,51 +318,6 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
   const recibirTarifaElegida = tarifa => { setTarifaElegida(tarifa) }
   const recibirViajesIngresados = viajes => { setViajesIngresados(viajes) }
 
-  useEffect(() => {
-    if(diaDeLaSemana !== null){
-    const horariosFiltrados = [];
-      diaDeLaSemana.forEach(horario => {
-        const recorrido = horario.recorrido;
-
-        const incluyeOrigen = recorrido.includes(localidadOrigen);
-        const incluyeDestino = recorrido.includes(localidadDestino);
-        const indexOrigen = recorrido.indexOf(localidadOrigen);
-        const indexDestino = recorrido.indexOf(localidadDestino);
-
-        // Caso cuando 'via' es null
-        if (via === null) {
-          if (localidadOrigen === localidadDestino) {
-            if (incluyeOrigen && recorrido.indexOf('s. m. de tucumán') !== 0) {
-              horariosFiltrados.push(horario);
-            }
-          } else if (incluyeOrigen && incluyeDestino && indexOrigen < indexDestino) {
-            horariosFiltrados.push(horario);
-          }
-        }
-        // Caso cuando 'via' es 'w. posse'
-        else if (via === 'w. posse') {
-          if (incluyeOrigen && incluyeDestino && recorrido.includes(via) && indexOrigen < indexDestino) {
-            horariosFiltrados.push(horario);
-          }
-        }
-        // Caso cuando 'via' no es 'w. posse'
-        else {
-          if (incluyeOrigen && incluyeDestino && !recorrido.includes('w. posse') && indexOrigen < indexDestino) {
-            horariosFiltrados.push(horario);
-          }
-        }
-      });
-
-      // Actualiza el estado solo una vez con los horarios filtrados
-      setListaHorarios(horariosFiltrados.sort((a, b) => a.salida - b.salida));
-
-    }
-
-  }, [localidadOrigen, localidadDestino, via,diaDeLaSemana])
-
-
-  const recibirHoraAutoMin = hora => {setHoraAutoMin(hora)}
-  const recibirHoraManualMin = hora => {setHoraManualMin(hora);}
 
   useEffect(() => {
     const floridaFortinCol4L = ['la florida', 'fortín', 'colonia 4 (luisiana)'];
@@ -498,7 +386,7 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
   return (
     <div className="container-screen">
       <div className="container-principal">
-        <h1 className="titulo-principal">{keyBoton === 'abonos' ? 'Calculá el precio de tu abono' : 'Consulta de horarios'}</h1>
+        <h1 className="titulo-principal">Calculá el precio de tu abono</h1>
         <div className="container-general-parametros">
           <div className="container-origendestino">
             <div className="container-salida">
@@ -531,18 +419,12 @@ const Main = ({ enviarParametrosAbonos, keyBoton , enviarCodigo }) => {
               </div>
             </div>
           </div>
-          {keyBoton === 'abonos' ?
-            <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados} localidadOrigen={localidadOrigen} /> :
-            <ContainerHoraDia hora={hora} minutos={minutos} dia={dia} enviarDiaRango={recibirDiaRango} enviarDiaManual = {recibirDiaManual} enviarHoraAutoMin={recibirHoraAutoMin} enviarHoraManualMin={recibirHoraManualMin}/>}
         </div>
-      </div>
-
-        <Link to={keyBoton === 'abonos' ? '/cotizacion' : '/horarios'}>
-        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via, listaHorarios, horaAutoMin, horaManualMin, diaAuto, diaManual)}>{keyBoton === 'abonos' ? 'calcular' : 'consultar'}</div>
+        <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados} localidadOrigen={localidadOrigen} />
+        <Link to='/cotizacion'>
+        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via)}>calcular</div>
       </Link>
+      </div>
     </div>
-
-  );
-};
-
-export default Main;
+  )
+}
