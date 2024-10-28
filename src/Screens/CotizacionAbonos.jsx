@@ -41,6 +41,10 @@ export const CotizacionAbonos = ({
   //   return partes.join(".");
   // }
 
+  useEffect(() => {
+    console.log(precioNormal)
+  },[precioNormal])
+
   return (
     <div className="container-cotizacion">
       <div className="logo-fondo"></div>
@@ -52,7 +56,7 @@ export const CotizacionAbonos = ({
               <p className="texto-detalle-viajes">
                 {viajes} viajes desde <span>{origen} </span>hasta <span>{destino}</span> {via !== null ? `por ${via}` : ''} (tarifa normal)
               </p>
-              <p className="texto-precio-viajes">$ <CountUp start={0} end={precioNormal.toFixed(3)} duration={2.5}/></p>
+              <p className="texto-precio-viajes">$ <CountUp start={0} end={precioNormal.toFixed(0)} duration={2.5}/></p>
             </div>
             <div className="container-descuento-precio">
               <p className="texto-detalle-descuento">Descuento por tarifa {tarifa}</p>
