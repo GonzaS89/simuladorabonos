@@ -1,13 +1,14 @@
 .container-principal{
     width: 100%;
-    height: calc(100% - 60px);
+    height: 100%;
+    padding-top: 10px;
     /* background-color:#1E3E62; */
     background-image: linear-gradient(#EE4E4E, #242e48 50%);
     position: absolute;
     top: 0;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
     color: white;
 }
 
@@ -266,7 +267,7 @@
   }
 
   .container-viajes-tarifa, .container-bloque_hora-dia{
-    margin: 0 15px;
+    margin: 30px 15px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -285,9 +286,6 @@
     color: white;
     height:60px;
     width: 100%;
-    position: absolute;
-    bottom:0;
-    left: 0;
   }
 
   @media (min-width: 500px){
