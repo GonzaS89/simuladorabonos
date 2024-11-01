@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { NumerosDeViajes } from './NumerosDeViajes';
 import { Tipodetarifa } from './Tipodetarifa';
 
-export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaElegida }) => {
+export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaElegida, localidadDestino }) => {
 
     const [viajesIngresados, setViajesIngresados] = useState(null);
     const [tarifaElegida, setTarifaElegida] = useState(null);
@@ -30,9 +30,9 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
       
 
   return (
-    <div className='container-viajes-tarifa'>
-          <div className="cantidaddeviajes">
-            <h1>Cantidad de viajes</h1>
+    <div className='px-2 flex flex-col gap-4'>
+          <div className={`flex flex-col items-start gap-2 ${localidadDestino !== null ? 'translate-x-0 duration-300' : '-translate-x-full'}`}>
+            <h1 className='text-xl'>Cantidad de viajes</h1>
             <div className="container-principal-numviajes">
               <div className="container-opciones-viajes">
                 <NumerosDeViajes
@@ -73,10 +73,10 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
               </div>
             </div>
           </div>
-          <div className="container-tipodetarifa">
-            <h1>Tipo de tarifa</h1>
-            <div className="container-categoriatarifa">
-              <div className="tarifas">
+          <div className={`flex flex-col gap-2 items-start w-full ${viajesIngresados !== null ? 'translate-x-0 duration-300' : '-translate-x-full'}`}>
+            <h1 className='text-xl'>Tipo de tarifa</h1>
+            <div className="w-full">
+              <div className="flex justify-between">
               <Tipodetarifa
                 tarifa={"social"}
                 enviarTarifa={recibirTarifa}

@@ -385,13 +385,13 @@ export const Mainabonos = ({enviarParametrosAbonos, enviarCodigo}) => {
 
   return (
     <div className="container-screen">
-      <div className="container-principal">
+      <div className="container-principal text-white overflow-hidden">
         <h1 className="titulo-principal">Calculá el precio de tu abono</h1>
-        <div className="container-general-parametros">
-          <div className="container-origendestino">
-            <div className="container-salida">
-              <h1 className="titulo-container-salida">Origen</h1>
-              <div className="container-opciones-salida">
+        <div className="">
+          <div className="flex flex-col">
+            <div className="flex flex-col px-2 gap-2">
+              <h1 className="text-xl">Origen</h1>
+              <div className="flex items-start gap-2">
                 {localidades.map((localidad, index) => (
                   <OpcionLocalidad
                     key={index}
@@ -402,9 +402,9 @@ export const Mainabonos = ({enviarParametrosAbonos, enviarCodigo}) => {
                 ))}
               </div>
             </div>
-            <div className={localidadOrigen !== null ? 'container-destino' : 'hidden'}>
-              <h1 className="titulo-container-salida">Destino</h1>
-              <div className="container-opciones-salida">
+            <div className={localidadOrigen !== null ? 'flex flex-col px-2 gap-2' : 'hidden'}>
+              <h1 className="text-xl">Destino</h1>
+              <div className="flex items-start gap-2 uppercase text-sm">
                 {listaLocDestino !== null &&
                   listaLocDestino.map((localidad, index) => (
                     <OpcionLocalidadDestino
@@ -420,7 +420,7 @@ export const Mainabonos = ({enviarParametrosAbonos, enviarCodigo}) => {
             </div>
           </div>
         </div>
-        <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados} localidadOrigen={localidadOrigen} />
+        <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados} localidadDestino = {localidadDestino}/>
         <Link to='/cotizacion'>
         <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via)}>calcular</div>
       </Link>

@@ -103,8 +103,8 @@ export const OpcionLocalidadDestino = ({
   };
 
   return (
-    <div className="container-salida-localidad" onClick={clickearImg}>
-      <div className="imagen-localidad-opcion">
+    <div onClick={clickearImg}>
+      <div className="flex justify-center items-center relative w-[80px] h-[80px] overflow-hidden rounded-3xl cursor-pointer">
         <img
           src={require(`../IMG/${nombre}.avif`)}
           alt=""
