@@ -385,9 +385,8 @@ export const Mainabonos = ({enviarParametrosAbonos, enviarCodigo}) => {
 
   return (
     <div className="container-screen">
-      <div className="container-principal text-white overflow-hidden">
+      <div className="text-white overflow-hidden">
         <h1 className="titulo-principal">Calculá el precio de tu abono</h1>
-        <div className="">
           <div className="flex flex-col">
             <div className="flex flex-col px-2 gap-2">
               <h1 className="text-xl">Origen</h1>
@@ -419,10 +418,9 @@ export const Mainabonos = ({enviarParametrosAbonos, enviarCodigo}) => {
               </div>
             </div>
           </div>
-        </div>
         <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados} localidadDestino = {localidadDestino}/>
         <Link to='/cotizacion'>
-        <div className={botonDisponible ? 'botonabonos botonenabled' : 'botonabonos botondisabled'} onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via)}>calcular</div>
+        <div className={botonDisponible ? 'py-4 uppercase text-2xl botonenabled' : 'py-4 uppercase text-2xl botondisabled'} onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via)}>calcular</div>
       </Link>
       </div>
     </div>
