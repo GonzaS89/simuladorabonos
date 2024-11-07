@@ -3,12 +3,15 @@ import "../Estilos/screens.css";
 import "../Estilos/horarios.css";
 import { useEffect, useState, useRef } from "react";
 import { Horario } from "../ComponentesHorarios/Horario";
+import { useGenerarCodigo } from "../Hooks/useGenerarCodigo";
 
-const Horarios = ({ grillaDefinitiva, origen, destino, horaAuto, horaManual, codigo, diaAuto, grilla }) => {
+const Horarios = ({ grillaDefinitiva, origen, destino, horaAuto, horaManual, via, diaAuto, grilla }) => {
 
   const [indiceDeBusqueda, setIndiceDeBusqueda] = useState(null);
   const [claseNormalizadora, setClaseNormalizadora] = useState(null);
   const [horaDeReferencia, setHoraDeReferencia] = useState(null);
+
+  const {codigo} = useGenerarCodigo(origen,destino,via)
 
   const refs = useRef([]);
   ;

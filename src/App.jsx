@@ -80,7 +80,7 @@ function App() {
           </div>
           <Routes>
             {/* <Route path="/abonos" element={<Main enviarParametrosAbonos={recibirParametrosAbonos} keyBoton={keyBoton} enviarCodigo={recibirCodigo} />}></Route> */}
-            <Route path="/horarios" element={<Horarios grillaDefinitiva={listaHorarios} origen={localidadOrigen} destino={localidadDestino} horaAuto={horaAutoEnMins} horaManual={horaManualEnMins} codigo={codigoDeterminado} diaAuto = {hayDiaAuto} grilla = {diaGrilla} />}></Route>
+            <Route path="/horarios" element={<Horarios grillaDefinitiva={listaHorarios} origen={localidadOrigen} destino={localidadDestino} horaAuto={horaAutoEnMins} horaManual={horaManualEnMins} codigo={codigoDeterminado} diaAuto = {hayDiaAuto} grilla = {diaGrilla} via={via}/>}></Route>
             <Route path="/mainabono" element= {<Mainabonos enviarParametrosAbonos={recibirParametrosAbonos} enviarCodigo={recibirCodigo}/>}></Route>
             <Route path="/mainhorarios" element={<Mainhorarios enviarParametrosHorarios = {recibirParametrosHorarios} enviarCodigo={recibirCodigo}/>}></Route>
             <Route path="/cotizacion" element={<CotizacionAbonos origen={localidadOrigen} destino={localidadDestino} viajes={viajesIngresados} tarifa={tarifaElegida} via={via} codigo={codigoDeterminado} />}></Route>

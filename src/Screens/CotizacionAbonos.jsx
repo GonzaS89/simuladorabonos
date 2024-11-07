@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../Estilos/cotizacion.css";
 import CountUp from 'react-countup';
+import { useGenerarCodigo } from "../Hooks/useGenerarCodigo";
 
 export const CotizacionAbonos = ({
 
@@ -9,10 +10,9 @@ export const CotizacionAbonos = ({
   viajes,
   tarifa,
   via,
-  codigo
 }) => {
 
-
+  const {codigo} = useGenerarCodigo(origen,destino,via)
 
   const [precioNormal, setPrecioNormal] = useState(0);
   const [precioDescuento, setPrecioDescuento] = useState(0);
