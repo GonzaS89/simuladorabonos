@@ -1,6 +1,6 @@
 import React , { useEffect, useState }from 'react';
 
-export const OpcionCategoria = ( { nombre , categoriaElegida , categoriaRecibida}) => {
+export const OpcionCategoria = ( { nombre , categoriaElegida }) => {
 
     const [opcionCategoriaActiva, setOpcionCategoriaActiva] = useState(false);
 

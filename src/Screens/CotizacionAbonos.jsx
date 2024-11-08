@@ -12,9 +12,8 @@ export const CotizacionAbonos = ({
   via,
 }) => {
 
-  const {codigo} = useGenerarCodigo(origen,destino,via)
-
-  const [precioNormal, setPrecioNormal] = useState(0);
+  const {codigo} = useGenerarCodigo(origen,destino,via);
+    const [precioNormal, setPrecioNormal] = useState(0);
   const [precioDescuento, setPrecioDescuento] = useState(0);
 
   useEffect(() => {

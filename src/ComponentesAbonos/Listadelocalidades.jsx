@@ -7,7 +7,6 @@ const Listadelocalidades = ( { localidadObtenida , listaLocalidadesDesplaegada ,
 
     return (
         <div className={menuDesplegado ? 'container-localidades-principal desplegarListadoLocalidades' : 'container-localidades-principal'}>
-            {/* <p className='container-localidades-titulo'>Lista de localidades</p> */}
             <div className='container-localidades'>
                 {localidades.map( (localidad) => (
                     puntoElegido === 'origen' ?

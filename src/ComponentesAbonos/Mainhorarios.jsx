@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import localidades from "../localidades.json";
-import grillab from "../grillasb.json";
 import "../Estilos/abonos.css";
 import { OpcionLocalidad } from "../ComponentesAbonos/OpcionLocalidad";
 import { OpcionLocalidadDestino } from "../ComponentesAbonos/OpcionLocalidadDestino";
@@ -10,6 +9,7 @@ import { useReturnDestinos } from "../Hooks/useReturnDestinos";
 import { useHabilitarBoton } from "../Hooks/useHabilitarBoton";
 import { useHora } from "../Hooks/useHora";
 import { useDiaDeLaSemana } from "../Hooks/useDiaDeLaSemana";
+import { useFiltradoHorarios } from "../Hooks/useFiltradoHorarios";
 
 export const Mainhorarios = ({ enviarParametrosHorarios }) => {
   
@@ -19,10 +19,8 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
   const [localidadDestino, setLocalidadDestino] = useState(null);
   const [botonDisponible, setBotonDisponible] = useState(false);
   const [via, setVia] = useState(null);
-  const [listaHorarios, setListaHorarios] = useState([]);
   const [horaManualMin, setHoraManualMin] = useState(null);
   const [horaAutoMin, setHoraAutoMin] = useState(null);
-
   const { arrayDestinos } = useReturnDestinos(localidadOrigen)
   const {esValido} = useHabilitarBoton(localidadOrigen,localidadDestino,via)
 
@@ -34,26 +32,15 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
     setLocalidadOrigen(localidad);
   };
 
-  const recibirLocalidadDestino = (localidad) => {
-    setLocalidadDestino(localidad);
-    setListaHorarios([]);
-  };
-
-  const recibirVia = (via) => {
-    setVia(via);
-  };
+  const recibirLocalidadDestino = (localidad) => {setLocalidadDestino(localidad);};
+  const recibirVia = (via) => {setVia(via);};
 
   const [diaAuto, setDiaAuto] = useState(null);
   const [diaManual, setDiaManual] = useState(null);
   const [rangoDias, setRangoDias] = useState(null);
 
-  const recibirDiaRango = (diarango) => {
-    setDiaAuto(diarango);
-  };
-
-  const recibirDiaManual = (dia) => {
-    setDiaManual(dia);
-  };
+  const recibirDiaRango = (diarango) => {setDiaAuto(diarango);};
+  const recibirDiaManual = (dia) => {setDiaManual(dia);};
 
   useEffect(() => {
     if (diaManual !== null) {
@@ -63,84 +50,12 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
     }
   }, [diaAuto, diaManual]);
 
-  // useEffect(() => {
-  //   switch (rangoDias) {
-  //     case "lunesAViernes":
-  //       setDiaDeLaSemana(grillab.lunesAViernes);
-  //       break;
-
-  //     case "sabados":
-  //       setDiaDeLaSemana(grillab.sabados);
-  //       break;
-
-  //     case "domingos":
-  //       setDiaDeLaSemana(grillab.domingos);
-  //       break;
-
-  //     default:
-  //       break;
-  //   }
-  // }, [rangoDias]);
-
-  const {diaDeLaSemana} = useDiaDeLaSemana(rangoDias)
+  const {diaDeLaSemana} = useDiaDeLaSemana(rangoDias);
+  const {listaHorarios} = useFiltradoHorarios(localidadOrigen,localidadDestino,diaDeLaSemana,via);
 
   useEffect(() => {
     setVia(null);
   }, [localidadDestino]);
-
-  useEffect(() => {
-    if (diaDeLaSemana !== null) {
-      const horariosFiltrados = [];
-      diaDeLaSemana.forEach((horario) => {
-        const recorrido = horario.recorrido;
-
-        const incluyeOrigen = recorrido.includes(localidadOrigen);
-        const incluyeDestino = recorrido.includes(localidadDestino);
-        const indexOrigen = recorrido.indexOf(localidadOrigen);
-        const indexDestino = recorrido.indexOf(localidadDestino);
-
-        // Caso cuando 'via' es null
-        if (via === null) {
-          if (localidadOrigen === localidadDestino) {
-            if (incluyeOrigen && recorrido.indexOf("s. m. de tucumán") !== 0) {
-              horariosFiltrados.push(horario);
-            }
-          } else if (
-            incluyeOrigen &&
-            incluyeDestino &&
-            indexOrigen < indexDestino
-          ) {
-            horariosFiltrados.push(horario);
-          }
-        }
-        // Caso cuando 'via' es 'w. posse'
-        else if (via === "w. posse") {
-          if (
-            incluyeOrigen &&
-            incluyeDestino &&
-            recorrido.includes(via) &&
-            indexOrigen < indexDestino
-          ) {
-            horariosFiltrados.push(horario);
-          }
-        }
-        // Caso cuando 'via' no es 'w. posse'
-        else {
-          if (
-            incluyeOrigen &&
-            incluyeDestino &&
-            !recorrido.includes("w. posse") &&
-            indexOrigen < indexDestino
-          ) {
-            horariosFiltrados.push(horario);
-          }
-        }
-      });
-
-      // Actualiza el estado solo una vez con los horarios filtrados
-      setListaHorarios(horariosFiltrados.sort((a, b) => a.salida - b.salida));
-    }
-  }, [localidadOrigen, localidadDestino, via, diaDeLaSemana]);
 
   const recibirHoraAutoMin = (hora) => {
     setHoraAutoMin(hora);
