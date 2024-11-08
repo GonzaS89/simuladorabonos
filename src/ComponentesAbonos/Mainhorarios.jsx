@@ -65,14 +65,14 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
   };
 
   return (
-    <div className="container-screen">
-      <div className="text-white overflow-hidden flex flex-col justify-between">
+    <div className="container-screen flex items-start h-full bg-red-500">
+      <div className="text-white overflow-hidden flex flex-col h-full">
         <h1 className="titulo-principal">
           Consulta de horarios
         </h1>
-        <div className="container-general-parametros">
+        <div >
         <div className="flex flex-col">
-          <div className="flex flex-col px-2 gap-2">
+          <div className="flex flex-col px-2 gap-2 items-start">
             <h1 className="text-xl">Origen</h1>
             <div className="flex items-start gap-2">
               {localidades.map((localidad, index) => (
@@ -102,8 +102,6 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
             </div>
           </div>
         </div>
-
-
           <ContainerHoraDia
             hora={hora}
             minutos={minutos}
@@ -112,6 +110,7 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
             enviarDiaManual={recibirDiaManual}
             enviarHoraAutoMin={recibirHoraAutoMin}
             enviarHoraManualMin={recibirHoraManualMin}
+            destino={localidadDestino}
           />
           <Link to="/horarios">
             <div

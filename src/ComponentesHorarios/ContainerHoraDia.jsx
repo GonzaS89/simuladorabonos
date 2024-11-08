@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../Estilos/horarios.css";
 import { IoIosArrowForward } from "react-icons/io";
+import { motion } from "framer-motion";
+
+
 
 export const ContainerHoraDia = ({
   hora,
@@ -10,6 +13,7 @@ export const ContainerHoraDia = ({
   enviarDiaManual,
   enviarHoraAutoMin,
   enviarHoraManualMin,
+  destino
 }) => {
   const [diaRango, setDiaRango] = useState(null);
   const [diaManual, setDiaManual] = useState(null);
@@ -79,15 +83,19 @@ export const ContainerHoraDia = ({
   };
 
   return (
-    <div className="container-bloque_hora-dia">
-      <div className="container-diaSemana">
-        <h1>Día de la semana</h1>
-        <div className="container-horaautomanual">
+    <div className="my-2 px-2">
+      <div className="container-diaSemana overflow-hidden">
+        <h1 className="text-xl text-left">Día de la semana</h1>
+        <motion.div 
+        initial={{x: '100%'}}
+        animate = {{x: destino !== null ? 0 : '100%'}}
+        transition={{duration: .5 , ease: 'easeInOut'}}
+        className="container-horaautomanual mt-2">
           <div
             className={
               diaManual === null
-                ? "diaautomatico"
-                : "diaautomatico opcioninactiva"
+                ? "flex items-center bg-gray-200 py-2 px-6 text-black uppercase rounded-md"
+                : "flex items-center bg-gray-200 py-2 px-6 text-gray-500 uppercase rounded-md"
             }
             onClick={() => setDiaManual(null)}
           >
@@ -118,9 +126,13 @@ export const ContainerHoraDia = ({
               <option value="Domingos">Domingos</option>
             </select>
           </div>
-        </div>
+        </motion.div>
       </div>
-      <div className="container-hora">
+      <motion.div 
+         initial={{x: '-120%'}}
+         animate = {{x: destino !== null ? 0 : '-120%'}}
+         transition={{duration: .5 , delay:.5, ease: 'easeInOut'}}
+      className="container-hora">
         <h1>Hora</h1>
         <div className="container-horaautomanual">
           <div
@@ -157,7 +169,7 @@ export const ContainerHoraDia = ({
             />
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
