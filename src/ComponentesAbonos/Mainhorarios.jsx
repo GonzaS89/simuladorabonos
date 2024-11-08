@@ -8,29 +8,13 @@ import { Link } from "react-router-dom";
 import { ContainerHoraDia } from "../ComponentesHorarios/ContainerHoraDia";
 import { useReturnDestinos } from "../Hooks/useReturnDestinos";
 import { useHabilitarBoton } from "../Hooks/useHabilitarBoton";
+import { useHora } from "../Hooks/useHora";
+import { useDiaDeLaSemana } from "../Hooks/useDiaDeLaSemana";
 
 export const Mainhorarios = ({ enviarParametrosHorarios }) => {
-  const [minutos, setMinutos] = useState(new Date().getMinutes());
-  const [hora, setHora] = useState(new Date().getHours());
-  const [dia, setDia] = useState(new Date().getDay());
-  useEffect(() => {
-    const updateHoraMinutosDias = () => {
-      setMinutos(new Date().getMinutes());
-      setHora(new Date().getHours());
-      setDia(new Date().getDay());
-    };
+  
+  const {minutos, hora, dia} = useHora()
 
-    // Actualiza cada minuto
-    const timerIdMinutes = setInterval(updateHoraMinutosDias, 1000);
-
-    // También actualiza inmediatamente cuando el componente se monta
-    updateHoraMinutosDias();
-
-    // Limpia el intervalo cuando el componente se desmonte
-    return () => clearInterval(timerIdMinutes);
-  }, []);
-
-  //
   const [localidadOrigen, setLocalidadOrigen] = useState(null);
   const [localidadDestino, setLocalidadDestino] = useState(null);
   const [botonDisponible, setBotonDisponible] = useState(false);
@@ -62,7 +46,6 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
   const [diaAuto, setDiaAuto] = useState(null);
   const [diaManual, setDiaManual] = useState(null);
   const [rangoDias, setRangoDias] = useState(null);
-  const [diaDeLaSemana, setDiaDeLaSemana] = useState(null);
 
   const recibirDiaRango = (diarango) => {
     setDiaAuto(diarango);
@@ -80,24 +63,26 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
     }
   }, [diaAuto, diaManual]);
 
-  useEffect(() => {
-    switch (rangoDias) {
-      case "lunesAViernes":
-        setDiaDeLaSemana(grillab.lunesAViernes);
-        break;
+  // useEffect(() => {
+  //   switch (rangoDias) {
+  //     case "lunesAViernes":
+  //       setDiaDeLaSemana(grillab.lunesAViernes);
+  //       break;
 
-      case "sabados":
-        setDiaDeLaSemana(grillab.sabados);
-        break;
+  //     case "sabados":
+  //       setDiaDeLaSemana(grillab.sabados);
+  //       break;
 
-      case "domingos":
-        setDiaDeLaSemana(grillab.domingos);
-        break;
+  //     case "domingos":
+  //       setDiaDeLaSemana(grillab.domingos);
+  //       break;
 
-      default:
-        break;
-    }
-  }, [rangoDias]);
+  //     default:
+  //       break;
+  //   }
+  // }, [rangoDias]);
+
+  const {diaDeLaSemana} = useDiaDeLaSemana(rangoDias)
 
   useEffect(() => {
     setVia(null);
