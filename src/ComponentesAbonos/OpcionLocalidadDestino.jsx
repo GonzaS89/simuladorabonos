@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../Estilos/opcionsalidadestino.css";
 import { FaCheckCircle } from "react-icons/fa";
 import { Opcionvia } from "./Opcionvia";
+import { motion } from "framer-motion";
+import { useConfirmacionLocalidad } from "../Hooks/useConfirmacionLocalidad";
 
 export const OpcionLocalidadDestino = ({
   nombre,
@@ -9,93 +11,18 @@ export const OpcionLocalidadDestino = ({
   localidadDestino,
   localidadOrigen,
   enviarVia,
+  index
 }) => {
-  const [localidadClickeada, setLocalidadClickeada] = useState(false);
-  const [nombreOpcionVia, setNombreOpcionVia] = useState(null);
-  const [opcionesViasVisibles, setOpcionesViasVisibles] = useState(false);
-  const [confirmacionSeleccion, setConfirmacionSeleccion] = useState(false);
   const [viaElegida, setViaElegida] = useState(null);
+
+  const {localidadClickeada,
+    nombreOpcionVia,
+    opcionesViasVisibles,
+    confirmacionSeleccion} = useConfirmacionLocalidad(localidadOrigen,localidadDestino,nombre)
 
   const clickearImg = () => {
     enviarLocalidadDestino(nombre);
   };
-  useEffect(() => {
-    if (localidadDestino === nombre) {
-      setLocalidadClickeada(true);
-      setConfirmacionSeleccion(true);
-    } else {
-      setLocalidadClickeada(false);
-      setConfirmacionSeleccion(false);
-    }
-
-    nombre === "banda del río salí"
-      ? setNombreOpcionVia("alderetes")
-      : setNombreOpcionVia("ald./alter.");
-    if (
-      localidadOrigen === "la florida" ||
-      localidadOrigen === "fortín" ||
-      localidadOrigen === "colonia 4 (luisiana"
-    ) {
-      if (nombre === localidadDestino) {
-        if (
-          localidadDestino === "s. m. de tucumán" ||
-          localidadDestino === "banda del río salí"
-        ) {
-          setOpcionesViasVisibles(true);
-          setConfirmacionSeleccion(false);
-        }
-      }
-    }
-
-    if (localidadOrigen === "s. m. de tucumán") {
-      if (nombre === localidadDestino) {
-        if (
-          localidadDestino === "la florida" ||
-          localidadDestino === "fortín" ||
-          localidadDestino === "colonia 4 (luisiana)"
-        ) {
-          setOpcionesViasVisibles(true);
-          setConfirmacionSeleccion(false);
-          setNombreOpcionVia("ald./alter.");
-        }
-      }
-    }
-    if (localidadOrigen === "banda del río salí") {
-      if (nombre === localidadDestino) {
-        if (
-          localidadDestino === "la florida" ||
-          localidadDestino === "fortín" ||
-          localidadDestino === "colonia 4 (luisiana)"
-        ) {
-          setOpcionesViasVisibles(true);
-          setConfirmacionSeleccion(false);
-          setNombreOpcionVia("alderetes");
-        }
-      }
-    }
-    if (localidadOrigen === "colonia 4 (luisiana)") {
-      if (nombre === localidadDestino) {
-        if (localidadDestino === "s. m. de tucumán") {
-          setOpcionesViasVisibles(true);
-          setConfirmacionSeleccion(false);
-          setNombreOpcionVia("ald./alter.");
-        }
-        if (localidadDestino === "banda del río salí") {
-          setOpcionesViasVisibles(true);
-          setConfirmacionSeleccion(false);
-          setNombreOpcionVia("alderetes");
-        }
-      }
-    }
-  }, [localidadDestino, localidadOrigen, nombre]);
-
-  useEffect(() => {
-    setLocalidadClickeada(false);
-  }, [localidadOrigen]);
-
-  useEffect(() => {
-    !localidadClickeada && setOpcionesViasVisibles(false);
-  }, [localidadClickeada]);
 
   const recibirVia = data => {
     setViaElegida(data);
@@ -103,7 +30,11 @@ export const OpcionLocalidadDestino = ({
   };
 
   return (
-    <div onClick={clickearImg}>
+    <motion.div 
+    initial={{y: '20%', opacity:0}}
+    animate={{y: 0, opacity: 1}}
+    transition={{duration:.5,  delay: index * .2, ease:'backOut'}}
+    onClick={clickearImg}>
       <div className="flex justify-center items-center relative w-[80px] h-[80px] overflow-hidden rounded-3xl cursor-pointer">
         <img
           src={require(`../IMG/${nombre}.avif`)}
@@ -138,7 +69,7 @@ export const OpcionLocalidadDestino = ({
           />
         </div>
       </div>
-      <p>{nombre}</p>
-    </div>
+      <p className="text-sm">{nombre}</p>
+    </motion.div>
   );
 };

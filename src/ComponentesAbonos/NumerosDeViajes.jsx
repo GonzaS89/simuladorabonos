@@ -23,15 +23,11 @@ export const NumerosDeViajes = ({
 
   return (
     <div
-      className={
-        opcionSelec
-          ? "container-viajes opcionSeleccionada"
-          : "container-viajes"
-      }
+      className={`${opcionSelec ? 'bg-red-700 text-white' : 'bg-gray-300 text-black'} w-[50px]  h-[50px] rounded-full text-2xl grid place-items-center relative`}
       onClick={clickEnNumViaje}
     >
       {numero}
-      <FaCheckCircle className={opcionSelec ? 'icono-check-tarifa' : 'hidden'}/>
+      <FaCheckCircle className={opcionSelec ? 'text-lg absolute -top-1 right-0' : 'hidden'}/>
     </div>
   );
 };
