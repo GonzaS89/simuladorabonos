@@ -4,7 +4,6 @@ import CountUp from 'react-countup';
 import { useGenerarCodigo } from "../Hooks/useGenerarCodigo";
 
 export const CotizacionAbonos = ({
-
   origen,
   destino,
   viajes,
@@ -40,16 +39,11 @@ export const CotizacionAbonos = ({
   //   return partes.join(".");
   // }
 
-  useEffect(() => {
-    console.log(precioNormal)
-  },[precioNormal])
-
  
   return (
-    <div className="container-cotizacion">
-      <div className="logo-fondo"></div>
+    <div className="container-screen flex flex-col justify-center gap-4">
       <div className="container-superior">
-        <h1>Cotización</h1>
+        <h1 className="text-3xl text-white mb-0">Cotización</h1>
         <div className="container-precios">
           <div className="subcontainer-detalle">
             <div className="container-detalle-precio">
@@ -63,21 +57,19 @@ export const CotizacionAbonos = ({
               <p className="texto-precio-descuento">- $ <CountUp start={0} end={Math.round(precioDescuento)} duration={1}/></p>
             </div>
           </div>
-          <div className="container-preciofinal">
-            <p>Precio final</p>
-            <p className="preciofinal">$ <CountUp start={0} end={Math.round(precioNormal - precioDescuento)} duration={1}/></p>
+          <div className="bg-red-700 absolute bottom-0 w-full flex justify-between items-center text-white uppercase h-14 px-4">
+            <p className="text-2xl">Precio final</p>
+            <p>$ <CountUp start={0} end={Math.round(precioNormal - precioDescuento)} duration={1}/></p>
           </div>
         </div>
       </div>
-      <div className="container-inferior">
-        <div className="container-info">
-          <p className="titulo-infoabonos">Requisitos para tener tu abono</p>
-          <ul>
-            <li>TARIFA SOCIAL: numero del DNI</li>
-            <li>TARIFA ESTUDIANTIL: Constancia de alumno regular y numero del DNI</li>
+        <div className="container-info px-6  text-white flex flex-col gap-8">
+          <p className="uppercase text-xl">Requisitos para tener tu abono</p>
+          <ul className="flex flex-col gap-4">
+            <li className="text-left text-lg">TARIFA SOCIAL: numero del DNI</li>
+            <li className="text-left text-lg">TARIFA ESTUDIANTIL: constancia de alumno regular y numero del DNI</li>
           </ul>
         </div>
       </div>
-    </div>
   );
 };

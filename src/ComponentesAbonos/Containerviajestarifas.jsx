@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { NumerosDeViajes } from './NumerosDeViajes';
 import { Tipodetarifa } from './Tipodetarifa';
+import { motion } from 'framer-motion';
 
-export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaElegida, localidadDestino }) => {
+export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaElegida, destino }) => {
 
     const [viajesIngresados, setViajesIngresados] = useState(null);
     const [tarifaElegida, setTarifaElegida] = useState(null);
@@ -27,11 +28,15 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
       useEffect(() => {
         enviarViajesIngresados(viajesIngresados)
       },[viajesIngresados,enviarViajesIngresados])
-      
+
 
   return (
     <div className='px-2 flex flex-col gap-4'>
-          <div className={`flex flex-col items-start gap-2 ${localidadDestino !== null ? 'translate-x-0 duration-300' : '-translate-x-full'}`}>
+          <motion.div
+           initial={{x: '120%'}}
+           animate = {{x: destino !== null ? 0 : '120%'}}
+           transition={{duration: .5 , ease: 'easeInOut'}}
+          className='flex flex-col items-start gap-2'>
             <h1 className='text-xl'>Cantidad de viajes</h1>
             <div className="container-principal-numviajes">
               <div className="container-opciones-viajes">
@@ -72,8 +77,12 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
                 />
               </div>
             </div>
-          </div>
-          <div className={`flex flex-col gap-2 items-start w-full ${viajesIngresados !== null ? 'translate-x-0 duration-300' : '-translate-x-full'}`}>
+          </motion.div>
+          <motion.div
+           initial={{x: '120%'}}
+           animate = {{x: viajesIngresados !== null ? 0 : '120%'}}
+           transition={{duration: .5 ,  ease: 'easeInOut'}}
+          className='flex flex-col gap-2 items-start w-full'>
             <h1 className='text-xl'>Tipo de tarifa</h1>
             <div className="w-full">
               <div className="flex justify-between">
@@ -89,7 +98,7 @@ export const Containerviajestarifas = ({enviarViajesIngresados , enviarTarifaEle
               />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
   )
 }

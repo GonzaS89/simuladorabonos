@@ -10,6 +10,7 @@ import { useHabilitarBoton } from "../Hooks/useHabilitarBoton";
 import { useHora } from "../Hooks/useHora";
 import { useDiaDeLaSemana } from "../Hooks/useDiaDeLaSemana";
 import { useFiltradoHorarios } from "../Hooks/useFiltradoHorarios";
+import { motion } from "framer-motion";
 
 export const Mainhorarios = ({ enviarParametrosHorarios }) => {
   
@@ -65,19 +66,18 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
   };
 
   return (
-    <div className="container-screen flex items-start h-full bg-red-500">
-      <div className="text-white overflow-hidden flex flex-col h-full">
-        <h1 className="titulo-principal">
+    <div className="container-screen">
+      <div className="text-white overflow-hidden flex flex-col gap-6 h-screen-dvh mt-6">
+        <h1 className="uppercase text-3xl">
           Consulta de horarios
         </h1>
-        <div >
-        <div className="flex flex-col">
           <div className="flex flex-col px-2 gap-2 items-start">
-            <h1 className="text-xl">Origen</h1>
-            <div className="flex items-start gap-2">
+            <h1 className="text-2xl">Origen</h1>
+            <div className="flex items-start gap-2 overflow-x-scroll w-full">
               {localidades.map((localidad, index) => (
                 <OpcionLocalidad
                   key={index}
+                  index={index}
                   nombre={localidad.nombre}
                   enviarLocalidad={recibirLocalidad}
                   localidadOrigen={localidadOrigen}
@@ -85,13 +85,14 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
               ))}
             </div>
           </div>
-          <div className={localidadOrigen !== null ? 'flex flex-col px-2 gap-2' : 'hidden'}>
-            <h1 className="text-xl">Destino</h1>
-            <div className="flex items-start gap-2 uppercase text-sm">
+          <div className={localidadOrigen !== null ? 'flex flex-col px-2 items-start gap-2' : 'hidden'}>
+            <h1 className="text-2xl">Destino</h1>
+            <div className="flex items-start gap-2 uppercase text-sm overflow-x-scroll w-full">
               {arrayDestinos !== null &&
                 arrayDestinos.map((localidad, index) => (
                   <OpcionLocalidadDestino
                     key={index}
+                    index={index}
                     nombre={localidad}
                     enviarLocalidadDestino={recibirLocalidadDestino}
                     localidadDestino={localidadDestino}
@@ -101,7 +102,6 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
                 ))}
             </div>
           </div>
-        </div>
           <ContainerHoraDia
             hora={hora}
             minutos={minutos}
@@ -113,12 +113,11 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
             destino={localidadDestino}
           />
           <Link to="/horarios">
-            <div
-              className={
-                botonDisponible
-                  ? "botonabonos botonenabled"
-                  : "botonabonos botondisabled"
-              }
+            <motion.div
+            initial= {{y: '100%'}}
+            animate={{y: botonDisponible ? 0 : '100%'}}
+            transition={{duration: .5, ease:'easeInOut'}}
+              className={`${botonDisponible ?  'bg-red-700' : 'bg-gray-600'} uppercase py-4  text-3xl absolute bottom-0 w-full`}
               onClick={() =>
                 enviarParametrosHorarios(
                   localidadOrigen,
@@ -133,9 +132,8 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
               }
             >
               consultar
-            </div>
+            </motion.div>
           </Link>
-        </div>
       </div>
     </div>
   );

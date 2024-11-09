@@ -28,7 +28,7 @@
   flex-direction: column;
   justify-content: space-around;
   background-color: #000022;
-  background-image: linear-gradient(#EE4E4E, #242e48 50%);
+  background-image: linear-gradient(#b91c1c, rgb(23 37 84) 50%);
 }
 
 @media (min-width: 500px){ 
