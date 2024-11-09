@@ -73,7 +73,7 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
         </h1>
           <div className="flex flex-col px-2 gap-2 items-start">
             <h1 className="text-2xl">Origen</h1>
-            <div className="flex items-start gap-2">
+            <div className="flex items-start gap-2 overflow-x-scroll w-full">
               {localidades.map((localidad, index) => (
                 <OpcionLocalidad
                   key={index}
@@ -87,7 +87,7 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
           </div>
           <div className={localidadOrigen !== null ? 'flex flex-col px-2 items-start gap-2' : 'hidden'}>
             <h1 className="text-2xl">Destino</h1>
-            <div className="flex items-start gap-2 uppercase text-sm">
+            <div className="flex items-start gap-2 uppercase text-sm overflow-x-scroll w-full">
               {arrayDestinos !== null &&
                 arrayDestinos.map((localidad, index) => (
                   <OpcionLocalidadDestino

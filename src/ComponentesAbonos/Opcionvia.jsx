@@ -25,7 +25,7 @@ export const Opcionvia = ({ nombre, enviarVia, viaElegida, localidadDestino }) =
 
   return (
     <p
-      className={`${botonPresionado ? 'bg-red-700 text-white' : 'bg-gray-200 text-black'} w-[65px] py-[4px] rounded-md relative`}
+      className={`${botonPresionado ? 'bg-red-700 text-white' : 'bg-gray-200 text-black'} w-[65px] h-[25px] rounded-md relative grid place-items-center`}
       onClick={manejoDeBoton}
     >
       {nombre}
