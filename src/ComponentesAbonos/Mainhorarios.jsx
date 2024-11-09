@@ -10,6 +10,7 @@ import { useHabilitarBoton } from "../Hooks/useHabilitarBoton";
 import { useHora } from "../Hooks/useHora";
 import { useDiaDeLaSemana } from "../Hooks/useDiaDeLaSemana";
 import { useFiltradoHorarios } from "../Hooks/useFiltradoHorarios";
+import { motion } from "framer-motion";
 
 export const Mainhorarios = ({ enviarParametrosHorarios }) => {
   
@@ -65,8 +66,8 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
   };
 
   return (
-    <div className="container-screen flex items-start h-full bg-red-500">
-      <div className="text-white overflow-hidden flex flex-col h-full">
+    <div className="container-screen">
+      <div className="text-white overflow-hidden flex flex-col  relative h-screen-dvh">
         <h1 className="titulo-principal">
           Consulta de horarios
         </h1>
@@ -88,6 +89,7 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
           <div className={localidadOrigen !== null ? 'flex flex-col px-2 gap-2' : 'hidden'}>
             <h1 className="text-xl">Destino</h1>
             <div className="flex items-start gap-2 uppercase text-sm">
+
               {arrayDestinos !== null &&
                 arrayDestinos.map((localidad, index) => (
                   <OpcionLocalidadDestino
@@ -113,12 +115,11 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
             destino={localidadDestino}
           />
           <Link to="/horarios">
-            <div
-              className={
-                botonDisponible
-                  ? "botonabonos botonenabled"
-                  : "botonabonos botondisabled"
-              }
+            <motion.div
+            initial= {{y: '100%'}}
+            animate={{y: botonDisponible ? 0 : '100%'}}
+            transition={{duration: .5, ease:'easeInOut'}}
+              className={`${botonDisponible ?  'bg-red-700' : 'bg-gray-600'} uppercase py-4  text-3xl absolute bottom-0 w-full`}
               onClick={() =>
                 enviarParametrosHorarios(
                   localidadOrigen,
@@ -133,7 +134,7 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
               }
             >
               consultar
-            </div>
+            </motion.div>
           </Link>
         </div>
       </div>

@@ -3,8 +3,6 @@ import "../Estilos/horarios.css";
 import { IoIosArrowForward } from "react-icons/io";
 import { motion } from "framer-motion";
 
-
-
 export const ContainerHoraDia = ({
   hora,
   minutos,
