@@ -84,9 +84,11 @@ export const ContainerHoraDia = ({
 
   return (
     <div className="my-2 px-2">
-      <div className="container-diaSemana overflow-hidden">
+      <motion.div 
+      
+      className="container-diaSemana overflow-hidden">
         <h1 className="text-xl text-left">Día de la semana</h1>
-        <motion.div 
+        <div 
         initial={{x: '100%'}}
         animate = {{x: destino !== null ? 0 : '100%'}}
         transition={{duration: .5 , ease: 'easeInOut'}}
@@ -126,8 +128,8 @@ export const ContainerHoraDia = ({
               <option value="Domingos">Domingos</option>
             </select>
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
       <motion.div 
          initial={{x: '-120%'}}
          animate = {{x: destino !== null ? 0 : '-120%'}}
