@@ -4,6 +4,7 @@ import { FaCheckCircle } from "react-icons/fa";
 import { Opcionvia } from "./Opcionvia";
 import { motion } from "framer-motion";
 import { useConfirmacionLocalidad } from "../Hooks/useConfirmacionLocalidad";
+import { useHeight } from "../Hooks/useHeight";
 
 export const OpcionLocalidadDestino = ({
   nombre,
@@ -13,8 +14,15 @@ export const OpcionLocalidadDestino = ({
   enviarVia,
   index
 }) => {
-  const [viaElegida, setViaElegida] = useState(null);
 
+  const {height} = useHeight;
+
+  const definirTamañoImg = () => {
+    if(height > 800){return 'w-[80px] h-[80px]' }
+    else{return 'w-[60px] h-[60px]'}
+  }
+
+  const [viaElegida, setViaElegida] = useState(null);
   const {localidadClickeada,
     nombreOpcionVia,
     opcionesViasVisibles,
@@ -35,7 +43,7 @@ export const OpcionLocalidadDestino = ({
     animate={{y: 0, opacity: 1}}
     transition={{duration:.5,  delay: index * .2, ease:'backOut'}}
     onClick={clickearImg}>
-      <div className="flex justify-center items-center relative w-[80px] h-[80px] overflow-hidden rounded-3xl cursor-pointer">
+      <div className={`flex justify-center items-center relative ${definirTamañoImg()} overflow-hidden rounded-3xl cursor-pointer`}>
         <img
           src={require(`../IMG/${nombre}.avif`)}
           alt=""
