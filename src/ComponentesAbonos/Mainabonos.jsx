@@ -8,6 +8,23 @@ import { Bloquelocalidadesdestino } from "./Bloquelocalidadesdestino";
 
 export const Mainabonos = ({ enviarParametrosAbonos }) => {
 
+  useEffect(() => {
+    // Función que maneja la acción de retroceder
+    const handleBackButton = (event) => {
+        // Redirigir a una URL específica cuando se presiona el botón de "back"
+        window.location.href = '/';
+    };
+
+    // Añadir el listener al evento popstate
+    window.addEventListener('popstate', handleBackButton);
+
+    // Limpiar el listener cuando el componente se desmonte
+    return () => {
+        window.removeEventListener('popstate', handleBackButton);
+    };
+}, []);
+
+
   const [localidadOrigen, setLocalidadOrigen] = useState(null);
   const [localidadDestino, setLocalidadDestino] = useState(null);
   const [viajesIngresados, setViajesIngresados] = useState(null);

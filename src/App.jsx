@@ -33,19 +33,6 @@ function App() {
       setViajesIngresados(viajes);
       setTarifaElegida(tarifa);
       setVia(via)
-    // else {
-    //   setLocalidadOrigen(origen);
-    //   setLocalidadDestino(destino);
-    //   setListaHorarios(listahorarios)
-    //   setHoraManualEnMins(horaManualMin);
-    //   setHoraAutoEnMins(horaAutoMin);
-    //   diaAuto !== null && setHayDiaAuto(true);
-    //   console.log(diaManual)
-    //   if (diaManual !== null) { setHayDiaAuto(false) }
-    //   if (diaManual === 'lunesAViernes') { setDiaGrilla('lunes a viernes') }
-    //   else if (diaManual === 'sabados') { setDiaGrilla('sábados') }
-    //   else if (diaManual === 'domingos') { setDiaGrilla('domingos') }
-    // }
   }
 
   const recibirParametrosHorarios = (origen ,  destino, via, listahorarios, horaManualMin, horaAutoMin,diaAuto, diaManual) => {
@@ -90,5 +77,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

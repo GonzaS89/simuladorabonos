@@ -13,6 +13,23 @@ import { useHeight } from "../Hooks/useHeight";
 
 export const Mainhorarios = ({ enviarParametrosHorarios }) => {
 
+  useEffect(() => {
+    // Función que maneja la acción de retroceder
+    const handleBackButton = (event) => {
+        // Redirigir a una URL específica cuando se presiona el botón de "back"
+        window.location.href = '/';
+    };
+
+    // Añadir el listener al evento popstate
+    window.addEventListener('popstate', handleBackButton);
+
+    // Limpiar el listener cuando el componente se desmonte
+    return () => {
+        window.removeEventListener('popstate', handleBackButton);
+    };
+}, []);
+
+
   const {height} = useHeight;
 
   const definirGap = () => {

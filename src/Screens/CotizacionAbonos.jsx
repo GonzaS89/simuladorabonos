@@ -11,6 +11,14 @@ export const CotizacionAbonos = ({
   via,
 }) => {
 
+ 
+  useEffect(() => {
+    if (origen === null) {
+        // Redirige a otra URL si miVariable es null
+        window.location.href = '/mainabono';
+    }
+}, [origen]);
+
   const {codigo} = useGenerarCodigo(origen,destino,via);
     const [precioNormal, setPrecioNormal] = useState(0);
   const [precioDescuento, setPrecioDescuento] = useState(0);
@@ -33,13 +41,7 @@ export const CotizacionAbonos = ({
     }
   }, [tarifa, precioNormal, origen]);
 
-  // const puntoDeMillar = numero => {
-  //   const partes = numero.toString().split(".");  // Divide la parte entera y decimal
-  //   partes[0] = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");  // Aplica los puntos de millar
-  //   return partes.join(".");
-  // }
 
- 
   return (
     <div className="container-screen flex flex-col justify-center gap-4">
       <div className="container-superior">
