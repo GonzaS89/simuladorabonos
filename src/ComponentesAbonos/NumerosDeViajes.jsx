@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../Estilos/abonos.css";
 import { FaCheckCircle } from "react-icons/fa";
+import { useHeight } from "../Hooks/useHeight";
+import { motion } from "framer-motion";
 
 export const NumerosDeViajes = ({
   numero,
@@ -21,13 +23,23 @@ export const NumerosDeViajes = ({
       inputFocus && setOpcionSelec(false)
   }, [viajesIngresados, inputFocus, numero]);
 
+  const {hLg} = useHeight()
+
   return (
     <div
-      className={`${opcionSelec ? 'bg-red-700 text-white' : 'bg-gray-300 text-black'} w-[50px]  h-[50px] rounded-full text-2xl grid place-items-center relative`}
+      className={`${opcionSelec ? 'bg-red-700 text-white' : 'bg-gray-300 text-black'} ${hLg ? 'w-[50px] h-[50px] text-2xl' : 'w-[35px] h-[35px] text-lg'} rounded-full  grid place-items-center relative`}
       onClick={clickEnNumViaje}
     >
       {numero}
-      <FaCheckCircle className={opcionSelec ? 'text-lg absolute -top-1 right-0' : 'hidden'}/>
+      <motion.div
+        initial={{scale:0}}
+        animate={{scale: opcionSelec ? 1 : 0}}
+        transition={{duration: 1,  ease:'backOut'}}
+        className={opcionSelec ? 'text-lg absolute -top-1 right-0' : 'hidden'}
+      >
+      <FaCheckCircle />
+      </motion.div>
+    
     </div>
   );
 };

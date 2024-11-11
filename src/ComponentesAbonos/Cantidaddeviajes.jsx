@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Estilos/salidallegada.css';
+import { useHeight } from '../Hooks/useHeight';
 
 const Cantidaddeviajes = ( { viajesIngresados }) => {
 
@@ -11,9 +12,11 @@ const Cantidaddeviajes = ( { viajesIngresados }) => {
         )
     }
 
+    const {hLg} = useHeight()
+
     return (
-        <div className="container-cantidaddeviajes">
-            <p className="texto-cantidaddeviajes">Cantidad de viajes</p>
+        <div className="">
+            <p className={hLg ? 'text-xl' : 'text-xs'}>Cantidad de viajes</p>
             <input 
             type="number" min={8} max={50}
             className='inputViajes'

@@ -10,7 +10,6 @@ export const useDiaDeLaSemana = ( val ) => {
           case "lunesAViernes":
             setDiaDeLaSemana(grillab.lunesAViernes);
             break;
-    
           case "sabados":
             setDiaDeLaSemana(grillab.sabados);
             break;

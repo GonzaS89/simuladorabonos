@@ -1,6 +1,7 @@
 import React, { useEffect, useState, forwardRef } from "react";
 import "../Estilos/servicio.css";
 import { Paradas } from "./Paradas";
+import { useEstadoservicio } from "../Hooks/useEstadoservicio";
 
 export const Horario = forwardRef(
   (
@@ -66,41 +67,7 @@ export const Horario = forwardRef(
       return elemento < 10 ? `0${elemento}` : elemento
     }
 
-    const definirMensaje = () => {
-      if(minutosDif < -90){
-        return 'Inactivo'
-      }
-      else if (minutosDif < -60) {
-        return "Inició recorrido hace mas de una hora";
-      }
-      else if (minutosDif < -30 && minutosDif > -60) {
-        return "Inició recorrido hace media hora";
-      }
-      else if (minutosDif >= -30 && minutosDif < 0) {
-        return `Inició recorrido hace ${Math.abs(minutosDif)} minutos`;
-      }
-      else if (minutosDif === 0) {
-        return "Está iniciando recorrido";
-      }
-      else if (minutosDif > 0 && minutosDif <= 3) {
-        return "Pronto iniciará su recorrido";
-      }
-      else if(minutosDif > 3 && minutosDif < 60){
-        return `Iniciará su recorrido en ${minutosDif} minutos`
-      }
-      else if (minutosDif === 60) {
-        return "Iniciará recorrido en una hora";
-      }
-      else if (minutosDif > 60 && minutosDif <= 90) {
-        return "Iniciará su recorrido en poco más de una hora";
-      }
-      else if (minutosDif > 90 && minutosDif < 120) {
-        return "Iniciará su recorrido en poco menos de dos horas";
-      }
-      else if (minutosDif > 120) {
-        return "inactivo";
-      }
-    };
+    const {estado} = useEstadoservicio(minutosDif)
 
 
     return (
@@ -124,7 +91,7 @@ export const Horario = forwardRef(
         <div className="container-panelDerecho">
           <div className="estadodelservicio">
             <p className="estado-titulo">{diaAuto ? 'Estado del servicio' : `grilla de ${grilla}`}</p>
-            <p>{diaAuto ? definirMensaje() : ''}</p>
+            <p>{diaAuto ? estado : ''}</p>
           </div>
           <div className="container-recorrido">
           <img src={require('../Iconos/divider.png')} alt="" className="divisor-horario"/>

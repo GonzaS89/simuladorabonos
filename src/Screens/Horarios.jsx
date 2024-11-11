@@ -13,7 +13,7 @@ const Horarios = ({ grillaDefinitiva, origen, destino, horaAuto, horaManual, via
   useEffect(() => {
     if (grillaDefinitiva === null) {
         // Redirige a otra URL si miVariable es null
-        window.location.href = '/mainhorarios';
+        window.location.href = '/';
     }
 }, [grillaDefinitiva]);
 

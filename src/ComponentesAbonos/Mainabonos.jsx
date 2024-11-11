@@ -5,6 +5,7 @@ import { Containerviajestarifas } from "../ComponentesAbonos/Containerviajestari
 import { motion } from "framer-motion";
 import { Bloquelocalidadesorigen } from "./Bloquelocalidadesorigen";
 import { Bloquelocalidadesdestino } from "./Bloquelocalidadesdestino";
+import { useHeight } from "../Hooks/useHeight";
 
 export const Mainabonos = ({ enviarParametrosAbonos }) => {
 
@@ -45,10 +46,17 @@ export const Mainabonos = ({ enviarParametrosAbonos }) => {
   const recibirTarifaElegida = tarifa => { setTarifaElegida(tarifa) }
   const recibirViajesIngresados = viajes => { setViajesIngresados(viajes) }
 
+  const {hMd,hLg} = useHeight()
+
+const titleSize = () => {
+  if(hLg){return 'text-2xl'}
+  else if(hMd){return 'text-xl'}
+}
+
   return (
     <div className="container-screen">
-      <div className="text-white overflow-hidden flex flex-col gap-6 h-screen-dvh mt-6">
-        <h1 className="uppercase text-3xl">Calculá el precio de tu abono</h1>
+      <div className={`text-white overflow-hidden flex flex-col  ${hLg ? 'gap-6' : ''} h-screen-dvh mt-6`}>
+        <h1 className={`uppercase ${titleSize()}`}>Calculá el precio de tu abono</h1>
         <Bloquelocalidadesorigen origen={localidadOrigen} recibirLocalidad={recibirLocalidad}/>
          <Bloquelocalidadesdestino origen={localidadOrigen} destino={localidadDestino} recibirVia={recibirVia} recibirLocalidadDestino={recibirLocalidadDestino}/>
         <Containerviajestarifas enviarTarifaElegida={recibirTarifaElegida} enviarViajesIngresados={recibirViajesIngresados} destino={localidadDestino} />
@@ -57,7 +65,7 @@ export const Mainabonos = ({ enviarParametrosAbonos }) => {
            initial= {{y: '100%'}}
            animate={{y: botonDisponible ? 0 : '100%'}}
            transition={{duration: .5, ease:'easeInOut'}}
-           className={`${botonDisponible ?  'bg-red-700' : 'bg-gray-600'} uppercase py-4  text-3xl absolute bottom-0 w-full`}onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via)}>calcular</motion.div>
+           className={`${botonDisponible ?  'bg-red-700' : 'bg-gray-600'} uppercase ${hLg ? 'py-4  text-3xl' : 'p-2 text-xl'} absolute bottom-0 w-full`}onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via)}>calcular</motion.div>
         </Link>
       </div>
     </div>

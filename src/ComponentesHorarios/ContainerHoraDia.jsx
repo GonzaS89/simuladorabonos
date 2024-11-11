@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../Estilos/horarios.css";
 import { IoIosArrowForward } from "react-icons/io";
 import { motion } from "framer-motion";
+import {useHeight} from '../Hooks/useHeight'
 
 export const ContainerHoraDia = ({
   hora,
@@ -80,27 +81,30 @@ export const ContainerHoraDia = ({
     setHoraAutoEnMinutos(null);
   };
 
+  const {hLg} = useHeight()
+
+  
+
   return (
-    <div className="my-2 px-2">
+    <div className={`${hLg ? 'my-2' : ''} px-2`}>
       <motion.div 
         initial={{x: '120%'}}
         animate = {{x: destino !== null ? 0 : '120%'}}
         transition={{duration: .5 , ease: 'easeInOut'}}
       className="container-diaSemana overflow-hidden">
-        <h1 className="text-2xl text-left">Día de la semana</h1>
+        <h1 className={`text-left ${hLg ? 'text-2xl' : ''}`}>Día de la semana</h1>
         <div 
-        className="container-horaautomanual mt-2">
+        className='flex justify-between'>
           <div
-            className={
-              diaManual === null
-                ? "flex items-center bg-gray-200 py-2 px-6 text-black uppercase rounded-md"
-                : "flex items-center bg-gray-200 py-2 px-6 text-gray-500 uppercase rounded-md"
+            className={`${diaManual === null 
+              ?  'bg-gray-200  text-black'  :'bg-gray-200 text-gray-500'} ${hLg ? 'py-2 px-6' : 'px-2'}  flex items-center uppercase rounded-md`
+              
             }
             onClick={() => setDiaManual(null)}
           >
             {diaRango}
           </div>
-          <div className="container-select">
+          <div className={`${hLg ? 'py-2 px-6 text-xl' : 'py-1'} flex items-center  rounded-md relative`}>
             <div
               className={
                 diaManual === null
@@ -132,14 +136,10 @@ export const ContainerHoraDia = ({
          animate = {{x: destino !== null ? 0 : '-120%'}}
          transition={{duration: .5 , delay:.5, ease: 'easeInOut'}}
       className="container-hora">
-        <h1 className="text-left text-2xl">Hora</h1>
-        <div className="container-horaautomanual mt-2">
+        <h1 className={`text-left ${hLg ? 'text-2xl' : ''}`}>Hora</h1>
+        <div className="flex justify-between">
           <div
-            className={
-              horaManualEnMinutos === null
-                ? "horaautomatica"
-                : "horaautomatica opcioninactiva"
-            }
+            className={`flex items-center bg-gray-300 min-w-12`}
             onClick={resetearHoraManual}
           >
             {hora < 10 ? `0${hora}` : hora}:

@@ -15,7 +15,7 @@ export const CotizacionAbonos = ({
   useEffect(() => {
     if (origen === null) {
         // Redirige a otra URL si miVariable es null
-        window.location.href = '/mainabono';
+        window.location.href = '/';
     }
 }, [origen]);
 

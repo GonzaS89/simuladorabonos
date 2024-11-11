@@ -28,25 +28,25 @@ function App() {
 
 
   const recibirParametrosAbonos = (origen, destino, viajes, tarifa, via) => {
-      setLocalidadOrigen(origen);
-      setLocalidadDestino(destino);
-      setViajesIngresados(viajes);
-      setTarifaElegida(tarifa);
-      setVia(via)
+    setLocalidadOrigen(origen);
+    setLocalidadDestino(destino);
+    setViajesIngresados(viajes);
+    setTarifaElegida(tarifa);
+    setVia(via)
   }
 
-  const recibirParametrosHorarios = (origen ,  destino, via, listahorarios, horaManualMin, horaAutoMin,diaAuto, diaManual) => {
+  const recibirParametrosHorarios = (origen, destino, via, listahorarios, horaManualMin, horaAutoMin, diaAuto, diaManual) => {
     setLocalidadOrigen(origen);
-      setLocalidadDestino(destino);
-      setListaHorarios(listahorarios)
-      setHoraManualEnMins(horaManualMin);
-      setHoraAutoEnMins(horaAutoMin);
-      setVia(via);
-      diaAuto !== null && setHayDiaAuto(true);
-      if (diaManual !== null) { setHayDiaAuto(false) }
-      if (diaManual === 'lunesAViernes') { setDiaGrilla('lunes a viernes') }
-      else if (diaManual === 'sabados') { setDiaGrilla('sábados') }
-      else if (diaManual === 'domingos') { setDiaGrilla('domingos') }
+    setLocalidadDestino(destino);
+    setListaHorarios(listahorarios)
+    setHoraManualEnMins(horaManualMin);
+    setHoraAutoEnMins(horaAutoMin);
+    setVia(via);
+    diaAuto !== null && setHayDiaAuto(true);
+    if (diaManual !== null) { setHayDiaAuto(false) }
+    if (diaManual === 'lunesAViernes') { setDiaGrilla('lunes a viernes') }
+    else if (diaManual === 'sabados') { setDiaGrilla('sábados') }
+    else if (diaManual === 'domingos') { setDiaGrilla('domingos') }
   }
 
   const recibirCodigo = codigo => { setCodigoDeterminado(codigo) }
@@ -59,17 +59,16 @@ function App() {
           <div className="container-secciones">
             <h1>Elegí un tipo de consulta</h1>
             <Link to="/mainabono">
-              <Botonseccion nombre={'abonos'}/>
+              <Botonseccion nombre={'abonos'} />
             </Link>
             <Link to="/mainhorarios">
-              <Botonseccion nombre={'horarios'}/>
+              <Botonseccion nombre={'horarios'} />
             </Link>
           </div>
           <Routes>
-            {/* <Route path="/abonos" element={<Main enviarParametrosAbonos={recibirParametrosAbonos} keyBoton={keyBoton} enviarCodigo={recibirCodigo} />}></Route> */}
-            <Route path="/horarios" element={<Horarios grillaDefinitiva={listaHorarios} origen={localidadOrigen} destino={localidadDestino} horaAuto={horaAutoEnMins} horaManual={horaManualEnMins} codigo={codigoDeterminado} diaAuto = {hayDiaAuto} grilla = {diaGrilla} via={via}/>}></Route>
-            <Route path="/mainabono" element= {<Mainabonos enviarParametrosAbonos={recibirParametrosAbonos} enviarCodigo={recibirCodigo}/>}></Route>
-            <Route path="/mainhorarios" element={<Mainhorarios enviarParametrosHorarios = {recibirParametrosHorarios} enviarCodigo={recibirCodigo}/>}></Route>
+            <Route path="/horarios" element={<Horarios grillaDefinitiva={listaHorarios} origen={localidadOrigen} destino={localidadDestino} horaAuto={horaAutoEnMins} horaManual={horaManualEnMins} codigo={codigoDeterminado} diaAuto={hayDiaAuto} grilla={diaGrilla} via={via} />}></Route>
+            <Route path="/mainabono" element={<Mainabonos enviarParametrosAbonos={recibirParametrosAbonos} enviarCodigo={recibirCodigo} />}></Route>
+            <Route path="/mainhorarios" element={<Mainhorarios enviarParametrosHorarios={recibirParametrosHorarios} enviarCodigo={recibirCodigo} />}></Route>
             <Route path="/cotizacion" element={<CotizacionAbonos origen={localidadOrigen} destino={localidadDestino} viajes={viajesIngresados} tarifa={tarifaElegida} via={via} codigo={codigoDeterminado} />}></Route>
           </Routes>
         </Router>

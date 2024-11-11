@@ -30,14 +30,7 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
 }, []);
 
 
-  const {height} = useHeight;
-
-  const definirGap = () => {
-    if(height > 800){
-      return 'gap-6'
-    }
-    else {return 'gap-2'}
-  }
+  const {hLg} = useHeight;
   
   const {minutos, hora, dia} = useHora()
 
@@ -91,7 +84,7 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
 
   return (
     <div className="container-screen">
-      <div className={`text-white overflow-hidden flex flex-col ${definirGap()} h-screen-dvh mt-6`}>
+      <div className={`text-white overflow-hidden flex flex-col h-screen-dvh mt-6 ${hLg ? 'gap-4' : ''}`}>
         <h1 className="uppercase text-3xl">
           Consulta de horarios
         </h1>
@@ -112,7 +105,7 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
             initial= {{y: '100%'}}
             animate={{y: botonDisponible ? 0 : '100%'}}
             transition={{duration: .5, ease:'easeInOut'}}
-              className={`${botonDisponible ?  'bg-red-700' : 'bg-gray-600'} uppercase py-4  text-3xl absolute bottom-0 w-full`}
+              className={`${botonDisponible ?  'bg-red-700' : 'bg-gray-600'} absolute ${hLg ? 'py-4  text-3xl' : 'p-2 text-xl'} uppercase bottom-0 w-full`}
               onClick={() =>
                 enviarParametrosHorarios(
                   localidadOrigen,

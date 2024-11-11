@@ -15,11 +15,16 @@ export const OpcionLocalidadDestino = ({
   index
 }) => {
 
-  const {height} = useHeight();
+  const {hMd,hLg} = useHeight();
 
-  const definirTamañoImg = () => {
-    if(height >= 800){return 'w-[70px] h-[70px]' }
-    else if(height < 800){return 'w-[65px] h-[65px]'}
+  const imgSize = () => {
+    if(hMd){return 'w-[55px] h-[55px]'}
+    else if(hLg){return 'w-[70px] h-[70px]' }
+  }
+
+  const textSize = () => {
+    if(hMd){return 'text-[10px]'}
+    else if(hLg){return 'text-xs'}
   }
 
   const [viaElegida, setViaElegida] = useState(null);
@@ -43,7 +48,7 @@ export const OpcionLocalidadDestino = ({
     animate={{y: 0, opacity: 1}}
     transition={{duration:.5,  delay: index * .2, ease:'backOut'}}
     onClick={clickearImg} >
-      <div className={`flex relative ${definirTamañoImg()} overflow-hidden rounded-3xl cursor-pointer`}>
+      <div className={`flex relative ${imgSize()} overflow-hidden rounded-3xl cursor-pointer`}>
         <img
           src={require(`../IMG/${nombre}.avif`)}
           alt=""
@@ -79,7 +84,7 @@ export const OpcionLocalidadDestino = ({
           />
         </div>
       </div>
-      <p className="text-xs">{nombre}</p>
+      <p className={`${textSize()}`}>{nombre}</p>
     </motion.div>
   );
 };
