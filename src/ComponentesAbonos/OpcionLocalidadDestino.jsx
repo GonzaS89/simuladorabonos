@@ -15,11 +15,11 @@ export const OpcionLocalidadDestino = ({
   index
 }) => {
 
-  const {height} = useHeight;
+  const {height} = useHeight();
 
   const definirTamañoImg = () => {
-    if(height > 800){return 'w-[80px] h-[80px]' }
-    else{return 'w-[60px] h-[60px]'}
+    if(height >= 800){return 'w-[70px] h-[70px]' }
+    else if(height < 800){return 'w-[65px] h-[65px]'}
   }
 
   const [viaElegida, setViaElegida] = useState(null);
@@ -42,20 +42,22 @@ export const OpcionLocalidadDestino = ({
     initial={{y: '20%', opacity:0}}
     animate={{y: 0, opacity: 1}}
     transition={{duration:.5,  delay: index * .2, ease:'backOut'}}
-    onClick={clickearImg}>
-      <div className={`flex justify-center items-center relative ${definirTamañoImg()} overflow-hidden rounded-3xl cursor-pointer`}>
+    onClick={clickearImg} >
+      <div className={`flex relative ${definirTamañoImg()} overflow-hidden rounded-3xl cursor-pointer`}>
         <img
           src={require(`../IMG/${nombre}.avif`)}
           alt=""
-          className={localidadClickeada ? "sombrearImg" : ""}
+          className={localidadClickeada ? "sombrearImg" : ''}
         />
+         <motion.div 
+        initial={{opacity: 0, scale:0}}
+        animate={{opacity: confirmacionSeleccion ? 1 : 0, scale: confirmacionSeleccion ? 1:0}}
+        transition={{duration: .5, ease:'backOut'}}
+        className="w-full h-full flex items-center justify-center absolute ">
         <FaCheckCircle
-          className={
-            confirmacionSeleccion
-              ? "icono-checked mostrarIconoCheked"
-              : "icono-checked hidden"
-          }
+          className='text-4xl z-50'
         />
+        </motion.div>
         <div
           className={
             opcionesViasVisibles
@@ -77,7 +79,7 @@ export const OpcionLocalidadDestino = ({
           />
         </div>
       </div>
-      <p className="text-sm">{nombre}</p>
+      <p className="text-xs">{nombre}</p>
     </motion.div>
   );
 };

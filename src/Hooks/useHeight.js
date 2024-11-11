@@ -1,3 +1,5 @@
-export const useHeight = () => {const height = window.height
+
+export const useHeight = () => {
+        const height = window.innerHeight
 return {height}
 }

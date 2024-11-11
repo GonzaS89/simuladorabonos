@@ -11,11 +11,10 @@ export const OpcionLocalidad = ({
   index
 }) => {
 
-  const {height} = useHeight;
-
+  const {height} = useHeight(); 
   const definirTamañoImg = () => {
-    if(height > 800){return 'w-[80px] h-[80px]' }
-    else{return 'w-[60px] h-[60px]'}
+    if(height < 800){return 'w-[70px] h-[70px]' }
+    else if(height < 800){return 'w-[65px] h-[65px]'}
   }
   const [localidadClickeada, setLocalidadClickeada] = useState(false);
   const clickearImg = () => {
@@ -33,23 +32,24 @@ export const OpcionLocalidad = ({
     initial={{y: '20%', opacity:0}}
     animate={{y: 0, opacity: 1}}
     transition={{duration:.5,  delay: index * .2, ease:'backOut'}}
-   onClick={clickearImg}
-   className="h-20">
-      <div className={`"flex justify-center items-center relative ${definirTamañoImg()} overflow-hidden rounded-3xl cursor-pointer`}>
+   onClick={clickearImg}>
+      <div className={`"flex relative ${definirTamañoImg()} overflow-hidden rounded-3xl cursor-pointer`}>
         <img
           src={require(`../IMG/${nombre}.avif`)}
           alt=""
-          className={localidadClickeada ? "sombrearImg" : ""}
+          className={`${localidadClickeada ? "sombrearImg" : '' } absolute`}
         />
+        <motion.div 
+        initial={{opacity: 0, scale:0}}
+        animate={{opacity: localidadClickeada ? 1 : 0, scale: localidadClickeada ? 1:0}}
+        transition={{duration: .5, ease:'backOut'}}
+        className="w-full h-full flex items-center justify-center">
         <FaCheckCircle
-          className={
-            localidadClickeada
-              ? "icono-checked mostrarIconoCheked"
-              : "icono-checked hidden"
-          }
+          className='text-4xl z-50'
         />
+        </motion.div>
       </div>
-      <p className="uppercase text-sm">{nombre}</p>
+      <p className="uppercase text-xs">{nombre}</p>
     </motion.div>
   );
 };
