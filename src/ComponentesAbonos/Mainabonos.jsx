@@ -55,7 +55,7 @@ const titleSize = () => {
 
   return (
     <div className="container-screen">
-      <div className={`text-white overflow-hidden flex flex-col  ${hLg ? 'gap-6' : 'gap-4'} h-screen-dvh mt-6`}>
+      <div className={`text-white overflow-hidden flex flex-col  ${hLg ? 'gap-6' : 'gap-4'} h-screen-dvh pt-6  xs:w-full md:w-[500px] relative`}>
         <h1 className={`uppercase ${titleSize()}`}>Calculá el precio de tu abono</h1>
         <Bloquelocalidadesorigen origen={localidadOrigen} recibirLocalidad={recibirLocalidad}/>
          <Bloquelocalidadesdestino origen={localidadOrigen} destino={localidadDestino} recibirVia={recibirVia} recibirLocalidadDestino={recibirLocalidadDestino}/>

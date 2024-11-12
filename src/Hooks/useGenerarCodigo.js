@@ -129,6 +129,23 @@ export const useGenerarCodigo = (origen, destino, via) => {
             else if (destino === "s. m. de tucumán") { setCodigo(codigo15) }
         }
 
+        if(origen === 'el paraíso'){
+            const destinos = {
+                'la florida' : codigo06,
+                'colonia 4 (luisiana)': codigo06,
+                'fortín':codigo06,
+                'fila de la orilla':codigo06,
+                'w. posse':codigo06,
+                'colonia media agua':codigo08,
+                'cevil pozo':codigo10,
+                'banda del río salí':codigo11,
+                's.m. de tucumán':codigo21
+            }
+            if(destinos[destino]){
+                setCodigo(destinos[destino])
+            }
+        }
+
         // ALDERETES
 
         if(origen === 'alderetes'){
