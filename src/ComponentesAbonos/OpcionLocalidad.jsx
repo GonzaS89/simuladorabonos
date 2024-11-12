@@ -25,7 +25,7 @@ export const OpcionLocalidad = ({
     <motion.div 
     initial={{y: '20%', opacity:0}}
     animate={{y: 0, opacity: 1}}
-    transition={{duration:.5,  delay: index * .2, ease:'backOut'}}
+    transition={{duration:.25,  delay: index * .1, ease:'backOut'}}
    onClick={clickearImg}>
       <div className='flex relative 
       w-[80px] h-[80px] overflow-hidden rounded-3xl cursor-pointer'>
