@@ -35,7 +35,7 @@ export const OpcionLocalidadDestino = ({
     animate={{y: 0, opacity: 1}}
     transition={{duration:.5,  delay: index * .2, ease:'backOut'}}
     onClick={clickearImg} >
-      <div className='flex relative overflow-hidden rounded-3xl cursor-pointer w-[70px] h-[70px]'>
+      <div className='flex relative overflow-hidden rounded-3xl cursor-pointer w-[80px] h-[80px]'>
         <img
           src={require(`../IMG/${nombre}.avif`)}
           alt=""
