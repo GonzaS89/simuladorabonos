@@ -55,7 +55,7 @@ const titleSize = () => {
 
   return (
     <div className="container-screen">
-      <div className={`text-white overflow-hidden flex flex-col  ${hLg ? 'gap-6' : ''} h-screen-dvh mt-6`}>
+      <div className={`text-white overflow-hidden flex flex-col  ${hLg ? 'gap-6' : 'gap-4'} h-screen-dvh mt-6`}>
         <h1 className={`uppercase ${titleSize()}`}>Calculá el precio de tu abono</h1>
         <Bloquelocalidadesorigen origen={localidadOrigen} recibirLocalidad={recibirLocalidad}/>
          <Bloquelocalidadesdestino origen={localidadOrigen} destino={localidadDestino} recibirVia={recibirVia} recibirLocalidadDestino={recibirLocalidadDestino}/>
@@ -65,7 +65,7 @@ const titleSize = () => {
            initial= {{y: '100%'}}
            animate={{y: botonDisponible ? 0 : '100%'}}
            transition={{duration: .5, ease:'easeInOut'}}
-           className={`${botonDisponible ?  'bg-red-700' : 'bg-gray-600'} uppercase ${hLg ? 'py-4  text-3xl' : 'p-2 text-xl'} absolute bottom-0 w-full`}onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via)}>calcular</motion.div>
+           className={`${botonDisponible ?  'bg-red-700' : 'bg-gray-600'} uppercase py-4  text-3xl absolute bottom-0 w-full`}onClick={() => enviarParametrosAbonos(localidadOrigen, localidadDestino, viajesIngresados, tarifaElegida, via)}>calcular</motion.div>
         </Link>
       </div>
     </div>

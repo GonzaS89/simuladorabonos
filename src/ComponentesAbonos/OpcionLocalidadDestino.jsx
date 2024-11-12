@@ -4,7 +4,6 @@ import { FaCheckCircle } from "react-icons/fa";
 import { Opcionvia } from "./Opcionvia";
 import { motion } from "framer-motion";
 import { useConfirmacionLocalidad } from "../Hooks/useConfirmacionLocalidad";
-import { useHeight } from "../Hooks/useHeight";
 
 export const OpcionLocalidadDestino = ({
   nombre,
@@ -14,18 +13,6 @@ export const OpcionLocalidadDestino = ({
   enviarVia,
   index
 }) => {
-
-  const {hMd,hLg} = useHeight();
-
-  const imgSize = () => {
-    if(hMd){return 'w-[55px] h-[55px]'}
-    else if(hLg){return 'w-[70px] h-[70px]' }
-  }
-
-  const textSize = () => {
-    if(hMd){return 'text-[10px]'}
-    else if(hLg){return 'text-xs'}
-  }
 
   const [viaElegida, setViaElegida] = useState(null);
   const {localidadClickeada,
@@ -48,7 +35,7 @@ export const OpcionLocalidadDestino = ({
     animate={{y: 0, opacity: 1}}
     transition={{duration:.5,  delay: index * .2, ease:'backOut'}}
     onClick={clickearImg} >
-      <div className={`flex relative ${imgSize()} overflow-hidden rounded-3xl cursor-pointer`}>
+      <div className='flex relative overflow-hidden rounded-3xl cursor-pointer w-[70px] h-[70px]'>
         <img
           src={require(`../IMG/${nombre}.avif`)}
           alt=""
@@ -84,7 +71,7 @@ export const OpcionLocalidadDestino = ({
           />
         </div>
       </div>
-      <p className={`${textSize()}`}>{nombre}</p>
+      <p className='text-xs uppercase'>{nombre}</p>
     </motion.div>
   );
 };

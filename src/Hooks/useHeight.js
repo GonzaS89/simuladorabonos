@@ -11,7 +11,7 @@ export const useHeight = () => {
 
         useEffect(() => {
                 if(height >= 700){setHLg(true)}
-                else if(height < 700 && height >= 450){setHMd(true)}
+                else if(height < 700 && height >= 600){setHMd(true)}
         },[height])
 return {hMd,hLg}
 }

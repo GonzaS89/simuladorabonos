@@ -11,7 +11,7 @@ export const Bloquelocalidadesdestino = ({ origen, destino, recibirVia, recibirL
     const {hLg} = useHeight();
 
   return (
-    <div className={`flex flex-col px-2' ${hLg ? 'gap-2' : ''}`}>
+    <div className={`flex flex-col px-1 ${hLg ? 'gap-4' : 'gap-2'}`}>
     <motion.h1 
     initial={{opacity:0}}
     animate={{opacity: origen !== null ? 1 : 0}}

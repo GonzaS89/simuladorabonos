@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../Estilos/opcionsalidadestino.css";
 import { FaCheckCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { useHeight } from "../Hooks/useHeight";
 
 export const OpcionLocalidad = ({
   nombre,
@@ -10,19 +9,6 @@ export const OpcionLocalidad = ({
   localidadOrigen,
   index
 }) => {
-
-  const {hMd,hLg} = useHeight();
-
-  const imgSize = () => {
-    if(hMd){return 'w-[55px] h-[55px]'}
-    else if(hLg){return 'w-[70px] h-[70px]' }
-  }
-
-  const textSize = () => {
-    if(hMd){return 'text-[10px]'}
-    else if(hLg){return 'text-xs'}
-  }
-
 
   const [localidadClickeada, setLocalidadClickeada] = useState(false);
   const clickearImg = () => {
@@ -41,7 +27,8 @@ export const OpcionLocalidad = ({
     animate={{y: 0, opacity: 1}}
     transition={{duration:.5,  delay: index * .2, ease:'backOut'}}
    onClick={clickearImg}>
-      <div className={`"flex relative ${imgSize()} overflow-hidden rounded-3xl cursor-pointer`}>
+      <div className='flex relative 
+      w-[70px] h-[70px] overflow-hidden rounded-3xl cursor-pointer'>
         <img
           src={require(`../IMG/${nombre}.avif`)}
           alt=""
@@ -57,7 +44,7 @@ export const OpcionLocalidad = ({
         />
         </motion.div>
       </div>
-      <p className={`uppercase ${textSize()}`}>{nombre}</p>
+      <p className='text-xs uppercase'>{nombre}</p>
     </motion.div>
   );
 };

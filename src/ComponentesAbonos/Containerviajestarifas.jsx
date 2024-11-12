@@ -34,13 +34,13 @@ const {hLg} = useHeight()
 
 
   return (
-    <div className={`px-2 flex flex-col ${hLg ? 'gap-4' : ''}`}>
+    <div className='px-2 flex flex-col gap-4'>
           <motion.div
            initial={{x: '120%'}}
            animate = {{x: destino !== null ? 0 : '120%'}}
            transition={{duration: .5 , ease: 'easeInOut'}}
-          className={`flex flex-col items-start ${hLg ? 'gap-2' : ''}`}>
-            <h1 className={hLg ? 'text-xl' : ''}>Cantidad de viajes</h1>
+          className={`flex flex-col items-start ${hLg ? 'gap-4' : 'gap-2'}`}>
+            <h1 className='text-xl'>Cantidad de viajes</h1>
             <div className="container-principal-numviajes">
               <div className="container-opciones-viajes">
                 <NumerosDeViajes
@@ -70,7 +70,7 @@ const {hLg} = useHeight()
               </div>
               <div className="absolute right-0 mr-12">
                 <input
-                  className={`rounded-full ${hLg ? 'w-[50px] h-[50px]' : 'w-[35px] h-[35px]'} ${!inputOnBlur ? 'bg-gray-300 text-gray-500' : 'bg-black text-white' }`}
+                  className={`rounded-full w-[50px] h-[50px]  ${!inputOnBlur ? 'bg-gray-300 text-gray-500' : 'bg-black text-white' }`}
                   type="number"
                   placeholder="¿...?"
                   onChange={recibirNumViajeInput}
@@ -85,8 +85,8 @@ const {hLg} = useHeight()
            initial={{x: '120%'}}
            animate = {{x: viajesIngresados !== null ? 0 : '120%'}}
            transition={{duration: .5 ,  ease: 'easeInOut'}}
-          className={`flex flex-col items-start w-full ${hLg ? 'gap-2' : ''}`}>
-            <h1 className={`${hLg ? 'text-xl' : ''}`}>Tipo de tarifa</h1>
+          className='flex flex-col items-start w-full gap-2'>
+            <h1 className='text-xl'>Tipo de tarifa</h1>
             <div className="w-full">
               <div className="flex justify-between">
               <Tipodetarifa
