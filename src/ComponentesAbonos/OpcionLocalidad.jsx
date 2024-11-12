@@ -28,7 +28,7 @@ export const OpcionLocalidad = ({
     transition={{duration:.5,  delay: index * .2, ease:'backOut'}}
    onClick={clickearImg}>
       <div className='flex relative 
-      w-[70px] h-[70px] overflow-hidden rounded-3xl cursor-pointer'>
+      w-[80px] h-[80px] overflow-hidden rounded-3xl cursor-pointer'>
         <img
           src={require(`../IMG/${nombre}.avif`)}
           alt=""
