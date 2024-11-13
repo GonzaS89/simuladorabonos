@@ -10,6 +10,7 @@ import {
     codigo14,
     codigo15,
     codigo16,
+    codigo18,
     codigo20,
     codigo21,
     codigo22,
@@ -29,93 +30,125 @@ export const useGenerarCodigo = (origen, destino, via) => {
 
         // SAN MIGUEL DE TUCUMAN
 
-        if (origen === 's.m. de tucumán') {
-            if (destino === 'banda del río salí') { setCodigo(codigo06) }
-            else if (['cevil pozo', 'alderetes'].includes(destino)) { setCodigo(codigo08) }
-            else if (destino === 'colonia media agua') { setCodigo(codigo10) }
-            else if (['esquina llona', 'fila del medio', 'fila de la orilla'].includes(destino)) { setCodigo(codigo12) }
-            else if (destino === 'el talar') { setCodigo(codigo13) }
-            else if (destino === 'cruz alta') { setCodigo(codigo15) }
-            else if (['la florida', 'fortín', 'colonia 4 (luisiana)'].includes(destino)) {
-                if (via === 'w. posse') { setCodigo(codigo21) }
-                else { setCodigo(codigo16) }
+        if (origen === 's. m. de tucumán') {
+            const destinos = {
+                'banda del rio salí': codigo06,
+                'cevil pozo': codigo08,
+                'alderetes':codigo08,
+                'colonia media agua':codigo10,
+                'esquina llona':codigo12,
+                'fila del medio':codigo12,
+                'fila de la orilla':codigo12,
+                'el talar':codigo13,
+                'cruz alta':codigo15,
+                'el paraíso':codigo18,
+                'los ralos':codigo21,
+                'la marta':codigo27,
+                'las cejas':codigo34,
+                '7 de abril':codigo44
             }
-            else if (destino === 'los ralos') { setCodigo(codigo21) }
-            else if (destino === 'la marta') { setCodigo(codigo27) }
-            else if (destino === 'las cejas') { setCodigo(codigo34) }
-            else if (destino === '7 de abril') { setCodigo(codigo44) }
+            if(via === null){
+                if(destinos[destino]){setCodigo(destinos[destino])}
+
+            }else if (via === 'w. posse'){setCodigo(codigo21)}
+            else{setCodigo(codigo16)}
         }
         // BANDA DEL RIO SALI
 
         if (origen === 'banda del río salí') {
-            if (['cevil pozo', 's.m. de tucumán', 'colonia media agua', 'esquina llona', 'fila de la orilla', 'fila del medio'].includes(destino)) { setCodigo(codigo06) }
-            else if ('w. posse') { setCodigo(codigo08) }
-            else if ('el paraíso' === destino) { setCodigo(codigo10) }
-            else if (['la florida', 'fortín', 'colonia 4 (luisiana)'].includes(destino)) {
-                if (via === 'w. posse') { setCodigo(codigo14) }
-                else { setCodigo(codigo11) }
+            const destinos = {
+                's. m. de tucumán': codigo06,
+                'colonia media agua': codigo06,
+                'fila de la orilla':codigo06,
+                'fila del medio':codigo06,
+                'w. posse':codigo08,
+                'el paraíso':codigo10,
+                'los ralos':codigo16,
+                'finca mayo':codigo21,
+                'la marta':codigo22,
+                'las cejas':codigo30,
+                '7 de abril':codigo44
             }
-            else if (destino === 'los ralos') { setCodigo(codigo16) }
-            else if (destino === 'finca mayo') { setCodigo(codigo21) }
-            else if (destino === 'la marta') { setCodigo(codigo22) }
-            else if (destino === 'las cejas') { setCodigo(codigo30) }
-            else if (destino === "7 de abril") { setCodigo(codigo44) }
+            if (via === null){
+                if(destinos[destino]){setCodigo(destinos[destino])}
+            }else if (via === 'w. posse'){setCodigo(codigo14)}
+            else{setCodigo(codigo11)}
         }
 
          // CEVIL POZO
 
         if (origen === "cevil pozo") {
-            if (['colonia media agua', 'esquina llona', 'cruz alta', 'fila de la orilla', 'fila del medio', 'banda del río salí', 'cevil pozo', 'w. posse'].includes(destino)) { setCodigo(codigo06) }
-            else if (destino === "s.m. de tucumán") { setCodigo(codigo08) }
-            else if (destino === "el paraíso") { setCodigo(codigo10) }
-            else if (['la florida', 'fortín', 'colonia 4 (luisiana)'].includes(destino)) { setCodigo(codigo13) }
-            else if (destino === "los ralos") { setCodigo(codigo14) }
-            else if (destino === "finca mayo") { setCodigo(codigo21) }
-            else if (destino === "la marta") { setCodigo(codigo22) }
-            else if (destino === "las cejas") { setCodigo(codigo30) }
-            else if (destino === "7 de abril") { setCodigo(codigo44) }
 
+            const destinos = {
+                'colonia media agua':codigo06,
+                'esquina llona':codigo06,
+                'fila del medio':codigo06,
+                'fila de la orilla':codigo06,
+                'cevil pozo':codigo06,
+                'w. posse':codigo06,
+                's. m. de tucumán':codigo08,
+                'el paraíso':codigo10,
+                'la florida':codigo13,
+                'fortin':codigo13,
+                'colonia 4 (luisiana)':codigo13,
+                'los ralos':codigo14,
+                'finca mayo':codigo21,
+                'la marta':codigo22,
+                'las cejas':codigo30,
+                '7 de abril':codigo44
+            }
+            if(destinos[destino]){setCodigo(destinos[destino])}
         }
 
         //COLONIA MEDIA AGUA - LLONA
 
         if (['colonia media agua', 'esquina llona','fila de la orilla', 'fila del medio'].includes(origen)){
-            if(['banda del río salí','cevil pozo','w. posse', 'fila de la orilla','fila del medio','cruz alta']){setCodigo(codigo06)}
-            else if(destino === 'el paraíso'){setCodigo(codigo08)}
-            else if(['la florida', 'fortín','colonia 4 (luisiana)'].includes(destino)){setCodigo(codigo11)}
-            else if(destino === 'los ralos'){setCodigo(codigo12)}
-            else if(destino === 'finca mayo'){setCodigo(codigo20)}
-            else if(destino === 'la marta'){setCodigo(codigo21)}
-            else if(destino === 'las cejas'){setCodigo(codigo30)}
-            else if(destino === '7 de abril'){setCodigo(codigo44)}
+            const destinos = {
+                'banda del rio salí': codigo06,
+                'cevil pozo':codigo06,
+                'w. posse':codigo06,
+                'cruz alta':codigo06,
+                'el paraíso':codigo08,
+                's. m. de tucumán':codigo10,
+                'la florida':codigo11,
+                'colonia 4 (luisiana)':codigo11,
+                'fortin': codigo11,
+                'los ralos':codigo12,
+                'finca mayo':codigo20,
+                'la marta':codigo21,
+                'las cejas':codigo30,
+                '7 de abril':codigo44
+            }
+            if(destinos[destino]){setCodigo(destinos[destino])}
         }
 
         // FLORIDA - COLONIA 4 - FORTIN
 
-        const floridaFortinCol4L = ['la florida', 'fortín', 'colonia 4 (luisiana)'];
-        const destinosCortosFlorida = ['la florida', 'fortín', 'w. posse', 'el talar', 'el paraíso'];
-        const destinoMedianosFlorida = ['alderetes', 'fila de orilla', 'esquina llona'];
-
-        //POSSE
-
-        if (floridaFortinCol4L.includes(origen)) {
-            if (destinosCortosFlorida.includes(destino)) {
-                setCodigo(codigo06)
+        if (['la florida', 'fortín', 'colonia 4 (luisiana)'].includes(origen)){
+            const destinos = {
+                'la florida' : codigo06,
+                'fortín':codigo06,
+                'colonia 4 (luisiana)':codigo06,
+                'el paraíso':codigo06,
+                'w. posse':codigo06,
+                'fila de la orilla':codigo08,
+                'esquina llona':codigo08,
+                'alderetes':codigo08,
+                'el talar':codigo08,
+                'colonia media agua':codigo11,
+                'cevil pozo':codigo13,
             }
-            else if (destinoMedianosFlorida.includes(destino)) {
-                setCodigo(codigo08)
-            }
-            else if (destino === 'colonia media agua') { setCodigo(codigo11) }
-            else if (destino === 'cevil pozo') { setCodigo(codigo13) }
-            else if (destino === 'banda del río salí') {
-                if (via === 'w. posse') { setCodigo(codigo14) }
-                else { setCodigo(codigo11) }
-            }
-            else if (destino === 's. m. de tucumán') {
-                if (via === 'w. posse') { setCodigo(codigo21) }
-                else { setCodigo(codigo16) }
+            if(via === null){ if(destinos[destino]){setCodigo(destinos[destino])}}
+            else if(destino === 'banda del río salí'){ 
+                if(via === 'w. posse')
+                    {setCodigo(codigo14)}
+                else{setCodigo(codigo11)}
+            }else if(destino === 's. m. de tucumán'){
+                if(via === 'w. posse'){setCodigo(codigo21)}else{setCodigo(codigo16)}
             }
         }
+
+        // LA FLORIDA - FORTIN - COL 4
 
         const destinosCortosPosse = ['el paraíso', 'la florida', 'fila del medio', 'fila de la orilla', 'colonia media agua', 'fortín', 'colonia 4 (luisiana)', 'cevil pozo'];
 
@@ -139,7 +172,7 @@ export const useGenerarCodigo = (origen, destino, via) => {
                 'colonia media agua':codigo08,
                 'cevil pozo':codigo10,
                 'banda del río salí':codigo11,
-                's.m. de tucumán':codigo21
+                's. m. de tucumán':codigo21
             }
             if(destinos[destino]){
                 setCodigo(destinos[destino])
@@ -152,7 +185,7 @@ export const useGenerarCodigo = (origen, destino, via) => {
             const destinos = {
                 'banda del río salí':codigo06,
                 'el talar':codigo06,
-                's.m. de tucumán':codigo08,
+                's. m. de tucumán':codigo08,
                 'la florida':codigo08,
                 'fortín':codigo08,
                 'colonia 4 (luisiana)':codigo08,
@@ -171,7 +204,7 @@ export const useGenerarCodigo = (origen, destino, via) => {
                 'la florida':codigo06,
                 'alderetes':codigo06,
                 'banda del río salí':codigo06,
-                's.m. de tucumán':codigo13,
+                's. m. de tucumán':codigo13,
                 'finca mayo':codigo16,
                 'alabama':codigo16
             }
@@ -209,13 +242,12 @@ export const useGenerarCodigo = (origen, destino, via) => {
                 'esquina llona':codigo20,
                 'banda del río salí':codigo21,
                 'cevil pozo':codigo21,
-                's.m. de tucumán':codigo24
+                's. m. de tucumán':codigo24
             }
             if(destinos[destino]){
                 setCodigo(destinos[destino])
             }
         }
-
     }, [origen, destino, via]);
 
     return { codigo }

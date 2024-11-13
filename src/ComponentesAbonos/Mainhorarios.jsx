@@ -84,7 +84,7 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
 
   return (
     <div className="container-screen">
-      <div className={`text-white overflow-hidden flex flex-col h-screen-dvh mt-6 ${hLg ? 'gap-4' : 'gap-2'}`}>
+      <div className={`text-white overflow-hidden flex flex-col h-screen-dvh mt-6 ${hLg ? 'gap-4' : 'gap-1'}`}>
         <h1 className="uppercase text-3xl">
           Consulta de horarios
         </h1>
@@ -104,7 +104,7 @@ export const Mainhorarios = ({ enviarParametrosHorarios }) => {
             <motion.div
             initial= {{y: '100%'}}
             animate={{y: botonDisponible ? 0 : '100%'}}
-            transition={{duration: .5, ease:'easeInOut'}}
+            transition={{duration: .5, delay:1 , ease:'easeInOut'}}
               className={`${botonDisponible ?  'bg-red-700' : 'bg-gray-600'} absolute py-4 text-3xl uppercase bottom-0 w-full`}
               onClick={() =>
                 enviarParametrosHorarios(

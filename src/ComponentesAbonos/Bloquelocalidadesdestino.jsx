@@ -16,7 +16,7 @@ export const Bloquelocalidadesdestino = ({ origen, destino, recibirVia, recibirL
     initial={{opacity:0}}
     animate={{opacity: origen !== null ? 1 : 0}}
     transition={{duration: .5}}
-    className={`${hLg ? 'text-2xl' : 'text-lg'} text-left`}>Destino</motion.h1>
+    className={`${hLg ? 'text-2xl' : 'text-xl'} text-left`}>Destino</motion.h1>
     <div className="flex items-start gap-2 uppercase text-sm overflow-scroll">
       {arrayDestinos?.length > 0 && 
         arrayDestinos.map((localidad, index) => (

@@ -92,31 +92,27 @@ export const ContainerHoraDia = ({
         animate = {{x: destino !== null ? 0 : '120%'}}
         transition={{duration: .5 , ease: 'easeInOut'}}
       className="container-diaSemana overflow-hidden">
-        <h1 className={`text-left ${hLg ? 'text-2xl' : ''}`}>Día de la semana</h1>
+        <h1 className={`text-left ${hLg ? 'text-2xl' : 'text-xl'}`}>Día de la semana</h1>
         <div 
         className='flex justify-between'>
           <div
             className={`${diaManual === null 
-              ?  'bg-gray-200  text-black'  :'bg-gray-200 text-gray-500'} ${hLg ? 'py-2 px-6' : 'px-2'}  flex items-center uppercase rounded-md`
+              ?  'bg-gray-200  text-black'  :'bg-gray-200 text-gray-500'} w-36 py-[10px] flex justify-center items-center uppercase rounded-md`
               
             }
             onClick={() => setDiaManual(null)}
           >
             {diaRango}
           </div>
-          <div className={`${hLg ? 'py-2 px-6 text-xl' : 'py-1'} flex items-center  rounded-md relative`}>
+          <div className='flex items-center justify-center rounded-md relative w-36'>
             <div
-              className={
-                diaManual === null
-                  ? "containter-select-mascara"
-                  : "containter-select-mascara opcionactiva"
-              }
+              className={ `${diaManual === null ? 'text-gray-500' : ' text-black'} absolute uppercase text-base pointer-events-none bg-gray-200 z-50 flex items-center  justify-center rounded-md py-[10px] w-full`}
             >
               {diaManual !== null ? diaManual : "Elegí un día"}
               <IoIosArrowForward className="arrow-select" />
             </div>
             <select
-              className="select-diasemana"
+              className="w-2/3 text-gray-500"
               name=""
               id=""
               onChange={manejarCambio}
@@ -136,10 +132,10 @@ export const ContainerHoraDia = ({
          animate = {{x: destino !== null ? 0 : '-120%'}}
          transition={{duration: .5 , delay:.5, ease: 'easeInOut'}}
       className="container-hora">
-        <h1 className={`text-left ${hLg ? 'text-2xl' : ''}`}>Hora</h1>
+        <h1 className={`text-left ${hLg ? 'text-2xl' : 'text-xl'}`}>Hora</h1>
         <div className="flex justify-between">
           <div
-            className={`flex items-center bg-gray-300 min-w-12`}
+            className={`flex items-center justify-center bg-gray-200 w-36 rounded-md text-xl ${horaAutoEnMinutos === null ? 'text-gray-400' : 'text-black'}`}
             onClick={resetearHoraManual}
           >
             {hora < 10 ? `0${hora}` : hora}:

@@ -9,7 +9,7 @@ export const Bloquelocalidadesorigen = ({ origen, recibirLocalidad }) => {
   
   return (
     <div className={`flex flex-col px-1 ${hLg ? 'gap-4' : 'gap-2'}`}>
-<h1 className={`${hLg ? 'text-2xl' : 'text-lg'} text-left`}>Origen</h1>
+<h1 className={`${hLg ? 'text-2xl' : 'text-xl'} text-left`}>Origen</h1>
     <div className="flex items-start gap-2 overflow-x-scroll">
       {localidades.map((localidad, index) => (
         <OpcionLocalidad
